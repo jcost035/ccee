@@ -16,7 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from . import views
+
 urlpatterns = [
     path('polls/', include('polls.urls')), #include() allows us to reference other url.py files, in this case directing us to the urls.py in the polls folder when given the 'polls/' path
     path('admin/', admin.site.urls),
+    path('', views.index, name='index')
 ]
