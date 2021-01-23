@@ -11,6 +11,9 @@
       open: false,
       ourteamOpen : false,
       centersOpen : false,
+      bodOpen : false,
+      dapOpen : false,
+      arOpen : false,
       menuClear(openMenu) {
         if(openMenu == 'ourteamOpen')
         {
@@ -29,16 +32,48 @@
         {
           this.centersOpen = false
         }
+
+        if(openMenu == 'bodOpen')
+        {
+          this.bodOpen = true
+        }
+        else
+        {
+          this.bodOpen = false
+        }
+
+        if(openMenu == 'dapOpen')
+        {
+          this.dapOpen = true
+        }
+        else
+        {
+          this.dapOpen = false
+        }
+
+        if(openMenu == 'arOpen')
+        {
+          this.arOpen = true
+        }
+        else
+        {
+          this.arOpen = false
+        }
         
       },
       clearsubmenus()
       {
         this.ourteamOpen = false
         this.centersOpen = false
+        this.bodOpen = false
+        this.dapOpen = false
+        this.arOpen = false
       }
     }
   }
 </script>
+
+
 
 
 
@@ -93,7 +128,7 @@
               x-transition:leave="transition ease-in duration-200"
               x-transition:leave-start="transform opacity-100 scale-100"
               x-transition:leave-end="transform opacity-0 scale-95"
-              class="absolute left-0 w-full mt-2 pt-4 origin-top-right rounded-md  md:w-96"
+              class="absolute left-0 w-full mt-2 pt-4 origin-top-right rounded-md  h-100 md:w-96"
             >
               <div class="flex flex-row" >
                 <div class="md-10 px-2 py-2 bg-white rounded-md shadow ">
@@ -101,11 +136,11 @@
                     href="#">Our team</a>
                   <a x-on:mouseover="menuClear('centersOpen') " class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                     href="#">Centers</a>
-                  <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                  <a x-on:mouseover="menuClear('bodOpen') " class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                     href="#">Board of directors</a>
-                  <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                  <a x-on:mouseover="menuClear('dapOpen') " class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                     href="#">Donors and partners</a>
-                  <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                  <a x-on:mouseover="menuClear('arOpen') " class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                     href="#">Annual reports</a>
                 </div>
                 
@@ -140,6 +175,54 @@
                       href="#">Sub centers</a>
                   <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                       href="#">Sub centers</a>
+                </div>
+                <div  
+                  
+                  x-show="bodOpen" 
+                  x-transition:enter="transition ease-out duration-50"
+                  x-transition:enter-start="transform opacity-0 scale-95"
+                  x-transition:enter-end="transform opacity-100 scale-100"
+                  x-transition:leave="transition ease-in duration-50"
+                  x-transition:leave-start="transform opacity-100 scale-100"
+                  x-transition:leave-end="transform opacity-0 scale-95"
+                  class="absolute mt-20 md-10 ml-48 px-2 py-2 bg-cover rounded-md w-48 bg-white box-border shadow"
+                >
+                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                      href="#">Sub bod</a>
+                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                      href="#">Sub bod</a>
+                </div>
+                <div  
+                  
+                  x-show="dapOpen" 
+                  x-transition:enter="transition ease-out duration-50"
+                  x-transition:enter-start="transform opacity-0 scale-95"
+                  x-transition:enter-end="transform opacity-100 scale-100"
+                  x-transition:leave="transition ease-in duration-50"
+                  x-transition:leave-start="transform opacity-100 scale-100"
+                  x-transition:leave-end="transform opacity-0 scale-95"
+                  class="absolute mt-28 md-10 ml-48 px-2 py-2 bg-cover rounded-md w-48 bg-white box-border shadow"
+                >
+                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                      href="#">Sub dap</a>
+                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                      href="#">Sub dap</a>
+                </div>
+                <div  
+                  
+                  x-show="arOpen" 
+                  x-transition:enter="transition ease-out duration-50"
+                  x-transition:enter-start="transform opacity-0 scale-95"
+                  x-transition:enter-end="transform opacity-100 scale-100"
+                  x-transition:leave="transition ease-in duration-50"
+                  x-transition:leave-start="transform opacity-100 scale-100"
+                  x-transition:leave-end="transform opacity-0 scale-95"
+                  class="absolute mt-36 md-10 ml-48 px-2 py-2 bg-cover rounded-md w-48 bg-white box-border shadow"
+                >
+                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                      href="#">Sub ar</a>
+                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                      href="#">Sub ar</a>
                 </div>
               </div>
             </div>
