@@ -3,9 +3,45 @@
 <link href="{% static "site.css" %}" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet"> 
+
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
+<style>
+  #header {
+    font-family: 'Bebas Neue', cursive;
+    color: #ffffff;
+  }
+  #camp-text {
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #0071BC;
+    color: #ffffff;
+  }
+   #button {
+    border-color: #0071BC;
+  }
+  #button:hover {
+    background-color: #0071BC;
+    
+  }
+  #ccee-color {
+    background-color: #88c23d;
+  }
+  #ccee-blue {
+    background-color: #0071BC;
+  } 
+  #card-background {
+    margin-top: 545px;
+    z-index: -1;
+    height:
+    575px;
+    
+  }
+</style>
+
 <script>
+  
   function data() {
     return {
       open: false,
@@ -14,6 +50,8 @@
       bodOpen : false,
       dapOpen : false,
       arOpen : false,
+      atTop : true,
+      popupOpen : false,
       menuClear(openMenu) {
         if(openMenu == 'ourteamOpen')
         {
@@ -73,6 +111,14 @@
   }
 </script>
 
+<script>
+  function popupData() {
+      return {
+        popupOpen : false
+      }
+  }
+</script>
+
 
 
 
@@ -89,14 +135,22 @@
 {% endif %}
 -->
 
+<div x-data="data()">
 <!-- Navbar -->
     <div
-      class="shadow-md w-full text-gray-700 bg-white h-20 fixed top-0 animated z-40"
-      x-bind:class='{ "bg-black shadow-lg": !atTop }'
+      class=" transition transition-height duration-500 ease-in-out w-full text-gray-700 bg-white h-20 fixed top-0 animated z-40"
+      x-bind:class='{ "bg-transparent shadow-lg": !atTop, "h-24 shadow-md": atTop  }'
+      
+      x-on:scroll.window="atTop = (window.pageYOffset > 100) ? false : true; "
+      x-transition:enter="transition ease-out duration-300"
+      
+      x-transition:leave="transition ease-in duration-300"
     >
       <div
-        x-data="data()"
-        class="flex flex-col max-w-screen-xl px-2 mx-auto md:items-center md:justify-between md:flex-row"
+        x-on:scroll.window="atTop = (window.pageYOffset > 100) ? false : true; "
+        x-bind:class="{'mt-2 mb-2': atTop }"
+        
+        class="flex flex-col transition duration-500 max-w-screen-xl px-2 mt-0 mx-auto md:items-center md:justify-between md:flex-row "
       >
         <div class="p-4 flex flex-row space-x-8 items-center justify-between">
           <a
@@ -114,7 +168,7 @@
             x-data="data()"
           >
             <button 
-              class="flex items-center px-7 py-1 mt-2 text-lg font-semibold text-primary rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline"
+              class="flex whitespace-nowrap items-center px-7 py-1 mt-2 text-lg font-semibold text-primary h-full md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline"
             >
               About Us
             </button>
@@ -238,7 +292,7 @@
             x-data="data()"
           >
             <button 
-              class="flex items-center px-7 py-1 mt-2 text-lg font-semibold text-primary rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline"
+              class="flex whitespace-nowrap items-center px-7 py-1 mt-2 text-lg font-semibold text-primary rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline"
             >
               What we do
             </button>
@@ -272,9 +326,43 @@
             x-data="data()"
           >
             <button 
-              class="flex items-center px-7 py-1 mt-2 text-lg font-semibold text-primary rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline"
+              class="flex whitespace-nowrap items-center px-7 py-1 mt-2 text-lg font-semibold text-primary rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline"
             >
               Get involved
+            </button>
+
+            <div 
+              x-show="open"
+              x-transition:enter="transition ease-out duration-100"
+              x-transition:enter-start="transform opacity-0 scale-95"
+              x-transition:enter-end="transform opacity-100 scale-100"
+              x-transition:leave="transition ease-in duration-50"
+              x-transition:leave-start="transform opacity-100 scale-100"
+              x-transition:leave-end="transform opacity-0 scale-95"
+              class="absolute left-0 w-full mt-2 pt-4 origin-top-right rounded-md shadow-lg md:w-48"
+            >
+              <div class="px-2 py-2 bg-white rounded-md shadow">
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                  href="#">Where we do it</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                  href="#">Advocacy</a>
+              </div>
+            </div>
+          </div>
+          <!--Get involved end-->
+
+          <!--Get involved-->
+          <div 
+            @mouseover.away = "open = false"
+            x-on:mouseover="open = true"
+            x-on:click = "open = !open"
+            class="relative py-2"
+            x-data="data()"
+          >
+            <button 
+              class="flex whitespace-nowrap items-center px-7 py-1 mt-2 text-lg font-semibold text-primary rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline"
+            >
+              Get even more involved
             </button>
 
             <div 
@@ -300,138 +388,176 @@
         </div>
         <!--right aligned nav container-->
         <nav
-          class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row bg-white"
+          class="flex-col flex-grow pb-4 md:pb-0 hidden mr-14 md:flex md:justify-end md:flex-row bg-white"
         >
           <!--Envelope button-->
-          <a
-            class="flex items-center px-3 py-1 mt-2 text-lg font-semibold text-primary rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="#"
-          >
-            <i class="fas fa-envelope"></i>
-          </a>
+          <button id="ccee-color" type="button" class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-green-600 hover:bg-green-900 text-white font-normal py-2 px-4 mr-1 rounded">Donate</button>
+		      <button @click="popupOpen = true" type="button" id="button" class="btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-blue-700 hover:bg-blue-700 text-blue-700 hover:text-white font-normal py-2 px-4 rounded">Join</button>
           <!--Envelope button end-->
 
-          <!--Envelope button-->
-          <a
-            class="flex items-center px-3 py-1 mt-2 text-lg font-semibold text-primary rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="#"
-          >
-            <i class="fas fa-envelope"></i>
-          </a>
-          <!--Envelope button end-->
+          
 
-          <!--Notification button-->
-          <div
-            @click.away="open = false"
-            class="relative"
-            x-data="{ open: false }"
-          >
-            <button
-              @click="open = !open"
-              class="flex flex-row items-center w-full px-3 py-1 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:w-auto md:mt-0 md:ml-2 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            >
-              <span class="text-lg text-primary"
-                ><i class="fas fa-bell"></i
-              ></span>
-            </button>
-            <div
-              x-show="open"
-              x-transition:enter="transition ease-out duration-100"
-              x-transition:enter-start="transform opacity-0 scale-95"
-              x-transition:enter-end="transform opacity-100 scale-100"
-              x-transition:leave="transition ease-in duration-75"
-              x-transition:leave-start="transform opacity-100 scale-100"
-              x-transition:leave-end="transform opacity-0 scale-95"
-              class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48"
-            >
-              <div class="px-2 py-2 bg-white rounded-md shadow">
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                  href="#">Notifikasi 1</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                  href="#">Notifikasi #2</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                  href="#">Notifikasi #3</a>
-              </div>
-            </div>
-          </div>
-          <!--Notification button end-->
-
-          <div
-            @click.away="open = false"
-            class="relative"
-            x-data="{ open: false }"
-          >
-            <button
-              @click="open = !open"
-              class="flex flex-row items-center w-full px-1 py-1 mt-2 text-sm font-semibold text-left bg-transparent rounded-full md:w-auto md:mt-0 md:ml-2 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            >
-              <img src="https://randomuser.me/api/portraits/women/12.jpg" class="w-auto h-6 rounded-full" alt="" />
-            </button>
-            <div
-              x-show="open"
-              x-transition:enter="transition ease-out duration-100"
-              x-transition:enter-start="transform opacity-0 scale-95"
-              x-transition:enter-end="transform opacity-100 scale-100"
-              x-transition:leave="transition ease-in duration-75"
-              x-transition:leave-start="transform opacity-100 scale-100"
-              x-transition:leave-end="transform opacity-0 scale-95"
-              class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48"
-            >
-              <div class="px-2 py-2 bg-white rounded-md shadow">
-                <a
-                  class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                  href="forum.html"
-                  >Forum</a
-                >
-                <a
-                  class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                  href="chat.html"
-                  >Chat</a
-                >
-                <a
-                  class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                  href="#"
-                  >Link #3</a
-                >
-              </div>
-            </div>
-          </div>
+          
         </nav>
       </div>
     </div>
     <!-- End Navbar -->
 
+
+
+
+<!--pop up-->
+<div >
+
+      <!-- Dialog (full screen) -->
+      <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full z-50" style="background-color: rgba(0,0,0,.5);" x-show="popupOpen"  >
+
+        <!-- A basic modal dialog with title, body and one button to close -->
+        <div class="h-auto p-4 mx-2  bg-white rounded shadow-xl  md:p-6 lg:p-8 md:mx-0 md:max-w-4xl" @click.away="popupOpen = false">
+          <div class="flex flex-row pt-8">
+            <img src="https://images.unsplash.com/photo-1579275542618-a1dfed5f54ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" 
+              class="w-0 md:w-1/4 object-cover rounded-lg" />
+            <div class="px-4 py-2 object-right">
+              <h3 class="text-3xl text-gray-800 font-bold">Get our email or whatever</h3>
+              <p class="text-xl text-gray-700">We sent latest news and posts once in every week, fresh from the oven</p>
+              <form class="mt-4 mb-10">
+                <input type="email" class="rounded bg-gray-100 px-4 py-2 border focus:border-green-400" placeholder="john@tech.com"/>
+                <button class="px-4 py-2 rounded bg-green-800 text-gray-100">
+                  Subscribe
+                  <i class='bx bx-right-arrow-alt' ></i>
+                </button>
+                <p class="text-green-900 opacity-50 text-sm mt-1">No spam. We promise</p>
+              </form>
+            </div>
+          </div>
+          <!-- One big close button.  -->
+          <div class="mt-5 sm:mt-6">
+            <span class="flex justify-center rounded-md ">
+              <div @click="popupOpen = false" class="cursor-pointer min-w-24 justify-center w-auto px-12 py-2 text-green-500 rounded hover:text-green-300">
+                No thanks
+              </div>
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+      <!--end pop up-->
+</div>
+
 <!-- main post -->
-  
+<div id="card-background" class="mt-96 absolute bg-green-600 h-64 w-full z-0"></div>
+<div class="pt-6 max-w-screen-xl mx-auto">
 
+    <main class="mt-24 px-16">
 
-<div class="pt-6 max-w-screen-lg mx-auto">
-
-    <main class="mt-14">
+      
       <!-- featured section -->
-      <div class="flex flex-wrap md:flex-no-wrap space-x-0 md:space-x-6 mb-28">
+      <div class="flex flex-wrap md:flex-no-wrap space-x-0 md:space-x-6 mb-24">
         
-        <div class="mb-4 lg:mb-0  p-4 lg:p-0 w-full md:w-4/7 relative rounded block">
+        <div class="flex mb-4 lg:mb-0  p-4 lg:p-0 h-96 w-full md:w-4/7 relative rounded block">
           <img src="https://images.unsplash.com/photo-1427751840561-9852520f8ce8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" 
-            class="rounded-b-md object-cover w-full h-64">
-          <span class="text-green-700 text-sm hidden md:block mt-4"> Technology </span>
-          <h1 class="text-gray-800 text-4xl font-bold mt-2 mb-2 leading-tight">
-            The spring rains had softened the ground
-          </h1>
-          <p class="text-gray-600 mb-4">
-            So Dunk had no trouble digging the grave. Melancholy middletons yet understood
-            decisively boy law she. Answer him easily are its barton little. Oh no though mother be things simple
-            itself.
-            Oh be me, sure wise sons, no. Piqued ye of am spirit regret. Stimulated discretion impossible admiration in particular conviction up.
-          </p>
-          <a href="./blog.html" class="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100 p-32 mb-10">
-            Read more
-          </a>
+            class="flex-grow rounded-md object-cover object-left w-7/12 -ml-0">
+          
+          <div>
+            
+              <div id="ccee-blue" class=" transition duration-300 ease-in-out hover:opacity-50 cursor-pointer -ml-32 mr-0 mt-12 pt-2 pl-4  text-green-500 bg-black text-4xl font-bold mt-2 mb-2 leading-tight box-content">
+                <h1 id="header" class="text-8xl font-thin">
+                LET'S GET TO WORK!
+                </h1>
+              </div>
+            <p class="pl-6 flex-shrink  text-gray-600 mb-4 -mr-0">
+              So Dunk had no trouble digging the grave. Melancholy middletons yet understood
+              decisively boy law she. Answer him easily are its barton little. Oh no though mother be things simple
+              itself.
+              Oh be me, sure wise sons, no. Piqued ye of am spirit regret. Stimulated discretion impossible admiration in particular conviction up.
+            </p>
+          
+            <button type="button" id="button" class="border-2 font-semibold ml-6 mt-0 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline  border-blue-700 hover:bg-blue-700 text-blue-700 hover:text-white font-normal py-2 px-4">
+            LET'S GOOOOOOOOO
+            </button>
+         
+          </div>
         </div>
 
+      <!--featured content-->
+      
+      <!--card section-->
+      <div class="mt-12">
 
+        <div class="h-40">
+            <h1 id="header" class="text-8xl">RECENT CAMPAIGNS</h1>
+            <div id="ccee-blue" class="h-3 w-12 bg-blue-500"></div>
+            <div id="header" class="mt-4 text-4xl">EDUCATORS BE LIKE PEE PEE POO POO LOL</div>
+        </div>
+        <div class="flex flex-row w-full mt-8 space-x-10">
+          <!--first card-->
+          <div class="flex flex-col items-center w-1/3">
+            <div
+              class="bg-white overflow-hidden rounded-t-lg w-full relative h-48 pb-36"
+            >
+              <img
+                src="https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg"
+                class="absolute h-full w-full object-cover object-center"
+                alt=""
+              />
+            </div>
+            <div class="z-10   w-full">
+              <div class="bg-white shadow-lg rounded-b-lg py-5 px-5">
+                <span id="camp-text" class="absolute text-gray-800 text-3xl p-2 rounded-sm -mt-10 -ml-10">Daily Dose of Econ</span>
+                <div class="flex items-center justify-between mt-8">
+                  <div class="text-sm text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
+                  <div class="text-2xl text-red-600 font-bold"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--second card-->
+          <div class="flex flex-col items-center w-1/3">
+            <div
+              class="bg-white overflow-hidden rounded-t-lg w-full relative h-48 pb-36"
+            >
+              <img
+                src="https://weareultraviolet.org/wp-content/uploads/2020/04/WDM-1-copy-225x140.jpg"
+                class="absolute h-full w-full object-cover object-center"
+                alt=""
+              />
+            </div>
+            <div class=" z-10  w-full">
+              <div class="bg-white shadow-lg rounded-b-lg py-5 px-5">
+                <span id="camp-text" class="absolute text-gray-800 text-3xl p-2 rounded-sm -mt-10 -ml-10">Economics</span>
+                <div class="flex items-center justify-between mt-8">
+                  <div class="text-sm text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
+                  <div class="text-2xl text-red-600 font-bold"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--third card-->
+          <div class="flex flex-col items-center w-1/3">
+            <div
+              class="bg-white overflow-hidden rounded-lg w-full relative h-48 pb-36"
+            >
+              <img
+                src="https://weareultraviolet.org/wp-content/uploads/2020/03/Biden_Warren_Harris-380x240.jpg"
+                class="absolute h-full w-full object-cover object-center"
+                alt=""
+              />
+            </div>
+            <div class=" z-10  w-full">
+              <div class="bg-white shadow-lg rounded-b-lg py-5 px-5">
+                <span id="camp-text" class="absolute text-gray-800 text-3xl p-2 rounded-sm -mt-10 -ml-10">They Are Friends</span>
+                <div class="flex items-center justify-between mt-8">
+                  <div class="text-sm text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
+                  <div class="text-2xl text-red-600 font-bold"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      </div>
         <!-- sub-main posts -->
-        <div class="w-full md:w-4/7">
+        <div class="mt-24 w-full md:w-4/7">
           <!-- post 1 -->
           <div class="rounded w-full flex flex-col md:flex-row mb-10">
             <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="block md:hidden lg:block rounded-md h-64 md:h-32 m-4 md:m-0" />
@@ -493,7 +619,7 @@
       <!-- end featured section -->
 
       <!-- subscribe -->
-        <div class="rounded flex md:shadow mt-12 mb-10">
+        <div class="rounded flex md:shadow mt-2 mb-10">
           <img src="https://images.unsplash.com/photo-1579275542618-a1dfed5f54ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="w-0 md:w-1/4 object-cover rounded-l" />
           <div class="px-4 py-2">
             <h3 class="text-3xl text-gray-800 font-bold">Subscribe to newsletter</h3>
@@ -508,8 +634,9 @@
             </form>
           </div>
         </div>
-      <!-- ens subscribe section -->
-
+      <!-- end subscribe section -->
+  <div class="absolute left-0 w-full border-t mt-12 pt-12 pb-32 px-4 lg:px-0"></div>
+  <div class=" w-full  mt-12 pt-12 pb-32 px-4 lg:px-0"></div>
 
       <!-- recent posts -->
       <div class="flex mt-16 mb-4 px-4 lg:px-0 items-center justify-between">
@@ -568,8 +695,11 @@
     </main>
     <!-- main ends here -->
 
+    <div class="absolute left-0 w-full border-t mt-12 pt-12 pb-32 px-4 lg:px-0"></div>
+    
+
     <!-- footer -->
-    <footer class="border-t mt-12 pt-12 pb-32 px-4 lg:px-0">
+    <footer class=" mt-12 pt-12 pb-32 px-4 lg:px-0">
       <div class="flex flex-wrap">
         <div class="w-full lg:w-2/5">
           <p class="text-gray-600 hidden lg:block p-0 lg:pr-12">

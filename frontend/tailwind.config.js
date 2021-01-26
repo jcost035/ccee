@@ -1,14 +1,20 @@
+// const colors = require('tailwindcss/colors')
+
 module.exports = {
-  purge: [
-    './templates/**/*.html',
-    './polls/templates/**/*.html'
-  ],
-  darkMode: false, // or 'media' or 'class'
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
+    theme: {
+        extend: {
+            transitionProperty: {
+                'height': 'height'
+            }
+        },
+    },
+    purge: [
+        './templates/**/*.html',
+        './polls/templates/**/*.html'
+    ],
+    darkMode: false, // or 'media' or 'class'
+    variants: {
+        extend: {},
+    },
+    plugins: [],
 }

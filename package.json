@@ -1,28 +1,29 @@
 {
-  "name": "mysite",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "autoprefixer": "^10.2.3",
-    "git": "^0.1.5",
-    "postcss": "^8.2.4",
-    "tailwindcss": "^2.0.2"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tailwindcss build frontend/site.css -c frontend/tailwind.config.js -o static/site.css"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jcost035/ccee-test.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jcost035/ccee-test/issues"
-  },
-  "homepage": "https://github.com/jcost035/ccee-test#readme"
+    "name": "mysite",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {
+        "autoprefixer": "^10.2.3",
+        "git": "^0.1.5",
+        "postcss": "^8.2.4",
+        "tailwindcss": "^2.0.2"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tailwindcss build frontend/site.css -c frontend/tailwind.config.js -o static/site.css",
+        "watch": "tailwindcss watch frontend/site.css -c frontend/tailwind.config.js -o static/site.css"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jcost035/ccee-test.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jcost035/ccee-test/issues"
+    },
+    "homepage": "https://github.com/jcost035/ccee-test#readme"
 }
