@@ -3,8 +3,16 @@
 module.exports = {
     theme: {
         extend: {
+            zIndex: {
+                '-1': '-1'
+            },
             transitionProperty: {
-                'height': 'height'
+                'height': 'height',
+                'padding': 'padding',
+                'margin': 'margin',
+            },
+            spacing: {
+                '170': '1700px',
             }
         },
     },
