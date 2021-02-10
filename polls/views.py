@@ -4,8 +4,18 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from .models import Question
+from .models import Staff
 from django.template import loader
 
+def history_mission(request):
+    return render(request, "polls/history-mission.html")
+
+def our_team(request):
+    staff_list = Staff.objects.order_by("name")
+    context = {
+        "staff_list": staff_list,
+    }
+    return render(request, "polls/our-team.html", context)
 
 def index(request):
     latest_question_list = Question.objects.order_by("-pub_date")[:5]

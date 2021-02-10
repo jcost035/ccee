@@ -3,6 +3,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path("history-mission", views.history_mission, name="history-mission"),
+    path("our-team", views.our_team, name="our-team"),
     path(
         "", views.index, name="index"
     ),  # we're taken here by the include() function in the main urls.py file. #the path function has two required arguments: route (string indicating url pattern) #and view (name of the function in views.py that displays content)

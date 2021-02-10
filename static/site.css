@@ -27969,6 +27969,10 @@ video {
   letter-spacing: 0.1em;
 }
 
+.tracking-widester {
+  letter-spacing: .35em;
+}
+
 .select-none {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -32504,6 +32508,12 @@ video {
 .animate-bounce {
   -webkit-animation: bounce 1s infinite;
           animation: bounce 1s infinite;
+}
+
+.text-gradient {
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @media (min-width: 640px) {
@@ -59915,6 +59925,10 @@ video {
 
   .sm\:tracking-widest {
     letter-spacing: 0.1em;
+  }
+
+  .sm\:tracking-widester {
+    letter-spacing: .35em;
   }
 
   .sm\:select-none {
@@ -91800,6 +91814,10 @@ video {
     letter-spacing: 0.1em;
   }
 
+  .md\:tracking-widester {
+    letter-spacing: .35em;
+  }
+
   .md\:select-none {
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -123681,6 +123699,10 @@ video {
 
   .lg\:tracking-widest {
     letter-spacing: 0.1em;
+  }
+
+  .lg\:tracking-widester {
+    letter-spacing: .35em;
   }
 
   .lg\:select-none {
@@ -155566,6 +155588,10 @@ video {
     letter-spacing: 0.1em;
   }
 
+  .xl\:tracking-widester {
+    letter-spacing: .35em;
+  }
+
   .xl\:select-none {
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -187447,6 +187473,10 @@ video {
 
   .\32xl\:tracking-widest {
     letter-spacing: 0.1em;
+  }
+
+  .\32xl\:tracking-widester {
+    letter-spacing: .35em;
   }
 
   .\32xl\:select-none {

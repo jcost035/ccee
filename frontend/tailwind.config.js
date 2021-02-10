@@ -25,6 +25,9 @@ module.exports = {
                     dark: '#588527',
                 },
                 cgray: '#414042',
+            },
+            letterSpacing: {
+                widester: '.35em',
             }
         },
     },
