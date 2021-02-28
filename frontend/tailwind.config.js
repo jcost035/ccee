@@ -12,6 +12,7 @@ module.exports = {
                 'margin': 'margin',
             },
             spacing: {
+                '128': '32rem',
                 '170': '1700px',
             },
             colors: {
@@ -28,8 +29,32 @@ module.exports = {
             },
             letterSpacing: {
                 widester: '.35em',
-            }
+            },
+            fontFamily: {
+                'bebas': ['Bebas\\ Neue', 'cursive'],
+            },
+            height: {
+                tile: '30vh'
+            },
+            screens: {
+                'm-2xl': { 'max': '1535px' },
+                // => @media (max-width: 1535px) { ... }
+
+                'm-xl': { 'max': '1279px' },
+                // => @media (max-width: 1279px) { ... }
+
+                'm-lg': { 'max': '1023px' },
+                // => @media (max-width: 1023px) { ... }
+
+                'm-md': { 'max': '767px' },
+                // => @media (max-width: 767px) { ... }
+
+                'm-sm': { 'max': '639px' },
+                // => @media (max-width: 639px) { ... }
+            },
+
         },
+
     },
     purge: [
         './templates/**/*.html',
@@ -37,7 +62,10 @@ module.exports = {
     ],
     darkMode: false, // or 'media' or 'class'
     variants: {
-        extend: {},
+        extend: {
+            display: ['hover'],
+        },
     },
     plugins: [],
+
 }

@@ -7,6 +7,9 @@ from .models import Question
 from .models import Staff
 from django.template import loader
 
+def k12_programs(request):
+    return render(request, "polls/k12-programs.html")
+
 def history_mission(request):
     return render(request, "polls/history-mission.html")
 
