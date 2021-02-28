@@ -1,0 +1,148 @@
+{% load static %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link href="{% static "site.css" %}" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+<script>
+  
+  function data() {
+    return {
+      open: false,
+      ourteamOpen : false,
+      centersOpen : false,
+      bodOpen : false,
+      dapOpen : false,
+      arOpen : false,
+      atTop : true,
+      popupOpen : false,
+      whatwedoOpen : false,
+      menuClear(openMenu) {
+        if(openMenu == 'ourteamOpen')
+        {
+          this.ourteamOpen = true
+        }
+        else
+        {
+          this.ourteamOpen = false
+        }
+
+        if(openMenu == 'centersOpen')
+        {
+          this.centersOpen = true
+        }
+        else
+        {
+          this.centersOpen = false
+        }
+
+        if(openMenu == 'bodOpen')
+        {
+          this.bodOpen = true
+        }
+        else
+        {
+          this.bodOpen = false
+        }
+
+        if(openMenu == 'dapOpen')
+        {
+          this.dapOpen = true
+        }
+        else
+        {
+          this.dapOpen = false
+        }
+
+        if(openMenu == 'arOpen')
+        {
+          this.arOpen = true
+        }
+        else
+        {
+          this.arOpen = false
+        }
+        
+      },
+      
+      clearsubmenus()
+      {
+        this.ourteamOpen = false
+        this.centersOpen = false
+        this.bodOpen = false
+        this.dapOpen = false
+        this.arOpen = false
+      }
+    }
+  }
+</script>
+
+<script>
+  function popupData() {
+      return {
+        popupOpen : false
+      }
+  }
+</script>
+
+<script>
+  function panelData() {
+      return {
+        firstpanelOpen : true,
+        secondpanelOpen : false,
+        thirdpanelOpen : false,
+        secondpanelText : false,
+        thirdpanelText : false,
+      }
+  }
+</script>
+
+{% include "polls/nav.html"%}
+
+
+<div class="mx-auto flex flex-col max-w-screen-xl">
+  <!--Banner Menu-->
+  {% include "polls/banner-nav.html"%}
+
+  <h1 class="text-7xl mx-auto text-cblue mt-44" style="font-family: 'Bebas Neue', cursive;">Staff</h1>
+  <h1 class="text-4xl mx-auto my-2 mb-12" style="font-family: 'Bebas Neue', cursive;">Seasoned professionals in economics and financial literacy education</h1>
+  <div class="mx-24">
+    
+    <!--Staff #1-->
+
+    {%for staff in staff_list %}
+    <div class=" border-t-2 border-b-2 py-8 border-gray-500">
+      <h1 class="text-2xl font-bold">{{staff.name}}</h1>
+      <h1 class="text-xl font-bold text-cblue">{{staff.position}}</h1>
+      <div class="flex flex-row">
+        
+        <div class="w-11/12">
+          <p class="leading-loose my-8 text-sm" style="font-family: 'Roboto', sans-serif;" >{{staff.bio}}</p>
+          <p class="leading-loose mt-6 text-md font-bold" style="font-family: 'Roboto', sans-serif;" >{{staff.phone}}</p>
+          <p class="leading-loose text-md text-cblue font-bold" style="font-family: 'Roboto', sans-serif;" >{{staff.email}}</p>
+          <button type="button" id="button" class="my-8 rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover-bg-blue-300  text-cblue font-normal py-1 px-3">
+            Read More
+          </button>
+        </div>
+        
+        <div class="ml-10 w-6/12 h-96 overflow-hidden content-center object-center rounded-lg">
+          <img class="object-cover object-left  h-full rounded-full" src="{{staff.photo.url}}">
+        </div>
+        
+      </div>
+      
+    </div>
+    {% endfor %}
+
+    
+  </div>
+</div>

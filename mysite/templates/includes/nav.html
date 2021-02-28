@@ -1,0 +1,426 @@
+<script>
+  
+  function data() {
+    return {
+      open: false,
+      ourteamOpen : false,
+      centersOpen : false,
+      bodOpen : false,
+      dapOpen : false,
+      arOpen : false,
+      atTop : true,
+      popupOpen : false,
+      whatwedoOpen : false,
+      menuClear(openMenu) {
+        if(openMenu == 'ourteamOpen')
+        {
+          this.ourteamOpen = true
+        }
+        else
+        {
+          this.ourteamOpen = false
+        }
+
+        if(openMenu == 'centersOpen')
+        {
+          this.centersOpen = true
+        }
+        else
+        {
+          this.centersOpen = false
+        }
+
+        if(openMenu == 'bodOpen')
+        {
+          this.bodOpen = true
+        }
+        else
+        {
+          this.bodOpen = false
+        }
+
+        if(openMenu == 'dapOpen')
+        {
+          this.dapOpen = true
+        }
+        else
+        {
+          this.dapOpen = false
+        }
+
+        if(openMenu == 'arOpen')
+        {
+          this.arOpen = true
+        }
+        else
+        {
+          this.arOpen = false
+        }
+        
+      },
+      
+      clearsubmenus()
+      {
+        this.ourteamOpen = false
+        this.centersOpen = false
+        this.bodOpen = false
+        this.dapOpen = false
+        this.arOpen = false
+      }
+    }
+  }
+</script>
+
+<script>
+  function popupData() {
+      return {
+        popupOpen : false
+      }
+  }
+</script>
+
+<script>
+  function panelData() {
+      return {
+        firstpanelOpen : true,
+        secondpanelOpen : false,
+        thirdpanelOpen : false,
+        secondpanelText : false,
+        thirdpanelText : false,
+      }
+  }
+</script>
+
+
+
+
+<!--
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+-->
+
+<div x-data="data()">
+<!-- Navbar -->
+    <div
+      class=" transition transition-height duration-500 ease-in-out w-full text-gray-700 bg-white h-20 fixed top-0 animated z-40"
+      x-bind:class='{ " shadow-lg": !atTop, "h-24 shadow-md": atTop  }'
+      
+      x-on:scroll.window="atTop = (window.pageYOffset > 100) ? false : true; "
+      x-transition:enter="transition ease-out duration-300"
+      
+      x-transition:leave="transition ease-in duration-300"
+    >
+      <div
+        x-on:scroll.window="atTop = (window.pageYOffset > 100) ? false : true; "
+        x-bind:class="{'mt-2 mb-2': atTop }"
+        
+        class="flex flex-col transition duration-500 max-w-screen-xl px-2 mt-0  mx-auto md:items-center md:justify-between md:flex-row "
+      >
+        <div class="p-4 flex flex-row space-x-8 items-center justify-between  ">
+          <a
+            href="/polls"
+            class="pr-10 tracking-widest rounded-lg flex-none focus:outline-none focus:shadow-outline"
+          >
+            <img  class="-mt-4 h-20"src="https://ccee.org/wp-content/uploads/2019/07/CCEE-Logo-Final-5-2019-e1563236007990.png"/>
+          </a>
+
+          <!--About us-->
+          <div 
+            x-on:mouseover.away = "open = false"
+            x-on:mouseover="open = true"
+            class="relative py-2"
+            x-data="data()"
+          >
+            <button 
+              class="flex whitespace-nowrap items-center px-7 py-1 mt-2 text-lg font-bold rounded-lg text-primary h-full md:mt-0 text-cblue hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline"
+            >
+              About Us
+            </button>
+
+            <div
+              @mouseover.away="clearsubmenus()"
+              x-show="open"
+              x-transition:enter="transition ease-out duration-100"
+              x-transition:enter-start="transform opacity-0 scale-95"
+              x-transition:enter-end="transform opacity-100 scale-100"
+              x-transition:leave="transition ease-in duration-200"
+              x-transition:leave-start="transform opacity-100 scale-100"
+              x-transition:leave-end="transform opacity-0 scale-95"
+              class="absolute left-0 w-full mt-2 pt-4 origin-top-right rounded-md  h-100 md:w-96"
+            >
+              <div class="flex flex-row" >
+                <div class="md-10 px-2 py-2 bg-white rounded-md shadow ">
+                  <a x-on:mouseover="menuClear('ourteamOpen')" class="block px-4 py-2 mt-2 bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                    href="#">Our team</a>
+                  <a x-on:mouseover="menuClear('centersOpen') " class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                    href="#">Centers</a>
+                  <a x-on:mouseover="menuClear('bodOpen') " class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                    href="#">Board of directors</a>
+                  <a x-on:mouseover="menuClear('dapOpen') " class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                    href="#">Donors and partners</a>
+                  <a x-on:mouseover="menuClear('arOpen') " class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                    href="#">Annual reports</a>
+                </div>
+                
+                <div  
+                  
+                  x-show="ourteamOpen" 
+                  x-transition:enter="transition ease-out duration-50"
+                  x-transition:enter-start="transform opacity-0 scale-95"
+                  x-transition:enter-end="transform opacity-100 scale-100"
+                  x-transition:leave="transition ease-in duration-50"
+                  x-transition:leave-start="transform opacity-100 scale-100"
+                  x-transition:leave-end="transform opacity-0 scale-95"
+                  class="absolute md-10 ml-48 px-2 py-2 bg-cover rounded-md w-48 bg-white box-border shadow"
+                >
+                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                      href="#">Sub our team</a>
+                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                      href="#">Sub our team</a>
+                </div>
+                <div  
+                  
+                  x-show="centersOpen" 
+                  x-transition:enter="transition ease-out duration-50"
+                  x-transition:enter-start="transform opacity-0 scale-95"
+                  x-transition:enter-end="transform opacity-100 scale-100"
+                  x-transition:leave="transition ease-in duration-50"
+                  x-transition:leave-start="transform opacity-100 scale-100"
+                  x-transition:leave-end="transform opacity-0 scale-95"
+                  class="absolute mt-10 md-10 ml-48 px-2 py-2 bg-cover rounded-md w-48 bg-white box-border shadow"
+                >
+                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                      href="#">Sub centers</a>
+                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                      href="#">Sub centers</a>
+                </div>
+                <div  
+                  
+                  x-show="bodOpen" 
+                  x-transition:enter="transition ease-out duration-50"
+                  x-transition:enter-start="transform opacity-0 scale-95"
+                  x-transition:enter-end="transform opacity-100 scale-100"
+                  x-transition:leave="transition ease-in duration-50"
+                  x-transition:leave-start="transform opacity-100 scale-100"
+                  x-transition:leave-end="transform opacity-0 scale-95"
+                  class="absolute mt-20 md-10 ml-48 px-2 py-2 bg-cover rounded-md w-48 bg-white box-border shadow"
+                >
+                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                      href="#">Sub bod</a>
+                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                      href="#">Sub bod</a>
+                </div>
+                <div  
+                  
+                  x-show="dapOpen" 
+                  x-transition:enter="transition ease-out duration-50"
+                  x-transition:enter-start="transform opacity-0 scale-95"
+                  x-transition:enter-end="transform opacity-100 scale-100"
+                  x-transition:leave="transition ease-in duration-50"
+                  x-transition:leave-start="transform opacity-100 scale-100"
+                  x-transition:leave-end="transform opacity-0 scale-95"
+                  class="absolute mt-28 md-10 ml-48 px-2 py-2 bg-cover rounded-md w-48 bg-white box-border shadow"
+                >
+                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                      href="#">Sub dap</a>
+                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                      href="#">Sub dap</a>
+                </div>
+                <div  
+                  
+                  x-show="arOpen" 
+                  x-transition:enter="transition ease-out duration-50"
+                  x-transition:enter-start="transform opacity-0 scale-95"
+                  x-transition:enter-end="transform opacity-100 scale-100"
+                  x-transition:leave="transition ease-in duration-50"
+                  x-transition:leave-start="transform opacity-100 scale-100"
+                  x-transition:leave-end="transform opacity-0 scale-95"
+                  class="absolute mt-36 md-10 ml-48 px-2 py-2 bg-cover rounded-md w-48 bg-white box-border shadow"
+                >
+                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                      href="#">Sub ar</a>
+                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                      href="#">Sub ar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--About us end-->
+
+          <!--What we do (programs)-->
+          <div 
+            @mouseover.away = "open = false
+              whatwedoOpen = false"
+            x-on:mouseover="open = true
+              whatwedoOpen = true"
+            x-on:click = "open = !open"
+            class="relative py-2"
+            x-data="data()"
+          >
+            <button 
+              x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }'
+              class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none "
+            >
+              Programs
+            </button>
+
+            <div 
+              x-show="open"
+              x-transition:enter="transition ease-out duration-100"
+              x-transition:enter-start="transform opacity-0 scale-95"
+              x-transition:enter-end="transform opacity-100 scale-100"
+              x-transition:leave="transition ease-in duration-50"
+              x-transition:leave-start="transform opacity-100 scale-100"
+              x-transition:leave-end="transform opacity-0 scale-95"
+              class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-48"
+            >
+              <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
+                <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cgreen focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Our programs</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cgreen focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Calendar</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cgreen focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">What I Miss</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cgreen focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Business</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cgreen focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">The Council >:)</a>
+              </div>
+            </div>
+          </div>
+          <!--What we do end-->
+
+          <!--Get involved-->
+          <div 
+            @mouseover.away = "open = false"
+            x-on:mouseover="open = true"
+            x-on:click = "open = !open"
+            class="relative py-2"
+            x-data="data()"
+          >
+            <button 
+              class="flex whitespace-nowrap items-center px7- py-1 mt-2 text-lg font-bold text-primary rounded-lg md:mt-0 text-cblue hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline"
+            >
+              Resources + News
+            </button>
+
+            <div 
+              x-show="open"
+              x-transition:enter="transition ease-out duration-100"
+              x-transition:enter-start="transform opacity-0 scale-95"
+              x-transition:enter-end="transform opacity-100 scale-100"
+              x-transition:leave="transition ease-in duration-50"
+              x-transition:leave-start="transform opacity-100 scale-100"
+              x-transition:leave-end="transform opacity-0 scale-95"
+              class="absolute left-0 w-full mt-2 pt-4 origin-top-right rounded-md shadow-lg md:w-48"
+            >
+              <div class="px-2 py-2 bg-white rounded-md shadow">
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                  href="#">Where we do it</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                  href="#">Advocacy</a>
+              </div>
+            </div>
+          </div>
+          <!--Get involved end-->
+
+          <!--Get involved-->
+          <div 
+            @mouseover.away = "open = false"
+            x-on:mouseover="open = true"
+            x-on:click = "open = !open"
+            class="relative py-2"
+            x-data="data()"
+          >
+            <button 
+              class="flex whitespace-nowrap items-center px-7 py-1 mt-2 text-lg font-bold text-primary rounded-lg md:mt-0 text-cblue hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline"
+            >
+              Get involved
+            </button>
+
+            <div 
+              x-show="open"
+              x-transition:enter="transition ease-out duration-100"
+              x-transition:enter-start="transform opacity-0 scale-95"
+              x-transition:enter-end="transform opacity-100 scale-100"
+              x-transition:leave="transition ease-in duration-50"
+              x-transition:leave-start="transform opacity-100 scale-100"
+              x-transition:leave-end="transform opacity-0 scale-95"
+              class="absolute left-0 w-full mt-2 pt-4 origin-top-right rounded-md shadow-lg md:w-48"
+            >
+              <div class="px-2 py-2 bg-white rounded-md shadow">
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                  href="#">Where we do it</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                  href="#">Advocacy</a>
+              </div>
+            </div>
+          </div>
+          <!--Get involved end-->
+
+        </div>
+        <!--right aligned nav container-->
+        <nav
+          class="flex-col flex-grow pb-4 md:pb-0 hidden mr-14 md:flex md:justify-end md:flex-row bg-white"
+        >
+          <!--Envelope button-->
+          <button id="ccee-color" type="button" class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-green-600 hover:bg-green-900 text-white font-normal py-2 px-4 mr-1 rounded">Donate</button>
+		      <button @click="popupOpen = true" type="button" id="button" class="btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-blue-700 hover:bg-blue-700 text-blue-700 hover:text-white font-normal py-2 px-4 rounded">Join</button>
+          <!--Envelope button end-->
+
+          
+
+          
+        </nav>
+      </div>
+    </div>
+    <!-- End Navbar -->
+
+
+
+
+<!--pop up-->
+<div >
+
+      <!-- Dialog (full screen) -->
+      <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full z-50" style="background-color: rgba(0,0,0,.5);" x-show="popupOpen"  >
+
+        <!-- A basic modal dialog with title, body and one button to close -->
+        <div class="h-auto p-4 mx-2  bg-white rounded shadow-xl  md:p-6 lg:p-8 md:mx-0 md:max-w-4xl" @click.away="popupOpen = false">
+          <div class="flex flex-row pt-8">
+            <img src="https://images.unsplash.com/photo-1579275542618-a1dfed5f54ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" 
+              class="w-0 md:w-1/4 object-cover rounded-lg" />
+            <div class="px-4 py-2 object-right">
+              <h3 class="text-3xl text-gray-800 font-bold">Get our email or whatever</h3>
+              <p class="text-xl text-gray-700">We sent latest news and posts once in every week, fresh from the oven</p>
+              <form class="mt-4 mb-10">
+                <input type="email" class="rounded bg-gray-100 px-4 py-2 border focus:border-green-400" placeholder="john@tech.com"/>
+                <button class="px-4 py-2 rounded bg-green-800 text-gray-100">
+                  Subscribe
+                  <i class='bx bx-right-arrow-alt' ></i>
+                </button>
+                <p class="text-green-900 opacity-50 text-sm mt-1">No spam. We promise</p>
+              </form>
+            </div>
+          </div>
+          <!-- One big close button.  -->
+          <div class="mt-5 sm:mt-6">
+            <span class="flex justify-center rounded-md ">
+              <div @click="popupOpen = false" class="cursor-pointer min-w-24 justify-center w-auto px-12 py-2 text-green-500 rounded hover:text-green-300">
+                No thanks
+              </div>
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+      <!--end pop up-->
+</div>
