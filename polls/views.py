@@ -5,7 +5,21 @@ from django.http import HttpResponse
 
 from .models import Question
 from .models import Staff
+from .models import Event
 from django.template import loader
+
+def calendar(request):
+    event_list = Event.objects.order_by("date")
+    context = {
+        "event_list": event_list,
+    }
+    return render(request, "polls/calendar.html", context)
+
+def student_programs(request):
+    return render(request, "polls/student-programs.html")
+
+def community_programs(request):
+    return render(request, "polls/community-programs.html")
 
 def k12_programs(request):
     return render(request, "polls/k12-programs.html")

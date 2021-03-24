@@ -1,6 +1,7 @@
 import datetime
 from django.db import models
 from django.utils import timezone
+from django.utils.translation import gettext as _
 
 # Create your models here.
 class Question(models.Model):
@@ -33,3 +34,12 @@ class Staff(models.Model):
 
     def __str__(self):
         return self.name
+
+class Event(models.Model):
+    name = models.CharField(max_length=200)
+    date = models.DateField(_("Date"), default=datetime.date.today)
+    description = models.CharField(max_length=1200)
+
+    def __str__(self):
+        return self.name
+

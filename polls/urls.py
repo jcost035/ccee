@@ -2,6 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path("calendar", views.calendar, name="calendar"),
+    path("student-programs", views.student_programs, name="student-programs"),
+    path("community-programs", views.community_programs, name="community-programs"),
     path("k12-programs", views.k12_programs, name="k12-programs"),
     path("history-mission", views.history_mission, name="history-mission"),
     path("our-team", views.our_team, name="our-team"),

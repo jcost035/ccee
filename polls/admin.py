@@ -6,3 +6,4 @@ from .models import *
 
 admin.site.register(Question)
 admin.site.register(Staff)
+admin.site.register(Event)
