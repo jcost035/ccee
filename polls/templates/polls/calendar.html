@@ -1,0 +1,117 @@
+<head>
+    {% load static %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="{% static 'site.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+    <script>
+        function data() {
+            return {
+                open: false,
+                ourteamOpen: false,
+                centersOpen: false,
+                bodOpen: false,
+                dapOpen: false,
+                arOpen: false,
+                atTop: true,
+                popupOpen: false,
+                whatwedoOpen: false,
+                menuClear(openMenu) {
+                    if (openMenu == 'ourteamOpen') {
+                        this.ourteamOpen = true
+                    } else {
+                        this.ourteamOpen = false
+                    }
+
+                    if (openMenu == 'centersOpen') {
+                        this.centersOpen = true
+                    } else {
+                        this.centersOpen = false
+                    }
+
+                    if (openMenu == 'bodOpen') {
+                        this.bodOpen = true
+                    } else {
+                        this.bodOpen = false
+                    }
+
+                    if (openMenu == 'dapOpen') {
+                        this.dapOpen = true
+                    } else {
+                        this.dapOpen = false
+                    }
+
+                    if (openMenu == 'arOpen') {
+                        this.arOpen = true
+                    } else {
+                        this.arOpen = false
+                    }
+
+                },
+
+                clearsubmenus() {
+                    this.ourteamOpen = false
+                    this.centersOpen = false
+                    this.bodOpen = false
+                    this.dapOpen = false
+                    this.arOpen = false
+                }
+            }
+        }
+    </script>
+
+
+    <script>
+        function popupData() {
+            return {
+                popupOpen: false
+            }
+        }
+    </script>
+
+
+
+
+</head>
+
+
+{% include 'polls/nav.html'%}
+
+<div class="mt-64">
+    <h1 class="text-cblue">Calendar</h1>
+
+    {% for event in event_list %}
+    <div class=" border p-8 my-8 border-gray-500 w-11/12 mx-auto">
+        <h1 class="text-2xl font-bold">{{event.name}}</h1>
+        <h1 class="text-xl font-bold text-cblue">{{event.date}}</h1>
+        <div class="flex flex-row">
+
+            <div class="w-11/12">
+                <p class="leading-loose my-8 text-sm" style="font-family: 'Roboto', sans-serif;">{{event.description}}</p>
+
+                <button type="button" id="button" class="my-8 rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover-bg-blue-300  text-cblue font-normal py-1 px-3">
+                Read More
+            </button>
+            </div>
+
+
+
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+
+
+
+{% include 'polls/footer.html'%}

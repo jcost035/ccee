@@ -9,7 +9,7 @@ from .models import Event
 from django.template import loader
 
 def calendar(request):
-    event_list = Event.objects.order_by("date")
+    event_list = Event.objects.order_by("-date")
     context = {
         "event_list": event_list,
     }
