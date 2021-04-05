@@ -39,6 +39,19 @@ class Event(models.Model):
     name = models.CharField(max_length=200)
     date = models.DateField(_("Date"), default=datetime.date.today)
     description = models.CharField(max_length=1200)
+    tags = models.CharField(max_length=200, default='')
+    location = models.CharField(max_length=200, default='Virtual')
+    K_12 = 'K'
+    EDUCATOR = 'E'
+    GRADE_LEVEL_CHOICES = [
+        (K_12, _('K-12')),
+        (EDUCATOR, _('Educator'))
+    ]
+    grade_level = models.CharField(
+        max_length=2,
+        choices=GRADE_LEVEL_CHOICES,
+        default=K_12,
+    )
 
     def __str__(self):
         return self.name

@@ -1,19 +1,36 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator
 
-# Create your views here.
+
 from django.http import HttpResponse
 
 from .models import Question
 from .models import Staff
 from .models import Event
 from django.template import loader
+from django.views.generic import ListView
 
-def calendar(request):
-    event_list = Event.objects.order_by("-date")
-    context = {
-        "event_list": event_list,
-    }
-    return render(request, "polls/calendar.html", context)
+from django.db.models import Q
+
+class Calendar(ListView):
+    model = Event
+    context_object_name = "events"
+    
+    template_name = "polls/calendar.html"
+    paginate_by = 5
+
+    def get_queryset(self):
+        location_query = self.request.GET.get('q')
+        tags_query = self.request.GET.get('r')
+        if location_query == None:
+            location_query = ''
+        if tags_query == None:
+            tags_query = ''
+        return Event.objects.order_by("-date").filter(
+            Q(location__icontains=location_query) | Q(tags__icontains=tags_query)
+        )
+    
+    
 
 def student_programs(request):
     return render(request, "polls/student-programs.html")

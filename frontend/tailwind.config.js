@@ -32,6 +32,7 @@ module.exports = {
             },
             fontFamily: {
                 'bebas': ['Bebas\\ Neue', 'cursive'],
+                'roboto': ['Roboto\\ Condensed', 'sans-serif']
             },
             height: {
                 tile: '30vh'
@@ -66,6 +67,8 @@ module.exports = {
             display: ['hover'],
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/custom-forms'),
+    ],
 
 }

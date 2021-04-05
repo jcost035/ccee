@@ -1,8 +1,9 @@
 from django.urls import path
 from . import views
+from polls.views import Calendar
 
 urlpatterns = [
-    path("calendar", views.calendar, name="calendar"),
+    path("calendar", Calendar.as_view(), name="calendar"),
     path("student-programs", views.student_programs, name="student-programs"),
     path("community-programs", views.community_programs, name="community-programs"),
     path("k12-programs", views.k12_programs, name="k12-programs"),

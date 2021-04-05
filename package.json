@@ -9,7 +9,9 @@
         "postcss": "^8.2.4",
         "tailwindcss": "^2.0.2"
     },
-    "devDependencies": {},
+    "devDependencies": {
+        "@tailwindcss/custom-forms": "^0.2.1"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "tailwindcss build frontend/site.css -c frontend/tailwind.config.js -o static/site.css",
