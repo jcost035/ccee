@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
+from django.http import JsonResponse
 
+
+from django.core import serializers
 
 from django.http import HttpResponse
 
@@ -21,14 +24,27 @@ class Calendar(ListView):
 
     def get_queryset(self):
         location_query = self.request.GET.get('q')
-        tags_query = self.request.GET.get('r')
         if location_query == None:
             location_query = ''
+        tags_query = self.request.GET.get('r')
         if tags_query == None:
             tags_query = ''
+        
         return Event.objects.order_by("-date").filter(
-            Q(location__icontains=location_query) | Q(tags__icontains=tags_query)
+            Q(location__icontains=location_query) , Q(tags__icontains=tags_query)
         )
+
+def event_list(request):
+    event_list = serializers.serialize('json', Event.objects.order_by("-date")[:10])
+
+    #paginator = Paginator(event_list, 5) #show 10 objects per page
+    #page_number = request.GET.get('page')
+    #events = paginator.get_page(page_number)
+
+    context = {
+        "event_list": event_list,
+    }
+    return HttpResponse(event_list, content_type="application/json")
     
     
 

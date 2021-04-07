@@ -14,6 +14,269 @@
 
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
+
+
+
+
+</head>
+
+<body>
+    {% include 'polls/nav.html'%}
+    
+    <div class="mt-32" x-data="state">
+        <h1 class="font-bebas text-cblue text-8xl mx-auto text-center">Calendar</h1>
+        <!--mobile filtering menu start-->
+        <button class="w-11/12 border-2 text-xl py-2 my-6 mx-auto block md:hidden" @click="mobileOpen = !mobileOpen">Filter Results</button>
+        <div x-show="mobileOpen">
+            <div>
+                <button type="button" @click="topicOpen = !topicOpen" class="inline-flex justify-center w-11/12 rounded-md border border-gray-300 shadow-sm mx-4 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+                    id="options-menu" aria-expanded="true" aria-haspopup="true">
+              Topic
+              <!-- Heroicon name: solid/chevron-down -->
+              <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+            </div>
+
+            <!--
+            Dropdown menu, show/hide based on menu state.
+        
+            Entering: "transition ease-out duration-100"
+              From: "transform opacity-0 scale-95"
+              To: "transform opacity-100 scale-100"
+            Leaving: "transition ease-in duration-75"
+              From: "transform opacity-100 scale-100"
+              To: "transform opacity-0 scale-95"
+          -->
+            <div x-show="topicOpen" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                <div class="py-1" role="none">
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Business</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Career</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Development</a>
+                    <form method="POST" action="#" role="none">
+                        <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+                  Sign out
+                </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--mobile filtering menu end-->
+
+        <!--desktop filtering menu start-->
+        <form method="GET" action="{% url 'calendar' %}" role="none">
+            <div class="flex flex-row mx-auto justify-center">
+                <div class="hidden md:block w-3/12 mt-8">
+                    <div>
+                        <p class="font-bold mx-4 my-2">Topic</p>
+                        <button type="button" @click="topicOpen = !topicOpen" class="inline-flex justify-center w-11/12 rounded-md border border-gray-300 shadow-sm mx-4 mb-4 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+                            id="options-menu" aria-expanded="true" aria-haspopup="true">
+                        Topic
+                        <!-- Heroicon name: solid/chevron-down -->
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    </div>
+
+                    <!-- Dropdown menu, show/hide based on menu state.
+                
+                    Entering: "transition ease-out duration-100"
+                    From: "transform opacity-0 scale-95"
+                    To: "transform opacity-100 scale-100"
+                    Leaving: "transition ease-in duration-75"
+                    From: "transform opacity-100 scale-100"
+                    To: "transform opacity-0 scale-95" 
+                -->
+                    <div x-show="topicOpen" class="origin-top-right  right-0 mt-2 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                        <div class="py-1" role="none">
+
+                            <button name='r' value="Education" type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+                            Education
+                          </button>
+                            <button name='r' value="f" type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+                              f
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="font-bold mx-4 my-2">Location</p>
+                        <button type="button" @click="locationOpen = !locationOpen" class="inline-flex justify-center w-11/12 rounded-md border border-gray-300 shadow-sm mx-4 mb-4 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+                            id="options-menu" aria-expanded="true" aria-haspopup="true">
+              Locations
+              <!-- Heroicon name: solid/chevron-down -->
+              <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+                    </div>
+
+                    <!--
+            Dropdown menu, show/hide based on menu state.
+        
+            Entering: "transition ease-out duration-100"
+              From: "transform opacity-0 scale-95"
+              To: "transform opacity-100 scale-100"
+            Leaving: "transition ease-in duration-75"
+              From: "transform opacity-100 scale-100"
+              To: "transform opacity-0 scale-95"
+          -->
+                    <div x-show="locationOpen" class="origin-top-right  right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                        <div class="py-1" role="none">
+
+                            <button name='q' value="Virtual" type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+                            Virtual
+                          </button>
+                            <button name='q' value="Not Virtual" type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+                              Not Virtual
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="font-bold mx-4 my-2">Date</p>
+                        <button type="button" @click="dateOpen = !dateOpen" class="inline-flex justify-center w-11/12 rounded-md border border-gray-300 shadow-sm mx-4 mb-4 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+                            id="options-menu" aria-expanded="true" aria-haspopup="true">
+              Dates
+              <!-- Heroicon name: solid/chevron-down -->
+              <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+                    </div>
+
+                    <!--
+            Dropdown menu, show/hide based on menu state.
+        
+            Entering: "transition ease-out duration-100"
+              From: "transform opacity-0 scale-95"
+              To: "transform opacity-100 scale-100"
+            Leaving: "transition ease-in duration-75"
+              From: "transform opacity-100 scale-100"
+              To: "transform opacity-0 scale-95"
+          -->
+                    <div x-show="dateOpen" class="origin-top-right  right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                        <div class="py-1" role="none">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Business</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Career</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Development</a>
+                            <form method="POST" action="#" role="none">
+                                <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+                  Sign out
+                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col">
+
+                        <p class="font-bold mx-4 mt-2">Format</p>
+                        <label class="inline-flex items-center mt-3 mx-4">
+                <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600 border rounded" checked><span class="ml-2 text-gray-700">various</span>
+            </label>
+                        <label class="inline-flex items-center mt-3 mx-4">
+                <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600 border rounded" checked><span class="ml-2 text-gray-700">different</span>
+            </label>
+                        <p class="font-bold mx-4 mt-4">Price</p>
+                        <label class="inline-flex items-center mt-3 mx-4">
+                <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600 border rounded" checked><span class="ml-2 text-gray-700">labels</span>
+            </label>
+
+                    </div>
+
+                    <button href='' class="rounded border border-gray-400 px-8 py-2 my-4 mx-4 w-11/12 font-bold font-roboto">Reset Filters</button>
+
+                </div>
+
+                <div class="md:w-7/12 mt-4">
+                    {% comment %} {% for event in events %} {% endcomment %}
+                    <template x-for="event in events">
+                        <div  class="overflow-hidden rounded border px-8 py-4 my-8 border-gray-500 shadow-md hover:shadow-lg w-11/12 mx-auto font-roboto flex flex-row ">
+                            <img class=" w-3/12 h-11/12 flex-shrink-0 flex-grow-0 object-contain mr-10" src="https://ga-core.s3.amazonaws.com/production/uploads/program/default_image/14429/Business_Entrepreneur_Computer_Woman_Black_History_Month.jpg">
+
+                            <div class="flex flex-col ">
+                                <h1 class="text-sm text-gray-400">Business, Career Development</h1>
+                                <div class="md:flex md:flex-row md:justify-between w-full">
+                                    <h1 class="text-xl font-bold font-roboto">
+                                        {% comment %} {{event.name}} {% endcomment %} event name
+                                    </h1>
+
+                                </div>
+                                <div class="flex flex-row">
+
+                                    <div class="w-full">
+                                        <p class="leading-loose text-md " style="font-family: 'Roboto', sans-serif;">
+                                            {% comment %} {{event.description}} {% endcomment %} description
+                                        </p>
+
+                                        <button type="button" id="button" class=" rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
+                                        Register
+                                    </button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="flex flex-col w-8/12 font-roboto text-right">
+                                <h1 class="text-xl font-bold text-cblue text-right">
+                                    {% comment %} {{event.date}} {% endcomment %} date
+                                </h1>
+                                <span class="flex flex-row space-x-1 justify-end">
+                            <i class="fas fa-map-marker-alt text-cgreen"></i>
+                            <h1 class="text-sm text-gray-400">{{event.location}}</h1>
+                            </span>
+                                <h1 class="text-sm text-gray-400">Grades {% comment %} {{event.get_grade_level_display}} {% endcomment %}
+                                </h1>
+                            </div>
+                        </div>
+                    </template>
+                    {% comment %} {% endfor %} {% endcomment %} {% comment %}
+                    <div class="pagination">
+                        <span class="step-links text-2xl">
+                    {% if events.has_previous %}
+                        <a href="?page=1"><i class="fas fa-angle-double-left "></i>First</a>
+                        <a href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-angle-left"></i>Prev</a>
+                    {% endif %}
+            
+                    <span class="current text-xl">
+                        Page {{ events.number }} of {{ events.paginator.num_pages }}.
+                    </span> {% if events.has_next %}
+                        <a href="?page={{ events.next_page_number }}">Next<i class="fas fa-angle-right"></i></a>
+                        <a href="?page={{ events.paginator.num_pages }}">Last<i class="fas fa-angle-double-right"></i></a> {% endif %}
+                        </span>
+                    </div>
+
+                    <div class="pagination">
+                        <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+            
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span> {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a> {% endif %}
+                        </span>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+        </form>
+    </div>
+    
+
+
+
+    {% include 'polls/footer.html'%}
+
+
+
+
     <script>
         function data() {
             return {
@@ -79,255 +342,15 @@
         }
     </script>
 
-
-
-
-</head>
-
-
-{% include 'polls/nav.html'%}
-
-<div class="mt-32" x-data="{ mobileOpen: false, topicOpen: false, locationOpen: false, dateOpen: false }">
-    <h1 class="font-bebas text-cblue text-8xl mx-auto text-center">Calendar</h1>
-    <!--mobile filtering menu start-->
-    <button class="w-11/12 border-2 text-xl py-2 my-6 mx-auto block md:hidden" @click="mobileOpen = !mobileOpen">Filter Results</button>
-    <div x-show="mobileOpen">
-        <div>
-            <button type="button" @click="topicOpen = !topicOpen" class="inline-flex justify-center w-11/12 rounded-md border border-gray-300 shadow-sm mx-4 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-                id="options-menu" aria-expanded="true" aria-haspopup="true">
-              Topic
-              <!-- Heroicon name: solid/chevron-down -->
-              <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </button>
-        </div>
-
-        <!--
-            Dropdown menu, show/hide based on menu state.
+    <script>
         
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-          -->
-        <div x-show="topicOpen" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-            <div class="py-1" role="none">
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Business</a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Career</a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Development</a>
-                <form method="POST" action="#" role="none">
-                    <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                  Sign out
-                </button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!--mobile filtering menu end-->
-
-    <!--desktop filtering menu start-->
-    <div class="flex flex-row mx-auto justify-center">
-        <div class="hidden md:block w-3/12 mt-8">
-            <div>
-                <p class="font-bold mx-4 my-2">Topic</p>
-                <button type="button" @click="topicOpen = !topicOpen" class="inline-flex justify-center w-11/12 rounded-md border border-gray-300 shadow-sm mx-4 mb-4 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-                    id="options-menu" aria-expanded="true" aria-haspopup="true">
-              Topic
-              <!-- Heroicon name: solid/chevron-down -->
-              <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </button>
-            </div>
-
-            <!--
-            Dropdown menu, show/hide based on menu state.
+            const state = {events: [], mobileOpen: false, topicOpen: false, locationOpen: false, dateOpen: false}
+            fetch('/polls/event_list')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    state.events.push(...data)
+                });
         
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-          -->
-            <div x-show="topicOpen" class="origin-top-right  right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                <div class="py-1" role="none">
-                    <form method="GET" action="{% url 'calendar' %}" role="none">
-                        <button name='r' value="Education" type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                            Education
-                          </button>
-                        <button name='r' value="f" type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                              f
-                            </button>
-                    </form>
-                </div>
-            </div>
-
-            <div>
-                <p class="font-bold mx-4 my-2">Location</p>
-                <button type="button" @click="locationOpen = !locationOpen" class="inline-flex justify-center w-11/12 rounded-md border border-gray-300 shadow-sm mx-4 mb-4 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-                    id="options-menu" aria-expanded="true" aria-haspopup="true">
-              Locations
-              <!-- Heroicon name: solid/chevron-down -->
-              <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </button>
-            </div>
-
-            <!--
-            Dropdown menu, show/hide based on menu state.
-        
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-          -->
-            <div x-show="locationOpen" class="origin-top-right  right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                <div class="py-1" role="none">
-                    <form method="GET" action="{% url 'calendar' %}" role="none">
-                        <button name='q' value="Virtual" type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                            Virtual
-                          </button>
-                        <button name='q' value="Not Virtual" type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                              Not Virtual
-                            </button>
-                    </form>
-                </div>
-            </div>
-
-            <div>
-                <p class="font-bold mx-4 my-2">Date</p>
-                <button type="button" @click="dateOpen = !dateOpen" class="inline-flex justify-center w-11/12 rounded-md border border-gray-300 shadow-sm mx-4 mb-4 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-                    id="options-menu" aria-expanded="true" aria-haspopup="true">
-              Dates
-              <!-- Heroicon name: solid/chevron-down -->
-              <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </button>
-            </div>
-
-            <!--
-            Dropdown menu, show/hide based on menu state.
-        
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-          -->
-            <div x-show="dateOpen" class="origin-top-right  right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                <div class="py-1" role="none">
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Business</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Career</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Development</a>
-                    <form method="POST" action="#" role="none">
-                        <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                  Sign out
-                </button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="flex flex-col">
-
-                <p class="font-bold mx-4 mt-2">Format</p>
-                <label class="inline-flex items-center mt-3 mx-4">
-                <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600 border rounded" checked><span class="ml-2 text-gray-700">various</span>
-            </label>
-                <label class="inline-flex items-center mt-3 mx-4">
-                <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600 border rounded" checked><span class="ml-2 text-gray-700">different</span>
-            </label>
-                <p class="font-bold mx-4 mt-4">Price</p>
-                <label class="inline-flex items-center mt-3 mx-4">
-                <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600 border rounded" checked><span class="ml-2 text-gray-700">labels</span>
-            </label>
-
-            </div>
-
-            <button class="rounded border border-gray-400 px-8 py-2 my-4 mx-4 w-11/12 font-bold font-roboto">Reset Filters</button>
-
-        </div>
-
-        <div class="md:w-7/12 mt-4">
-            {% for event in events %}
-            <div class="overflow-hidden rounded border px-8 py-4 my-8 border-gray-500 shadow-md hover:shadow-lg w-11/12 mx-auto font-roboto flex flex-row ">
-                <img class=" w-3/12 h-11/12 flex-shrink-0 flex-grow-0 object-contain mr-10" src="https://ga-core.s3.amazonaws.com/production/uploads/program/default_image/14429/Business_Entrepreneur_Computer_Woman_Black_History_Month.jpg">
-
-                <div class="flex flex-col ">
-                    <h1 class="text-sm text-gray-400">Business, Career Development</h1>
-                    <div class="md:flex md:flex-row md:justify-between w-full">
-                        <h1 class="text-xl font-bold font-roboto">{{event.name}}</h1>
-
-                    </div>
-                    <div class="flex flex-row">
-
-                        <div class="w-full">
-                            <p class="leading-loose text-md" style="font-family: 'Roboto', sans-serif;">{{event.description}}</p>
-
-                            <button type="button" id="button" class=" rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
-                            Register
-                            </button>
-                        </div>
-
-
-
-                    </div>
-
-                </div>
-
-                <div class="flex flex-col w-8/12 font-roboto text-right">
-                    <h1 class="text-xl font-bold text-cblue text-right">{{event.date}}</h1>
-                    <span class="flex flex-row space-x-1 justify-end">
-                        <i class="fas fa-map-marker-alt text-cgreen"></i>
-                        <h1 class="text-sm text-gray-400">{{event.location}}</h1>
-                    </span>
-                    <h1 class="text-sm text-gray-400">Grades {{event.grade_level.label}}</h1>
-                </div>
-            </div>
-            {% endfor %}
-
-
-            <div class="pagination">
-                <span class="step-links text-2xl">
-                    {% if events.has_previous %}
-                        <a href="?page=1"><i class="fas fa-angle-double-left "></i>First</a>
-                        <a href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-angle-left"></i>Prev</a>
-                    {% endif %}
-            
-                    <span class="current text-xl">
-                        Page {{ events.number }} of {{ events.paginator.num_pages }}.
-                    </span> {% if events.has_next %}
-                <a href="?page={{ events.next_page_number }}">Next<i class="fas fa-angle-right"></i></a>
-                <a href="?page={{ events.paginator.num_pages }}">Last<i class="fas fa-angle-double-right"></i></a> {% endif %}
-                </span>
-            </div>
-
-            <div class="pagination">
-                <span class="step-links">
-                    {% if page_obj.has_previous %}
-                        <a href="?page=1">&laquo; first</a>
-                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                    {% endif %}
-            
-                    <span class="current">
-                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                    </span> {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a> {% endif %}
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-{% include 'polls/footer.html'%}
+    </script>
+</body>
