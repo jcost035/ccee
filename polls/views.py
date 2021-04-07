@@ -35,6 +35,7 @@ class Calendar(ListView):
         )
 
 def event_list(request):
+    
     event_list = serializers.serialize('json', Event.objects.order_by("-date")[:10])
 
     #paginator = Paginator(event_list, 5) #show 10 objects per page

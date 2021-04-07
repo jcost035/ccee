@@ -1,0 +1,11 @@
+def calendar(request):
+    event_list = Event.objects.order_by("-date")
+
+    paginator = Paginator(event_list, 5) #show 10 objects per page
+    page_number = request.GET.get('page')
+    events = paginator.get_page(page_number)
+
+    context = {
+        "events": events,
+    }
+    return render(request, "polls/calendar.html", context)
