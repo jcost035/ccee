@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.http import JsonResponse
-
-
 from django.core import serializers
-
 from django.http import HttpResponse
+
+from datetime import date, timedelta
 
 from .models import Question
 from .models import Staff
@@ -14,6 +13,12 @@ from django.template import loader
 from django.views.generic import ListView
 
 from django.db.models import Q
+
+def programs(request):
+    return render(request, "polls/programs.html")
+
+def calendar_table(request):
+    return render(request, "polls/calendar-table.html")
 
 class Calendar(ListView):
     model = Event
@@ -36,7 +41,7 @@ class Calendar(ListView):
 
 def event_list(request):
     
-    event_list = serializers.serialize('json', Event.objects.order_by("-date")[:10])
+    event_list = serializers.serialize('json', Event.objects.order_by("-date"))
 
     #paginator = Paginator(event_list, 5) #show 10 objects per page
     #page_number = request.GET.get('page')
@@ -46,7 +51,20 @@ def event_list(request):
         "event_list": event_list,
     }
     return HttpResponse(event_list, content_type="application/json")
-    
+
+def event_list_date(request, date_range):
+    startdate = date.today()
+    enddate = startdate + timedelta(days=date_range)
+    event_list = serializers.serialize('json', Event.objects.filter(date__range=[startdate, enddate]))
+
+    #paginator = Paginator(event_list, 5) #show 10 objects per page
+    #page_number = request.GET.get('page')
+    #events = paginator.get_page(page_number)
+
+    context = {
+        "event_list": event_list,
+    }
+    return HttpResponse(event_list, content_type="application/json")
     
 
 def student_programs(request):
