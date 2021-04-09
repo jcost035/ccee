@@ -35,9 +35,9 @@
         <div class="sticky top-32  w-44  bg-gray-300 mt-44 z-50 rounded-lg">
             <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg rounded-t-lg border-r-4 border-cgreen" @click="scrollTo('about')">What you'll experience</button>
             <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg" @click="scrollTo('video')">How the program works</button>
-            <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg" @click="scrollTo('faq')">FAQs</button>
-            <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg">Supporters</button>
-            <button class="hover:bg-gray-400 w-full p-4 pb-6 font-roboto text-cblue text-lg rounded-b-lg">Get Involved</button>
+            <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg" @click="scrollTo('faq')" x-bind:class="{'border-r-4 border-cgreen' : faqHighlight}">FAQs</button>
+            <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg" @click="scrollTo('supporters')">Supporters</button>
+            <button class="hover:bg-gray-400 w-full p-4 pb-6 font-roboto text-cblue text-lg rounded-b-lg" @click="scrollTo('action')">Get Involved</button>
         </div>
 
         <div class="border-4 rounded border-cblue ml-48 -mt-96 space-x-4 px-4 py-4">
@@ -150,8 +150,12 @@
 
         <div class="ml-48 h-1/3 w-5/6 bg-cblue rounded-lg mt-16">
             <h1 class="text-6xl font-bebas text-white text-center py-6">More CCEE Programs</h1>
+
+
+            <div id="supporters" class=""></div>
         </div>
 
+        
         <div class="font-roboto text-3xl text-center ml-48 mt-16">
             These supporters have made it possible for California's teachers and students to create opportunity for generations through programs like this
         </div>
@@ -164,9 +168,11 @@
             </div>
             <div class=" p-2">
                 <img src="{{program.logo_path}}" class=" object-cover object-center rounded " alt="" />
+                
             </div>
         </div>
 
+        <div id="action"></div>
         <div class="ml-48 flex flex-row justify-center space-x-2 text-3xl my-12">
             <button class="px-16 py-6 bg-cblue rounded-lg text-white font-roboto">Support {{program.name}} today!</button>
             <button class="px-16 py-6 border-8 border-cgreen rounded-lg text-cgreen font-roboto">Get involved with CCEE</button>
@@ -174,19 +180,35 @@
 
         <div class="ml-48 bg-blue px-6 py-4 bg-cblue mt-16 flex flex-col items-center">
             <h1 class="text-white text-4xl font-bebas mt-8">Stay updated on all things CCEE</h1>
-            <input class="w-2/3 m-8 p-2"></input>
+            <input class="w-2/3 m-8 p-2 font-roboto text-xl" placeholder="example@gmail.com"></input>
         </div>
 
-        <div class="h-96 pl-64"></div>
-        <div class="h-96"></div>
-        <div class="h-96"></div>
     </div>
-
+    {% include "polls/footer.html"%}
 </body>
 
 <script>
+    
+
+    
+
     function programData() {
+        var faqHighlight = false;
+        var observer = new IntersectionObserver(function(entries) {
+            // isIntersecting is true when element and viewport are overlapping
+            // isIntersecting is false when element and viewport don't overlap
+            if(entries[0].isIntersecting === true)
+            {
+                this.faqHighlight = true;
+                console.log('Element has just become visible in screen');
+            }
+                
+        }, { threshold: [0] });
+
+        observer.observe(document.querySelector("#faq"));
+
         return {
+            faqHighlight,
             firstQOpen: false,
             secondQOpen: false,
             thirdQOpen: false,
