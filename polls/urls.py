@@ -3,7 +3,7 @@ from . import views
 from polls.views import Calendar
 
 urlpatterns = [
-    path("programs", views.programs, name="programs"),
+    path("programs/<str:prog_name>", views.programs, name="programs"),
     path("calendar_table", views.calendar_table, name="calendar_table"),
     path("event_list_date/<int:date_range>", views.event_list_date, name="event_list_date"),
     path("event_list", views.event_list, name="event_list"),

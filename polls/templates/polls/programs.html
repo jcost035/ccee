@@ -22,4 +22,183 @@
 
 <body>
     {% include 'polls/nav.html'%}
+    <div class="absolute bg-cblue w-full h-2/3 -mt-16"></div>
+    <div class="relative w-9/12 mx-auto z-10" x-data="programData()">
+        <div class="h-1/2">
+            <div class="relative mt-32 text-white text-3xl font-bebas "><span class="bg-cgreen px-2">Highlighted shit</span></div>
+            <div class="relative font-bebas text-7xl text-white  ">{{program.name}} </div>
+            <p class="text-white text-xl w-1/2 pt-6 font-roboto font-thin">{{program.description}}</p>
+            <button class="rounded border-2 border-white text-white font-roboto py-2 px-4 mt-6 font-light text-xl">Register</button>
+            <button class="rounded border-2 border-cgreen bg-cgreen text-white hover:border-cgreen-dark hover:bg-cgreen-dark font-roboto py-2 px-4 mt-6 font-light text-xl">Other thing</button>
+        </div>
+
+        <div class="sticky top-32  w-44  bg-gray-300 mt-44 z-50 rounded-lg">
+            <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg rounded-t-lg border-r-4 border-cgreen" @click="scrollTo('about')">What you'll experience</button>
+            <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg" @click="scrollTo('video')">How the program works</button>
+            <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg" @click="scrollTo('faq')">FAQs</button>
+            <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg">Supporters</button>
+            <button class="hover:bg-gray-400 w-full p-4 pb-6 font-roboto text-cblue text-lg rounded-b-lg">Get Involved</button>
+        </div>
+
+        <div class="border-4 rounded border-cblue ml-48 -mt-96 space-x-4 px-4 py-4">
+            <h1 class="text-5xl text-center font-light font-bebas ">Upcoming Events</h1>
+            <div class="flex flex-row justify-between align-middle">
+                <div class="flex flex-row">
+                    <div class="px-6 py-2 font-bold flex flex-col text-center">
+                        <div class="text-2xl">April 20</div>
+                        <div class="text-lg">Virtual</div>
+                    </div>
+                    <div class="px-6 py-2 font-bold flex flex-col text-center">
+                        <div class="text-2xl">April 20</div>
+                        <div class="text-lg">Virtual</div>
+                    </div>
+
+                </div>
+                <button class="font-bold text-center px-6 border-4 border-cblue rounded text-xl my-auto">Full Calendar</button>
+            </div>
+        </div>
+        <div class="flex flex-row  ml-48 mt-14 items-end" id="about">
+            <div class="flex flex-col w-7/12 h-full">
+                <img src="{{program.logo_path}}" class=" object-cover object-center rounded " alt="" />
+                <div class="bg-gray-300 rounded text-center px-6 pb-6 pt-4 mt-2">
+                    <h1 class="text-5xl font-bebas text-cgreen">About Program</h1>
+                    <p class="font-roboto font-thin">{{program.about}}
+                    </p>
+                </div>
+            </div>
+            <div class="h-full w-full">
+                <img class="w-full mx-6 object-cover object-center rounded-lg" src="https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg" alt="" />
+
+            </div>
+
+        </div>
+
+        <div class="absolute w-170 bg-cblue h-96 -ml-72 -mr-64 z-0 mt-10"></div>
+        <div class="flex flex-row w-full mt-8 space-x-10 mt-20 ml-52">
+            <!--first card-->
+            <div class="flex flex-col items-center w-3/12 cursor-pointer">
+                <div class="bg-transparent overflow-hidden  w-full relative h-40 pb-36">
+                    <img src="https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg" class="absolute h-full w-full object-cover object-center rounded-t-lg bg-cblue" alt="" />
+                </div>
+                <div class="z-10  w-full">
+                    <div class="bg-white rounded-b-lg shadow-2xl  py-5 px-5">
+                        <span class="text-white font-roboto absolute text-3xl p-2 rounded-sm -mt-10 -ml-10 bg-cgreen">Daily Dose of Econ</span>
+                        <div class="flex items-center justify-between mt-8">
+                            <div class=" text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
+                            <div class="text-2xl text-red-600 font-bold"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--second card-->
+            <div class="flex flex-col items-center w-3/12 cursor-pointer">
+                <div class="bg-transparent overflow-hidden  w-full relative h-40 pb-36">
+                    <img src="https://weareultraviolet.org/wp-content/uploads/2020/04/WDM-1-copy-225x140.jpg" class="absolute h-full w-full object-cover object-center rounded-t-lg" alt="" />
+                </div>
+                <div class=" z-10  w-full">
+                    <div class="bg-white rounded-b-lg shadow-2xl  py-5 px-5">
+                        <span class="text-white font-roboto absolute text-3xl p-2 rounded-sm -mt-10 -ml-10 bg-cgreen">Economics</span>
+                        <div class="flex items-center justify-between mt-8">
+                            <div class=" text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
+                            <div class="text-2xl text-red-600 font-bold"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--third card-->
+            <div class="flex flex-col items-center w-3/12 cursor-pointer">
+                <div class="bg-cblue rounded-t-lg overflow-hidden  w-full relative h-40 pb-36">
+                    <img src="https://weareultraviolet.org/wp-content/uploads/2020/03/Biden_Warren_Harris-380x240.jpg" class="absolute h-full w-full object-cover object-center" alt="" />
+                </div>
+                <div class=" z-10  w-full">
+                    <div class="bg-white shadow-2xl  py-5 px-5 rounded-b-lg">
+                        <span class="text-white font-roboto absolute text-3xl p-2 rounded-sm -mt-10 -ml-10 bg-cgreen">They Are Friends</span>
+                        <div class="flex items-center justify-between mt-8">
+                            <div class=" text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
+                            <div class="text-2xl text-red-600 font-bold"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="video"></div>
+        <div class="flex flex-row mt-28 ml-48 ">
+            <div class="w-1/2 rounded my-auto">
+                <video width="640" height="240" class="rounded-lg" controls>
+                    <source src="{{program.video_path}}" type="video/mp4">
+                  Your browser
+            </div>
+            <div class="w-1/2 rounded-lg overflow-hidden relative mx-4 bg-cblue-light ring-4 ring-offset-4 ring-cblue-dark">
+                <h1 class="text-cblue-dark font-bebas font-light text-6xl mt-4 mx-4">Testimonial</h1>
+                <p class="text-lg font-roboto  px-6">{{program.testimonial}}</p>
+                <div class="justify-items-right text-right pt-2">
+                    <span class="text-xl font-roboto text-cblue-dark  text-right px-16">-Name</span>
+                </div>
+            </div>
+        </div>
+        <div id='faq'></div>
+        <div class="ml-48 mt-12 content-center" >
+            <h1 class="text-6xl font-bebas text-center py-10">Frequently Asked Questions</h1>
+            <div x-for="qa in questions.set">
+                
+                
+                <h1 class="text-4xl font-bebas text-left px-16 cursor-pointer" @click="firstQOpen = !firstQOpen" x-text="qa.question"></h1>
+                <p class="text-xl font-roboto text-left px-16 mt-4 ml-16" x-show="firstQOpen"></p>
+                
+            </div>
+        </div>
+
+        <div class="ml-48 h-1/3 w-5/6 bg-cblue rounded-lg mt-16">
+            <h1 class="text-6xl font-bebas text-white text-center py-6">More CCEE Programs</h1>
+        </div>
+
+        <div class="font-roboto text-3xl text-center ml-48 mt-16">
+            These supporters have made it possible for California's teachers and students to create opportunity for generations through programs like this
+        </div>
+        <div class="flex flex-row ml-48 space-x-4">
+            <div class=" p-2">
+                <img src="{{program.logo_path}}" class=" object-cover object-center rounded " alt="" />
+            </div >
+            <div class=" p-2">
+                <img src="{{program.logo_path}}" class=" object-cover object-center rounded " alt="" />
+            </div>
+            <div class=" p-2">
+                <img src="{{program.logo_path}}" class=" object-cover object-center rounded " alt="" />
+            </div>
+        </div>
+
+        <div class="ml-48 flex flex-row justify-center space-x-2 text-3xl my-12">
+            <button class="px-16 py-6 bg-cblue rounded-lg text-white font-roboto">Support {{program.name}} today!</button>
+            <button class="px-16 py-6 border-8 border-cgreen rounded-lg text-cgreen font-roboto">Get involved with CCEE</button>
+        </div>
+
+        <div class="ml-48 bg-blue px-6 py-4 bg-cblue mt-16 flex flex-col items-center">
+            <h1 class="text-white text-4xl font-bebas mt-8">Stay updated on all things CCEE</h1>
+            <input class="w-2/3 m-8 p-2"></input>
+        </div>
+
+        <div class="h-96 pl-64"></div>
+        <div class="h-96"></div>
+        <div class="h-96"></div>
+    </div>
+
 </body>
+
+<script>
+    function programData() {
+        return {
+            firstQOpen: false,
+            secondQOpen: false,
+            thirdQOpen: false,
+            //questions: {{program.faq}},
+            scrollTo(position)
+            {
+                var elmnt = document.getElementById(position);
+                elmnt.scrollIntoView(); 
+            }
+
+
+        }
+    }
+
+</script>

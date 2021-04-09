@@ -9,13 +9,20 @@ from datetime import date, timedelta
 from .models import Question
 from .models import Staff
 from .models import Event
+from .models import Program
 from django.template import loader
 from django.views.generic import ListView
 
 from django.db.models import Q
 
-def programs(request):
-    return render(request, "polls/programs.html")
+def programs(request, prog_name):
+    program = Program.objects.filter(name__icontains=prog_name)
+    
+    context = {
+        "program": program[0],
+    }
+    
+    return render(request, "polls/programs.html", context)
 
 def calendar_table(request):
     return render(request, "polls/calendar-table.html")

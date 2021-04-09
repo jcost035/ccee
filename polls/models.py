@@ -56,3 +56,18 @@ class Event(models.Model):
     def __str__(self):
         return self.name
 
+class Program(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.CharField(max_length=1200)
+    dates = models.JSONField()
+    logo_path = models.CharField(max_length=200)
+    about = models.CharField(max_length=1200)
+    testimonial = models.CharField(max_length=1200)
+    video_path = models.CharField(max_length=200)
+    faq = models.JSONField()
+
+    def __str__(self):
+        return self.name
+
+
+
