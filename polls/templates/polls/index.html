@@ -159,12 +159,15 @@
 
     <main class="mt-24 md:px-16">
 
-      <div class="bg-black absolute bg-opacity-70 -ml-64 w-170 h-200 md:h-2/3 -mt-8 z-1 "></div>
+      <div class="bg-black absolute bg-opacity-70 -ml-64   md:h-2/3 w-full -mt-8 z-1 overflow-hidden" >
+        <img src="/media/index/CCEE-2021Gala-BackgroundGradient.jpg" class="object-cover">
+        
+      </div>
       <!-- featured section -->
       <div class="flex flex-wrap md:flex-no-wrap space-x-0 md:space-x-6 mb-24 ">
         
-        <div style="background-image: url(https://fee.org/content/img/homepage-stories-bg-v2-compressed.png?mode=crop&width=1200)"
-          class="bg-black-800 absolute -ml-64 w-170 h-200 md:h-2/3 -z-1 -mt-8"></div> 
+        <div 
+          class="bg-black-800 absolute -ml-64  h-200 md:h-2/3 -z-1 -mt-8"></div> 
           
         <div class="flex m-md:flex-col mb-4 lg:mb-0 md:mt-16 md:p-4 lg:p-0  w-full md:w-4/7 relative rounded block">
 
@@ -173,7 +176,7 @@
 
           <div class="md:-ml-24 ">
             
-              <div  class=" transition duration-300 ease-in-out hover:opacity-50 cursor-pointer  mr-0 mt-12 pt-2 pl-4  text-green-500  text-4xl font-bold mt-2 mb-2 leading-tight box-content">
+              <div  class=" transition duration-300 ease-in-out hover:opacity-50 cursor-pointer  mr-6 md:mr-0 mt-12 pt-2 pl-4   text-green-500  text-4xl font-bold mt-2 mb-2 leading-tight box-content">
                 <h1 id="header" class="text-4xl font-thin">
                 coca cola
                 </h1>
@@ -198,13 +201,13 @@
         </div>
 
       <!--featured content-->
-      <div x-data="panelData()" class="h-96 mt-32 w-full">
+      <div x-data="panelData()" class=" mt-32 w-full">
         
-        <div class="flex flex-row justify-center">
+        <div class="flex flex-col md:flex-row justify-center ">
           <button @click="firstpanelOpen=true, secondpanelOpen=false, thirdpanelOpen=false" 
             type="button" 
             x-bind:class='{"text-cgray border-cgray shadow-none": !firstpanelOpen }'
-            class="rounded text-lg w-2/12 font-semibold ml-6  mt-0 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:text-cblue hover:border-cblue  border-2 border-cblue text-cblue shadow-2xl font-normal  px-6"
+            class="m-md:mx-auto m-md:w-11/12 rounded text-lg md:w-3/12 m-md:py-2 m-md:my-2 font-semibold ml-6  mt-0 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:text-cblue hover:border-cblue  border-2 border-cblue text-cblue shadow-2xl font-normal  px-6"
           >
               I'm a K-12 Educator 
           </button>
@@ -212,7 +215,7 @@
           <button @click="secondpanelOpen=true, firstpanelOpen=false, thirdpanelOpen=false" 
             type="button" 
             x-bind:class='{"text-cgray border-cgray shadow-none": !secondpanelOpen }'
-            class="rounded text-lg w-2/12 font-semibold ml-6  mt-0 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:text-cblue hover:border-cblue  border-2 border-cblue text-cblue shadow-2xl font-normal  px-6"
+            class="m-md:mx-auto m-md:w-11/12 rounded text-lg md:w-3/12 m-md:py-2 m-md:my-2 font-semibold ml-6  mt-0 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:text-cblue hover:border-cblue  border-2 border-cblue text-cblue shadow-2xl font-normal  px-6"
           >
               I'm a California Community Member
           </button>
@@ -220,21 +223,21 @@
           <button @click="thirdpanelOpen=true, firstpanelOpen=false, secondpanelOpen=false" 
             type="button" 
             x-bind:class='{"text-cgray border-cgray shadow-none": !thirdpanelOpen }'
-            class="rounded text-lg w-2/12 font-semibold ml-6  mt-0 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:text-cblue hover:border-cblue  border-2 border-cblue text-cblue shadow-2xl font-normal  px-6"
+            class="m-md:mx-auto m-md:w-11/12 rounded text-lg md:w-3/12 m-md:py-2 m-md:my-2 font-semibold ml-6  mt-0 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:text-cblue hover:border-cblue  border-2 border-cblue text-cblue shadow-2xl font-normal  px-6"
           >
               I’m an Advocate
           </button>
         </div>
         
         <!--First panel-->
-        <div x-show="firstpanelOpen" class="flex flex-row w-full mt-8 space-x-1 ">
+        <div x-show="firstpanelOpen" class="flex flex-col md:flex-row w-full mt-8 space-x-1 m-md:space-y-6 m-md:justify-center">
           <!--first card-->
           <div 
-            class="flex-grow flex flex-col items-center w-1/2  cursor-pointer "
+            class="flex-grow items-center md:w-1/2  cursor-pointer "
           >
             
             <div
-              class="bg-white overflow-hidden w-full relative h-72  pb-36 rounded-lg"
+              class="bg-white overflow-hidden w-full relative md:h-72 h-2/3 m-md:w-11/12 pb-12 md:pb-36 rounded-lg flex flex-col mx-auto"
             >
               <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue-dark text-3xl p-2 rounded-lg h-full w-full opacity-100"></span>
               <img
@@ -243,19 +246,19 @@
                 alt=""
                 style="z-index: 1;"
               />
-              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl p-2 rounded-lg pt-6 pl-8">
+              <span id="camp-text" style="z-index: 3;" class="md:absolute text-gray-800 text-3xl p-2 rounded-lg pt-6 pl-8">
                 Attend Professional Development Sessions
                 <i class="fas fa-angle-right"></i>
               </span>
               <span 
                 style="font-family: 'Roboto', sans-serif;"
-                class="absolute  w-full z-10 text-white px-8 mt-24"
+                class="md:absolute  w-full z-10 text-white px-8 md:mt-24"
               >Whether you’re just starting, or you’ve been teaching for years, there’s a CCEE program that will fit every educator's needs!</span>
 
               <button 
                 type="button" 
                  
-                class="absolute rounded text-xl w-3/6 h-1/6 font-semibold ml-8 mt-44 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:bg-white hover:text-cblue-dark border-2 border-white text-white font-normal px-4 z-40"
+                class="md:absolute rounded text-xl w-3/6 h-1/6 font-semibold ml-8 m-md:mt-6 m-md:mb-2 md:mt-44 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:bg-white hover:text-cblue-dark border-2 border-white text-white font-normal px-4 z-40"
               >
                   Learn More
               </button>
@@ -267,11 +270,11 @@
           <div 
             @mouseover="secondpanelText = true"
             @mouseover.away="secondpanelText = false"
-            class="flex-grow flex flex-col items-center w-1/3  cursor-pointer"
+            class="flex-grow flex flex-col items-center md:w-1/3  cursor-pointer"
           >
             
             <div
-              class="bg-white overflow-hidden w-full relative h-72 pb-36 rounded-lg"
+              class="bg-white overflow-hidden w-full relative md:h-72 m-md:pb-2 md:pb-36 rounded-lg m-md:flex m-md:flex-col m-md:w-11/12 m-md:w-11/12"
             >
               <span id="camp-text" style="z-index: 2;" class="absolute bg-cgreen text-3xl p-2 rounded-lg h-full w-full opacity-50" 
                 x-bind:class='{"opacity-70": secondpanelText }'
@@ -282,14 +285,14 @@
                 alt=""
                 style="z-index: 1;"
               />
-              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl  rounded-lg pt-6 ml-8">
+              <span id="camp-text" style="z-index: 3;" class="md:absolute text-gray-800 text-3xl  rounded-lg pt-6 ml-8">
                 Student Contests
                 <i class="fas fa-angle-right"></i>
               </span>
               <div 
               style="font-family: 'Roboto', sans-serif;"
-              x-bind:class='{ "pt-4 text-opacity-100": secondpanelText  }'
-              class="absolute transition-all ease-in-out w-full z-10 text-white px-8 mt-16 text-opacity-0"
+              x-bind:class='{ "pt-4 md:text-opacity-100": secondpanelText  }'
+              class="md:absolute m-md:block m-md:py-4 transition-all ease-in-out w-full z-10 text-white px-8 md:mt-16 md:text-opacity-0"
               >
                 Win cash prizes and empower your students to succeed through our hands-on, experiential learning competitions.
               </div>
@@ -301,119 +304,11 @@
           <div 
             @mouseover="thirdpanelText = true"
             @mouseover.away="thirdpanelText = false"
-            class="flex-grow flex flex-col items-center w-1/3  cursor-pointer"
+            class="flex-grow flex flex-col items-center md:w-1/3  cursor-pointer"
           >
             
             <div
-              class="bg-white overflow-hidden w-full relative h-72 pb-36 rounded-lg"
-            >
-              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue-light text-3xl p-2 rounded-lg h-full w-full opacity-50" 
-                x-bind:class='{"opacity-70": thirdpanelText }'
-              ></span>
-              <img
-                src="https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg"
-                class="absolute h-full w-full object-cover object-center"
-                alt=""
-                style="z-index: 1;"
-              />
-              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl  rounded-lg pt-6 ml-8">
-                Daily Dose of Econ
-                <i class="fas fa-angle-right"></i>
-              </span>
-              <div 
-              style="font-family: 'Roboto', sans-serif;"
-              x-bind:class='{ "pt-4 text-opacity-100": thirdpanelText  }'
-              class="absolute transition-all w-full z-10 text-white px-8 mt-16 text-opacity-0"
-              >
-                Daily resources to bring economics to life in your classroom!
-              </div>
-              
-            </div>
-            
-          </div>
-        </div>
-        <!--First panel end-->
-
-        <!--Second panel-->
-        <div x-show="secondpanelOpen" class="flex flex-row w-full mt-8 space-x-1 ">
-          <!--first card-->
-          <div 
-            class="flex-grow flex flex-col items-center w-1/2  cursor-pointer "
-          >
-            
-            <div
-              class="bg-white overflow-hidden w-full relative h-72  pb-36 rounded-lg"
-            >
-              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue text-3xl p-2 rounded-lg h-full w-full opacity-100"></span>
-              <img
-                src="https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg"
-                class="absolute h-full w-full object-cover object-center"
-                alt=""
-                style="z-index: 1;"
-              />
-              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl p-2 rounded-lg pt-6 pl-8">
-                Join a Family Financial Literacy Event!
-                <i class="fas fa-angle-right"></i>
-              </span>
-              <span 
-                style="font-family: 'Roboto', sans-serif;"
-                class="absolute  w-full z-10 text-white px-8 mt-24"
-              >Come together for a fun event to learn about making good personal finance decisions, why money matters, and how you can make it work for YOU!</span>
-
-              <button 
-                type="button" 
-                 
-                class="absolute rounded text-xl w-3/6 h-1/6 font-semibold ml-8 mt-44 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:bg-white hover:text-cblue-dark border-2 border-white text-white font-normal px-4 z-40"
-              >
-                  Learn More
-              </button>
-              
-            </div>
-            
-          </div>
-          <!--second card-->
-          <div 
-            @mouseover="secondpanelText = true"
-            @mouseover.away="secondpanelText = false"
-            class="flex-grow flex flex-col items-center w-1/3  cursor-pointer"
-          >
-            
-            <div
-              class="bg-white overflow-hidden w-full relative h-72 pb-36 rounded-lg"
-            >
-              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue-dark text-3xl p-2 rounded-lg h-full w-full opacity-50" 
-                x-bind:class='{"opacity-70": secondpanelText }'
-              ></span>
-              <img
-                src="https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg"
-                class="absolute h-full w-full object-cover object-center"
-                alt=""
-                style="z-index: 1;"
-              />
-              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl  rounded-lg pt-6 ml-8">
-                Learn about our Black, Indigenous, People of Color (BIPOC) Economic Equity Initiative
-                <i class="fas fa-angle-right"></i>
-              </span>
-              <div 
-              style="font-family: 'Roboto', sans-serif;"
-              x-bind:class='{ "pt-4 text-opacity-100": secondpanelText  }'
-              class="absolute transition-all ease-in-out w-full z-10 text-white px-8 mt-16 text-opacity-0"
-              >
-                
-              </div>
-              
-            </div>
-            
-          </div>
-          <!--third card-->
-          <div 
-            @mouseover="thirdpanelText = true"
-            @mouseover.away="thirdpanelText = false"
-            class="flex-grow flex flex-col items-center w-1/3  cursor-pointer"
-          >
-            
-            <div
-              class="bg-white overflow-hidden w-full relative h-72 pb-36 rounded-lg"
+              class="bg-white overflow-hidden w-full relative md:h-72 m-md:pb-2 md:pb-36 rounded-lg m-md:flex m-md:flex-col m-md:w-11/12 m-md:w-11/12"
             >
               <span id="camp-text" style="z-index: 2;" class="absolute bg-cgreen text-3xl p-2 rounded-lg h-full w-full opacity-50" 
                 x-bind:class='{"opacity-70": thirdpanelText }'
@@ -424,54 +319,54 @@
                 alt=""
                 style="z-index: 1;"
               />
-              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl  rounded-lg pt-6 mx-8">
-                Learn more about CCEE
+              <span id="camp-text" style="z-index: 3;" class="md:absolute text-gray-800 text-3xl  rounded-lg pt-6 ml-8">
+                Student Contests
                 <i class="fas fa-angle-right"></i>
               </span>
               <div 
               style="font-family: 'Roboto', sans-serif;"
-              x-bind:class='{ "pt-4 text-opacity-100": thirdpanelText  }'
-              class="absolute transition-all w-full z-10 text-white px-8 mt-16 text-opacity-0"
+              x-bind:class='{ "pt-4 md:text-opacity-100": thirdpanelText  }'
+              class="md:absolute m-md:block m-md:py-4 transition-all ease-in-out w-full z-10 text-white px-8 md:mt-16 md:text-opacity-0"
               >
-                Find out how we’re building a brighter future for California, one classroom at a time. 
+                Win cash prizes and empower your students to succeed through our hands-on, experiential learning competitions.
               </div>
               
             </div>
             
           </div>
         </div>
-        <!--Second panel end-->
+        <!--First panel end-->
 
-        <!--Third panel-->
-        <div x-show="thirdpanelOpen" class="flex flex-row w-full mt-8 space-x-1 ">
+        <!--Second panel-->
+        <div x-show="secondpanelOpen" class="flex flex-col md:flex-row w-full mt-8 space-x-1 m-md:space-y-6 m-md:justify-center">
           <!--first card-->
           <div 
-            class="flex-grow flex flex-col items-center w-1/2  cursor-pointer "
+            class="flex-grow items-center md:w-1/2  cursor-pointer "
           >
             
             <div
-              class="bg-white overflow-hidden w-full relative h-72  pb-36 rounded-lg"
+              class="bg-white overflow-hidden w-full relative md:h-72 h-2/3 m-md:w-11/12 pb-12 md:pb-36 rounded-lg flex flex-col mx-auto"
             >
-              <span id="camp-text" style="z-index: 2;" class="absolute bg-cgreen text-3xl p-2 rounded-lg h-full w-full opacity-100"></span>
+              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue-dark text-3xl p-2 rounded-lg h-full w-full opacity-100"></span>
               <img
                 src="https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg"
                 class="absolute h-full w-full object-cover object-center"
                 alt=""
                 style="z-index: 1;"
               />
-              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl p-2 rounded-lg pt-6 pl-8">
-                Support CCEE’s Work
+              <span id="camp-text" style="z-index: 3;" class="md:absolute text-gray-800 text-3xl p-2 rounded-lg pt-6 pl-8">
+                Attend Professional Development Sessions
                 <i class="fas fa-angle-right"></i>
               </span>
               <span 
                 style="font-family: 'Roboto', sans-serif;"
-                class="absolute  w-full z-10 text-white px-8 mt-20"
-              >Help us build intergenerational mobility by empowering K-12 educators to teach economics and personal finance education in California’s schools </span>
+                class="md:absolute  w-full z-10 text-white px-8 md:mt-24"
+              >Whether you’re just starting, or you’ve been teaching for years, there’s a CCEE program that will fit every educator's needs!</span>
 
               <button 
                 type="button" 
                  
-                class="absolute rounded text-xl w-3/6 h-1/6 font-semibold ml-8 mt-44 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:bg-white hover:text-cblue-dark border-2 border-white text-white font-normal px-4 z-40"
+                class="md:absolute rounded text-xl w-3/6 h-1/6 font-semibold ml-8 m-md:mt-6 m-md:mb-2 md:mt-44 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:bg-white hover:text-cblue-dark border-2 border-white text-white font-normal px-4 z-40"
               >
                   Learn More
               </button>
@@ -483,13 +378,13 @@
           <div 
             @mouseover="secondpanelText = true"
             @mouseover.away="secondpanelText = false"
-            class="flex-grow flex flex-col items-center w-1/3  cursor-pointer"
+            class="flex-grow flex flex-col items-center md:w-1/3  cursor-pointer"
           >
             
             <div
-              class="bg-white overflow-hidden w-full relative h-72 pb-36 rounded-lg"
+              class="bg-white overflow-hidden w-full relative md:h-72 m-md:pb-2 md:pb-36 rounded-lg m-md:flex m-md:flex-col m-md:w-11/12 m-md:w-11/12"
             >
-              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue-dark text-3xl p-2 rounded-lg h-full w-full opacity-50" 
+              <span id="camp-text" style="z-index: 2;" class="absolute bg-cgreen text-3xl p-2 rounded-lg h-full w-full opacity-50" 
                 x-bind:class='{"opacity-70": secondpanelText }'
               ></span>
               <img
@@ -498,16 +393,16 @@
                 alt=""
                 style="z-index: 1;"
               />
-              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl  rounded-lg pt-6 ml-8">
-                For 60 years, we’ve been dedicated to economics and financial literacy 
+              <span id="camp-text" style="z-index: 3;" class="md:absolute text-gray-800 text-3xl  rounded-lg pt-6 ml-8">
+                Student Contests
                 <i class="fas fa-angle-right"></i>
               </span>
               <div 
               style="font-family: 'Roboto', sans-serif;"
-              x-bind:class='{ "pt-4 text-opacity-100": secondpanelText  }'
-              class="absolute transition-all ease-in-out w-full z-10 text-white px-8 mt-40 text-opacity-0"
+              x-bind:class='{ "pt-4 md:text-opacity-100": secondpanelText  }'
+              class="md:absolute m-md:block m-md:py-4 transition-all ease-in-out w-full z-10 text-white px-8 md:mt-16 md:text-opacity-0"
               >
-                Learn more about CCEE & how we’re supporting California’s educators to empower their students
+                Win cash prizes and empower your students to succeed through our hands-on, experiential learning competitions.
               </div>
               
             </div>
@@ -517,13 +412,13 @@
           <div 
             @mouseover="thirdpanelText = true"
             @mouseover.away="thirdpanelText = false"
-            class="flex-grow flex flex-col items-center w-1/3  cursor-pointer"
+            class="flex-grow flex flex-col items-center md:w-1/3  cursor-pointer"
           >
             
             <div
-              class="bg-white overflow-hidden w-full relative h-72 pb-36 rounded-lg"
+              class="bg-white overflow-hidden w-full relative md:h-72 m-md:pb-2 md:pb-36 rounded-lg m-md:flex m-md:flex-col m-md:w-11/12 m-md:w-11/12"
             >
-              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue text-3xl p-2 rounded-lg h-full w-full opacity-50" 
+              <span id="camp-text" style="z-index: 2;" class="absolute bg-cgreen text-3xl p-2 rounded-lg h-full w-full opacity-50" 
                 x-bind:class='{"opacity-70": thirdpanelText }'
               ></span>
               <img
@@ -532,16 +427,124 @@
                 alt=""
                 style="z-index: 1;"
               />
-              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl  rounded-lg pt-6 mx-8">
-                I want to bring K-12 economics and personal finance education to my school 
+              <span id="camp-text" style="z-index: 3;" class="md:absolute text-gray-800 text-3xl  rounded-lg pt-6 ml-8">
+                Student Contests
                 <i class="fas fa-angle-right"></i>
               </span>
               <div 
               style="font-family: 'Roboto', sans-serif;"
-              x-bind:class='{ "pt-4 text-opacity-100": thirdpanelText  }'
-              class="absolute transition-all w-full z-10 text-white px-8 mt-44 text-opacity-0"
+              x-bind:class='{ "pt-4 md:text-opacity-100": thirdpanelText  }'
+              class="md:absolute m-md:block m-md:py-4 transition-all ease-in-out w-full z-10 text-white px-8 md:mt-16 md:text-opacity-0"
               >
-                Let’s work together to make it happen!
+                Win cash prizes and empower your students to succeed through our hands-on, experiential learning competitions.
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+        <!--Second panel end-->
+
+        <!--Third panel-->
+        <div x-show="thirdpanelOpen" class="flex flex-col md:flex-row w-full mt-8 space-x-1 m-md:space-y-6 m-md:justify-center">
+          <!--first card-->
+          <div 
+            class="flex-grow items-center md:w-1/2  cursor-pointer "
+          >
+            
+            <div
+              class="bg-white overflow-hidden w-full relative md:h-72 h-2/3 m-md:w-11/12 pb-12 md:pb-36 rounded-lg flex flex-col mx-auto"
+            >
+              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue-dark text-3xl p-2 rounded-lg h-full w-full opacity-100"></span>
+              <img
+                src="https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg"
+                class="absolute h-full w-full object-cover object-center"
+                alt=""
+                style="z-index: 1;"
+              />
+              <span id="camp-text" style="z-index: 3;" class="md:absolute text-gray-800 text-3xl p-2 rounded-lg pt-6 pl-8">
+                Attend Professional Development Sessions
+                <i class="fas fa-angle-right"></i>
+              </span>
+              <span 
+                style="font-family: 'Roboto', sans-serif;"
+                class="md:absolute  w-full z-10 text-white px-8 md:mt-24"
+              >Whether you’re just starting, or you’ve been teaching for years, there’s a CCEE program that will fit every educator's needs!</span>
+
+              <button 
+                type="button" 
+                 
+                class="md:absolute rounded text-xl w-3/6 h-1/6 font-semibold ml-8 m-md:mt-6 m-md:mb-2 md:mt-44 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:bg-white hover:text-cblue-dark border-2 border-white text-white font-normal px-4 z-40"
+              >
+                  Learn More
+              </button>
+              
+            </div>
+            
+          </div>
+          <!--second card-->
+          <div 
+            @mouseover="secondpanelText = true"
+            @mouseover.away="secondpanelText = false"
+            class="flex-grow flex flex-col items-center md:w-1/3  cursor-pointer"
+          >
+            
+            <div
+              class="bg-white overflow-hidden w-full relative md:h-72 m-md:pb-2 md:pb-36 rounded-lg m-md:flex m-md:flex-col m-md:w-11/12 m-md:w-11/12"
+            >
+              <span id="camp-text" style="z-index: 2;" class="absolute bg-cgreen text-3xl p-2 rounded-lg h-full w-full opacity-50" 
+                x-bind:class='{"opacity-70": secondpanelText }'
+              ></span>
+              <img
+                src="https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg"
+                class="absolute h-full w-full object-cover object-center"
+                alt=""
+                style="z-index: 1;"
+              />
+              <span id="camp-text" style="z-index: 3;" class="md:absolute text-gray-800 text-3xl  rounded-lg pt-6 ml-8">
+                Student Contests
+                <i class="fas fa-angle-right"></i>
+              </span>
+              <div 
+              style="font-family: 'Roboto', sans-serif;"
+              x-bind:class='{ "pt-4 md:text-opacity-100": secondpanelText  }'
+              class="md:absolute m-md:block m-md:py-4 transition-all ease-in-out w-full z-10 text-white px-8 md:mt-16 md:text-opacity-0"
+              >
+                Win cash prizes and empower your students to succeed through our hands-on, experiential learning competitions.
+              </div>
+              
+            </div>
+            
+          </div>
+          <!--third card-->
+          <div 
+            @mouseover="thirdpanelText = true"
+            @mouseover.away="thirdpanelText = false"
+            class="flex-grow flex flex-col items-center md:w-1/3  cursor-pointer"
+          >
+            
+            <div
+              class="bg-white overflow-hidden w-full relative md:h-72 m-md:pb-2 md:pb-36 rounded-lg m-md:flex m-md:flex-col m-md:w-11/12 m-md:w-11/12"
+            >
+              <span id="camp-text" style="z-index: 2;" class="absolute bg-cgreen text-3xl p-2 rounded-lg h-full w-full opacity-50" 
+                x-bind:class='{"opacity-70": thirdpanelText }'
+              ></span>
+              <img
+                src="https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg"
+                class="absolute h-full w-full object-cover object-center"
+                alt=""
+                style="z-index: 1;"
+              />
+              <span id="camp-text" style="z-index: 3;" class="md:absolute text-gray-800 text-3xl  rounded-lg pt-6 ml-8">
+                Student Contests
+                <i class="fas fa-angle-right"></i>
+              </span>
+              <div 
+              style="font-family: 'Roboto', sans-serif;"
+              x-bind:class='{ "pt-4 md:text-opacity-100": thirdpanelText  }'
+              class="md:absolute m-md:block m-md:py-4 transition-all ease-in-out w-full z-10 text-white px-8 md:mt-16 md:text-opacity-0"
+              >
+                Win cash prizes and empower your students to succeed through our hands-on, experiential learning competitions.
               </div>
               
             </div>
@@ -685,7 +688,7 @@
       <!-- end recent posts -->
 
       <!-- subscribe -->
-        <div id="ccee-blue" class="bg-black flex md:shadow mt-24 mb-10 p-4 pt-6 w-full h-64">
+        <div  class="bg-cblue flex m-md:flex-col md:shadow mt-24 mb-10 p-4 pt-6 w-full h-5/6 md:h-64">
           <i class="fas fa-horizontal-rule"></i>
           <div class="p-10" style="color: #88c23d;">
             <i class="fas fa-envelope-open-text fa-7x"></i>
@@ -705,7 +708,7 @@
         </div>
       <!-- end subscribe section -->
 
-    <div class="absolute -ml-64 w-170 h-2/5 bg-cblue -z-1 mt-6"></div>  
+    <div class="absolute -ml-64  h-2/5 bg-cblue -z-1 mt-6"></div>  
     <div class=" h-2/5 -z-1 flex flex-col items-center mt-16">
       <h1 id="header" class="text-7xl text-center pt-16">bottom of page <br /> call to action</h1>
       <button type="button"  class=" flex-grow-0 mt-8 border-2 font-semibold ml-6  btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline  border-white hover:border-black-500 hover:bg-white text-white hover:text-blue-500 font-normal py-2 px-4">

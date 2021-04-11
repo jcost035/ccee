@@ -114,18 +114,21 @@
   {% include "polls/banner-nav.html"%}
 
   <h1 class="text-7xl mx-auto text-cblue mt-44" style="font-family: 'Bebas Neue', cursive;">Staff</h1>
-  <h1 class="text-4xl mx-auto my-2 mb-12" style="font-family: 'Bebas Neue', cursive;">Seasoned professionals in economics and financial literacy education</h1>
-  <div class="mx-24">
+  <h1 class="text-4xl mx-auto my-2 mb-12 m-md:text-center" style="font-family: 'Bebas Neue', cursive;">Seasoned professionals in economics and financial literacy education</h1>
+  <div class="mx-6 m-md:text-center md:mx-24">
     
     <!--Staff #1-->
 
     {%for staff in staff_list %}
     <div class=" border-t-2 border-b-2 py-8 border-gray-500">
+      <div class="md:hidden ml-10  h-72 overflow-hidden content-center object-center rounded-lg">
+        <img class="object-cover object-left  h-full rounded-full" src="{{staff.photo.url}}">
+      </div>
       <h1 class="text-2xl font-bold">{{staff.name}}</h1>
       <h1 class="text-xl font-bold text-cblue">{{staff.position}}</h1>
-      <div class="flex flex-row">
+      <div class="flex flex-col md:flex-row">
         
-        <div class="w-11/12">
+        <div class="md:w-11/12">
           <p class="leading-loose my-8 text-sm" style="font-family: 'Roboto', sans-serif;" >{{staff.bio}}</p>
           <p class="leading-loose mt-6 text-md font-bold" style="font-family: 'Roboto', sans-serif;" >{{staff.phone}}</p>
           <p class="leading-loose text-md text-cblue font-bold" style="font-family: 'Roboto', sans-serif;" >{{staff.email}}</p>
@@ -134,7 +137,7 @@
           </button>
         </div>
         
-        <div class="ml-10 w-6/12 h-96 overflow-hidden content-center object-center rounded-lg">
+        <div class="m-md:hidden ml-10 w-6/12 h-96 overflow-hidden content-center object-center rounded-lg">
           <img class="object-cover object-left  h-full rounded-full" src="{{staff.photo.url}}">
         </div>
         

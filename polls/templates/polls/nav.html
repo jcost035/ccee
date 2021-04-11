@@ -1,94 +1,77 @@
 <script>
-  
-  function data() {
-    return {
-      open: false,
-      ourteamOpen : false,
-      centersOpen : false,
-      bodOpen : false,
-      dapOpen : false,
-      arOpen : false,
-      atTop : true,
-      popupOpen : false,
-      whatwedoOpen : false,
-      menuClear(openMenu) {
-        if(openMenu == 'ourteamOpen')
-        {
-          this.ourteamOpen = true
-        }
-        else
-        {
-          this.ourteamOpen = false
-        }
+    function data() {
+        return {
+            open: false,
+            ourteamOpen: false,
+            centersOpen: false,
+            bodOpen: false,
+            dapOpen: false,
+            arOpen: false,
+            atTop: true,
+            popupOpen: false,
+            whatwedoOpen: false,
+            menuClear(openMenu) {
+                if (openMenu == 'ourteamOpen') {
+                    this.ourteamOpen = true
+                } else {
+                    this.ourteamOpen = false
+                }
 
-        if(openMenu == 'centersOpen')
-        {
-          this.centersOpen = true
-        }
-        else
-        {
-          this.centersOpen = false
-        }
+                if (openMenu == 'centersOpen') {
+                    this.centersOpen = true
+                } else {
+                    this.centersOpen = false
+                }
 
-        if(openMenu == 'bodOpen')
-        {
-          this.bodOpen = true
-        }
-        else
-        {
-          this.bodOpen = false
-        }
+                if (openMenu == 'bodOpen') {
+                    this.bodOpen = true
+                } else {
+                    this.bodOpen = false
+                }
 
-        if(openMenu == 'dapOpen')
-        {
-          this.dapOpen = true
-        }
-        else
-        {
-          this.dapOpen = false
-        }
+                if (openMenu == 'dapOpen') {
+                    this.dapOpen = true
+                } else {
+                    this.dapOpen = false
+                }
 
-        if(openMenu == 'arOpen')
-        {
-          this.arOpen = true
+                if (openMenu == 'arOpen') {
+                    this.arOpen = true
+                } else {
+                    this.arOpen = false
+                }
+
+            },
+
+            clearsubmenus() {
+                this.ourteamOpen = false
+                this.centersOpen = false
+                this.bodOpen = false
+                this.dapOpen = false
+                this.arOpen = false
+            }
         }
-        else
-        {
-          this.arOpen = false
-        }
-        
-      },
-      
-      clearsubmenus()
-      {
-        this.ourteamOpen = false
-        this.centersOpen = false
-        this.bodOpen = false
-        this.dapOpen = false
-        this.arOpen = false
-      }
     }
-  }
 </script>
 
 <script>
-  function popupData() {
-      return {
-        popupOpen : false
-      }
-  }
+    function popupData() {
+        return {
+            popupOpen: false
+        }
+    }
 </script>
 
 <script>
-  function panelData() {
-      return {
-        firstpanelOpen : true,
-        secondpanelOpen : false,
-        thirdpanelOpen : false,
-        secondpanelText : false,
-        thirdpanelText : false,
-      }
-  }
+    function panelData() {
+        return {
+            firstpanelOpen: true,
+            secondpanelOpen: false,
+            thirdpanelOpen: false,
+            secondpanelText: false,
+            thirdpanelText: false,
+        }
+    }
 </script>
 
 
@@ -106,298 +89,288 @@
 {% endif %}
 -->
 
-<div x-data="data()" class="z-50 relative">
-<!-- Navbar -->
-    <div
-      class=" transition transition-height duration-500 ease-in-out w-full text-gray-700 bg-white h-20 fixed top-0 animated z-40"
-      x-bind:class='{ " shadow-lg": !atTop, "h-24 shadow-md": atTop  }'
-      
-      x-on:scroll.window="atTop = (window.pageYOffset > 100) ? false : true; "
-      x-transition:enter="transition ease-out duration-300"
-      
-      x-transition:leave="transition ease-in duration-300"
-    >
-      <div
-        x-on:scroll.window="atTop = (window.pageYOffset > 100) ? false : true; "
-        x-bind:class="{'mt-2 mb-2': atTop }"
-        
-        class="flex flex-col transition duration-500 max-w-screen-2xl px-2 mt-0  mx-auto md:items-center md:justify-between md:flex-row "
-      >
-        <div class="p-4 sm:flex flex-row space-x-8 items-center justify-between hidden">
-          <a
-            href="/polls"
-            class="pr-10 tracking-widest rounded-lg flex-none focus:outline-none focus:shadow-outline"
-          >
-            <img  class="-mt-4 h-20"src="https://ccee.org/wp-content/uploads/2019/07/CCEE-Logo-Final-5-2019-e1563236007990.png"/>
-          </a>
+<script>
+    function mobileData() {
+        return {
+            menuOpen: false,
+            aboutOpen: false,
+            programOpen: false,
+            resourceOpen: false,
+            newsOpen: false,
+            involvedOpen: false,
+            open(section) {
+                switch (section) {
+                    case "about":
+                        this.aboutOpen = !this.aboutOpen;
+                        this.programOpen = false;
+                        this.resourceOpen = false;
+                        this.newsOpen = false;
+                        this.involvedOpen = false;
+                        break;
+                    case "program":
+                        this.aboutOpen = false;
+                        this.programOpen = !this.programOpen;
+                        this.resourceOpen = false;
+                        this.newsOpen = false;
+                        this.involvedOpen = false;
+                        break;
+                    case "resource":
+                        this.aboutOpen = false;
+                        this.programOpen = false;
+                        this.resourceOpen = !this.resourceOpen;
+                        this.newsOpen = false;
+                        this.involvedOpen = false;
+                        break;
+                    case "news":
+                        this.aboutOpen = false;
+                        this.programOpen = false;
+                        this.resourceOpen = false;
+                        this.newsOpen = !this.newsOpen;
+                        this.involvedOpen = false;
+                        break;
+                    case "involved":
+                        this.aboutOpen = false;
+                        this.programOpen = false;
+                        this.resourceOpen = false;
+                        this.newsOpen = false;
+                        this.involvedOpen = !this.involvedOpen;
+                        break;
+                }
 
-          <!--About us-->
-          <div 
-            @mouseover.away = "open = false
-              whatwedoOpen = false"
-            x-on:mouseover="open = true
-              whatwedoOpen = true"
-            x-on:click = "open = !open"
-            class="relative py-2"
-            x-data="data()"
-          >
-            <button 
-              x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }'
-              class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none "
-            >
+            }
+        }
+    }
+</script>
+
+<div x-data="data()" class="z-50 relative ">
+
+    <div class="bg-white shadow-md w-full h-24 fixed flex flex-row justify-end md:hidden" x-data="mobileData()">
+        <button class="rounded bg-white border mx-2 my-4 px-6 h-16" @click="menuOpen = !menuOpen">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        <div class="absolute rounded-b-lg bg-white mx-4 mt-24 w-11/12" x-show="menuOpen">
+            <div class="flex flex-col">
+
+                <a class="bg-gray-100 text-center cursor-pointer font-roboto py-2 text-xl" @click="open('about')" x-bind:class="{'bg-cblue' : aboutOpen}">About Us 
+                  <i class="fas fa-caret-down" x-show="!aboutOpen"></i><i class="fas fa-caret-up" x-show="aboutOpen"></i>
+                </a>
+                <div x-show="aboutOpen" class="flex flex-col">
+                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl">Make economics and money understandable!</a>
+                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 text-xl">History + Mission</a>
+                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 text-xl">Our Team</a>
+                    <a class="hidden bg-gray-300 text-center cursor-pointer font-roboto py-2 text-xl">CCEE Centers on Economic Education</a>
+                    <a class="hidden bg-gray-300 text-center cursor-pointer font-roboto py-2 text-xl">Impact/Annual Reports</a>
+                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 text-xl">Partners and Donors</a>
+                </div>
+
+                <a class=" bg-gray-100 text-center cursor-pointer font-roboto py-2 text-xl " @click="open( 'program') " x-bind:class="{ 'bg-cblue' : programOpen} ">Programs <i class="fas fa-caret-down "></i></a>
+
+                <div x-show="programOpen " class="flex flex-col ">
+                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Educator Programs</a>
+                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Student Programs</a>
+                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Community</a>
+                    <a class="hidden bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Partner Programs</a>
+                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Find upcoming programs and events</a>
+                </div>
+
+                <a class="bg-gray-100 text-center cursor-pointer font-roboto py-2 text-xl " @click="open( 'resource') " x-bind:class="{ 'bg-cblue' : resourceOpen} ">Resources <i class="fas fa-caret-down "></i></a>
+
+                <div x-show="resourceOpen " class="flex flex-col ">
+                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Daily Dose of Econ</a>
+                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Research</a>
+                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Resources</a>
+                    <a class="hidden bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Affiliate Partner Resources</a>
+                </div>
+
+                <a class="bg-gray-100 text-center cursor-pointer font-roboto py-2 text-xl " @click="open( 'news') " x-bind:class="{ 'bg-cblue' : newsOpen} ">News <i class="fas fa-caret-down "></i></a>
+
+                <div x-show="newsOpen " class="flex flex-col ">
+                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">CCEE in the News</a>
+                </div>
+
+                <a class="rounded-b-lg bg-gray-100 text-center cursor-pointer font-roboto py-2 text-xl " @click="open( 'involved') " x-bind:class="{ 'rounded-b-none bg-cblue ' : involvedOpen} ">Get Involved <i class="fas fa-caret-down "></i></a>
+
+                <div x-show="involvedOpen " class="flex flex-col ">
+                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Daily Dose of Econ</a>
+                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Research</a>
+                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Resources</a>
+                    <a class="rounded-b-lg bg-gray-100 text-center cursor-pointer font-roboto py-4 px-10 text-xl "> </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navbar -->
+    <div class="m-md:hidden transition transition-height duration-500 ease-in-out w-full text-gray-700 bg-white h-20 fixed top-0 animated z-40 " x-bind:class='{ " shadow-lg ": !atTop, "h-24 shadow-md ": atTop  }' x-on:scroll.window="atTop=( window.pageYOffset>                100) ? false : true; "
+        x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
+        <div x-on:scroll.window="atTop = (window.pageYOffset > 100) ? false : true; " x-bind:class="{'mt-2 mb-2': atTop }" class="flex flex-col transition duration-500 max-w-screen-2xl px-2 mt-0  mx-auto md:items-center md:justify-between md:flex-row ">
+            <div class="p-4 sm:flex flex-row space-x-8 items-center justify-between hidden">
+                <a href="/polls" class="pr-10 tracking-widest rounded-lg flex-none focus:outline-none focus:shadow-outline">
+                    <img class="-mt-4 h-20" src="https://ccee.org/wp-content/uploads/2019/07/CCEE-Logo-Final-5-2019-e1563236007990.png" />
+                </a>
+
+                <!--About us-->
+                <div @mouseover.away="open = false
+              whatwedoOpen = false" x-on:mouseover="open = true
+              whatwedoOpen = true" x-on:click="open = !open" class="relative py-2" x-data="data()">
+                    <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none ">
               About Us
             </button>
 
-            <div 
-              x-show="open"
-              x-transition:enter="transition ease-out duration-100"
-              x-transition:enter-start="transform opacity-0 scale-95"
-              x-transition:enter-end="transform opacity-100 scale-100"
-              x-transition:leave="transition ease-in duration-50"
-              x-transition:leave-start="transform opacity-100 scale-100"
-              x-transition:leave-end="transform opacity-0 scale-95"
-              class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-48"
-            >
-              <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
-                <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Make Economics and money understandable!</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">History + Mission</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Our Team</a>
-                <a class="hidden block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">CCEE Centers on Economic Education</a>
-                <a class="hidden block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Impact/Annual Reports</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Partners + Donors</a>
-              </div>
-            </div>
-          </div>
-          <!--About us end-->
+                    <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-50" x-transition:leave-start="transform opacity-100 scale-100"
+                        x-transition:leave-end="transform opacity-0 scale-95" class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-48">
+                        <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
+                            <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Make Economics and money understandable!</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">History + Mission</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Our Team</a>
+                            <a class="hidden block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">CCEE Centers on Economic Education</a>
+                            <a class="hidden block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Impact/Annual Reports</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Partners + Donors</a>
+                        </div>
+                    </div>
+                </div>
+                <!--About us end-->
 
-          <!-- Programs (What we do)-->
-          <div 
-            @mouseover.away = "open = false
-              whatwedoOpen = false"
-            x-on:mouseover="open = true
-              whatwedoOpen = true"
-            x-on:click = "open = !open"
-            class="relative py-2"
-            x-data="data()"
-          >
-            <button 
-              x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }'
-              class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none "
-            >
+                <!-- Programs (What we do)-->
+                <div @mouseover.away="open = false
+              whatwedoOpen = false" x-on:mouseover="open = true
+              whatwedoOpen = true" x-on:click="open = !open" class="relative py-2" x-data="data()">
+                    <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none ">
               Programs
             </button>
 
-            <div 
-              x-show="open"
-              x-transition:enter="transition ease-out duration-100"
-              x-transition:enter-start="transform opacity-0 scale-95"
-              x-transition:enter-end="transform opacity-100 scale-100"
-              x-transition:leave="transition ease-in duration-50"
-              x-transition:leave-start="transform opacity-100 scale-100"
-              x-transition:leave-end="transform opacity-0 scale-95"
-              class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-48"
-            >
-              <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
-                <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Educator Programs</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Student Programs</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Community Programs</a>
-                <a class="hidden block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Affiliate/Partner Programs</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Find upcoming events and programs</a>
-              </div>
-            </div>
-          </div>
-          <!--Programs end-->
+                    <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-50" x-transition:leave-start="transform opacity-100 scale-100"
+                        x-transition:leave-end="transform opacity-0 scale-95" class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-48">
+                        <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
+                            <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Educator Programs</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Student Programs</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Community Programs</a>
+                            <a class="hidden block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Affiliate/Partner Programs</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Find upcoming events and programs</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Programs end-->
 
-          <!--Resources-->
-          <div 
-            @mouseover.away = "open = false
-              whatwedoOpen = false"
-            x-on:mouseover="open = true
-              whatwedoOpen = true"
-            x-on:click = "open = !open"
-            class="relative py-2"
-            x-data="data()"
-          >
-            <button 
-              x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }'
-              class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none "
-            >
+                <!--Resources-->
+                <div @mouseover.away="open = false
+              whatwedoOpen = false" x-on:mouseover="open = true
+              whatwedoOpen = true" x-on:click="open = !open" class="relative py-2" x-data="data()">
+                    <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none ">
               Resources
             </button>
 
-            <div 
-              x-show="open"
-              x-transition:enter="transition ease-out duration-100"
-              x-transition:enter-start="transform opacity-0 scale-95"
-              x-transition:enter-end="transform opacity-100 scale-100"
-              x-transition:leave="transition ease-in duration-50"
-              x-transition:leave-start="transform opacity-100 scale-100"
-              x-transition:leave-end="transform opacity-0 scale-95"
-              class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-48"
-            >
-              <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
-                <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Daily Dose of Econ</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Research</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Resources</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Affiliate Partner Resources</a>
-              </div>
-            </div>
-          </div>
-          <!--Resources end-->
+                    <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-50" x-transition:leave-start="transform opacity-100 scale-100"
+                        x-transition:leave-end="transform opacity-0 scale-95" class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-48">
+                        <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
+                            <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Daily Dose of Econ</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Research</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Resources</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Affiliate Partner Resources</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Resources end-->
 
-          <!--News-->
-          <div 
-            @mouseover.away = "open = false
-              whatwedoOpen = false"
-            x-on:mouseover="open = true
-              whatwedoOpen = true"
-            x-on:click = "open = !open"
-            class="relative py-2"
-            x-data="data()"
-          >
-            <button 
-              x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }'
-              class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none "
-            >
+                <!--News-->
+                <div @mouseover.away="open = false
+              whatwedoOpen = false" x-on:mouseover="open = true
+              whatwedoOpen = true" x-on:click="open = !open" class="relative py-2" x-data="data()">
+                    <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none ">
               News
             </button>
 
-            <div 
-              x-show="open"
-              x-transition:enter="transition ease-out duration-100"
-              x-transition:enter-start="transform opacity-0 scale-95"
-              x-transition:enter-end="transform opacity-100 scale-100"
-              x-transition:leave="transition ease-in duration-50"
-              x-transition:leave-start="transform opacity-100 scale-100"
-              x-transition:leave-end="transform opacity-0 scale-95"
-              class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-48"
-            >
-              <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
-                <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">CCEE in the News</a>
-              </div>
-            </div>
-          </div>
-          <!--News end-->
+                    <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-50" x-transition:leave-start="transform opacity-100 scale-100"
+                        x-transition:leave-end="transform opacity-0 scale-95" class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-48">
+                        <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
+                            <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">CCEE in the News</a>
+                        </div>
+                    </div>
+                </div>
+                <!--News end-->
 
-          <!--Get involved-->
-          <div 
-            @mouseover.away = "open = false
-              whatwedoOpen = false"
-            x-on:mouseover="open = true
-              whatwedoOpen = true"
-            x-on:click = "open = !open"
-            class="relative py-2"
-            x-data="data()"
-          >
-            <button 
-              x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }'
-              class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none "
-            >
+                <!--Get involved-->
+                <div @mouseover.away="open = false
+              whatwedoOpen = false" x-on:mouseover="open = true
+              whatwedoOpen = true" x-on:click="open = !open" class="relative py-2" x-data="data()">
+                    <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none ">
               Get Involved
             </button>
 
-            <div 
-              x-show="open"
-              x-transition:enter="transition ease-out duration-100"
-              x-transition:enter-start="transform opacity-0 scale-95"
-              x-transition:enter-end="transform opacity-100 scale-100"
-              x-transition:leave="transition ease-in duration-50"
-              x-transition:leave-start="transform opacity-100 scale-100"
-              x-transition:leave-end="transform opacity-0 scale-95"
-              class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-48"
-            >
-              <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
-                <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Calendar</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Donate</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Volunteer</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Subscribe</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Contact Us</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Jobs/Career</a>
-              </div>
+                    <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-50" x-transition:leave-start="transform opacity-100 scale-100"
+                        x-transition:leave-end="transform opacity-0 scale-95" class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-48">
+                        <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
+                            <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Calendar</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Donate</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Volunteer</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Subscribe</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Contact Us</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Jobs/Career</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Get involved end-->
+
+                <!--right aligned nav container-->
+                <nav class="flex-col flex-grow pb-4 md:pb-0 hidden mr-14 md:flex md:justify-end md:flex-row bg-white">
+                    <!--Envelope button-->
+                    <button id="ccee-color" type="button" class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-cgreen hover:bg-cgreen-dark text-white font-normal py-2 px-4 mr-1 rounded">Donate</button>
+                    <button @click="popupOpen = true" type="button" id="button" class="btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-blue-700 hover:bg-blue-700 text-blue-700 hover:text-white font-normal py-2 px-4 rounded">Join</button>
+                    <!--Envelope button end-->
+
+
+
+
+                </nav>
+
             </div>
-          </div>
-          <!--Get involved end-->
-
-          <!--right aligned nav container-->
-          <nav
-            class="flex-col flex-grow pb-4 md:pb-0 hidden mr-14 md:flex md:justify-end md:flex-row bg-white"
-          >
-            <!--Envelope button-->
-            <button id="ccee-color" type="button" class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-cgreen hover:bg-cgreen-dark text-white font-normal py-2 px-4 mr-1 rounded">Donate</button>
-            <button @click="popupOpen = true" type="button" id="button" class="btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-blue-700 hover:bg-blue-700 text-blue-700 hover:text-white font-normal py-2 px-4 rounded">Join</button>
-            <!--Envelope button end-->
-
-            
-
-            
-          </nav>
 
         </div>
-        
-      </div>
     </div>
     <!-- End Navbar -->
 
 
 
 
-<!--pop up-->
-<div >
+    <!--pop up-->
+    <div>
 
-      <!-- Dialog (full screen) -->
-      <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full z-50" style="background-color: rgba(0,0,0,.5);" x-show="popupOpen"  >
+        <!-- Dialog (full screen) -->
+        <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full z-50" style="background-color: rgba(0,0,0,.5);" x-show="popupOpen">
 
-        <!-- A basic modal dialog with title, body and one button to close -->
-        <div class="h-auto p-4 mx-2  bg-white rounded shadow-xl  md:p-6 lg:p-8 md:mx-0 md:max-w-4xl" @click.away="popupOpen = false">
-          <div class="flex flex-row pt-8">
-            <img src="https://images.unsplash.com/photo-1579275542618-a1dfed5f54ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" 
-              class="w-0 md:w-1/4 object-cover rounded-lg" />
-            <div class="px-4 py-2 object-right">
-              <h3 class="text-3xl text-gray-800 font-bold">Get our email or whatever</h3>
-              <p class="text-xl text-gray-700">We sent latest news and posts once in every week, fresh from the oven</p>
-              <form class="mt-4 mb-10">
-                <input type="email" class="rounded bg-gray-100 px-4 py-2 border focus:border-green-400" placeholder="john@tech.com"/>
-                <button class="px-4 py-2 rounded bg-green-800 text-gray-100">
+            <!-- A basic modal dialog with title, body and one button to close -->
+            <div class="h-auto p-4 mx-2  bg-white rounded shadow-xl  md:p-6 lg:p-8 md:mx-0 md:max-w-4xl" @click.away="popupOpen = false">
+                <div class="flex flex-row pt-8">
+                    <img src="https://images.unsplash.com/photo-1579275542618-a1dfed5f54ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="w-0 md:w-1/4 object-cover rounded-lg" />
+                    <div class="px-4 py-2 object-right">
+                        <h3 class="text-3xl text-gray-800 font-bold">Get our email or whatever</h3>
+                        <p class="text-xl text-gray-700">We sent latest news and posts once in every week, fresh from the oven</p>
+                        <form class="mt-4 mb-10">
+                            <input type="email" class="rounded bg-gray-100 px-4 py-2 border focus:border-green-400" placeholder="john@tech.com" />
+                            <button class="px-4 py-2 rounded bg-green-800 text-gray-100">
                   Subscribe
                   <i class='bx bx-right-arrow-alt' ></i>
                 </button>
-                <p class="text-green-900 opacity-50 text-sm mt-1">No spam. We promise</p>
-              </form>
-            </div>
-          </div>
-          <!-- One big close button.  -->
-          <div class="mt-5 sm:mt-6">
-            <span class="flex justify-center rounded-md ">
+                            <p class="text-green-900 opacity-50 text-sm mt-1">No spam. We promise</p>
+                        </form>
+                    </div>
+                </div>
+                <!-- One big close button.  -->
+                <div class="mt-5 sm:mt-6">
+                    <span class="flex justify-center rounded-md ">
               <div @click="popupOpen = false" class="cursor-pointer min-w-24 justify-center w-auto px-12 py-2 text-green-500 rounded hover:text-green-300">
                 No thanks
               </div>
             </span>
-          </div>
+                </div>
 
+            </div>
         </div>
-      </div>
     </div>
-      <!--end pop up-->
+    <!--end pop up-->
 </div>
