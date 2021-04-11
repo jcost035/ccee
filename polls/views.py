@@ -13,14 +13,19 @@ from .models import Program
 from django.template import loader
 from django.views.generic import ListView
 
+from django.utils.safestring import mark_safe
+
 from django.db.models import Q
+import json
 
 def programs(request, prog_name):
     program = Program.objects.filter(name__icontains=prog_name)
     
     context = {
         "program": program[0],
+        "faq": program[0].faq["set"]
     }
+    
     
     return render(request, "polls/programs.html", context)
 

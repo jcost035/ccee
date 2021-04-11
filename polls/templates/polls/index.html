@@ -3,6 +3,7 @@
 <link href="{% static "site.css" %}" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet"> 
@@ -156,41 +157,42 @@
 
 <div class="pt-6 max-w-screen-xl mx-auto">
 
-    <main class="mt-24 px-16">
+    <main class="mt-24 md:px-16">
 
-      <div class="bg-black absolute bg-opacity-70 -ml-64 w-170 h-2/3 -mt-8 z-1 "></div>
+      <div class="bg-black absolute bg-opacity-70 -ml-64 w-170 h-200 md:h-2/3 -mt-8 z-1 "></div>
       <!-- featured section -->
       <div class="flex flex-wrap md:flex-no-wrap space-x-0 md:space-x-6 mb-24 ">
         
         <div style="background-image: url(https://fee.org/content/img/homepage-stories-bg-v2-compressed.png?mode=crop&width=1200)"
-          class="bg-black-800 absolute -ml-64 w-170 h-2/3 -z-1 -mt-8"></div> 
+          class="bg-black-800 absolute -ml-64 w-170 h-200 md:h-2/3 -z-1 -mt-8"></div> 
           
-        <div class="flex mb-4 lg:mb-0 mt-16 p-4 lg:p-0 h-96 w-full md:w-4/7 relative rounded block">
-          
-          <div class="-ml-24 ">
+        <div class="flex m-md:flex-col mb-4 lg:mb-0 md:mt-16 md:p-4 lg:p-0  w-full md:w-4/7 relative rounded block">
+
+          <img src="https://images.unsplash.com/photo-1427751840561-9852520f8ce8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" 
+            class="md:hidden flex-grow rounded-md object-cover object-left w-full md:-mr-24 md:m-10 border-8 border-cgreen">
+
+          <div class="md:-ml-24 ">
             
               <div  class=" transition duration-300 ease-in-out hover:opacity-50 cursor-pointer  mr-0 mt-12 pt-2 pl-4  text-green-500  text-4xl font-bold mt-2 mb-2 leading-tight box-content">
                 <h1 id="header" class="text-4xl font-thin">
                 coca cola
                 </h1>
                 <h1 id="header" class="text-7xl font-thin">
-                LET'S GET TO WORK!
+                Cheers to Equity Virtual Gala 
                 </h1>
               </div>
             <p class="pl-6 flex-shrink  text-white mb-4 -mr-0">
-              So Dunk had no trouble digging the grave. Melancholy middletons yet understood
-              decisively boy law she. Answer him easily are its barton little. Oh no though mother be things simple
-              itself.
+              Join us as we celebrate the hard work of our exceptional partners in equity and opportunity, including co-author of Rich Dad, Poor Dad, Sharon Lechter and the California Association of African-American Superintendents and Administrators!
             </p>
           
-            <button type="button" id="button" class="rounded-lg font-semibold ml-6 mt-0 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline   bg-blue-700 hover-bg-blue-300  text-white font-normal py-2 px-4">
-            LET'S GOOOOOOOOO
+            <button type="button" id="button" class="rounded-lg font-semibold ml-6 mt-0 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline   bg-cblue   text-white font-normal py-2 px-4">
+            Watch Live
             </button>
          
           </div>
 
           <img src="https://images.unsplash.com/photo-1427751840561-9852520f8ce8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" 
-            class="flex-grow rounded-md object-cover object-left w-7/12 -mr-24 m-10 border-8 border-cgreen">
+            class="hidden md:block flex-grow rounded-md object-cover object-left w-full -mr-24 m-10 border-8 border-cgreen">
           
           
         </div>
@@ -202,25 +204,25 @@
           <button @click="firstpanelOpen=true, secondpanelOpen=false, thirdpanelOpen=false" 
             type="button" 
             x-bind:class='{"text-cgray border-cgray shadow-none": !firstpanelOpen }'
-            class="rounded text-xl w-2/12 font-semibold ml-6  mt-0 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:text-cblue hover:border-cblue  border-2 border-cblue text-cblue shadow-2xl font-normal py-2 px-6"
+            class="rounded text-lg w-2/12 font-semibold ml-6  mt-0 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:text-cblue hover:border-cblue  border-2 border-cblue text-cblue shadow-2xl font-normal  px-6"
           >
-              K-12 Educators
+              I'm a K-12 Educator 
           </button>
 
           <button @click="secondpanelOpen=true, firstpanelOpen=false, thirdpanelOpen=false" 
             type="button" 
             x-bind:class='{"text-cgray border-cgray shadow-none": !secondpanelOpen }'
-            class="rounded text-xl w-2/12 font-semibold ml-6  mt-0 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:text-cblue hover:border-cblue  border-2 border-cblue text-cblue shadow-2xl font-normal py-2 px-6"
+            class="rounded text-lg w-2/12 font-semibold ml-6  mt-0 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:text-cblue hover:border-cblue  border-2 border-cblue text-cblue shadow-2xl font-normal  px-6"
           >
-              Supporters
+              I'm a California Community Member
           </button>
 
           <button @click="thirdpanelOpen=true, firstpanelOpen=false, secondpanelOpen=false" 
             type="button" 
             x-bind:class='{"text-cgray border-cgray shadow-none": !thirdpanelOpen }'
-            class="rounded text-xl w-2/12 font-semibold ml-6  mt-0 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:text-cblue hover:border-cblue  border-2 border-cblue text-cblue shadow-2xl font-normal py-2 px-6"
+            class="rounded text-lg w-2/12 font-semibold ml-6  mt-0 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:text-cblue hover:border-cblue  border-2 border-cblue text-cblue shadow-2xl font-normal  px-6"
           >
-              Community
+              I’m an Advocate
           </button>
         </div>
         
@@ -242,13 +244,13 @@
                 style="z-index: 1;"
               />
               <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl p-2 rounded-lg pt-6 pl-8">
-                Daily Dose of Econ
+                Attend Professional Development Sessions
                 <i class="fas fa-angle-right"></i>
               </span>
               <span 
                 style="font-family: 'Roboto', sans-serif;"
-                class="absolute  w-full z-10 text-white px-8 mt-20"
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</span>
+                class="absolute  w-full z-10 text-white px-8 mt-24"
+              >Whether you’re just starting, or you’ve been teaching for years, there’s a CCEE program that will fit every educator's needs!</span>
 
               <button 
                 type="button" 
@@ -281,7 +283,7 @@
                 style="z-index: 1;"
               />
               <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl  rounded-lg pt-6 ml-8">
-                Daily Dose of Econ
+                Student Contests
                 <i class="fas fa-angle-right"></i>
               </span>
               <div 
@@ -289,7 +291,7 @@
               x-bind:class='{ "pt-4 text-opacity-100": secondpanelText  }'
               class="absolute transition-all ease-in-out w-full z-10 text-white px-8 mt-16 text-opacity-0"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                Win cash prizes and empower your students to succeed through our hands-on, experiential learning competitions.
               </div>
               
             </div>
@@ -323,7 +325,7 @@
               x-bind:class='{ "pt-4 text-opacity-100": thirdpanelText  }'
               class="absolute transition-all w-full z-10 text-white px-8 mt-16 text-opacity-0"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                Daily resources to bring economics to life in your classroom!
               </div>
               
             </div>
@@ -333,35 +335,35 @@
         <!--First panel end-->
 
         <!--Second panel-->
-        <div x-show="secondpanelOpen" class="flex flex-row w-full mt-8 space-x-1">
+        <div x-show="secondpanelOpen" class="flex flex-row w-full mt-8 space-x-1 ">
           <!--first card-->
           <div 
             class="flex-grow flex flex-col items-center w-1/2  cursor-pointer "
           >
             
             <div
-              class="bg-white overflow-hidden w-full relative h-64  pb-36 rounded"
+              class="bg-white overflow-hidden w-full relative h-72  pb-36 rounded-lg"
             >
-              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue text-3xl p-2 rounded-sm h-full w-full opacity-100"></span>
+              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue text-3xl p-2 rounded-lg h-full w-full opacity-100"></span>
               <img
                 src="https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg"
                 class="absolute h-full w-full object-cover object-center"
                 alt=""
                 style="z-index: 1;"
               />
-              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl p-2 rounded-sm pt-6 pl-8">
-                Lorem
+              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl p-2 rounded-lg pt-6 pl-8">
+                Join a Family Financial Literacy Event!
                 <i class="fas fa-angle-right"></i>
               </span>
               <span 
                 style="font-family: 'Roboto', sans-serif;"
-                class="absolute  w-full z-5 text-white px-8 mt-16"
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</span>
+                class="absolute  w-full z-10 text-white px-8 mt-24"
+              >Come together for a fun event to learn about making good personal finance decisions, why money matters, and how you can make it work for YOU!</span>
 
               <button 
                 type="button" 
                  
-                class="absolute rounded text-xl w-3/6 h-1/6 font-semibold ml-8 mt-40 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:bg-white hover:text-cblue-dark border-2 border-white text-white font-normal px-4 z-40"
+                class="absolute rounded text-xl w-3/6 h-1/6 font-semibold ml-8 mt-44 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:bg-white hover:text-cblue-dark border-2 border-white text-white font-normal px-4 z-40"
               >
                   Learn More
               </button>
@@ -377,9 +379,9 @@
           >
             
             <div
-              class="bg-white overflow-hidden w-full relative h-64 pb-36 rounded"
+              class="bg-white overflow-hidden w-full relative h-72 pb-36 rounded-lg"
             >
-              <span id="camp-text" style="z-index: 2;" class="absolute bg-cgreen-dark text-3xl p-2 rounded-sm h-full w-full opacity-50" 
+              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue-dark text-3xl p-2 rounded-lg h-full w-full opacity-50" 
                 x-bind:class='{"opacity-70": secondpanelText }'
               ></span>
               <img
@@ -388,16 +390,16 @@
                 alt=""
                 style="z-index: 1;"
               />
-              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl  rounded-sm pt-6 ml-8">
-                Ipsum
+              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl  rounded-lg pt-6 ml-8">
+                Learn about our Black, Indigenous, People of Color (BIPOC) Economic Equity Initiative
                 <i class="fas fa-angle-right"></i>
               </span>
               <div 
               style="font-family: 'Roboto', sans-serif;"
               x-bind:class='{ "pt-4 text-opacity-100": secondpanelText  }'
-              class="absolute transition-all ease-in-out w-full z-1 text-white px-8 mt-16 text-opacity-0"
+              class="absolute transition-all ease-in-out w-full z-10 text-white px-8 mt-16 text-opacity-0"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                
               </div>
               
             </div>
@@ -411,9 +413,9 @@
           >
             
             <div
-              class="bg-white overflow-hidden w-full relative h-64 pb-36 rounded"
+              class="bg-white overflow-hidden w-full relative h-72 pb-36 rounded-lg"
             >
-              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue-dark text-3xl p-2 rounded-sm h-full w-full opacity-50" 
+              <span id="camp-text" style="z-index: 2;" class="absolute bg-cgreen text-3xl p-2 rounded-lg h-full w-full opacity-50" 
                 x-bind:class='{"opacity-70": thirdpanelText }'
               ></span>
               <img
@@ -422,16 +424,16 @@
                 alt=""
                 style="z-index: 1;"
               />
-              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl  rounded-sm pt-6 ml-8">
-                Dolor 
+              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl  rounded-lg pt-6 mx-8">
+                Learn more about CCEE
                 <i class="fas fa-angle-right"></i>
               </span>
               <div 
               style="font-family: 'Roboto', sans-serif;"
               x-bind:class='{ "pt-4 text-opacity-100": thirdpanelText  }'
-              class="absolute transition-all w-full z-5 text-white px-8 mt-16 text-opacity-0"
+              class="absolute transition-all w-full z-10 text-white px-8 mt-16 text-opacity-0"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                Find out how we’re building a brighter future for California, one classroom at a time. 
               </div>
               
             </div>
@@ -441,35 +443,35 @@
         <!--Second panel end-->
 
         <!--Third panel-->
-        <div x-show="thirdpanelOpen" class="flex flex-row w-full mt-8 space-x-1">
+        <div x-show="thirdpanelOpen" class="flex flex-row w-full mt-8 space-x-1 ">
           <!--first card-->
           <div 
             class="flex-grow flex flex-col items-center w-1/2  cursor-pointer "
           >
             
             <div
-              class="bg-white overflow-hidden w-full relative h-64  pb-36 rounded"
+              class="bg-white overflow-hidden w-full relative h-72  pb-36 rounded-lg"
             >
-              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue text-3xl p-2 rounded-sm h-full w-full opacity-100"></span>
+              <span id="camp-text" style="z-index: 2;" class="absolute bg-cgreen text-3xl p-2 rounded-lg h-full w-full opacity-100"></span>
               <img
                 src="https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg"
                 class="absolute h-full w-full object-cover object-center"
                 alt=""
                 style="z-index: 1;"
               />
-              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl p-2 rounded-sm pt-6 pl-8">
-                Other stuff
+              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl p-2 rounded-lg pt-6 pl-8">
+                Support CCEE’s Work
                 <i class="fas fa-angle-right"></i>
               </span>
               <span 
                 style="font-family: 'Roboto', sans-serif;"
-                class="absolute  w-full z-5 text-white px-8 mt-16"
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</span>
+                class="absolute  w-full z-10 text-white px-8 mt-20"
+              >Help us build intergenerational mobility by empowering K-12 educators to teach economics and personal finance education in California’s schools </span>
 
               <button 
                 type="button" 
                  
-                class="absolute rounded text-xl w-3/6 h-1/6 font-semibold ml-8 mt-40 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:bg-white hover:text-cblue-dark border-2 border-white text-white font-normal px-4 z-4"
+                class="absolute rounded text-xl w-3/6 h-1/6 font-semibold ml-8 mt-44 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:bg-white hover:text-cblue-dark border-2 border-white text-white font-normal px-4 z-40"
               >
                   Learn More
               </button>
@@ -485,9 +487,9 @@
           >
             
             <div
-              class="bg-white overflow-hidden w-full relative h-64 pb-36 rounded"
+              class="bg-white overflow-hidden w-full relative h-72 pb-36 rounded-lg"
             >
-              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue-dark text-3xl p-2 rounded-sm h-full w-full opacity-50" 
+              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue-dark text-3xl p-2 rounded-lg h-full w-full opacity-50" 
                 x-bind:class='{"opacity-70": secondpanelText }'
               ></span>
               <img
@@ -496,16 +498,16 @@
                 alt=""
                 style="z-index: 1;"
               />
-              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl  rounded-sm pt-6 ml-8">
-                More other stuff
+              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl  rounded-lg pt-6 ml-8">
+                For 60 years, we’ve been dedicated to economics and financial literacy 
                 <i class="fas fa-angle-right"></i>
               </span>
               <div 
               style="font-family: 'Roboto', sans-serif;"
               x-bind:class='{ "pt-4 text-opacity-100": secondpanelText  }'
-              class="absolute transition-all ease-in-out w-full z-50 text-white px-8 mt-16 text-opacity-0"
+              class="absolute transition-all ease-in-out w-full z-10 text-white px-8 mt-40 text-opacity-0"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                Learn more about CCEE & how we’re supporting California’s educators to empower their students
               </div>
               
             </div>
@@ -519,9 +521,9 @@
           >
             
             <div
-              class="bg-white overflow-hidden w-full relative h-64 pb-36 rounded"
+              class="bg-white overflow-hidden w-full relative h-72 pb-36 rounded-lg"
             >
-              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue-dark text-3xl p-2 rounded-sm h-full w-full opacity-50" 
+              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue text-3xl p-2 rounded-lg h-full w-full opacity-50" 
                 x-bind:class='{"opacity-70": thirdpanelText }'
               ></span>
               <img
@@ -530,16 +532,16 @@
                 alt=""
                 style="z-index: 1;"
               />
-              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl  rounded-sm pt-6 ml-8">
-                More
+              <span id="camp-text" style="z-index: 3;" class="absolute text-gray-800 text-3xl  rounded-lg pt-6 mx-8">
+                I want to bring K-12 economics and personal finance education to my school 
                 <i class="fas fa-angle-right"></i>
               </span>
               <div 
               style="font-family: 'Roboto', sans-serif;"
               x-bind:class='{ "pt-4 text-opacity-100": thirdpanelText  }'
-              class="absolute transition-all w-full z-50 text-white px-8 mt-16 text-opacity-0"
+              class="absolute transition-all w-full z-10 text-white px-8 mt-44 text-opacity-0"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                Let’s work together to make it happen!
               </div>
               
             </div>
@@ -550,13 +552,12 @@
         
       </div>
       
-      <!--card section-->
-      <div class="mt-10">
+
+      <!--Daily dose section-->
+      {% comment %} <div class="mt-10">
         <div class="absolute h-4/5 border-2  bg-cblue w-170 -ml-72 -z-1"></div>
         <div class="flex flex-col items-center h-40 text-center mt-4">
-            <!--<h1 id="header" class="text-8xl">RECENT CAMPAIGNS</h1>
             
-            <div id="header" class="mt-4 text-4xl">EDUCATORS BE LIKE PEE PEE POO POO LOL</div>-->
             <img
                 src="{% static 'daily-white.png' %}"
                 class="h-56"
@@ -628,10 +629,63 @@
             </div>
           </div>
       </div>
+      </div> {% endcomment %}
+
+      
+
       </div>
+      <!-- end featured section -->
+
+      
+  
+  
+
+      <!-- recent posts -->
+    
+
+      
+      <div class="block space-x-0 lg:flex lg:space-x-6 lg:space-x-12">
+
+        <div class=" w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0">
+          <h1 class="text-7xl" style="font-family: 'Bebas Neue', cursive;">News</h1>
+          <div  class="h-3 w-12 bg-cgreen"></div>
+        </div>
+
+        <div class="rounded w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0 ">
+          <img  src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="relative rounded -z-1" alt="technology" />
+          <div  class="relative p-4 pl-0 z-20">
+            
+            <h2 class="-ml-4  z-20 font-bold text-3xl text-gray-800  p-2 text-thin -mt-10 " style="font-family: 'Bebas Neue', cursive;">
+              <span class="text-white bg-cblue p-2 px-4">CCEE in The News <span>
+            </h2>
+            
+            <p class="text-gray-700 mt-4">
+              California Council on Economic Education President and CEO Denise Gutierrez Named As One of Hispanic Lifestyle ‘s Latinas of Influence
+            </p>
+
+            <a href="#" class="inline-block py-2 rounded text-green-900 mt-2 ml-auto"> Read more </a>
+          </div>
+        </div>
+
+        <div class="rounded w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0">
+          <img src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" class="rounded" alt="technology" />
+          <div  class="relative p-4 pl-0 z-20">
+              <h2 class="-ml-4  z-20 font-bold text-3xl text-gray-800  p-2 text-thin -mt-10 " style="font-family: 'Bebas Neue', cursive;"><span class="text-white bg-cblue p-2 px-4">Media Release<span></h2>
+            <p class="text-gray-700 mt-4">
+              San Diego County Board of Supervisors Gets Behind Financial Literacy and Intergenerational Opportunity 
+            </p>
+
+            <a href="#" class="inline-block py-2 rounded text-green-900 mt-2 ml-auto"> Read more </a>
+          </div>
+        </div>
+
+        
+
+      </div>
+      <!-- end recent posts -->
 
       <!-- subscribe -->
-        <div id="ccee-blue" class="bg-black flex md:shadow mt-64 mb-10 p-4 pt-6 w-full h-64">
+        <div id="ccee-blue" class="bg-black flex md:shadow mt-24 mb-10 p-4 pt-6 w-full h-64">
           <i class="fas fa-horizontal-rule"></i>
           <div class="p-10" style="color: #88c23d;">
             <i class="fas fa-envelope-open-text fa-7x"></i>
@@ -651,57 +705,7 @@
         </div>
       <!-- end subscribe section -->
 
-      </div>
-      <!-- end featured section -->
-
-      
-  
-  
-
-      <!-- recent posts -->
-    
-
-      
-      <div class="block space-x-0 lg:flex lg:space-x-6 lg:space-x-12">
-
-        <div class=" w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0">
-          <h1 class="text-7xl" style="font-family: 'Bebas Neue', cursive;">More Content</h1>
-          <div  class="h-3 w-12 bg-cgreen"></div>
-        </div>
-
-        <div class="rounded w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0 ">
-          <img  src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" class="relative rounded -z-1" alt="technology" />
-          <div  class="relative p-4 pl-0 z-20">
-            
-            <h2 class="-ml-4  z-20 font-bold text-3xl text-gray-800  p-2 text-thin -mt-10 " style="font-family: 'Bebas Neue', cursive;"><span class="text-white bg-cblue p-2 px-4">Shadow of a Waxwing<span></h2>
-            
-            <p class="text-gray-700 mt-4">
-              Small its shy way had woody downs power. To denoting admitted speaking learning my exercise so in. 
-              Procured shutters mr it feelings. To or three offer house begin taken am at. 
-            </p>
-
-            <a href="#" class="inline-block py-2 rounded text-green-900 mt-2 ml-auto"> Read more </a>
-          </div>
-        </div>
-
-        <div class="rounded w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0">
-          <img src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" class="rounded" alt="technology" />
-          <div  class="relative p-4 pl-0 z-20">
-              <h2 class="-ml-4  z-20 font-bold text-3xl text-gray-800  p-2 text-thin -mt-10 " style="font-family: 'Bebas Neue', cursive;"><span class="text-white bg-cgreen p-2 px-4">X-Games Mode<span></h2>
-            <p class="text-gray-700 mt-4">
-              Alteration connection to so as collecting me. 
-              Difficult in delivered extensive at direction allowance. 
-              Alteration put use diminution can considered sentiments interested discretion.
-            </p>
-
-            <a href="#" class="inline-block py-2 rounded text-green-900 mt-2 ml-auto"> Read more </a>
-          </div>
-        </div>
-
-      </div>
-      <!-- end recent posts -->
-
-    <div class="absolute -ml-64 w-170 h-2/5 bg-cblue -z-1 mt-16"></div>  
+    <div class="absolute -ml-64 w-170 h-2/5 bg-cblue -z-1 mt-6"></div>  
     <div class=" h-2/5 -z-1 flex flex-col items-center mt-16">
       <h1 id="header" class="text-7xl text-center pt-16">bottom of page <br /> call to action</h1>
       <button type="button"  class=" flex-grow-0 mt-8 border-2 font-semibold ml-6  btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline  border-white hover:border-black-500 hover:bg-white text-white hover:text-blue-500 font-normal py-2 px-4">

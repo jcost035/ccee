@@ -121,7 +121,7 @@
         x-on:scroll.window="atTop = (window.pageYOffset > 100) ? false : true; "
         x-bind:class="{'mt-2 mb-2': atTop }"
         
-        class="flex flex-col transition duration-500 max-w-screen-xl px-2 mt-0  mx-auto md:items-center md:justify-between md:flex-row "
+        class="flex flex-col transition duration-500 max-w-screen-2xl px-2 mt-0  mx-auto md:items-center md:justify-between md:flex-row "
       >
         <div class="p-4 sm:flex flex-row space-x-8 items-center justify-between hidden">
           <a
@@ -133,128 +133,50 @@
 
           <!--About us-->
           <div 
-            x-on:mouseover.away = "open = false"
-            x-on:mouseover="open = true"
+            @mouseover.away = "open = false
+              whatwedoOpen = false"
+            x-on:mouseover="open = true
+              whatwedoOpen = true"
+            x-on:click = "open = !open"
             class="relative py-2"
             x-data="data()"
           >
             <button 
-              class="flex whitespace-nowrap items-center px-7 py-1 mt-2 text-lg font-bold rounded-lg  h-full md:mt-0 text-cblue hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline"
+              x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }'
+              class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none "
             >
               About Us
             </button>
 
-            <div
-              @mouseover.away="clearsubmenus()"
+            <div 
               x-show="open"
               x-transition:enter="transition ease-out duration-100"
               x-transition:enter-start="transform opacity-0 scale-95"
               x-transition:enter-end="transform opacity-100 scale-100"
-              x-transition:leave="transition ease-in duration-200"
+              x-transition:leave="transition ease-in duration-50"
               x-transition:leave-start="transform opacity-100 scale-100"
               x-transition:leave-end="transform opacity-0 scale-95"
-              class="absolute left-0 w-full mt-2 pt-4 origin-top-right rounded-md  h-100 md:w-96"
+              class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-48"
             >
-              <div class="flex flex-row" >
-                <div class="md-10 px-2 py-2 bg-white rounded-md shadow ">
-                  <a x-on:mouseover="menuClear('ourteamOpen')" class="block px-4 py-2 mt-2 bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                    href="#">Our team</a>
-                  <a x-on:mouseover="menuClear('centersOpen') " class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                    href="#">Centers</a>
-                  <a x-on:mouseover="menuClear('bodOpen') " class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                    href="#">Board of directors</a>
-                  <a x-on:mouseover="menuClear('dapOpen') " class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                    href="#">Donors and partners</a>
-                  <a x-on:mouseover="menuClear('arOpen') " class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                    href="#">Annual reports</a>
-                </div>
-                
-                <div  
-                  
-                  x-show="ourteamOpen" 
-                  x-transition:enter="transition ease-out duration-50"
-                  x-transition:enter-start="transform opacity-0 scale-95"
-                  x-transition:enter-end="transform opacity-100 scale-100"
-                  x-transition:leave="transition ease-in duration-50"
-                  x-transition:leave-start="transform opacity-100 scale-100"
-                  x-transition:leave-end="transform opacity-0 scale-95"
-                  class="absolute md-10 ml-48 px-2 py-2 bg-cover rounded-md w-48 bg-white box-border shadow"
-                >
-                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                      href="#">Sub our team</a>
-                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                      href="#">Sub our team</a>
-                </div>
-                <div  
-                  
-                  x-show="centersOpen" 
-                  x-transition:enter="transition ease-out duration-50"
-                  x-transition:enter-start="transform opacity-0 scale-95"
-                  x-transition:enter-end="transform opacity-100 scale-100"
-                  x-transition:leave="transition ease-in duration-50"
-                  x-transition:leave-start="transform opacity-100 scale-100"
-                  x-transition:leave-end="transform opacity-0 scale-95"
-                  class="absolute mt-10 md-10 ml-48 px-2 py-2 bg-cover rounded-md w-48 bg-white box-border shadow"
-                >
-                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                      href="#">Sub centers</a>
-                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                      href="#">Sub centers</a>
-                </div>
-                <div  
-                  
-                  x-show="bodOpen" 
-                  x-transition:enter="transition ease-out duration-50"
-                  x-transition:enter-start="transform opacity-0 scale-95"
-                  x-transition:enter-end="transform opacity-100 scale-100"
-                  x-transition:leave="transition ease-in duration-50"
-                  x-transition:leave-start="transform opacity-100 scale-100"
-                  x-transition:leave-end="transform opacity-0 scale-95"
-                  class="absolute mt-20 md-10 ml-48 px-2 py-2 bg-cover rounded-md w-48 bg-white box-border shadow"
-                >
-                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                      href="#">Sub bod</a>
-                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                      href="#">Sub bod</a>
-                </div>
-                <div  
-                  
-                  x-show="dapOpen" 
-                  x-transition:enter="transition ease-out duration-50"
-                  x-transition:enter-start="transform opacity-0 scale-95"
-                  x-transition:enter-end="transform opacity-100 scale-100"
-                  x-transition:leave="transition ease-in duration-50"
-                  x-transition:leave-start="transform opacity-100 scale-100"
-                  x-transition:leave-end="transform opacity-0 scale-95"
-                  class="absolute mt-28 md-10 ml-48 px-2 py-2 bg-cover rounded-md w-48 bg-white box-border shadow"
-                >
-                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                      href="#">Sub dap</a>
-                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                      href="#">Sub dap</a>
-                </div>
-                <div  
-                  
-                  x-show="arOpen" 
-                  x-transition:enter="transition ease-out duration-50"
-                  x-transition:enter-start="transform opacity-0 scale-95"
-                  x-transition:enter-end="transform opacity-100 scale-100"
-                  x-transition:leave="transition ease-in duration-50"
-                  x-transition:leave-start="transform opacity-100 scale-100"
-                  x-transition:leave-end="transform opacity-0 scale-95"
-                  class="absolute mt-36 md-10 ml-48 px-2 py-2 bg-cover rounded-md w-48 bg-white box-border shadow"
-                >
-                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                      href="#">Sub ar</a>
-                  <a class="block px-4 py-2 mt-2   rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                      href="#">Sub ar</a>
-                </div>
+              <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
+                <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Make Economics and money understandable!</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">History + Mission</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Our Team</a>
+                <a class="hidden block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">CCEE Centers on Economic Education</a>
+                <a class="hidden block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Impact/Annual Reports</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Partners + Donors</a>
               </div>
             </div>
           </div>
           <!--About us end-->
 
-          <!--What we do (programs)-->
+          <!-- Programs (What we do)-->
           <div 
             @mouseover.away = "open = false
               whatwedoOpen = false"
@@ -283,30 +205,33 @@
             >
               <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
                 <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Our programs</a>
+                  href="#">Educator Programs</a>
                 <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Calendar</a>
+                  href="#">Student Programs</a>
                 <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">What I Miss</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">Business</a>
+                  href="#">Community Programs</a>
+                <a class="hidden block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Affiliate/Partner Programs</a>
                 <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
-                  href="#">The Council >:)</a>
+                  href="#">Find upcoming events and programs</a>
               </div>
             </div>
           </div>
-          <!--What we do end-->
+          <!--Programs end-->
 
-          <!--Get involved-->
+          <!--Resources-->
           <div 
-            @mouseover.away = "open = false"
-            x-on:mouseover="open = true"
+            @mouseover.away = "open = false
+              whatwedoOpen = false"
+            x-on:mouseover="open = true
+              whatwedoOpen = true"
             x-on:click = "open = !open"
             class="relative py-2"
             x-data="data()"
           >
             <button 
-              class="flex whitespace-nowrap items-center px py-1 mt-2 text-lg font-bold text-primary rounded-lg md:mt-0 text-cblue hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline"
+              x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }'
+              class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none "
             >
               Resources
             </button>
@@ -319,28 +244,35 @@
               x-transition:leave="transition ease-in duration-50"
               x-transition:leave-start="transform opacity-100 scale-100"
               x-transition:leave-end="transform opacity-0 scale-95"
-              class="absolute left-0 w-full mt-2 pt-4 origin-top-right rounded-md shadow-lg md:w-48"
+              class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-48"
             >
-              <div class="px-2 py-2 bg-white rounded-md shadow">
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                  href="#">Where we do it</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                  href="#">Advocacy</a>
+              <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
+                <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Daily Dose of Econ</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Research</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Resources</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Affiliate Partner Resources</a>
               </div>
             </div>
           </div>
-          <!--Get involved end-->
+          <!--Resources end-->
 
-          <!--Get involved-->
+          <!--News-->
           <div 
-            @mouseover.away = "open = false"
-            x-on:mouseover="open = true"
+            @mouseover.away = "open = false
+              whatwedoOpen = false"
+            x-on:mouseover="open = true
+              whatwedoOpen = true"
             x-on:click = "open = !open"
             class="relative py-2"
             x-data="data()"
           >
             <button 
-              class="flex whitespace-nowrap items-center  py-1 mt-2 text-lg font-bold text-primary rounded-lg md:mt-0 text-cblue hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline"
+              x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }'
+              class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none "
             >
               News
             </button>
@@ -353,30 +285,31 @@
               x-transition:leave="transition ease-in duration-50"
               x-transition:leave-start="transform opacity-100 scale-100"
               x-transition:leave-end="transform opacity-0 scale-95"
-              class="absolute left-0 w-full mt-2 pt-4 origin-top-right rounded-md shadow-lg md:w-48"
+              class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-48"
             >
-              <div class="px-2 py-2 bg-white rounded-md shadow">
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                  href="#">Where we do it</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                  href="#">Advocacy</a>
+              <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
+                <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">CCEE in the News</a>
               </div>
             </div>
           </div>
-          <!--Get involved end-->
+          <!--News end-->
 
           <!--Get involved-->
           <div 
-            @mouseover.away = "open = false"
-            x-on:mouseover="open = true"
+            @mouseover.away = "open = false
+              whatwedoOpen = false"
+            x-on:mouseover="open = true
+              whatwedoOpen = true"
             x-on:click = "open = !open"
             class="relative py-2"
             x-data="data()"
           >
             <button 
-              class="flex whitespace-nowrap items-center px-7 py-1 mt-2 text-lg font-bold text-primary rounded-lg md:mt-0 text-cblue hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:outline-none focus:shadow-outline"
+              x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }'
+              class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none "
             >
-              Get involved
+              Get Involved
             </button>
 
             <div 
@@ -387,32 +320,42 @@
               x-transition:leave="transition ease-in duration-50"
               x-transition:leave-start="transform opacity-100 scale-100"
               x-transition:leave-end="transform opacity-0 scale-95"
-              class="absolute left-0 w-full mt-2 pt-4 origin-top-right rounded-md shadow-lg md:w-48"
+              class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-48"
             >
-              <div class="px-2 py-2 bg-white rounded-md shadow">
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                  href="#">Where we do it</a>
-                <a class="block px-4 py-2 mt-2  bg-transparent rounded-lg  text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                  href="#">Advocacy</a>
+              <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
+                <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Calendar</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Donate</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Volunteer</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Subscribe</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Contact Us</a>
+                <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-sm font-semibold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline"
+                  href="#">Jobs/Career</a>
               </div>
             </div>
           </div>
           <!--Get involved end-->
 
+          <!--right aligned nav container-->
+          <nav
+            class="flex-col flex-grow pb-4 md:pb-0 hidden mr-14 md:flex md:justify-end md:flex-row bg-white"
+          >
+            <!--Envelope button-->
+            <button id="ccee-color" type="button" class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-cgreen hover:bg-cgreen-dark text-white font-normal py-2 px-4 mr-1 rounded">Donate</button>
+            <button @click="popupOpen = true" type="button" id="button" class="btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-blue-700 hover:bg-blue-700 text-blue-700 hover:text-white font-normal py-2 px-4 rounded">Join</button>
+            <!--Envelope button end-->
+
+            
+
+            
+          </nav>
+
         </div>
-        <!--right aligned nav container-->
-        <nav
-          class="flex-col flex-grow pb-4 md:pb-0 hidden mr-14 md:flex md:justify-end md:flex-row bg-white"
-        >
-          <!--Envelope button-->
-          <button id="ccee-color" type="button" class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-cgreen hover:bg-cgreen-dark text-white font-normal py-2 px-4 mr-1 rounded">Donate</button>
-		      <button @click="popupOpen = true" type="button" id="button" class="btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-blue-700 hover:bg-blue-700 text-blue-700 hover:text-white font-normal py-2 px-4 rounded">Join</button>
-          <!--Envelope button end-->
-
-          
-
-          
-        </nav>
+        
       </div>
     </div>
     <!-- End Navbar -->
