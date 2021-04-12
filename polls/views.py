@@ -10,6 +10,7 @@ from .models import Question
 from .models import Staff
 from .models import Event
 from .models import Program
+from .models import News
 from django.template import loader
 from django.views.generic import ListView
 
@@ -72,6 +73,36 @@ def event_list(request):
         "event_list": event_list,
     }
     return HttpResponse(event_list, content_type="application/json")
+
+def news(request):
+    return render(request, "polls/news.html")
+
+def news_list(request):
+    
+    news_list = serializers.serialize('json', News.objects.order_by("-date"))
+
+    #paginator = Paginator(event_list, 5) #show 10 objects per page
+    #page_number = request.GET.get('page')
+    #events = paginator.get_page(page_number)
+
+    context = {
+        "news_list": news_list,
+    }
+    return HttpResponse(news_list, content_type="application/json")
+
+def news_list_date(request, date_range):
+    startdate = date.today()
+    enddate = startdate + timedelta(days=date_range)
+    news_list = serializers.serialize('json', Event.objects.filter(date__range=[startdate, enddate]))
+
+    #paginator = Paginator(event_list, 5) #show 10 objects per page
+    #page_number = request.GET.get('page')
+    #events = paginator.get_page(page_number)
+
+    context = {
+        "news_list": news_list,
+    }
+    return HttpResponse(news_list, content_type="application/json")
 
 def event_list_date(request, date_range):
     startdate = date.today()

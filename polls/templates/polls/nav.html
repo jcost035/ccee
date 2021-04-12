@@ -144,7 +144,11 @@
 
 <div x-data="data()" class="z-50 relative ">
 
-    <div class="bg-white shadow-lg w-full h-24 fixed flex flex-row justify-end md:hidden" x-data="mobileData()">
+    <div class="bg-white shadow-lg w-full h-24 fixed flex flex-row justify-between md:hidden" x-data="mobileData()">
+
+        <a class="flex flex-row content-center w-1/2" href="/">
+            <img class=" py-2" src="https://ccee.org/wp-content/uploads/2019/07/CCEE-Logo-Final-5-2019-e1563236007990.png" />
+        </a>
         <button class="rounded bg-white border mx-2 my-4 px-6 h-16" x-bind:class="{'shadow-inner' : menuOpen}" @click="menuOpen = !menuOpen">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
