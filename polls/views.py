@@ -18,6 +18,15 @@ from django.utils.safestring import mark_safe
 from django.db.models import Q
 import json
 
+def contact(request):
+    return render(request, "polls/contact.html")
+
+def donate(request):
+    return render(request, "polls/donate.html")
+
+def volunteer(request):
+    return render(request, "polls/volunteer.html")
+
 def programs(request, prog_name):
     program = Program.objects.filter(name__icontains=prog_name)
     

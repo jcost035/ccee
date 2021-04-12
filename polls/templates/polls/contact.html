@@ -1,0 +1,63 @@
+<head>
+    {% load static %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="{% static 'site.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+
+
+
+
+</head>
+
+<body>
+    {% include 'polls/nav.html' %}
+    <div class="flex flex-col">
+        <div class=" md:w-5/6 flex md:flex-row flex-col mx-auto md:mt-48 md:mb-24">
+            <div class="m-md:mt-32">
+                <div class="absolute bg-cblue-dark rounded-lg w-10/12 h-4/5 -ml-8 mt-4 z-1"></div>
+                <div class="relative md:rounded-lg bg-cblue  md:px-12 py-12 text-center z-10  ">
+                    <h1 class="font-bebas text-white text-6xl md:px-10">Contact Us</h1>
+                    <h1 class="font-roboto text-white text-2xl mb-6 mx-12 font-thin">
+                        Whether you have a question about a program, or you're just interested in learning how you can contribute to creating intergenerational opportunity and success, we'd love to hear from you!
+                    </h1>
+
+                    <div class="rounded bg-cblue-dark  text-3xl py-4 px-10 flex flex-col">
+                        <input class="font-roboto text-2xl p-2  md:mx-4 rounded " placeholder="Email Address"></input>
+                        <textarea class="text-2xl p-2 w-full md:mx-4 rounded h-72 my-4 justify-start" placeholder=""></textarea>
+                        <div class="flex flex-row justify-end">
+                            <button class="text-white font-roboto text-xl py-2 px-4 bg-cgreen rounded w-1/3 ">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="flex md:flex-row flex-col justify-center md:space-x-10  md:mt-2 mt-10 items-center">
+
+
+            <div class="md:w-3/5 rounded-lg bg-cgreen flex flex-col justify-center text-center p-6 md:px-12">
+                <h1 class="font-bebas text-white text-7xl m-md:text-3xl">Stay updated on all things CCEE</h1>
+                <p class="text-2xl font-roboto text-white m-md:text-xl">Join our mailing list</p>
+                <input class="font-roboto text-2xl rounded m-2 p-2" placeholder="Email Address"></input>
+                <div class="flex flex-row justify-center md:justify-end">
+                    <button class="bg-cblue rounded font-roboto text-white text-2xl md:w-1/3 w-1/2 p-2 m-2  ">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'polls/footer.html' %}
+</body>

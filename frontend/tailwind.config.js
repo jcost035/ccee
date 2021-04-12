@@ -10,6 +10,7 @@ module.exports = {
                 'height': 'height',
                 'padding': 'padding',
                 'margin': 'margin',
+                'display': 'display'
             },
             spacing: {
                 '128': '32rem',

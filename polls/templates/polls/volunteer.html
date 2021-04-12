@@ -1,0 +1,52 @@
+<head>
+    {% load static %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="{% static 'site.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+
+
+
+
+</head>
+
+<body>
+    {% include 'polls/nav.html' %}
+
+    <div class="md:mt-32 md:w-5/6 flex md:flex-row flex-col mx-auto">
+        <div class="m-md:mt-32">
+            <div class="absolute bg-cblue-dark rounded-lg w-5/12 h-1/2 -ml-8 mt-8 z-1" style="width: 44%"></div>
+            <div class="relative md:rounded-lg bg-cblue px-4 md:px-12 py-12 text-center z-10 w-full">
+                <h1 class="font-bebas text-white text-6xl ">Become a CCEE Volunteer</h1>
+                <h1 class="font-roboto text-white text-4xl mb-6">Enter your information below and we'll be in touch!</h1>
+                <div class="rounded-lg bg-cgreen  px-6 py-8 flex flex-col ">
+                    <div class="flex md:flex-row flex-col m-md:justify-center">
+                        <input class="font-roboto text-2xl p-2 w-full md:mx-4 rounded" placeholder="Email Address"></input>
+                        <button class="bg-cblue p-2 rounded font-roboto text-white h-full text-2xl m-md:mt-4">Submit</button>
+                    </div>
+                    <span class="font-roboto text-2xl mt-4">Are you open to volunteering?</span>
+                    <div class="flex flex-row justify-center space-x-12">
+                        <span><input type="radio" id="yes" name="volunteer" value="yes"> <label class="font-roboto text-white text-xl">Yes</label></span>
+                        <span><input type="radio" id="no" name="volunteer" value="no"> <label class="font-roboto text-white text-xl">No</label></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="md:w-6/12 flex items-center  md:ml-8 rounded-lg m-md:my-10">
+            <img class="rounded-lg shadow-lg " src="https://ga-core.s3.amazonaws.com/production/uploads/program/default_image/14429/Business_Entrepreneur_Computer_Woman_Black_History_Month.jpg">
+        </div>
+
+    </div>
+
+    {% include 'polls/footer.html' %}
+</body>
