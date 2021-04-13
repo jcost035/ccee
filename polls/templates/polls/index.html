@@ -160,7 +160,7 @@
     <main class="mt-24 md:px-16">
 
       <div class="bg-black absolute bg-opacity-70 -ml-64   md:h-2/3  -mt-8 z-1 overflow-hidden" >
-        <img src="/media/index/CCEE-2021Gala-BackgroundGradient.jpg" class="object-cover m-md:h-200">
+        <img src="/mysite/media/index/CCEE-2021Gala-BackgroundGradient.jpg" class="object-cover m-md:h-200">
       </div>
       <!-- featured section -->
       <div class="flex flex-wrap md:flex-no-wrap space-x-0 md:space-x-6 mb-24 ">
@@ -170,7 +170,7 @@
           
         <div class="flex flex-row m-md:flex-col mb-4 lg:mb-0 md:mt-16 md:p-4 lg:p-0  w-full md:w-4/7 relative rounded block">
 
-          <img src="/media/index/CCEE-2021Gala-Logo.png" 
+          <img src="/mysite/media/index/CCEE-2021Gala-Logo.png" 
             class="md:hidden flex-grow rounded-md object-cover object-left w-full md:-mr-24 md:m-10 ">
 
           <div class="md:-ml-24 ">
@@ -193,7 +193,7 @@
          
           </div>
 
-          <img src="/media/index/CCEE-2021Gala-Logo.png" 
+          <img src="/mysite/media/index/CCEE-2021Gala-Logo.png" 
             class="hidden md:block flex-grow rounded-lg object-cover object-left w-full -mr-24 m-10  md:h-96 ">
           
           
@@ -216,7 +216,7 @@
             x-bind:class='{"text-cgray border-cgray shadow-none": !secondpanelOpen }'
             class="m-md:mx-auto m-md:w-11/12 rounded text-lg md:w-3/12 m-md:py-2 m-md:my-2 font-semibold ml-6  mt-0 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline hover:text-cblue hover:border-cblue  border-2 border-cblue text-cblue shadow-2xl font-normal  px-6"
           >
-              I'm a California Community Member
+              I'm a CA Community Member
           </button>
 
           <button @click="thirdpanelOpen=true, firstpanelOpen=false, secondpanelOpen=false" 
@@ -693,7 +693,7 @@
             <i class="fas fa-envelope-open-text fa-7x"></i>
           </div>
           <div class="px-4 py-2 ">
-            <h3 id="header" class="text-5xl text-white font-bold m-md:text-center">Subscribe to our newsletter</h3>
+            <h3 id="header" class="text-5xl text-white font-bold m-md:text-center">Join our mailing list</h3>
             <p class="hidden text-xl text-white m-md:text-sm m-md:px-4">We sent latest news and posts once in every week, fresh from the oven</p>
             <form class="mt-4 mb-10 m-md:flex m-md:flex-col m-md:justify-center">
               <input type="email" class=" bg-gray-100 px-4 py-2 border focus:border-green-400 m-md:mx-auto rounded" placeholder="example@gmail.com"/>
@@ -701,7 +701,13 @@
                 Subscribe
                 <i class='bx bx-right-arrow-alt' ></i>
               </button>
-              <p class="text-white opacity-50 text-sm mt-1 m-md:text-center">No spam. We promise</p>
+              
+              <div class="flex flex-row justify-start space-x-4 font-roboto text-white text-xl mt-4">
+                <span class="text-white ">I'm a</span>
+                  <span><input type="radio" id="yes" name="volunteer" value="yes"> <label class="font-roboto text-white text-xl">K-12 Educator</label></span>
+                  <span><input type="radio" id="no" name="volunteer" value="no"> <label class="font-roboto text-white text-xl">Community Member</label></span>
+                  <span><input type="radio" id="yes" name="volunteer" value="yes"> <label class="font-roboto text-white text-xl">Other</label></span>
+              </div>
             </form>
           </div>
         </div>
