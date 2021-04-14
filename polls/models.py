@@ -29,7 +29,7 @@ class Staff(models.Model):
     bio = models.CharField(max_length=1200)
     phone = models.CharField(max_length=20)
     email = models.CharField(max_length=50)
-    photo = models.ImageField(upload_to='staff-pics', default="staff-pics/default.jpg")
+    photo = models.ImageField(upload_to='mysite/static/staff-pics', default="mysite/static/staff-pics/default.jpg")
     
 
     def __str__(self):
