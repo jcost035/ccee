@@ -238,7 +238,7 @@
             <div
               class="bg-white overflow-hidden w-full relative md:h-72 h-2/3 m-md:w-11/12 pb-12 md:pb-36 rounded-lg flex flex-col mx-auto"
             >
-              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue-dark text-3xl p-2 rounded-lg h-full w-full opacity-100"></span>
+              <span id="camp-text" style="z-index: 2;" class="absolute bg-cblue text-3xl p-2 rounded-lg h-full w-full opacity-100"></span>
               <img
                 src=""
                 class="absolute h-full w-full object-cover object-center"
@@ -665,27 +665,27 @@
               <span class="text-white bg-cblue p-2 px-4 rounded">CCEE in The News <span>
             </h2>
             
-            <p class="text-gray-700 mt-4">
+            <p class="text-gray-700 mt-4 text-md">
               California Council on Economic Education President and CEO Denise Gutierrez Named As One of Hispanic Lifestyle ‘s Latinas of Influence
             </p>
 
-            <a href="#" class="inline-block py-2 rounded text-green-900 mt-2 ml-auto"> Read more </a>
+            <a href="#" class="inline-block py-2 px-4 rounded text-white mt-2 ml-auto bg-cgreen font-roboto text-xl"> Read more </a>
           </div>
         </div>
 
         <div class="rounded w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0">
-          <img src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" class="rounded" alt="technology" />
+          <img src="{% static 'index/CCEE-2019Gala-259.jpg' %}" class="rounded" alt="technology" />
           <div  class="relative p-4 pl-0 z-20">
               <div class="-ml-4 md:-ml-8  z-20 font-bold text-5xl text-gray-800  p-2 text-thin -mt-10 font-bebas rounded-lg">
                 <span class="text-white bg-cblue p-2 px-4 rounded">
                   Media Release
                 <span>
               </div>
-            <p class="text-gray-700 mt-4">
+            <p class="text-gray-700 mt-4 text-md">
               San Diego County Board of Supervisors Gets Behind Financial Literacy and Intergenerational Opportunity 
             </p>
 
-            <a href="#" class="inline-block py-2 rounded text-green-900 mt-2 ml-auto"> Read more </a>
+            <a href="#" class="inline-block py-2 px-4 rounded text-white mt-2 ml-auto bg-cgreen font-roboto text-xl"> Read more </a>
           </div>
         </div>
 
@@ -704,18 +704,20 @@
             <h3 id="header" class="text-5xl text-white font-bold m-md:text-center">Join our mailing list</h3>
             <p class="hidden text-xl text-white m-md:text-sm m-md:px-4">We sent latest news and posts once in every week, fresh from the oven</p>
             <form class="mt-4 mb-10 m-md:flex m-md:flex-col m-md:justify-center">
-              <input type="email" class=" bg-gray-100 px-4 py-2 border focus:border-green-400 m-md:mx-auto rounded" placeholder="example@gmail.com"/>
-              <button  class="px-4 py-2 text-gray-100 m-md:w-1/2 m-md:mx-auto m-md:my-4 rounded" style="background-color: #88c23d;">
+              <input type="email" class=" bg-gray-100 w-full px-4 py-2 border focus:border-green-400 m-md:mx-auto rounded" placeholder="example@gmail.com"/>
+              
+              
+              <div class="flex md:flex-row flex-col justify-start space-x-2 font-roboto text-white text-xl mt-4">
+                <span class="text-white ">I'm a</span>
+                  <span><input type="radio" id="yes" name="volunteer" value="yes" checked> <label class="font-roboto text-white text-xl pr-2">K-12 Educator</label></span>
+                  <span><input type="radio" id="no" name="volunteer" value="no"> <label class="font-roboto text-white text-xl px-2">Community Member</label></span>
+                  <span><input type="radio" id="yes" name="volunteer" value="yes"> <label class="font-roboto text-white text-xl px-2">Other</label></span>
+              </div>
+
+              <button  class="px-4 py-2 text-gray-100 m-md:w-1/2 m-md:mx-auto m-md:my-4 my-2 rounded font-roboto text-xl m-md:text-2xl" style="background-color: #88c23d;">
                 Subscribe
                 <i class='bx bx-right-arrow-alt' ></i>
               </button>
-              
-              <div class="flex flex-row justify-start space-x-4 font-roboto text-white text-xl mt-4">
-                <span class="text-white ">I'm a</span>
-                  <span><input type="radio" id="yes" name="volunteer" value="yes"> <label class="font-roboto text-white text-xl">K-12 Educator</label></span>
-                  <span><input type="radio" id="no" name="volunteer" value="no"> <label class="font-roboto text-white text-xl">Community Member</label></span>
-                  <span><input type="radio" id="yes" name="volunteer" value="yes"> <label class="font-roboto text-white text-xl">Other</label></span>
-              </div>
             </form>
           </div>
         </div>

@@ -308,19 +308,19 @@
                 </div>
                 
                 
-                <div class="md:w-7/12 mt-4" x-show="!calendarView">
+                <div class="md:w-7/12 mt-4 grid grid-cols-3 gap-4" x-show="!calendarView">
                     <div class="md:hidden font-bold pt-4 ml-10" x-text="filteredEvents.length + ' articles found'"></div>
                     <template x-for="event in filteredEvents">
-                        <div class="m-md:flex m-md:flex-col md:overflow-hidden rounded border px-8 py-4 my-8 border-gray-500 shadow-md hover:shadow-lg w-11/12 mx-auto font-roboto ">
-                            <div class="md:hidden flex  content-center items-center">
-                                <img class="md:hidden md:w-3/12 h-11/12  object-contain" src="https://ga-core.s3.amazonaws.com/production/uploads/program/default_image/14429/Business_Entrepreneur_Computer_Woman_Black_History_Month.jpg">
+                        <div class="m-md:flex m-md:flex-col md:overflow-hidden rounded border px-8 py-4 my-8 border-gray-500 shadow-md hover:shadow-lg  mx-auto font-roboto ">
+                            <div class=" flex  content-center items-center">
+                                <img class="  h-11/12  object-contain" src="https://ga-core.s3.amazonaws.com/production/uploads/program/default_image/14429/Business_Entrepreneur_Computer_Woman_Black_History_Month.jpg">
                             </div>
-                            <div class="flex md:flex-row flex-col ">
-                                <img class="m-md:hidden w-3/12 h-11/12 flex-shrink-0 flex-grow-0 object-contain mr-10" src="https://ga-core.s3.amazonaws.com/production/uploads/program/default_image/14429/Business_Entrepreneur_Computer_Woman_Black_History_Month.jpg">
+                            <div class="flex  flex-col ">
+                                <img class="hidden w-3/12 h-11/12 flex-shrink-0 flex-grow-0 object-contain mr-10" src="https://ga-core.s3.amazonaws.com/production/uploads/program/default_image/14429/Business_Entrepreneur_Computer_Woman_Black_History_Month.jpg">
                             
                                 <div class="flex flex-col ">
                                     <h1 class="text-sm text-gray-400" x-text="event.fields.tags">Business, Career Development</h1>
-                                    <div class="md:flex md:flex-row md:justify-between w-full">
+                                    <div class="w-full">
                                         <h1 class="text-xl font-bold font-roboto" x-text="event.fields.title">
                                             event name
                                         </h1>
@@ -332,33 +332,35 @@
                                                 description
                                             </p>
 
-                                            <button type="button" id="button" class=" rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
-                                                Read More
-                                            </button>   
+                                             
                                         </div>
                                         
                                     </div>
                                     
                                 </div>
 
-                                <div class="flex flex-col w-8/12 font-roboto text-right m-md:mt-4">
+                                <div class="flex flex-col w-8/12 font-roboto text-left mt-4">
 
-                                    <span class="flex flex-row space-x-1 justify-end m-md:justify-start items-center">
+                                    <span class="flex flex-row space-x-1 justify-start items-center">
                                         <i class="far fa-calendar text-cgreen"></i>
-                                        <h1 class="text-xl font-bold text-cblue text-right m-md:text-left" x-text="event.fields.date">
+                                        <h1 class="text-xl font-bold text-cblue text-right text-left" x-text="event.fields.date">
                                             date
                                         </h1>
                                     </span>
-                                    <span class="flex flex-row space-x-1 justify-end m-md:justify-start items-center">
+                                    <span class="flex flex-row space-x-1 justify-start items-center">
                                         <i class="fas fa-map-marker-alt text-cgreen"></i>
                                         <h1 class="text-sm text-gray-400" x-text="event.fields.location"></h1>
                                     </span>
                                     
                                 </div>
+
+                                <button type="button" id="button" class=" rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
+                                    Read More
+                                </button>  
                             </div>
                            
                             <div class="hidden flex  content-center items-center">
-                                <img class="md:hidden md:w-3/12 h-11/12  object-contain" src="https://ccee.org/wp-content/uploads/2019/07/CCEE-Logo-Final-5-2019-e1563236007990.png">
+                                <img class=" md:w-3/12 h-11/12  object-contain" src="https://ccee.org/wp-content/uploads/2019/07/CCEE-Logo-Final-5-2019-e1563236007990.png">
                             </div>
                         </div>
                     </template>
