@@ -6,6 +6,7 @@
     "dependencies": {
         "autoprefixer": "^10.2.3",
         "git": "^0.1.5",
+        "pdfjs": "^2.4.2",
         "postcss": "^8.2.4",
         "tailwindcss": "^2.0.2"
     },

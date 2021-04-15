@@ -155,7 +155,7 @@
           </svg>
         </button>
 
-        <div class="absolute rounded-b-lg bg-white mx-4 mt-24 w-11/12 " x-show="menuOpen">
+        <div class="absolute rounded-b-lg bg-white mx-4 mt-24 w-11/12 " x-show="menuOpen" @click.away="menuOpen=false">
             <div class="flex flex-col">
 
                 <a class="bg-gray-100 text-center cursor-pointer font-roboto py-2 text-xl" @click="open('about')" x-bind:class="{'bg-cblue' : aboutOpen}">About Us 
