@@ -136,8 +136,7 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "mysite/media")
 
 
 
-AWS_ACCESS_KEY_ID = 'AKIARM7O2WGFXLLNAIVC'
-AWS_SECRET_ACCESS_KEY = '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'
+
 AWS_STORAGE_BUCKET_NAME = 'ccee-bucket'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
