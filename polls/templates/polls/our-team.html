@@ -122,7 +122,7 @@
     {%for staff in staff_list %}
     <div class=" border-t-2 border-b-2 py-8 border-gray-500">
       <div class="md:hidden ml-10  h-72 overflow-hidden content-center object-center rounded-lg">
-        <img class="object-cover object-left  h-full rounded-full" src="{% static staff.photo.url %}">
+        <img class="object-cover object-left  h-full rounded-full" src="{{staff.photo.url}}">
       </div>
       <h1 class="text-2xl font-bold">{{staff.name}}</h1>
       <h1 class="text-xl font-bold text-cblue">{{staff.position}}</h1>
