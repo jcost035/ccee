@@ -19,6 +19,9 @@ from django.utils.safestring import mark_safe
 from django.db.models import Q
 import json
 
+def map(request):
+    return render(request, "polls/map.html")
+
 def report(request):
     return render(request, "polls/report.html")
 

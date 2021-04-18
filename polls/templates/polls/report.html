@@ -68,6 +68,6 @@
     }
 
 
-    renderPDF('{% static 'report/Annual-Report-2019-20_spread_compressed.pdf' %}', document.getElementById('holder'));
+    renderPDF('https://cors-anywhere.herokuapp.com/' + '{% static 'report/Annual-Report-2019-20_spread_compressed.pdf' %}', document.getElementById('holder'));
 
 </script>

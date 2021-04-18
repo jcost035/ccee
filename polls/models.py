@@ -79,5 +79,7 @@ class Program(models.Model):
     def __str__(self):
         return self.name
 
-
-
+class Center(models.Model):
+    name = models.CharField(max_length=200)
+    region = models.CharField(max_length=200)
+    description = models.CharField(max_length=1200)
