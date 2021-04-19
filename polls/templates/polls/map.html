@@ -61,10 +61,10 @@
 
 
     // Create a Tile Layer and add it to the map
-    var tiles = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        minZoom: '1'
-    }).addTo(map);
+    // var tiles = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    //     minZoom: '1'
+    // }).addTo(map);
 
 
 
@@ -75,7 +75,7 @@
             return {
                 color: '#88c23d',
                 fillColor: '#88c23d',
-                fillOpacity: 0
+                fillOpacity: 1
             };
         }
     }).bindPopup(function(layer) {
