@@ -34,7 +34,7 @@
                 <div id="coord"></div>
                 <div id="cond-coord"></div>
             </div> -->
-            <div id="map" class="h-190"></div>
+            <div id="map" class="md:h-190 h-60vh"></div>
         </div>
 
     </div>
@@ -49,6 +49,14 @@
 <script src="{% static 'california.json' %}"></script>
 
 <script>
+    var zoomFactor = 0;
+    if (window.innerWidth < 768) {
+        zoomFactor = 5;
+    } else {
+        zoomFactor = 6;
+    }
+
+
     // Initialize the map and assign it to a variable for later use
     // there's a few ways to declare a VARIABLE in javascript.
     // you might also see people declaring variables using `const` and `let`
@@ -56,7 +64,7 @@
         // Set latitude and longitude of the map center (required)
         center: [36.7783, -119.4179],
         // Set the initial zoom level, values 0-18, where 0 is most zoomed-out (required)
-        zoom: 6
+        zoom: zoomFactor
     });
 
 
