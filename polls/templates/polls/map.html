@@ -28,13 +28,13 @@
         <div class="w-1/3">
             <div x-show="text">asfdsafdfsad</div>
         </div>
-        <div class="md:w-1/2 w-full mt-32" id="inner">
+        <div class="md:w-1/2 w-full m-md:mt-32" id="inner">
             <!-- <img class="" src="{% static 'Cal_Map_CCEE_1.png' %}" alt="" style="width: 900px" />
             <div style="padding-top:20px;">
                 <div id="coord"></div>
                 <div id="cond-coord"></div>
             </div> -->
-            <div id="map" style="height: 60vh"></div>
+            <div id="map" style="height: 80vh"></div>
         </div>
 
     </div>
@@ -75,7 +75,7 @@
             return {
                 color: '#88c23d',
                 fillColor: '#88c23d',
-                fillOpacity: 1
+                fillOpacity: 0
             };
         }
     }).bindPopup(function(layer) {
@@ -133,15 +133,27 @@
 
 
     const newDiv = document.createElement("div");
-    newDiv.className = "text-xl font-bebas text-cblue";
+    newDiv.className = "text-xl font-bebas text-cblue flex flex-col";
     const newContent = document.createTextNode("Cal State University – East Bay");
-    const eastBayDiv = document.createElement("p");
-    eastBayDiv.className = "text-xs font-sans text-black";
-    const eastBayDesc = document.createTextNode("The Center for Economic Education at Cal State East Bay was one of, if not the earliest to use a stock market game as a competition and instructional tool.Today it continues to provide support for the California Stock Market Simulation, conducts workshops for teachers here and abroad, and is involved in economic education research and curriculum development. Jane Lopus, Ph.D.Director, is an accomplished researcher, curriculum writer, and international consultant.She has authored Economics in Action!as well as materials for the national CEE; She has been an integral part of bringing economics and personal finance education to many countries of the former soviet union and continues to work with them, currently Ukraine. ");
-    eastBayDiv.appendChild(eastBayDesc);
+    const eastBayDiv1 = document.createElement("p");
+    const eastBayDiv2 = document.createElement("p");
+    eastBayDiv1.className = "text-xs font-sans text-black";
+    eastBayDiv2.className = "text-xs font-sans text-black";
+    const eastBayDesc1 = document.createTextNode("The Center for Economic Education at Cal State East Bay was one of, if not the earliest to use a stock market game as a competition and instructional tool.Today it continues to provide support for the California Stock Market Simulation, conducts workshops for teachers here and abroad, and is involved in economic education research and curriculum development.");
+    eastBayDiv1.appendChild(eastBayDesc1);
+
+    const eastBayDocName = document.createElement("span");
+    eastBayDocName.className = "text-cblue font-bold";
+    const eastBayDoc = document.createTextNode("Jane Lopus, Ph.D.Director");
+    eastBayDocName.appendChild(eastBayDoc);
+    eastBayDiv2.appendChild(eastBayDocName);
+
+    const eastBayDesc2 = document.createTextNode(", is an accomplished researcher, curriculum writer, and international consultant.She has authored Economics in Action!as well as materials for the national CEE; She has been an integral part of bringing economics and personal finance education to many countries of the former soviet union and continues to work with them, currently Ukraine. ");
+    eastBayDiv2.appendChild(eastBayDesc2);
 
     newDiv.appendChild(newContent);
-    newDiv.appendChild(eastBayDiv);
+    newDiv.appendChild(eastBayDiv1);
+    newDiv.appendChild(eastBayDiv2);
 
     var eastBayMarker = L.circleMarker([37.657430, -122.056006], {
         fill: true,
