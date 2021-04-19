@@ -41,33 +41,52 @@
         function renderPage(page) {
             var viewport = page.getViewport(options.scale);
             var wrapper = document.createElement("div");
-            wrapper.className = " w-full mx-auto";
+            wrapper.className = " w-full mx-auto flex flex-col";
+            var firstCanvas = document.createElement('firstCanvas');
+            firstCanvas.className = "w-2/3";
             var canvas = document.createElement('canvas');
             canvas.className = "w-full";
+
+            var firstCtx = firstCanvas.getContext('2d');
+            var firstRenderContext = {
+                canvasContext: firstCtx,
+                viewport: viewport
+            };
             var ctx = canvas.getContext('2d');
             var renderContext = {
                 canvasContext: ctx,
                 viewport: viewport
             };
 
+            firstCanvas.height = viewport.height;
+            firstCanvas.width = viewport.width;
+            wrapper.appendChild(canvas)
+            canvasContainer.appendChild(wrapper);
+
             canvas.height = viewport.height;
             canvas.width = viewport.width;
             wrapper.appendChild(canvas)
             canvasContainer.appendChild(wrapper);
 
+            page.render(firstRenderContext)
             page.render(renderContext);
         }
 
         function renderPages(pdfDoc) {
-            for (var num = 1; num <= pdfDoc.numPages; num++)
+            for (var num = 2; num <= pdfDoc.numPages; num++)
                 pdfDoc.getPage(num).then(renderPage);
         }
 
+        function renderPage(pdfDoc) {
+            pdfDoc.getPage(1).then(renderPage);
+        }
+
         PDFJS.disableWorker = true;
+        PDFJS.getDocument(url).then(renderPage);
         PDFJS.getDocument(url).then(renderPages);
     }
 
 
-    renderPDF('https://cors-anywhere.herokuapp.com/' + '{% static 'report/Annual-Report-2019-20_spread_compressed.pdf' %}', document.getElementById('holder'));
+    renderPDF('{% static 'report/Annual-Report-2019-20_spread_compressed.pdf' %}', document.getElementById('holder'));
 
 </script>

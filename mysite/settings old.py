@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-SECRET_KEY = ''
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,14 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'o_uop!!lc@&6%3ah7)bt79k%(0bgu6$^qit9z2p_@7@n96hza='
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
+SECRET_KEY = 'o_uop!!lc@&6%3ah7)bt79k%(0bgu6$^qit9z2p_@7@n96hza='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = True
 
-ALLOWED_HOSTS = ['warm-bayou-59199.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -47,8 +45,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -136,7 +134,8 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "mysite/media")
 
 
 
-
+AWS_ACCESS_KEY_ID = 'AKIARM7O2WGFXLLNAIVC'
+AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'ccee-bucket'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
@@ -149,8 +148,3 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
 DEFAULT_FILE_STORAGE = 'mysite.storage_backends.MediaStorage'  # <-- here is where we reference storage_backends.py
-
-# Heroku: Update database configuration from $DATABASE_URL.
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)

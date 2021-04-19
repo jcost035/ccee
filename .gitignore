@@ -1,5 +1,2 @@
 node_modules/
 .venv/
-mysite/settings.py
-mysite/settings new.py
-mysite/settings old.py
