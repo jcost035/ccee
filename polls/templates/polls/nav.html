@@ -142,7 +142,7 @@
     }
 </script>
 
-<div x-data="data()" class="z-50 relative ">
+<div x-data="data()" class="z-100 relative ">
 
     <div class="bg-white shadow-lg w-full h-24 fixed flex flex-row justify-between md:hidden" x-data="mobileData()">
 
@@ -215,7 +215,7 @@
     </div>
 
     <!-- Navbar -->
-    <div class="m-md:hidden transition transition-height duration-500 ease-in-out w-full text-gray-700 bg-white h-20 fixed top-0 animated z-50 " x-bind:class='{ " shadow-lg ": !atTop, "h-24 shadow-md ": atTop  }' x-on:scroll.window="atTop=( window.pageYOffset>                100) ? false : true; "
+    <div class="m-md:hidden transition transition-height duration-500 ease-in-out w-full text-gray-700 bg-white h-20 fixed top-0 animated z-100 " x-bind:class='{ " shadow-lg ": !atTop, "h-24 shadow-md ": atTop  }' x-on:scroll.window="atTop=( window.pageYOffset>                100) ? false : true; "
         x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
         <div x-on:scroll.window="atTop = (window.pageYOffset > 100) ? false : true; " x-bind:class="{'mt-2 mb-2': atTop }" class="flex flex-col transition duration-500 max-w-screen-2xl px-2 mt-0  mx-auto md:items-center md:justify-between md:flex-row ">
             <div class="p-4 sm:flex flex-row space-x-8 items-center justify-between hidden">
@@ -350,7 +350,7 @@
     <div>
 
         <!-- Dialog (full screen) -->
-        <div class="fixed top-0 left-0 flex items-center justify-center w-full h-full z-50" style="background-color: rgba(0,0,0,.5);" x-show="popupOpen">
+        <div class="fixed top-0 left-0 flex items-center justify-center w-full h-full z-100" style="background-color: rgba(0,0,0,.5);" x-show="popupOpen">
 
             <!-- A basic modal dialog with title, body and one button to close -->
             <div class="h-auto p-4 mx-2  bg-white rounded shadow-xl  md:p-6 lg:p-8 md:mx-0 md:max-w-4xl" @click.away="popupOpen = false">
