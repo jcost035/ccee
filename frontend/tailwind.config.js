@@ -4,7 +4,8 @@ module.exports = {
     theme: {
         extend: {
             zIndex: {
-                '-1': '-1'
+                '-1': '-1',
+                '100': '100',
             },
             transitionProperty: {
                 'height': 'height',
