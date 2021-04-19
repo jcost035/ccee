@@ -21,6 +21,7 @@ module.exports = {
                 '200': '52rem',
                 '256': '62rem',
                 '170': '1700px',
+                '190': '45rem',
             },
             colors: {
                 cblue: {
