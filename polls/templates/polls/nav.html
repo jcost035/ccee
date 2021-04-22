@@ -225,21 +225,22 @@
 
                 <!--About us-->
                 <div @mouseover.away="open = false
-              whatwedoOpen = false" x-on:mouseover="open = true
-              whatwedoOpen = true" x-on:click="open = !open" class="relative py-2" x-data="data()">
+                whatwedoOpen = false" x-on:mouseover="open = true
+                whatwedoOpen = true" x-on:click="open = !open" class="relative py-2" x-data="data()">
+
                     <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600  ">
-              About Us
-            </button>
+                        About Us
+                    </button>
 
                     <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-50" x-transition:leave-start="transform opacity-100 scale-100"
-                        x-transition:leave-end="transform opacity-0 scale-95" class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-48">
+                        x-transition:leave-end="transform opacity-0 scale-95" class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-72">
                         <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
-                            <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-md font-bold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="#">Make Economics and money understandable!</a>
-                            <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-md font-bold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/history-mission">History + Mission</a>
-                            <a class="block px-4 py-2 mt-2  bg-transparent rounded text-md font-bold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/our-team">Our Team</a>
-                            <a class="block px-4 py-2 mt-2  bg-transparent rounded text-md font-bold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/map">CCEE Centers on Economic Education</a>
-                            <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-md font-bold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/report">Impact/Annual Reports</a>
-                            <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-md font-bold md:mt-0 hover:text-gray-200 text-gray-800 focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="#">Partners + Donors</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-md font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="#">Make Economics and money understandable!</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-md font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/history-mission">History + Mission</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded text-md font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/our-team">Our Team</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded text-md font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/map">CCEE Centers on Economic Education</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-md font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/report">Impact/Annual Reports</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-md font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="#">Partners + Donors</a>
                         </div>
                     </div>
                 </div>

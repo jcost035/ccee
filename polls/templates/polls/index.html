@@ -11,6 +11,7 @@
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
+
 <style>
   #header {
     font-family: 'Bebas Neue', cursive;
@@ -703,18 +704,18 @@
           <div class="px-4 py-2 ">
             <h3 id="header" class="text-5xl text-white font-bold m-md:text-center">Join our mailing list</h3>
             <p class="hidden text-xl text-white m-md:text-sm m-md:px-4">We sent latest news and posts once in every week, fresh from the oven</p>
-            <form class="mt-4 mb-10 m-md:flex m-md:flex-col m-md:justify-center">
-              <input type="email" class=" bg-gray-100 w-full px-4 py-2 border focus:border-green-400 m-md:mx-auto rounded" placeholder="example@gmail.com"/>
+            <form id="signup" class="mt-4 mb-10 m-md:flex m-md:flex-col m-md:justify-center">
+              <input type="text" id="address" name="address" class=" bg-gray-100 w-full px-4 py-2 border focus:border-green-400 m-md:mx-auto rounded" placeholder="example@gmail.com"/>
               
               
-              <div class="flex md:flex-row flex-col justify-start space-x-2 font-roboto text-white text-xl mt-4">
+              {% comment %} <div class="flex md:flex-row flex-col justify-start space-x-2 font-roboto text-white text-xl mt-4">
                 <span class="text-white ">I'm a</span>
-                  <span><input type="radio" id="yes" name="volunteer" value="yes" checked> <label class="font-roboto text-white text-xl pr-2">K-12 Educator</label></span>
-                  <span><input type="radio" id="no" name="volunteer" value="no"> <label class="font-roboto text-white text-xl px-2">Community Member</label></span>
-                  <span><input type="radio" id="yes" name="volunteer" value="yes"> <label class="font-roboto text-white text-xl px-2">Other</label></span>
-              </div>
+                  <span><input type="radio" id="" name="volunteer"  checked> <label class="font-roboto text-white text-xl pr-2">K-12 Educator</label></span>
+                  <span><input type="radio" id="" name="volunteer"> <label class="font-roboto text-white text-xl px-2">Community Member</label></span>
+                  <span><input type="radio" id="" name="volunteer" > <label class="font-roboto text-white text-xl px-2">Other</label></span>
+              </div> {% endcomment %}
 
-              <button  class="px-4 py-2 text-gray-100 m-md:w-1/2 m-md:mx-auto m-md:my-4 my-2 rounded font-roboto text-xl m-md:text-2xl" style="background-color: #88c23d;">
+              <button type="submit" class="px-4 py-2 text-gray-100 m-md:w-1/2 m-md:mx-auto m-md:my-4 my-2 rounded font-roboto text-xl m-md:text-2xl" style="background-color: #88c23d;">
                 Subscribe
                 <i class='bx bx-right-arrow-alt' ></i>
               </button>
@@ -724,7 +725,6 @@
       <!-- end subscribe section -->
 
     
-
     
 
     </main>
@@ -735,3 +735,42 @@
     
     {% include "polls/footer.html"%}
   </div>
+
+  <script>
+    window.addEventListener( "load", function () {
+      function sendData() {
+        const XHR = new XMLHttpRequest();
+
+        // Bind the FormData object and the form element
+        const FD = new FormData(form);
+
+        FD.append("create_source", "Account");
+        console.log(FD);  
+        // Define what happens on successful data submission
+        XHR.addEventListener( "load", function(event) {
+          alert( event.target.responseText );
+        } );
+
+        // Define what happens in case of error
+        XHR.addEventListener( "error", function( event ) {
+          alert( 'Oops! Something went wrong.' );
+        } );
+
+        // Set up our request
+        XHR.open( "POST", "https://api.cc.email/v3/account/emails?api_key=65905886-48af-477f-b935-de5536f22764" );
+
+        // The data sent is what the user provided in the form
+        XHR.send( FD );
+      }
+
+      // Access the form element...
+      const form = document.getElementById("signup");
+
+      // ...and take over its submit event.
+      form.addEventListener( "submit", function ( event ) {
+        event.preventDefault();
+
+        sendData();
+      } );
+    } );
+  </script>
