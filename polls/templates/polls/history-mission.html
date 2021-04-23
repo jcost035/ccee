@@ -112,13 +112,21 @@
 {% include "polls/nav.html"%}
 
 <div class="mx-auto flex flex-col max-w-screen-xl">
-    {% include "polls/banner-nav.html" %}
+    <div class="flex flex-col md:flex-row mt-40 ">
+
+      {% include 'polls/banner-nav.html'%}
+
+    <div class="md:w-1/2 m-md:text-center m-md:mt-12">
+        <h1 class="md:ml-16 m-md:p-4 text-9xl mt-12 text-gradient bg-cblue" style="font-family: 'Bebas Neue', cursive;">Our Mission</h1>
+
+        <p class="mx-4 md:mx-16 text-lg md:-mr-2" style="font-family: 'Roboto', sans-serif;">We provide economic and financial literacy training and resources to K-12  teachers, students, and their parents throughout California in order to help them gain a  real-world understanding of economics and personal finance, so they can make better  decisions to compete and succeed in the global economy. </p>
+    </div>
+</div>
 
     <div class="md:w-1/2 w-11/12 mx-auto pt-16 mb-24 mt-12 text-center">
-        <h1 class="text-7xl font-bold text-center text-cblue m-md:w-11/12 m-md:mx-auto" style="font-family: 'Bebas Neue', cursive;">About Us Long Header </h1>
-        <p class="mt-10 my-4 leading-loose" style="font-family: 'Roboto', sans-serif;" >Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.  </p>
-        <p class="mt-10 my-4 leading-loose" style="font-family: 'Roboto', sans-serif;" >Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p>
-        <p class="leading-loose" style="font-family: 'Roboto', sans-serif;" >Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+        <h1 class="text-7xl font-bold text-center text-cblue m-md:w-11/12 m-md:mx-auto" style="font-family: 'Bebas Neue', cursive;">About Us</h1>
+        <p class="mt-10 my-4 leading-loose" style="font-family: 'Roboto', sans-serif;" >The California Council on Economic Education (CCEE) provides economics and financial literacy training and resources to K-12 teachers, students, and their parents, throughout California. </p>
+        <p class="leading-loose" style="font-family: 'Roboto', sans-serif;" >CCEE’s overarching mission is to help California’s students gain a real-world understanding of economics and personal finance, so they can make better decisions and compete and succeed in the global economy. CCEE is a statewide organization governed by a 26-member Board, comprised of a number of financial professionals, academic and non-profit experts in the areas of economics and personal finance. </p>
     </div>
 
     <div class="flex m-md:flex-col flex-row my-8 ">

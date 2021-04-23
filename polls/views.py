@@ -11,6 +11,7 @@ from .models import Staff
 from .models import Event
 from .models import Program
 from .models import News
+from .models import Mission
 from django.template import loader
 from django.views.generic import ListView
 
@@ -18,6 +19,8 @@ from django.utils.safestring import mark_safe
 
 from django.db.models import Q
 import json
+
+
 
 def map(request):
     return render(request, "polls/map.html")
@@ -135,6 +138,10 @@ def k12_programs(request):
     return render(request, "polls/k12-programs.html")
 
 def history_mission(request):
+    banner = Mission.objects.all()
+    context = {
+        "banner": banner[0],
+    }
     return render(request, "polls/history-mission.html")
 
 def our_team(request):

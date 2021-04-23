@@ -66,6 +66,8 @@
         zoom: zoomFactor
     });
 
+    
+
 
     // Create a Tile Layer and add it to the map
     var tiles = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -74,7 +76,7 @@
     }).addTo(map);
 
 
-
+   
 
 
     L.geoJSON(jsonData, {
@@ -82,12 +84,16 @@
             return {
                 color: '#88c23d',
                 fillColor: '#88c23d',
-                fillOpacity: 0
+                fillOpacity: 0,
+                {% comment %} stroke-width: 3, {% endcomment %}
             };
         }
     }).bindPopup(function(layer) {
         return layer.feature.properties.description;
     }).addTo(map);
+
+    
+    
 
 
     var soCalMarker = L.circleMarker([34.021747, -118.285224], {
