@@ -19,25 +19,32 @@
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
-<body>
+<body x-data="mapData()">
 
     {% include "polls/nav.html"%}
     <h1 class="text-7xl text-center font-bebas text-cblue md:mt-32">Centers on Economic Education</h1>
     <div class="flex flex-col md:flex-row mt-6">
         <div class="w-1/3">
-            <div x-show="text">asfdsafdfsad</div>
+            <div x-show="text">
+                <h1 class="font-bebas text-7xl text-cblue">Panel text 1</h1>
+            </div>
+            <div x-show="secondText">
+                <h1 class="font-bebas text-7xl text-cblue">Panel text 2</h1>
+            </div>
         </div>
         <div class="md:w-1/2 w-full m-md:mt-32 z-10" id="inner">
             <!-- <img class="" src="{% static 'Cal_Map_CCEE_1.png' %}" alt="" style="width: 900px" />
-            <div style="padding-top:20px;">
-                <div id="coord"></div>
-                <div id="cond-coord"></div>
-            </div> -->
+                <div style="padding-top:20px;">
+                    <div id="coord"></div>
+                    <div id="cond-coord"></div>
+                </div> -->
             <div id="map" class="md:h-190 h-60vh"></div>
         </div>
 
     </div>
-
+    <div id="sidebar">
+        <h1>leaflet-sidebar</h1>
+    </div>
 
 </body>
 
@@ -48,131 +55,162 @@
 <script src="{% static 'california.json' %}"></script>
 
 <script>
-    var zoomFactor = 0;
-    if (window.innerWidth < 768) {
-        zoomFactor = 5;
-    } else {
-        zoomFactor = 6;
-    }
+    function mapData() {
+
+        var text = true;
+        var secondText = false;
+
+        function initMap() {
+
+            var zoomFactor = 0;
+            if (window.innerWidth < 768) {
+                zoomFactor = 5;
+            } else {
+                zoomFactor = 6;
+            }
 
 
-    // Initialize the map and assign it to a variable for later use
-    // there's a few ways to declare a VARIABLE in javascript.
-    // you might also see people declaring variables using `const` and `let`
-    var map = L.map('map', {
-        // Set latitude and longitude of the map center (required)
-        center: [36.7783, -119.4179],
-        // Set the initial zoom level, values 0-18, where 0 is most zoomed-out (required)
-        zoom: zoomFactor
-    });
-
-    
+            // Initialize the map and assign it to a variable for later use
+            // there's a few ways to declare a VARIABLE in javascript.
+            // you might also see people declaring variables using `const` and `let`
+            var map = L.map('map', {
+                // Set latitude and longitude of the map center (required)
+                center: [36.7783, -119.4179],
+                // Set the initial zoom level, values 0-18, where 0 is most zoomed-out (required)
+                zoom: zoomFactor
+            });
 
 
-    // Create a Tile Layer and add it to the map
-    var tiles = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        minZoom: '1'
-    }).addTo(map);
 
 
-   
+            // Create a Tile Layer and add it to the map
+            var tiles = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                minZoom: '1'
+            }).addTo(map);
 
 
-    L.geoJSON(jsonData, {
-        style: function(feature) {
-            return {
-                color: '#88c23d',
-                fillColor: '#88c23d',
-                fillOpacity: 0,
-                {% comment %} stroke-width: 3, {% endcomment %}
-            };
+
+
+
+            L.geoJSON(jsonData, {
+                style: function(feature) {
+                    return {
+                        color: '#88c23d',
+                        fillColor: '#88c23d',
+                        fillOpacity: 0,
+                    };
+                }
+            }).bindPopup(function(layer) {
+                return layer.feature.properties.description;
+            }).addTo(map);
+
+
+
+
+
+            var soCalMarker = L.circleMarker([34.021747, -118.285224], {
+                fill: true,
+                color: '#74BEE9',
+                fillColor: '#74BEE9',
+                fillOpacity: 1,
+                radius: 7,
+            }).bindPopup('University of Southern California').addTo(map);
+
+            var calStateMarker = L.circleMarker([34.066676, -118.169115], {
+                fill: true,
+                color: '#0071BC',
+                fillColor: '#0071BC',
+                fillOpacity: 1,
+                radius: 7,
+            }).bindPopup('Cal State University – Los Angeles').addTo(map);
+
+            var cuyamacaMarker = L.circleMarker([32.743871, -116.939673], {
+                fill: true,
+                color: '#004A80',
+                fillColor: '#004A80',
+                fillOpacity: 1,
+                radius: 7,
+            }).bindPopup('Cuyamaca College').addTo(map);
+
+            var sanJoseMarker = L.circleMarker([37.335018, -121.882329], {
+                fill: true,
+                color: '#004A80',
+                fillColor: '#004A80',
+                fillOpacity: 1,
+                radius: 7,
+            }).bindPopup('San José State University').addTo(map);
+
+            var sanBernadinoMarker = L.circleMarker([34.181684, -117.324339], {
+                fill: true,
+                color: '#004A80',
+                fillColor: '#004A80',
+                fillOpacity: 1,
+                radius: 7,
+            }).bindPopup('Cal State University – San Bernardino').addTo(map);
+
+            var fullertonMarker = L.circleMarker([33.881760, -117.885264], {
+                fill: true,
+                color: '#004A80',
+                fillColor: '#004A80',
+                fillOpacity: 1,
+                radius: 7,
+            }).bindPopup('Cal State University – Fullerton').addTo(map);
+
+
+            const newDiv = document.createElement("div");
+            newDiv.className = "text-xl font-bebas text-cblue flex flex-col";
+            const newContent = document.createTextNode("Cal State University – East Bay");
+            const eastBayDiv1 = document.createElement("p");
+            const eastBayDiv2 = document.createElement("p");
+            eastBayDiv1.className = "text-xs font-sans text-black";
+            eastBayDiv2.className = "text-xs font-sans text-black";
+            const eastBayDesc1 = document.createTextNode("The Center for Economic Education at Cal State East Bay was one of, if not the earliest to use a stock market game as a competition and instructional tool.Today it continues to provide support for the California Stock Market Simulation, conducts workshops for teachers here and abroad, and is involved in economic education research and curriculum development.");
+            eastBayDiv1.appendChild(eastBayDesc1);
+
+            const eastBayDocName = document.createElement("span");
+            eastBayDocName.className = "text-cblue font-bold";
+            const eastBayDoc = document.createTextNode("Jane Lopus, Ph.D.Director");
+            eastBayDocName.appendChild(eastBayDoc);
+            eastBayDiv2.appendChild(eastBayDocName);
+
+            const eastBayDesc2 = document.createTextNode(", is an accomplished researcher, curriculum writer, and international consultant.She has authored Economics in Action!as well as materials for the national CEE; She has been an integral part of bringing economics and personal finance education to many countries of the former soviet union and continues to work with them, currently Ukraine. ");
+            eastBayDiv2.appendChild(eastBayDesc2);
+
+            newDiv.appendChild(newContent);
+            newDiv.appendChild(eastBayDiv1);
+            newDiv.appendChild(eastBayDiv2);
+
+            function onEastclick() {
+                secondText = true;
+                text = false;
+            }
+
+
+            var eastBayMarker = L.circleMarker([37.657430, -122.056006], {
+                fill: true,
+                color: '#004A80',
+                fillColor: '#004A80',
+                fillOpacity: 1,
+                radius: 7,
+            }).bindPopup(newDiv).addTo(map).on('click', () => {
+                this.text = false;
+                this.secondText = true;
+                console.log(this.secondText)
+            });
+
+            // var sidebar = L.control.sidebar('sidebar', {
+            //     position: 'left'
+            // });
+
         }
-    }).bindPopup(function(layer) {
-        return layer.feature.properties.description;
-    }).addTo(map);
+        return {
+            map: initMap(),
+            text,
+            secondText,
+        }
+    }
+    // map.addControl(sidebar);
 
-    
-    
-
-
-    var soCalMarker = L.circleMarker([34.021747, -118.285224], {
-        fill: true,
-        color: '#74BEE9',
-        fillColor: '#74BEE9',
-        fillOpacity: 1,
-        radius: 7,
-    }).bindPopup('University of Southern California').addTo(map);
-
-    var calStateMarker = L.circleMarker([34.066676, -118.169115], {
-        fill: true,
-        color: '#0071BC',
-        fillColor: '#0071BC',
-        fillOpacity: 1,
-        radius: 7,
-    }).bindPopup('Cal State University – Los Angeles').addTo(map);
-
-    var cuyamacaMarker = L.circleMarker([32.743871, -116.939673], {
-        fill: true,
-        color: '#004A80',
-        fillColor: '#004A80',
-        fillOpacity: 1,
-        radius: 7,
-    }).bindPopup('Cuyamaca College').addTo(map);
-
-    var sanJoseMarker = L.circleMarker([37.335018, -121.882329], {
-        fill: true,
-        color: '#004A80',
-        fillColor: '#004A80',
-        fillOpacity: 1,
-        radius: 7,
-    }).bindPopup('San José State University').addTo(map);
-
-    var sanBernadinoMarker = L.circleMarker([34.181684, -117.324339], {
-        fill: true,
-        color: '#004A80',
-        fillColor: '#004A80',
-        fillOpacity: 1,
-        radius: 7,
-    }).bindPopup('Cal State University – San Bernardino').addTo(map);
-
-    var fullertonMarker = L.circleMarker([33.881760, -117.885264], {
-        fill: true,
-        color: '#004A80',
-        fillColor: '#004A80',
-        fillOpacity: 1,
-        radius: 7,
-    }).bindPopup('Cal State University – Fullerton').addTo(map);
-
-
-    const newDiv = document.createElement("div");
-    newDiv.className = "text-xl font-bebas text-cblue flex flex-col";
-    const newContent = document.createTextNode("Cal State University – East Bay");
-    const eastBayDiv1 = document.createElement("p");
-    const eastBayDiv2 = document.createElement("p");
-    eastBayDiv1.className = "text-xs font-sans text-black";
-    eastBayDiv2.className = "text-xs font-sans text-black";
-    const eastBayDesc1 = document.createTextNode("The Center for Economic Education at Cal State East Bay was one of, if not the earliest to use a stock market game as a competition and instructional tool.Today it continues to provide support for the California Stock Market Simulation, conducts workshops for teachers here and abroad, and is involved in economic education research and curriculum development.");
-    eastBayDiv1.appendChild(eastBayDesc1);
-
-    const eastBayDocName = document.createElement("span");
-    eastBayDocName.className = "text-cblue font-bold";
-    const eastBayDoc = document.createTextNode("Jane Lopus, Ph.D.Director");
-    eastBayDocName.appendChild(eastBayDoc);
-    eastBayDiv2.appendChild(eastBayDocName);
-
-    const eastBayDesc2 = document.createTextNode(", is an accomplished researcher, curriculum writer, and international consultant.She has authored Economics in Action!as well as materials for the national CEE; She has been an integral part of bringing economics and personal finance education to many countries of the former soviet union and continues to work with them, currently Ukraine. ");
-    eastBayDiv2.appendChild(eastBayDesc2);
-
-    newDiv.appendChild(newContent);
-    newDiv.appendChild(eastBayDiv1);
-    newDiv.appendChild(eastBayDiv2);
-
-    var eastBayMarker = L.circleMarker([37.657430, -122.056006], {
-        fill: true,
-        color: '#004A80',
-        fillColor: '#004A80',
-        fillOpacity: 1,
-        radius: 7,
-    }).bindPopup(newDiv).addTo(map);
+    // sidebar.show();
 </script>

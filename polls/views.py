@@ -138,10 +138,6 @@ def k12_programs(request):
     return render(request, "polls/k12-programs.html")
 
 def history_mission(request):
-    banner = Mission.objects.all()
-    context = {
-        "banner": banner[0],
-    }
     return render(request, "polls/history-mission.html")
 
 def our_team(request):

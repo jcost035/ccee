@@ -163,7 +163,7 @@
                 </a>
                 <div x-show="aboutOpen" class="flex flex-col transition-display" x-transition:enter="transition ease-out duration-300" x-transition:enter-start=" transform scale-y-50" x-transition:enter-end="opacity-100 transform scale-y-100" x-transition:leave="transition ease-in duration-300"
                     x-transition:leave-start="opacity-100 transform scale-y-100" x-transition:leave-end=" transform scale-y-50">
-                    <a href="" class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl">Make economics and money understandable!</a>
+                    <a href="" class="hidden bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl">Make economics and money understandable!</a>
                     <a href="/history-mission" class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 text-xl">History + Mission</a>
                     <a href="/our-team" class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 text-xl">Our Team</a>
                     <a href="/map" class="bg-gray-300 text-center cursor-pointer font-roboto py-2 text-xl">CCEE Centers on Economic Education</a>
@@ -228,14 +228,14 @@
                 whatwedoOpen = false" x-on:mouseover="open = true
                 whatwedoOpen = true" x-on:click="open = !open" class="relative py-2" x-data="data()">
 
-                    <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600  ">
+                    <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="cursor-default flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600  ">
                         About Us
                     </button>
 
                     <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-50" x-transition:leave-start="transform opacity-100 scale-100"
                         x-transition:leave-end="transform opacity-0 scale-95" class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-72">
                         <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
-                            <a class="block px-4 py-3 mt-2  bg-transparent  rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="#">Make Economics and money understandable!</a>
+                            <a class="hidden px-4 py-3 mt-2  bg-transparent  rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="#">Make Economics and money understandable!</a>
                             <a class="block px-4 py-3 mt-2  bg-transparent rounded  text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/history-mission">History + Mission</a>
                             <a class="block px-4 py-3 mt-2  bg-transparent rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/our-team">Our Team</a>
                             <a class="block px-4 py-3 mt-2  bg-transparent rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/map">CCEE Centers on Economic Education</a>
@@ -250,7 +250,7 @@
                 <div @mouseover.away="open = false
               whatwedoOpen = false" x-on:mouseover="open = true
               whatwedoOpen = true" x-on:click="open = !open" class="relative py-2" x-data="data()">
-                    <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300  mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600  ">
+                    <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="cursor-default flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300  mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600  ">
               Programs
             </button>
 
@@ -271,7 +271,7 @@
                 <div @mouseover.away="open = false
               whatwedoOpen = false" x-on:mouseover="open = true
               whatwedoOpen = true" x-on:click="open = !open" class="relative py-2" x-data="data()">
-                    <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none ">
+                    <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="cursor-default flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none ">
               Resources
             </button>
 
@@ -291,7 +291,7 @@
                 <div @mouseover.away="open = false
               whatwedoOpen = false" x-on:mouseover="open = true
               whatwedoOpen = true" x-on:click="open = !open" class="relative py-2" x-data="data()">
-                    <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none ">
+                    <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="cursor-default flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none ">
               News
             </button>
 
@@ -308,7 +308,7 @@
                 <div @mouseover.away="open = false
               whatwedoOpen = false" x-on:mouseover="open = true
               whatwedoOpen = true" x-on:click="open = !open" class="relative py-2" x-data="data()">
-                    <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none ">
+                    <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="cursor-default flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none ">
               Get Involved
             </button>
 
@@ -327,10 +327,10 @@
                 <!--Get involved end-->
 
                 <!--right aligned nav container-->
-                <nav class="flex-col flex-grow pb-4 md:pb-0 hidden mr-14 md:flex md:justify-end md:flex-row bg-white font-roboto">
+                <nav class="flex-col flex-grow pb-4 md:pb-0 hidden mr-14 md:flex md:justify-end md:flex-row bg-white font-bold">
                     <!--Envelope button-->
-                    <button id="ccee-color" type="button" class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-cgreen hover:bg-cgreen-dark text-white font-normal py-2 px-4 mr-1 rounded text-lg">Donate</button>
-                    <button @click="popupOpen = true" type="button" id="button" class="btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-blue-700 hover:bg-blue-700 text-blue-700 hover:text-white font-normal py-2 px-4 rounded text-lg">Join</button>
+                    <button id="ccee-color" type="button" class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-cgreen hover:bg-cgreen-dark text-white  py-2 px-4 mr-1 rounded text-lg font-bold">Donate</button>
+                    <button @click="popupOpen = true" type="button" id="button" class="btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-cblue hover:bg-cblue text-cblue hover:text-white  py-2 px-4 rounded text-lg font-bold">Join</button>
                     <!--Envelope button end-->
 
 
