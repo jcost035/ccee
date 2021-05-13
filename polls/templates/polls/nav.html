@@ -186,8 +186,8 @@
                 <a class="bg-gray-100 text-center cursor-pointer font-roboto py-2 text-xl " @click="open( 'resource') " x-bind:class="{ 'bg-cblue' : resourceOpen} ">Resources <i class="fas fa-caret-down "></i></a>
 
                 <div x-show="resourceOpen " class="flex flex-col ">
-                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Daily Dose of Econ</a>
-                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Research</a>
+                    <a href="/daily-dose" class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Daily Dose of Econ</a>
+                    <a class="hidden bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Research</a>
                     <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Resources</a>
                     <a class="hidden bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Affiliate Partner Resources</a>
                 </div>
@@ -286,8 +286,8 @@
                     <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-50" x-transition:leave-start="transform opacity-100 scale-100"
                         x-transition:leave-end="transform opacity-0 scale-95" class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-72">
                         <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
-                            <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Daily Dose of Econ</a>
-                            <a class="block px-4 py-2 mt-2  bg-transparent rounded  text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Research</a>
+                            <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="/daily-dose">Daily Dose of Econ</a>
+                            <a class="hidden px-4 py-2 mt-2  bg-transparent rounded  text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Research</a>
                             <a class="block px-4 py-2 mt-2  bg-transparent rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Resources</a>
                             <a class="block px-4 py-2 mt-2  bg-transparent rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Affiliate Partner Resources</a>
                         </div>

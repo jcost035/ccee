@@ -90,3 +90,13 @@ class Mission(models.Model):
 
     def __str__(self):
         return self.name
+
+class DailyDose(models.Model):
+    title = models.CharField(max_length=200)
+    date = models.DateField(_("Date"), default=datetime.date.today)
+    description = models.CharField(max_length=1200)
+    tags = models.CharField(max_length=200, default='')
+    location = models.CharField(max_length=200, default='Virtual')
+
+    def __str__(self):
+        return self.title

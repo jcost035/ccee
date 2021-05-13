@@ -558,19 +558,20 @@
       
 
       <!--Daily dose section DONT DELETE -->
-      {% comment %} <div class="mt-10">
-        <div class="absolute h-4/5 border-2  bg-cblue w-170 -ml-72 -z-1"></div>
-        <div class="flex flex-col items-center h-40 text-center mt-4">
-            
+      <div class="my-20 bg-cblue w-full">
+        {% comment %} <div class="absolute h-4/5 border-2  bg-cblue w-170 -ml-72 -z-1"></div> {% endcomment %}
+        <div class="flex flex-col items-center text-center mt-4">
             <img
                 src="{% static 'daily-white.png' %}"
                 class="h-56"
               />
-
+            <p class="font-roboto text-white text-3xl mx-96">
+              Support your online instruction through daily, relevant topic exploration. We’ve made it easy for you. Just click and learn!
+            </p>
         </div>
-        <div class="flex flex-row w-full mt-8 space-x-10 mt-20">
+        <div class="flex flex-row w-full space-x-10 mt-12 mb-20 mx-auto justify-center">
           <!--first card-->
-          <div class="flex flex-col items-center w-1/3 cursor-pointer">
+          <div class="flex flex-col items-center w-1/4 cursor-pointer">
             <div
               class="bg-transparent overflow-hidden  w-full relative h-48 pb-36"
             >
@@ -587,11 +588,14 @@
                   <div class=" text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
                   <div class="text-2xl text-red-600 font-bold"></div>
                 </div>
+                <button type="button" id="button" class="justify-self-end rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
+                  Read More
+                </button> 
               </div>
             </div>
           </div>
           <!--second card-->
-          <div class="flex flex-col items-center w-1/3 cursor-pointer">
+          <div class="flex flex-col items-center w-1/4 cursor-pointer">
             <div
               class="bg-transparent overflow-hidden  w-full relative h-48 pb-36"
             >
@@ -601,6 +605,7 @@
                 alt=""
               />
             </div>
+            
             <div class=" z-10  w-full">
               <div class="bg-white rounded-b-lg shadow-2xl  py-5 px-5">
                 <span id="camp-text" class="absolute text-gray-800 text-3xl p-2 rounded-sm -mt-10 -ml-10 bg-cgreen">Economics</span>
@@ -608,11 +613,14 @@
                   <div class=" text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
                   <div class="text-2xl text-red-600 font-bold"></div>
                 </div>
+                <button type="button" id="button" class="justify-self-end rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
+                  Read More
+                </button>
               </div>
             </div>
           </div>
           <!--third card-->
-          <div class="flex flex-col items-center w-1/3 cursor-pointer">
+          <div class="flex flex-col items-center w-1/4 cursor-pointer">
             <div
               class="bg-cblue rounded-t-lg overflow-hidden  w-full relative h-48 pb-36"
             >
@@ -629,11 +637,14 @@
                   <div class=" text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
                   <div class="text-2xl text-red-600 font-bold"></div>
                 </div>
+                <button type="button" id="button" class="justify-self-end rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
+                  Read More
+                </button>
               </div>
             </div>
           </div>
       </div>
-      </div> {% endcomment %}
+      </div> 
 
       
 
@@ -694,13 +705,13 @@
 
       <!-- subscribe -->
       <div class="max-w-screen-xl md:px-16 mx-auto">
-        <div  class="bg-cblue flex m-md:flex-col md:shadow mt-24 mb-48 p-4 pt-6 w-full" >
+        <div  class="bg-cblue flex m-md:flex-col md:shadow mt-24 mb-48 p-4 pt-6 w-full rounded-lg" >
           <i class="fas fa-horizontal-rule"></i>
           <div class="p-10 m-md:text-center" style="color: #88c23d;">
             <i class="fas fa-envelope-open-text fa-7x"></i>
           </div>
-          <div class="px-4 py-2 md:w-1/2">
-            <h3 id="header" class="text-5xl text-white font-bold m-md:text-center">Join our mailing list</h3>
+          <div class="px-4 py-2 md:w-2/3">
+            <h3 id="header" class="text-5xl text-white m-md:text-center">Stay up to date on all things CCEE</h3>
             <p class="hidden text-xl text-white m-md:text-sm m-md:px-4">We sent latest news and posts once in every week, fresh from the oven</p>
             <form id="signup" class="mt-4 mb-10 m-md:flex m-md:flex-col m-md:justify-center">
               <input type="text" id="address" name="address" class=" bg-gray-100 w-full px-4 py-2 border focus:border-green-400 m-md:mx-auto rounded" placeholder="example@gmail.com"/>

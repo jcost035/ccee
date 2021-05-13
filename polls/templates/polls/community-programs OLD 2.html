@@ -1,0 +1,179 @@
+<head>
+    {% load static %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="{% static 'site.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+    <script>
+        function data() {
+            return {
+                open: false,
+                ourteamOpen: false,
+                centersOpen: false,
+                bodOpen: false,
+                dapOpen: false,
+                arOpen: false,
+                atTop: true,
+                popupOpen: false,
+                whatwedoOpen: false,
+                menuClear(openMenu) {
+                    if (openMenu == 'ourteamOpen') {
+                        this.ourteamOpen = true
+                    } else {
+                        this.ourteamOpen = false
+                    }
+
+                    if (openMenu == 'centersOpen') {
+                        this.centersOpen = true
+                    } else {
+                        this.centersOpen = false
+                    }
+
+                    if (openMenu == 'bodOpen') {
+                        this.bodOpen = true
+                    } else {
+                        this.bodOpen = false
+                    }
+
+                    if (openMenu == 'dapOpen') {
+                        this.dapOpen = true
+                    } else {
+                        this.dapOpen = false
+                    }
+
+                    if (openMenu == 'arOpen') {
+                        this.arOpen = true
+                    } else {
+                        this.arOpen = false
+                    }
+
+                },
+
+                clearsubmenus() {
+                    this.ourteamOpen = false
+                    this.centersOpen = false
+                    this.bodOpen = false
+                    this.dapOpen = false
+                    this.arOpen = false
+                }
+            }
+        }
+    </script>
+
+
+    <script>
+        function popupData() {
+            return {
+                popupOpen: false
+            }
+        }
+    </script>
+
+    <script>
+        function cardData() {
+            return {
+                caset: true,
+                fed: true,
+                smartpath: true,
+                workshops: true
+            }
+        }
+    </script>
+
+
+</head>
+
+{% include 'polls/nav.html'%}
+
+<div class=" max-w-screen-xl mx-auto flex flex-col text-center md:text-left" x-data="cardData()">
+    <div class="m-md:mt-24 flex flex-col md:flex-row mt-14 max-w-7xl mx-auto ">
+        <div class="rounded-lg md:h-96 md:w-full   h-72 m-md:mx-2 mt-16 bg-cover " style=" background-image: url(https://neu-cdn-amnesty-org-prd.azureedge.net/cache/b/9/2/e/1/2/b92e121f3e847d27c383c498315ac3cec395068e.jpg);"></div>
+        <div class="md:ml-10 md:w-full">
+            <div class=" md:mt-32 mt-12 md:-mr-32"><span class="text-cblue text-5xl md:text-8xl p-2 rounded font-bebas m-md:text-center">Community Programs</span></div>
+            <p class=" font-semibold text-gray-500 mx-4 mt-2">"Precisely. You are a young man after my own heart." He put his hand on my shoulder - I could not help noticing that his fingers were dark with dust. "Cyby, too, is a young man after my heart. He will be chief librarian here when I am gone.
+                We have a procession, you know, we curators.</p>
+        </div>
+    </div>
+    <div class=" flex flex-col grid grid-cols-1 md:grid-cols-3 gap-4 mx-10 text-center max-w-6xl mx-1 mt-24">
+
+
+        <div>
+            
+
+            <div class="relative border border-gray-500 overflow-hidden rounded-md justify-center content-center text-center h-52" style="background-image: url(https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg);" x-bind:class="{'h-128': !fed }">
+                <div class="absolute bg-cblue h-full w-full overflow-hidden opacity-70 z-10"></div>
+
+                <div class="relative z-50" @mouseover="fed = false" @mouseover.away="fed = true">
+                    <i class="fas fa-university fa-5x mt-6 " style="color: #ffffff"></i>
+                    <h1 class="text-5xl font-bebas text-white z-50 my-8">Bingo bango</h1>
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-50 " x-show="fed">It is possible I already had some presentiment of my future.</p>
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-50 " x-show="!fed" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">It is possible I already had some presentiment of my future. The locked and rusted gate that stood before us, with wisps of river fog threading its spikeslike the mountain paths, remains in my mind now as the symbol of my exile. That
+                        is why I have begun this account of it with the aftermath of our swim, in which I, the torturer's apprentice Severian, had so nearly drowned.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div>
+            
+
+            <div class="relative border border-gray-500 overflow-hidden rounded-md justify-center content-center text-center h-52" style="background-image: url(https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg);" x-bind:class="{'h-128': !caset }">
+                <div class="absolute bg-cblue h-full w-full overflow-hidden opacity-70 z-10"></div>
+
+                <div class="relative z-50" @mouseover="caset = false" @mouseover.away="caset = true">
+                    <i class="fas fa-university fa-5x mt-6 " style="color: #ffffff"></i>
+                    <h1 class="text-5xl font-bebas text-white z-50 my-8">Bingo bango</h1>
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-50 " x-show="caset">It is possible I already had some presentiment of my future.</p>
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-50 " x-show="!caset" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">It is possible I already had some presentiment of my future. The locked and rusted gate that stood before us, with wisps of river fog threading its spikeslike the mountain paths, remains in my mind now as the symbol of my exile. That
+                        is why I have begun this account of it with the aftermath of our swim, in which I, the torturer's apprentice Severian, had so nearly drowned.</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            
+
+            <div class="relative border border-gray-500 overflow-hidden rounded-md justify-center content-center text-center h-52" style="background-image: url(https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg);" x-bind:class="{'h-128': !smartpath }">
+                <div class="absolute bg-cblue h-full w-full overflow-hidden opacity-70 z-10"></div>
+
+                <div class="relative z-50" @mouseover="smartpath = false" @mouseover.away="smartpath = true">
+                    <i class="fas fa-graduation-cap fa-5x mt-6 " style="color: #ffffff"></i>
+                    <h1 class="text-5xl font-bebas text-white z-50 my-8">Bingo bango</h1>
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-50 " x-show="smartpath">It is possible I already had some presentiment of my future.</p>
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-50 " x-show="!smartpath" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">It is possible I already had some presentiment of my future. The locked and rusted gate that stood before us, with wisps of river fog threading its spikeslike the mountain paths, remains in my mind now as the symbol of my exile. That
+                        is why I have begun this account of it with the aftermath of our swim, in which I, the torturer's apprentice Severian, had so nearly drowned.</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            
+
+            <div class="relative border border-gray-500 overflow-hidden rounded-md justify-center content-center text-center h-52" style="background-image: url(https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg);" x-bind:class="{'h-128': !workshops }">
+                <div class="absolute bg-cblue h-full w-full overflow-hidden opacity-70 z-10"></div>
+
+                <div class="relative z-50" @mouseover="workshops = false" @mouseover.away="workshops = true">
+                    <i class="fas fa-chalkboard-teacher fa-5x mt-6 " style="color: #ffffff"></i>
+                    <h1 class="text-5xl font-bebas text-white z-50 my-8">Bingo bango</h1>
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-50 " x-show="workshops">It is possible I already had some presentiment of my future.</p>
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-50 " x-show="!workshops" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">It is possible I already had some presentiment of my future. The locked and rusted gate that stood before us, with wisps of river fog threading its spikeslike the mountain paths, remains in my mind now as the symbol of my exile. That
+                        is why I have begun this account of it with the aftermath of our swim, in which I, the torturer's apprentice Severian, had so nearly drowned.</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    {% include 'polls/footer.html'%}
+</div>

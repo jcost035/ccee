@@ -12,6 +12,7 @@ from .models import Event
 from .models import Program
 from .models import News
 from .models import Mission
+from .models import DailyDose
 from django.template import loader
 from django.views.generic import ListView
 
@@ -20,7 +21,8 @@ from django.utils.safestring import mark_safe
 from django.db.models import Q
 import json
 
-
+def daily_dose(request):
+    return render(request, "polls/daily-dose.html")
 
 def map(request):
     return render(request, "polls/map.html")
@@ -98,6 +100,33 @@ def news_list(request):
         "news_list": news_list,
     }
     return HttpResponse(news_list, content_type="application/json")
+
+def dose_list(request):
+    
+    dose_list = serializers.serialize('json', DailyDose.objects.order_by("-date"))
+
+    #paginator = Paginator(event_list, 5) #show 10 objects per page
+    #page_number = request.GET.get('page')
+    #events = paginator.get_page(page_number)
+
+    context = {
+        "dose_list": dose_list,
+    }
+    return HttpResponse(dose_list, content_type="application/json")
+
+def dose_list_date(request, date_range):
+    startdate = date.today()
+    enddate = startdate + timedelta(days=date_range)
+    dose_list = serializers.serialize('json', Event.objects.filter(date__range=[startdate, enddate]))
+
+    #paginator = Paginator(event_list, 5) #show 10 objects per page
+    #page_number = request.GET.get('page')
+    #events = paginator.get_page(page_number)
+
+    context = {
+        "dose_list": dose_list,
+    }
+    return HttpResponse(dose_list, content_type="application/json")
 
 def news_list_date(request, date_range):
     startdate = date.today()
