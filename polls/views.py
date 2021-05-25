@@ -21,6 +21,16 @@ from django.utils.safestring import mark_safe
 from django.db.models import Q
 import json
 
+def dose_article(request, article_url):
+    dose = DailyDose.objects.filter(name__icontains=article_url)
+    
+    context = {
+        "dose": dose[0],
+        "faq": dose[0].faq["set"]
+    }
+    
+    return render(request, "polls/daily-dose-article.html", context)
+
 def daily_dose(request):
     return render(request, "polls/daily-dose.html")
 
@@ -47,7 +57,6 @@ def programs(request, prog_name):
         "faq": program[0].faq["set"]
     }
     
-    
     return render(request, "polls/programs.html", context)
 
 def calendar_table(request):
@@ -73,8 +82,18 @@ class Calendar(ListView):
         )
 
 def event_list(request):
-    
+
     event_list = serializers.serialize('json', Event.objects.order_by("-date"))
+    
+    events_dict = json.loads(event_list)
+
+    for event in events_dict:
+        old_date = event['fields']['date']
+        new_date = old_date[5:7] + '/' + old_date[8:10] + '/' + old_date[0:4]
+        event['fields']['date'] = new_date
+        
+    event_list = json.dumps(events_dict)
+    
 
     #paginator = Paginator(event_list, 5) #show 10 objects per page
     #page_number = request.GET.get('page')
@@ -92,6 +111,15 @@ def news_list(request):
     
     news_list = serializers.serialize('json', News.objects.order_by("-date"))
 
+    news_dict = json.loads(news_list)
+
+    for news in news_dict:
+        old_date = news['fields']['date']
+        new_date = old_date[5:7] + '/' + old_date[8:10] + '/' + old_date[0:4]
+        news['fields']['date'] = new_date
+        
+    news_list = json.dumps(news_dict)
+
     #paginator = Paginator(event_list, 5) #show 10 objects per page
     #page_number = request.GET.get('page')
     #events = paginator.get_page(page_number)
@@ -104,6 +132,15 @@ def news_list(request):
 def dose_list(request):
     
     dose_list = serializers.serialize('json', DailyDose.objects.order_by("-date"))
+
+    dose_dict = json.loads(dose_list)
+
+    for dose in dose_dict:
+        old_date = dose['fields']['date']
+        new_date = old_date[5:7] + '/' + old_date[8:10] + '/' + old_date[0:4]
+        dose['fields']['date'] = new_date
+        
+    dose_list = json.dumps(dose_dict)
 
     #paginator = Paginator(event_list, 5) #show 10 objects per page
     #page_number = request.GET.get('page')

@@ -1,0 +1,194 @@
+<head>
+    {% load static %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="{% static 'site.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+
+
+
+
+</head>
+
+<body>
+    {% include 'polls/nav.html'%}
+    <div class="absolute bg-cblue w-full h-2/3 -mt-16"></div>
+    <div class="relative w-9/12 m-md:w-11/12 mx-auto z-10" x-data="programData()" x-init="observe()">
+        <div class="h-1/2 mb-24">
+                
+        </div>
+
+        <div class="sticky top-32  w-44  bg-gray-300 mt-44 z-50 rounded-lg m-md:hidden">
+            <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg rounded-t-lg" @click="scrollTo('about')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['about-marker']}">Key Question</button>
+            <button class="hover:bg-gray-400 w-full p-4 pb-2 font-roboto text-cblue text-lg" @click="scrollTo('video')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['daily-content-marker']}">Resources</button>
+            <button class="hover:bg-gray-400 w-full p-4 pl-16 py-1 font-roboto text-cblue text-lg italic text-left" @click="scrollTo('video')" >Video</button>
+            <button class="hover:bg-gray-400 w-full p-4 pl-16 py-1 font-roboto text-cblue text-lg italic text-left" @click="scrollTo('daily-content')" >Articles</button>
+            <button class="hover:bg-gray-400 w-full p-4 pl-16 py-1 font-roboto text-cblue text-lg italic text-left" @click="scrollTo('video')" >Interactives</button>
+            <button class="hover:bg-gray-400 w-full p-4 pl-16 py-1 font-roboto text-cblue text-lg italic text-left" @click="scrollTo('video')" >Other</button>
+            <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg" @click="scrollTo('faq')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['faq-marker']}">About DDOE</button>
+            <button class="hover:bg-gray-400 w-full p-4 pb-6 font-roboto text-cblue text-lg rounded-b-lg" @click="scrollTo('supporters')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['supporters-marker']}">More DDOE Topics</button>
+        </div>
+
+
+        <div class="flex  flex-col m-md:space-y-4 md:flex-row  md:ml-48 md:-mt-80 mt-14 items-end  observerTrigger" id="about">
+            <div class="flex flex-col md:w-full h-full">
+                <img src="{{program.logo_path}}" class=" object-cover object-center rounded " alt="" />
+                <div class="bg-gray-300 rounded text-center px-6 pb-6 pt-4 mt-2">
+                    <h1 class="text-5xl font-bebas text-cgreen">Topic</h1>
+                    <p class="font-roboto font-thin">{{program.about}}
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        
+        <div id="video" class="observerTrigger"></div>
+        <div class="flex flex-col md:flex-row mt-28 md:ml-48 m-md:space-y-6 md:space-x-4">
+            <div class="md:w-1/2 rounded my-auto">
+                <video width="640" height="240" class="rounded-lg" controls>
+                    <source src="{{program.video_path}}" type="video/mp4">
+                  Your browser
+            </div>
+            <div class="md:w-1/2 rounded my-auto">
+                <video width="640" height="240" class="rounded-lg" controls>
+                    <source src="{{program.video_path}}" type="video/mp4">
+                  Your browser
+            </div>
+        </div>
+
+        <div id="daily-content" class="observerTrigger"></div>
+        <div class="absolute md:w-170 bg-cblue h-96 m-md:h-256 -ml-72 -mr-64 -z-1 mt-10"></div>
+        <div class="flex flex-col md:flex-row w-full mt-8 md:space-x-10 m-md:space-y-8 mt-20 md:ml-52 ">
+            <!--first card-->
+            <div class="flex flex-col items-center md:w-3/12 cursor-pointer">
+                <div class="bg-transparent overflow-hidden  w-full relative h-40 pb-36">
+                    <img src="https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg" class="absolute h-full w-full object-cover object-center rounded-t-lg bg-cblue" alt="" />
+                </div>
+                <div class="z-10  w-full">
+                    <div class="bg-white rounded-b-lg shadow-2xl  py-5 px-5">
+                        <span class="text-white font-roboto absolute text-3xl p-2 rounded-sm -mt-10 md:-ml-10 -ml-8 bg-cgreen">Daily Dose of Econ</span>
+                        <div class="flex items-center justify-between mt-8">
+                            <div class=" text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
+                            <div class="text-2xl text-red-600 font-bold"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--second card-->
+            <div class="flex flex-col items-center md:w-3/12 cursor-pointer">
+                <div class="bg-transparent overflow-hidden  w-full relative h-40 pb-36">
+                    <img src="https://weareultraviolet.org/wp-content/uploads/2020/04/WDM-1-copy-225x140.jpg" class="absolute h-full w-full object-cover object-center rounded-t-lg" alt="" />
+                </div>
+                <div class=" z-10  w-full">
+                    <div class="bg-white rounded-b-lg shadow-2xl  py-5 px-5">
+                        <span class="text-white font-roboto absolute text-3xl p-2 rounded-sm -mt-10 md:-ml-10 -ml-8 bg-cgreen">Economics</span>
+                        <div class="flex items-center justify-between mt-8">
+                            <div class=" text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
+                            <div class="text-2xl text-red-600 font-bold"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--third card-->
+            <div class="flex flex-col items-center md:w-3/12 cursor-pointer">
+                <div class="bg-cblue rounded-t-lg overflow-hidden  w-full relative h-40 pb-36">
+                    <img src="https://weareultraviolet.org/wp-content/uploads/2020/03/Biden_Warren_Harris-380x240.jpg" class="absolute h-full w-full object-cover object-center" alt="" />
+                </div>
+                <div class=" z-10  w-full">
+                    <div class="bg-white shadow-2xl  py-5 px-5 rounded-b-lg">
+                        <span class="text-white font-roboto absolute text-3xl p-2 rounded-sm -mt-10 md:-ml-10 -ml-8 bg-cgreen">They Are Friends</span>
+                        <div class="flex items-center justify-between mt-8">
+                            <div class=" text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
+                            <div class="text-2xl text-red-600 font-bold"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id='faq' class="observerTrigger"></div>
+        <div class="md:ml-48 mt-12 content-center" >
+            <h1 class="text-6xl font-bebas text-center py-10">About Daily Dose of Econ</h1>
+            
+        </div>
+
+        <div class="md:ml-48 h-1/3 md:w-5/6 bg-white border-8 border-cblue rounded-lg mt-16">
+            <h1 class="text-6xl font-bebas  text-center py-6">More DDOE Topics</h1>
+
+
+            <div id="supporters" class=" observerTrigger"></div>
+        </div>
+
+
+
+        <div class="md:ml-48 bg-blue px-6 py-4 bg-cblue mt-16 flex flex-col items-center">
+            <h1 class="text-white text-4xl font-bebas mt-8">Stay updated on all things CCEE</h1>
+            <input class="md:w-2/3 w-full m-8 p-2 font-roboto text-xl" placeholder="example@gmail.com"></input>
+        </div>
+
+    </div>
+    {% include "polls/footer.html"%}
+</body>
+
+<script>
+    
+
+    
+
+    function programData() {
+
+        // var faqHighlight = false;
+        // var observer = new IntersectionObserver(function(entries) {
+        //     // isIntersecting is true when element and viewport are overlapping
+        //     // isIntersecting is false when element and viewport don't overlap
+        //     if(entries[0].isIntersecting === true)
+        //     {
+        //         this.faqHighlight = true;
+        //         console.log('Element has just become visible in screen');
+        //     }
+                
+        // }, { threshold: [0] });
+
+        // observer.observe(document.querySelector("#faq"));
+        return {
+            highlighted: {},
+            observe() {
+                var observer = new IntersectionObserver(entries => {
+                    // isIntersecting is true when element and viewport are overlapping
+                    // isIntersecting is false when element and viewport don't overlap
+                    if(entries[0].isIntersecting === true)
+                    {
+                        this.highlighted[entries[0].target.id + '-marker'] = true;
+                    }
+                    else {
+                        this.highlighted[entries[0].target.id + '-marker'] = false;
+                    }                                   
+                }, { threshold: [0] });
+
+                document.querySelectorAll(".observerTrigger").forEach((element) => observer.observe(element))                
+            },
+            firstQOpen: false,
+            secondQOpen: false,
+            thirdQOpen: false,
+            scrollTo(position)
+            {
+                var elmnt = document.getElementById(position);
+                elmnt.scrollIntoView(); 
+            }
+
+
+        }
+    }
+
+</script>

@@ -98,5 +98,16 @@ class DailyDose(models.Model):
     tags = models.CharField(max_length=200, default='')
     location = models.CharField(max_length=200, default='Virtual')
 
+    name = models.CharField(max_length=200, null=True)
+    dates = models.JSONField(null=True)
+    logo_path = models.CharField(max_length=200, null=True)
+    about = models.CharField(max_length=1200, null=True)
+    testimonial = models.CharField(max_length=1200, null=True)
+    video_path = models.CharField(max_length=200, null=True)
+    faq = models.JSONField(null=True)
+
+   
+
     def __str__(self):
         return self.title
+

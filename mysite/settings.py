@@ -12,6 +12,14 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+
+from django.conf.locale.en import formats as en_formats
+
+USE_I18N = True
+DATE_INPUT_FORMATS = ['%d-%m-%Y', '%Y-%m-%d']
+LANGUAGE_CODE ='en-GB'
+
+
 SECRET_KEY = ''
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -154,3 +162,4 @@ DEFAULT_FILE_STORAGE = 'mysite.storage_backends.MediaStorage'  # <-- here is whe
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
