@@ -116,7 +116,7 @@
                 <div class="relative z-10 md:mx-2" @mouseover="fed = false" @mouseover.away="fed = true">
                     <i class="fas fa-university fa-5x my-6" style="color: #ffffff"></i>
                     <h1 class="text-4xl font-bebas text-white z-10 mb-10">Never Too Young (2nd-5th grade)</h1>
-                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="fed">It is possible I already had some presentiment of my future.</p>
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="fed"></p>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="!fed" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
                         The earlier students learn about important concepts such as budgeting, savings, and investing, the better. Students learn all about these themes through our after-school program, Never Too Young.
                     </p>
@@ -131,7 +131,7 @@
                 <div class="relative z-10" @mouseover="caset = false" @mouseover.away="caset = true">
                     <i class="fas fa-university fa-5x my-6" style="color: #ffffff"></i>
                     <h1 class="text-4xl font-bebas text-white z-10 mb-2 m-md:mx-2">National Economics Challenge </br>(6th-12th grade)</h1>
-                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="caset">It is possible I already had some presentiment of my future.</p>
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="caset"></p>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="!caset" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
                         The National Economics Challenge is a great way for students to flex their intellectual muscle & test their economic content knowledge by competing with other students from across the state.
                     </p>
@@ -146,7 +146,7 @@
                 <div class="relative z-10" @mouseover="smartpath = false" @mouseover.away="smartpath = true">
                     <i class="fas fa-graduation-cap fa-5x my-6 " style="color: #ffffff"></i>
                     <h1 class="text-4xl font-bebas text-white z-10 mb-2 m-md:mx-2">Personal Finance Challenge </br>(6th-12th grade)</h1>
-                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="smartpath">It is possible I already had some presentiment of my future.</p>
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="smartpath"></p>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="!smartpath" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
                         The National Personal Finance Challenge is an opportunity for students to learn about personal finance by connecting with other students from across the state in an online competition. The top scoring teams are invited to the state championships where
                         they compete for cash prizes!
@@ -156,13 +156,13 @@
         </div>
 
         <div>
-            <div class="cursor-pointer relative border border-gray-500 overflow-hidden rounded-md justify-center content-center text-center h-64" style="background-image: url(https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg);" x-bind:class="{'h-128': !workshops }">
+            <div class="cursor-pointer relative border border-gray-500 overflow-hidden rounded-md justify-center content-center text-center h-64" style="background-image: url(https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg);" x-bind:class="{'h-150': !workshops }">
                 <div class="absolute bg-cblue h-full w-full overflow-hidden opacity-100 z-10"></div>
 
                 <div class="relative z-10" @mouseover="workshops = false" @mouseover.away="workshops = true">
                     <i class="fas fa-chalkboard-teacher fa-5x my-6 " style="color: #ffffff"></i>
                     <h1 class="text-4xl font-bebas text-white z-10 mb-10">The Adviser’s Contest </br>(9th-12th grade)</h1>
-                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="workshops">It is possible I already had some presentiment of my future.</p>
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="workshops"></p>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="!workshops" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
                         The Adviser’s Contest provides California’s high school students with the opportunity to collaborate with an assigned a mentor– who is typically a Chartered Financial Analyst (CFA) or professional with a background in finance–and a fictional client case
                         study Over 4 weeks, students prepare a presentation with their mentor in anticipation of the virtual competition day
@@ -171,11 +171,11 @@
             </div>
         </div>
     </div>
-    <div class="border border-gray-900 flex flex-col justify-center align-center rounded-lg mx-32 my-12">
+    <div class="border border-gray-900 flex flex-col justify-center align-center rounded-lg mx-3 md:mx-32 my-12">
         <div class="mx-auto px-2 md:px-48 text-center text-5xl md:text-6xl text-cgreen font-bebas mt-12">
             Couple student contests with our professional development programs for an even richer instructional experience.
         </div>
-        <div class="mx-auto px-2 md:px-48 text-center text-5xl md:text-4xl text-cblue font-roboto mt-4">
+        <div class="mx-auto px-2 md:px-48 text-center text-3xl md:text-5xl md:text-4xl text-cblue font-roboto mt-4">
             Start your journey towards confident economics and personal finance instruction today!
         </div>
         <button class="border-2 text-white border-yellow-500 rounded-lg font-roboto text-2xl hover:bg-white hover:text-yellow-500 bg-yellow-500 text-white mx-auto my-12 py-2 px-3">

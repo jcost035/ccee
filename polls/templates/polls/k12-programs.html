@@ -116,7 +116,7 @@
                 <div class="relative z-10 md:mx-2" @mouseover="fed = false" @mouseover.away="fed = true">
                     <i class="fas fa-university fa-5x my-6" style="color: #ffffff"></i>
                     <h1 class="text-4xl font-bebas text-white z-10 mb-10">California Association  of School Economics  Teachers (CASET) High School Certification  Program</h1>
-                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="fed">It is possible I already had some presentiment of my future.</p>
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="fed"></p>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="!fed" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
                         Together with the California Association of School Economics Teachers, CCEE hosts a multi-day seminar where educators who are teaching California’s high school economics come together to learn engaging instructional strategies to bring back to their students.     
                     </p>
@@ -131,7 +131,7 @@
                 <div class="relative z-10" @mouseover="caset = false" @mouseover.away="caset = true">
                     <i class="fas fa-university fa-5x my-6" style="color: #ffffff"></i>
                     <h1 class="text-4xl font-bebas text-white z-10 mb-2 m-md:mx-2">Federal Reserve Institute</h1>
-                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="caset">It is possible I already had some presentiment of my future.</p>
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="caset"></p>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="!caset" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
                         The Federal Reserve Institute is hosted in San Diego for a week-long immersive program where teachers learn directly from the Federal Reserve Bank’s economic educators. 
                     </p>
@@ -140,14 +140,14 @@
         </div>
 
         <div>
-            <div class="cursor-pointer relative border border-gray-500 overflow-hidden rounded-md justify-center content-center text-center h-64" style="background-image: url(https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg);" x-bind:class="{'h-128': !smartpath }">
+            <div class="cursor-pointer relative border border-gray-500 overflow-hidden rounded-md justify-center content-center text-center h-64" style="background-image: url(https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg);" x-bind:class="{'h-175': !smartpath }">
                 <div class="absolute bg-cblue h-full w-full overflow-hidden opacity-100 z-10"></div>
 
                 <div class="relative z-10" @mouseover="smartpath = false" @mouseover.away="smartpath = true">
                     <i class="fas fa-graduation-cap fa-5x my-6 " style="color: #ffffff"></i>
                     <h1 class="text-4xl font-bebas text-white z-10 mb-2 m-md:mx-2">$martPath (1st-8th grade, SPED)</h1>
-                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="smartpath">It is possible I already had some presentiment of my future.</p>
-                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="!smartpath" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="smartpath"></p>
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 mt-12" x-show="!smartpath" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
                         Developed by leading practitioners working hand-in-hand with teachers, The $martPath Platform provides simple, fun lessons that bring economic and financial education to life in your classroom. $martPath units teach students about personal financial responsibility (such as saving, prudent spending, and prioritizing needs and wants) through grade-appropriate, curriculum-aligned, interactive lessons.
                     </p>
                 </div>
@@ -160,8 +160,8 @@
 
                 <div class="relative z-10" @mouseover="workshops = false" @mouseover.away="workshops = true">
                     <i class="fas fa-chalkboard-teacher fa-5x my-6 " style="color: #ffffff"></i>
-                    <h1 class="text-4xl font-bebas text-white z-10 mb-10">Workshops</h1>
-                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="workshops">It is possible I already had some presentiment of my future.</p>
+                    <h1 class="text-5xl font-bebas text-white z-10 mb-10">Workshops</h1>
+                    <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="workshops"></p>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="!workshops" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
                         CCEE’s interactive workshops support teachers efforts to deliver the most engaging and relevant economics and personal finance content to their students.
                     </p>
@@ -170,15 +170,15 @@
         </div>
     </div>
     
-    <div class="border border-gray-900 flex flex-col justify-center align-center rounded-lg mx-32 my-12">
-        <div class="mx-auto px-2 md:px-48 text-center text-5xl md:text-6xl text-cgreen font-bebas mt-12">
-            Couple student contests with our professional development programs for an even richer instructional experience.
+    <div class="border border-gray-900 flex flex-col justify-center align-center rounded-lg mx-3 md:mx-32 my-12">
+        <div class="mx-auto px-2 md:px-48 text-center text-5xl md:text-6xl text-cblue font-roboto mt-12">
+            If you would like to request a workshop for K-12 educators or paraeducators, please click here. 
         </div>
-        <div class="mx-auto px-2 md:px-48 text-center text-5xl md:text-4xl text-cblue font-roboto mt-4">
-            Start your journey towards confident economics and personal finance instruction today!
+        <div class="hidden mx-auto px-2 md:px-48 text-center text-5xl md:text-4xl text-cblue font-roboto mt-4">
+            If you would like to request a workshop for K-12 educators or paraeducators, please click here. 
         </div>
-        <button class="border-2 text-white border-yellow-500 rounded-lg font-roboto text-2xl hover:bg-white hover:text-yellow-500 bg-yellow-500 text-white mx-auto my-12 py-2 px-3">
-            Learn about our student contests
+        <button class="border-2 text-white border-yellow-500 rounded-lg font-roboto text-3xl hover:bg-white hover:text-yellow-500 bg-yellow-500 text-white mx-auto my-12 py-2 px-3">
+            Contact Our Programs Team
         </button>
     </div>
     {% include 'polls/footer.html'%}

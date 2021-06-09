@@ -96,15 +96,22 @@ class DailyDose(models.Model):
     date = models.DateField(_("Date"), default=datetime.date.today)
     description = models.CharField(max_length=1200)
     tags = models.CharField(max_length=200, default='')
-    location = models.CharField(max_length=200, default='Virtual')
 
     name = models.CharField(max_length=200, null=True)
-    dates = models.JSONField(null=True)
-    logo_path = models.CharField(max_length=200, null=True)
-    about = models.CharField(max_length=1200, null=True)
-    testimonial = models.CharField(max_length=1200, null=True)
-    video_path = models.CharField(max_length=200, null=True)
-    faq = models.JSONField(null=True)
+    key_question = models.CharField(max_length=2000, null=True)
+    grade_band = models.CharField(max_length=100, null=True)
+
+    first_article_url = models.CharField(max_length=200, null=True)
+    second_article_url = models.CharField(max_length=200, null=True)
+    third_article_url = models.CharField(max_length=200, null=True)
+    fourth_article_url = models.CharField(max_length=200, null=True)
+
+    first_panel_image = models.BooleanField(null=True)
+    first_image_path = models.CharField(max_length=200, null=True, blank=True)
+    first_video_path = models.CharField(max_length=200, null=True, blank=True)
+    second_panel_image = models.BooleanField(null=True)
+    second_image_path = models.CharField(max_length=200, null=True, blank=True)
+    second_video_path = models.CharField(max_length=200, null=True, blank=True)
 
    
 

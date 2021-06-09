@@ -188,7 +188,7 @@
                 <div x-show="resourceOpen " class="flex flex-col ">
                     <a href="/daily-dose" class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Daily Dose of Econ</a>
                     <a class="hidden bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Research</a>
-                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Resources</a>
+                    <a class="hidden bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Resources</a>
                     <a class="hidden bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Affiliate Partner Resources</a>
                 </div>
 
@@ -288,8 +288,8 @@
                         <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg">
                             <a class="block px-4 py-2 mt-2  bg-transparent  rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="/daily-dose">Daily Dose of Econ</a>
                             <a class="hidden px-4 py-2 mt-2  bg-transparent rounded  text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Research</a>
-                            <a class="block px-4 py-2 mt-2  bg-transparent rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Resources</a>
-                            <a class="block px-4 py-2 mt-2  bg-transparent rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Affiliate Partner Resources</a>
+                            <a class="hidden px-4 py-2 mt-2  bg-transparent rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Resources</a>
+                            <a class="hidden px-4 py-2 mt-2  bg-transparent rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue focus:bg-cblue focus:outline-none focus:shadow-outline" href="#">Affiliate Partner Resources</a>
                         </div>
                     </div>
                 </div>
@@ -338,7 +338,10 @@
                 <nav class="flex-col flex-grow pb-4 md:pb-0 hidden mr-14 md:flex md:justify-end md:flex-row bg-white font-bold">
                     <!--Envelope button-->
                     <button id="ccee-color" type="button" class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-cgreen hover:bg-cgreen-dark text-white  py-2 px-4 mr-1 rounded text-lg font-bold">Donate</button>
-                    <button @click="popupOpen = true" type="button" id="button" class="btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-cblue hover:bg-cblue text-cblue hover:text-white  py-2 px-4 rounded text-lg font-bold">Join</button>
+                    <div type="button"  class="btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-cblue  text-cblue py-2 px-4 rounded text-lg font-bold">
+                        <input class="rounded-lg border-cblue border w-2/3 px-2" placeholder="example@gmail.com"></input>
+                        <button class="text-lg font-bold px-3 py-1 rounded-lg hover:bg-cblue hover:text-white border-cblue border">Join</button>
+                    </div>
                     <!--Envelope button end-->
 
 

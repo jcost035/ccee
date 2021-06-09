@@ -29,7 +29,7 @@
             <div class="w-1/3"></div>
             <div class="flex flex-row justify-between w-2/3">
                 
-                <div class="m-md:hidden font-bold pt-4 ml-10" x-text="filteredEvents.length + ' articles found'"></div>
+                <div class="m-md:hidden font-bold pt-4 ml-10" x-text="filteredEvents.length + ' topics found'"></div>
                 <div class="hidden">
                     <button class="border-2 border-gray-400 rounded px-4 py-1 font-roboto" @click="calendarView=false">List </button>
                     <button class="border-2 border-gray-400 rounded px-4 py-1 font-roboto mr-10 md:mr-44" @click="calendarView=true">Calendar</button>
@@ -312,6 +312,17 @@
                     <div class="md:hidden font-bold pt-4 ml-10" x-text="filteredEvents.length + ' articles found'"></div>
                     <template x-for="event in filteredEvents">
                         <div class="flex flex-col content-between  rounded border px-8 py-4 my-8 border-gray-500 shadow-md hover:shadow-lg  mx-auto font-roboto ">
+                                    <div class="flex flex-col  font-roboto text-left">
+
+                                        <span class="flex flex-row space-x-1 justify-center w-full items-center">
+                                           
+                                            <h1 class="text-lg font-bold text-cblue text-right text-left" x-text="event.fields.date">
+                                                date
+                                            </h1>
+                                        </span>
+                                        
+                                        
+                                    </div>
                             <div class=" flex  content-center items-center">
                                 <img class="  h-11/12  object-contain" src="https://ga-core.s3.amazonaws.com/production/uploads/program/default_image/14429/Business_Entrepreneur_Computer_Woman_Black_History_Month.jpg">
                             </div>
@@ -320,16 +331,16 @@
                             
                                 <div class="flex flex-col">
                                     <div class="flex flex-col ">
-                                        <h1 class="text-sm text-gray-400" x-text="event.fields.tags">Business, Career Development</h1>
+                                        <h1 class="text-sm text-gray-400 text-center" x-text="event.fields.tags">Business, Career Development</h1>
                                         <div class="">
-                                            <h1 class="text-2xl font-bold font-roboto  px-3 py-2 rounded-lg bg-cgreen text-white w-full" x-text="event.fields.title">
+                                            <h1 class="text-2xl font-bold font-roboto  px-3 py-2 rounded-lg bg-cgreen text-white w-full text-center" x-text="event.fields.title">
                                                 event name
                                             </h1>
 
                                         </div>
                                         <div class="flex flex-row">
                                             <div class="w-full">
-                                                <p class=" leading-loose text-sm font-roboto text-gray-500"  x-text="event.fields.description">
+                                                <p class=" leading-loose text-sm font-roboto text-gray-500 text-center"  x-text="event.fields.description">
                                                     description
                                                 </p>
 
@@ -340,20 +351,6 @@
                                         
                                     </div>
 
-                                    <div class="flex flex-col w-8/12 font-roboto text-left">
-
-                                        <span class="flex flex-row space-x-1 justify-start items-center">
-                                            <i class="far fa-calendar text-cgreen"></i>
-                                            <h1 class="text-lg font-bold text-cblue text-right text-left" x-text="event.fields.date">
-                                                date
-                                            </h1>
-                                        </span>
-                                        <span class="flex flex-row space-x-1 justify-start items-center">
-                                            <i class="fas fa-map-marker-alt text-cgreen"></i>
-                                            <h1 class="text-sm text-gray-400" x-text="event.fields.location"></h1>
-                                        </span>
-                                        
-                                    </div>
                                 </div>
 
                                 <button type="button" id="button" class=" rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">

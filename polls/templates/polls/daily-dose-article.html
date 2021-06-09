@@ -25,7 +25,7 @@
     <div class="absolute bg-cblue w-full h-2/3 -mt-16"></div>
     <div class="relative w-9/12 m-md:w-11/12 mx-auto z-10" x-data="programData()" x-init="observe()">
         <div class="h-1/2 mb-24">
-                
+
         </div>
 
         <div class="sticky top-32  w-44  bg-gray-300 mt-44 z-50 rounded-lg m-md:hidden">
@@ -55,15 +55,21 @@
         
         <div id="video" class="observerTrigger"></div>
         <div class="flex flex-col md:flex-row mt-28 md:ml-48 m-md:space-y-6 md:space-x-4">
-            <div class="md:w-1/2 rounded my-auto">
+            <div id='a' class="md:w-1/2 rounded my-auto">
                 <video width="640" height="240" class="rounded-lg" controls>
                     <source src="{{program.video_path}}" type="video/mp4">
                   Your browser
             </div>
-            <div class="md:w-1/2 rounded my-auto">
+            <div id='b' class="md:w-1/2 rounded my-auto">
+                <img src="https://ccee.org/wp-content/uploads/2019/07/CCEE-Logo-Final-5-2019-e1563236007990.png" class=" object-cover object-center rounded " alt="" />
+            </div>
+            <div id='c' class="md:w-1/2 rounded my-auto">
                 <video width="640" height="240" class="rounded-lg" controls>
                     <source src="{{program.video_path}}" type="video/mp4">
                   Your browser
+            </div>
+            <div id='d' class="md:w-1/2 rounded my-auto">
+                <img src="https://ccee.org/wp-content/uploads/2019/07/CCEE-Logo-Final-5-2019-e1563236007990.png" class=" object-cover object-center rounded " alt="" />
             </div>
         </div>
 
@@ -143,24 +149,35 @@
 
 <script>
     
+    var showFirstPanel = '{{dose.first_panel_image}}';
+    var showSecondPanel = '{{dose.second_panel_image}}';
+    
+    if(showFirstPanel === 'True')
+    {
+        document.getElementById('a').style.display = 'none';
+        document.getElementById('b').style.display = '';
+    }else
+    {
+        document.getElementById('a').style.display = '';
+        document.getElementById('b').style.display = 'none'
+    }
 
+    if(showSecondPanel === 'True')
+    {
+        document.getElementById('c').style.display = 'none';
+        document.getElementById('d').style.display = '';
+    }else
+    {
+        document.getElementById('c').style.display = '';
+        document.getElementById('d').style.display = 'none'
+    }
+    
+
+    
     
 
     function programData() {
 
-        // var faqHighlight = false;
-        // var observer = new IntersectionObserver(function(entries) {
-        //     // isIntersecting is true when element and viewport are overlapping
-        //     // isIntersecting is false when element and viewport don't overlap
-        //     if(entries[0].isIntersecting === true)
-        //     {
-        //         this.faqHighlight = true;
-        //         console.log('Element has just become visible in screen');
-        //     }
-                
-        // }, { threshold: [0] });
-
-        // observer.observe(document.querySelector("#faq"));
         return {
             highlighted: {},
             observe() {

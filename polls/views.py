@@ -26,7 +26,7 @@ def dose_article(request, article_url):
     
     context = {
         "dose": dose[0],
-        "faq": dose[0].faq["set"]
+        
     }
     
     return render(request, "polls/daily-dose-article.html", context)
