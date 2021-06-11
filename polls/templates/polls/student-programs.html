@@ -109,13 +109,14 @@
         <div>
 
 
-            <div class="cursor-pointer relative border border-gray-500 overflow-hidden rounded-md justify-center content-center text-center h-64" style="background-image: url(https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg);  background-repeat: no-repeat; background-size: 250% 32rem; background-position: center; "
+            <div @click="window.location='/programs/young';" class="cursor-pointer relative border border-gray-500 overflow-hidden rounded-md justify-center content-center text-center h-64" style="background-image: url(https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg);  background-repeat: no-repeat; background-size: 250% 32rem; background-position: center; "
                 x-bind:class="{'h-128': !fed }">
                 <div class="absolute bg-cblue h-full w-full overflow-hidden opacity-100 z-10"></div>
 
                 <div class="relative z-10 md:mx-2" @mouseover="fed = false" @mouseover.away="fed = true">
-                    <i class="fas fa-university fa-5x my-6" style="color: #ffffff"></i>
-                    <h1 class="text-4xl font-bebas text-white z-10 mb-10">Never Too Young (2nd-5th grade)</h1>
+                    <h1 class="text-2xl font-bebas text-white z-10 mt-4">2nd-5th grade</h1>
+                    <i class="fas fa-university fa-5x mb-6" style="color: #ffffff"></i>
+                    <h1 class="text-4xl font-bebas text-white z-10 mb-14">Never Too Young</h1>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="fed"></p>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="!fed" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
                         The earlier students learn about important concepts such as budgeting, savings, and investing, the better. Students learn all about these themes through our after-school program, Never Too Young.
@@ -129,8 +130,9 @@
                 <div class="absolute bg-cblue h-full w-full overflow-hidden opacity-100 z-10"></div>
 
                 <div class="relative z-10" @mouseover="caset = false" @mouseover.away="caset = true">
-                    <i class="fas fa-university fa-5x my-6" style="color: #ffffff"></i>
-                    <h1 class="text-4xl font-bebas text-white z-10 mb-2 m-md:mx-2">National Economics Challenge </br>(6th-12th grade)</h1>
+                    <h1 class="text-2xl font-bebas text-white z-10 mt-4">6th-12th grade</h1>
+                    <i class="fas fa-university fa-5x mb-6" style="color: #ffffff"></i>
+                    <h1 class="text-4xl font-bebas text-white z-10 mb-4 m-md:mx-2">National Economics Challenge</h1>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="caset"></p>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="!caset" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
                         The National Economics Challenge is a great way for students to flex their intellectual muscle & test their economic content knowledge by competing with other students from across the state.
@@ -144,8 +146,9 @@
                 <div class="absolute bg-cblue h-full w-full overflow-hidden opacity-100 z-10"></div>
 
                 <div class="relative z-10" @mouseover="smartpath = false" @mouseover.away="smartpath = true">
-                    <i class="fas fa-graduation-cap fa-5x my-6 " style="color: #ffffff"></i>
-                    <h1 class="text-4xl font-bebas text-white z-10 mb-2 m-md:mx-2">Personal Finance Challenge </br>(6th-12th grade)</h1>
+                    <h1 class="text-2xl font-bebas text-white z-10 mt-4">6th-12th grade</h1>
+                    <i class="fas fa-graduation-cap fa-5x mb-6 " style="color: #ffffff"></i>
+                    <h1 class="text-4xl font-bebas text-white z-10 mb-4 m-md:mx-2">Personal Finance Challenge</h1>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="smartpath"></p>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="!smartpath" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
                         The National Personal Finance Challenge is an opportunity for students to learn about personal finance by connecting with other students from across the state in an online competition. The top scoring teams are invited to the state championships where
@@ -160,8 +163,9 @@
                 <div class="absolute bg-cblue h-full w-full overflow-hidden opacity-100 z-10"></div>
 
                 <div class="relative z-10" @mouseover="workshops = false" @mouseover.away="workshops = true">
-                    <i class="fas fa-chalkboard-teacher fa-5x my-6 " style="color: #ffffff"></i>
-                    <h1 class="text-4xl font-bebas text-white z-10 mb-10">The Adviser’s Contest </br>(9th-12th grade)</h1>
+                    <h1 class="text-2xl font-bebas text-white z-10 mt-4 mb-2">9th-12th grade</h1>
+                    <i class="fas fa-chalkboard-teacher fa-5x mb-6 " style="color: #ffffff"></i>
+                    <h1 class="text-4xl font-bebas text-white z-10 mb-12">The Adviser’s Contest</h1>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="workshops"></p>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="!workshops" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
                         The Adviser’s Contest provides California’s high school students with the opportunity to collaborate with an assigned a mentor– who is typically a Chartered Financial Analyst (CFA) or professional with a background in finance–and a fictional client case
