@@ -21,6 +21,112 @@
 </head>
 
 <body>
-    {{news.content|safe}}
+    {% include 'polls/nav.html'%}
+    <div class="absolute bg-cblue w-full h-2/3 -mt-16"></div>
+    <div class="relative w-9/12 m-md:w-11/12 mx-auto z-10" x-data="programData()" x-init="observe()">
+        <div class="h-1/2 mb-24">
+            <div class="relative md:mt-32 text-white text-3xl font-bebas pt-32"><span class="bg-cgreen px-2">Highlighted shit</span></div>
+            <div class="relative font-bebas text-7xl text-white  ">{{program.name}} </div>
+            <p class="text-white text-xl w-1/2 pt-6 font-roboto font-thin">{{program.description}}</p>
+            <button class="rounded border-2 border-white text-white font-roboto py-2 px-4 mt-6 font-light text-xl">Register</button>
+            <button class="rounded border-2 border-cgreen bg-cgreen text-white hover:border-cgreen-dark hover:bg-cgreen-dark font-roboto py-2 px-4 mt-6 font-light text-xl">Other thing</button>
+        </div>
 
+        <div class="sticky top-32  w-44  bg-gray-300 mt-44 z-50 rounded-lg m-md:hidden">
+            <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg rounded-t-lg" @click="scrollTo('html_content')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['content-marker']}">What you'll experience</button>
+            <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg" @click="scrollTo('supporters')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['supporters-marker']}">Supporters</button>
+            <button class="hover:bg-gray-400 w-full p-4 pb-6 font-roboto text-cblue text-lg rounded-b-lg" @click="scrollTo('action')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['action-marker']}">Get Involved</button>
+        </div>
+
+        
+       
+
+        
+        <div id="how_works"></div>
+        <!--optional html content start-->
+        <div id="html_content" class="my-12 ml-48">
+            {{news.content|safe}}
+
+            <div id="content" class=" observerTrigger"></div>
+        </div>
+        <!--optional html content end-->
+
+   
+
+        <div class="md:ml-48 h-1/3 md:w-5/6 bg-cblue rounded-lg mt-16">
+            <h1 class="text-6xl font-bebas text-white text-center py-6">More CCEE Programs</h1>
+
+
+            <div id="supporters" class=" observerTrigger"></div>
+        </div>
+
+        
+        <div class="font-roboto m-md:text-lg md:text-3xl text-center md:ml-48 mt-16">
+            These supporters have made it possible for California's teachers and students to create opportunity for generations through programs like this
+        </div>
+
+        <div id="action" class=" observerTrigger"></div>
+        <div class="md:ml-48 flex flex-col md:flex-row justify-center m-md:space-y-2 md:space-x-2 text-xl my-12">
+            <button class="px-16 py-6 bg-cblue rounded-lg text-white font-roboto">Support the CCEE today!</button>
+            <button class="px-16 py-6 border-8 border-cgreen rounded-lg text-cgreen font-roboto">Get involved with CCEE</button>
+        </div>
+
+        <div class="md:ml-48 bg-blue px-6 py-4 bg-cblue mt-16 flex flex-col items-center">
+            <h1 class="text-white text-4xl font-bebas mt-8">Stay updated on all things CCEE</h1>
+            <input class="md:w-2/3 w-full m-8 p-2 font-roboto text-xl" placeholder="example@gmail.com"></input>
+        </div>
+
+    </div>
+    {% include "polls/footer.html"%}
 </body>
+
+<script>
+    
+
+
+    function programData() {
+
+        // var faqHighlight = false;
+        // var observer = new IntersectionObserver(function(entries) {
+        //     // isIntersecting is true when element and viewport are overlapping
+        //     // isIntersecting is false when element and viewport don't overlap
+        //     if(entries[0].isIntersecting === true)
+        //     {
+        //         this.faqHighlight = true;
+        //         console.log('Element has just become visible in screen');
+        //     }
+                
+        // }, { threshold: [0] });
+
+        // observer.observe(document.querySelector("#faq"));
+        return {
+            highlighted: {},
+            observe() {
+                var observer = new IntersectionObserver(entries => {
+                    // isIntersecting is true when element and viewport are overlapping
+                    // isIntersecting is false when element and viewport don't overlap
+                    if(entries[0].isIntersecting === true)
+                    {
+                        this.highlighted[entries[0].target.id + '-marker'] = true;
+                    }
+                    else {
+                        this.highlighted[entries[0].target.id + '-marker'] = false;
+                    }                                   
+                }, { threshold: [0] });
+
+                document.querySelectorAll(".observerTrigger").forEach((element) => observer.observe(element))                
+            },
+            firstQOpen: false,
+            secondQOpen: false,
+            thirdQOpen: false,
+            scrollTo(position)
+            {
+                var elmnt = document.getElementById(position);
+                elmnt.scrollIntoView(); 
+            }
+
+
+        }
+    }
+
+</script>

@@ -91,6 +91,7 @@ class Program(models.Model):
     dates = models.JSONField()
     logo_path = models.CharField(max_length=200)
     about = models.CharField(max_length=1200)
+    show_testimonial = models.BooleanField(default=True)
     testimonial = models.CharField(max_length=1200)
     video_path = models.CharField(max_length=200)
     faq = models.JSONField()

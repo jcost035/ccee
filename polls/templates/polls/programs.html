@@ -143,7 +143,7 @@
                     <source src="{{program.video_path}}" type="video/mp4">
                   Your browser
             </div>
-            <div class="md:w-1/2 rounded-lg overflow-hidden relative mx-4 bg-cblue-light ring-4 ring-offset-4 ring-gray-300">
+            <div id="testimonial" class="md:w-1/2 rounded-lg overflow-hidden relative mx-4 bg-cblue-light ring-4 ring-offset-4 ring-gray-300">
                 <h1 class="text-cblue-dark font-bebas font-light text-6xl mt-4 mx-4">Testimonial</h1>
                 <p class="text-lg font-roboto  px-6">{{program.testimonial}}</p>
                 <div class="justify-items-right text-right pt-2">
@@ -212,6 +212,7 @@
     
 
     var showHtmlContent = '{{program.show_html_content}}'
+    var showTestimonial = '{{program.show_testimonial}}'
 
     if (showHtmlContent === 'True')
     {
@@ -220,6 +221,15 @@
     else
     {
         document.getElementById('html_content').style.display = 'none';
+    }
+
+    if (showTestimonial === 'True')
+    {
+        document.getElementById('testimonial').style.display = '';
+    }
+    else
+    {
+        document.getElementById('testimonial').style.display = 'none';
     }
 
     function programData() {
