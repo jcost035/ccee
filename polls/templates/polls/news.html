@@ -349,8 +349,8 @@
                                             </h1>
                                         </span>
                                         <span class="flex flex-row space-x-1 justify-start items-center">
-                                            <i class="fas fa-map-marker-alt text-cgreen"></i>
-                                            <h1 class="text-sm text-gray-400" x-text="event.fields.location"></h1>
+                                            
+                                            
                                         </span>
                                         
                                     </div>
@@ -551,9 +551,9 @@
                             return item.fields.tags
                                         .toLowerCase()
                                         .includes(this.tagSearch.toLowerCase())
-                                    && item.fields.location
+                                    {% comment %} && item.fields.location
                                         .toLowerCase()
-                                        .includes(this.locationSearch.toLowerCase())
+                                        .includes(this.locationSearch.toLowerCase()) {% endcomment %}
                                     && item.fields.title
                                         .toLowerCase()
                                         .includes(this.search.toLowerCase());
