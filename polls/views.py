@@ -94,17 +94,23 @@ class Calendar(ListView):
         )
 
 def event_list(request):
-
-    event_list = serializers.serialize('json', Event.objects.order_by("-date"))
     
-    events_dict = json.loads(event_list)
+    
+    events_dict = Event.objects.order_by("-date")
+    event_list = []
 
     for event in events_dict:
-        old_date = event['fields']['date']
+        additional_fields = {}
+        old_date = str(event.date)
         new_date = old_date[5:7] + '/' + old_date[8:10] + '/' + old_date[0:4]
-        event['fields']['date'] = new_date
+        additional_fields['formatted_date'] = new_date
+        additional_fields['thumb_url'] = event.thumb_photo.url
+        event_list.append({
+            **additional_fields,
+            **model_to_dict(event, exclude=['date', 'thumb_photo'])
+        })
         
-    event_list = json.dumps(events_dict)
+    
     
 
     #paginator = Paginator(event_list, 5) #show 10 objects per page
@@ -112,9 +118,9 @@ def event_list(request):
     #events = paginator.get_page(page_number)
 
     context = {
-        "event_list": event_list,
+        "event_list": json.dumps(event_list),
     }
-    return HttpResponse(event_list, content_type="application/json")
+    return HttpResponse(json.dumps(event_list), content_type="application/json")
 
 def news(request):
     return render(request, "polls/news.html")

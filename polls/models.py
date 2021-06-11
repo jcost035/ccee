@@ -41,6 +41,7 @@ class Event(models.Model):
     description = models.CharField(max_length=1200)
     tags = models.CharField(max_length=200, default='')
     location = models.CharField(max_length=200, default='Virtual')
+    thumb_photo = models.ImageField(upload_to='programs', default="staff-pics/default.jpg", blank=True)
     K_12 = 'K'
     EDUCATOR = 'E'
     GRADE_LEVEL_CHOICES = [
@@ -93,6 +94,8 @@ class Program(models.Model):
     testimonial = models.CharField(max_length=1200)
     video_path = models.CharField(max_length=200)
     faq = models.JSONField()
+    show_html_content = models.BooleanField(default=False, null=True)
+    html_content = models.CharField(max_length=10000, null=True, blank=True)
 
     def __str__(self):
         return self.name

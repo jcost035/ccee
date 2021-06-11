@@ -183,7 +183,7 @@
                     <a href="/calendar" class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Find upcoming programs and events</a>
                 </div>
 
-                <a class="bg-gray-100 text-center cursor-pointer font-roboto py-2 text-xl " @click="open( 'resource') " x-bind:class="{ 'bg-cblue' : resourceOpen} ">Resources <i class="fas fa-caret-down "></i></a>
+                <a class="hidden bg-gray-100 text-center cursor-pointer font-roboto py-2 text-xl " @click="open( 'resource') " x-bind:class="{ 'bg-cblue' : resourceOpen} ">Resources <i class="fas fa-caret-down "></i></a>
 
                 <div x-show="resourceOpen " class="flex flex-col ">
                     <a href="/daily-dose" class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 px-10 text-xl ">Daily Dose of Econ</a>
@@ -276,7 +276,7 @@
                 <!--Programs end-->
 
                 <!--Resources-->
-                <div @mouseover.away="open = false
+                <div class="hidden" @mouseover.away="open = false
                     whatwedoOpen = false" x-on:mouseover="open = true
                     whatwedoOpen = true" x-on:click="open = !open" class="relative py-2" x-data="data()">
                         <button x-bind:class='{ "bg-gray-300": whatwedoOpen, "text-cblue": !whatwedoOpen  }' class="cursor-default flex rounded-t-md whitespace-nowrap items-center px-7 py-1 hover:bg-gray-300 focus:bg-gray-600 mt-2 text-lg text-gray-600 font-bold  md:mt-0 hover:text-gray-600 focus:text-gray-600 focus:outline-none ">

@@ -318,23 +318,25 @@
                     <div class="md:hidden font-bold pt-4 ml-10" x-text="filteredEvents.length + ' events found'"></div>
                     <template x-for="event in filteredEvents">
                         <div class="m-md:flex m-md:flex-col md:overflow-hidden rounded border px-8 py-4 my-8 border-gray-500 shadow-md hover:shadow-lg w-11/12 mx-auto font-roboto ">
-                            <div class="md:hidden flex  content-center items-center">
-                                <img class="md:hidden md:w-3/12 h-11/12  object-contain" src="https://ga-core.s3.amazonaws.com/production/uploads/program/default_image/14429/Business_Entrepreneur_Computer_Woman_Black_History_Month.jpg">
-                            </div>
+                            <div class="md:hidden flex flex-col flex-shrink-0 flex-grow-0 justify-center h-48 w-full rounded overflow-hidden">
+                                    <img class="object-cover md:hidden" :src="event.thumb_url">
+                                </div>
                             <div class="flex md:flex-row flex-col ">
-                                <img class="m-md:hidden w-3/12 h-11/12 flex-shrink-0 flex-grow-0 object-contain mr-10" src="https://ga-core.s3.amazonaws.com/production/uploads/program/default_image/14429/Business_Entrepreneur_Computer_Woman_Black_History_Month.jpg">
+                                <div class="m-md:hidden flex flex-col flex-shrink-0 flex-grow-0 justify-center h-40 w-64 rounded overflow-hidden mr-10">
+                                    <img class="object-cover m-md:hidden" :src="event.thumb_url">
+                                </div>
                             
                                 <div class="flex flex-col ">
-                                    <h1 class="text-sm text-gray-400" x-text="event.fields.tags">Business, Career Development</h1>
+                                    <h1 class="text-sm text-gray-400" x-text="event.tags">Business, Career Development</h1>
                                     <div class="md:flex md:flex-row md:justify-between w-full">
-                                        <h1 class="text-xl font-bold font-roboto" x-text="event.fields.name">
+                                        <h1 class="text-xl font-bold font-roboto" x-text="event.name">
                                             event name
                                         </h1>
 
                                     </div>
                                     <div class="flex flex-row">
                                         <div class="w-full">
-                                            <p class=" leading-loose text-md " style="font-family: 'Roboto', sans-serif;" x-text="event.fields.description">
+                                            <p class=" leading-loose text-md " style="font-family: 'Roboto', sans-serif;" x-text="event.description">
                                                 description
                                             </p>
 
@@ -349,13 +351,13 @@
 
                                     <span class="flex flex-row space-x-1 justify-end m-md:justify-start items-center">
                                         <i class="far fa-calendar text-cgreen"></i>
-                                        <h1 class="text-xl font-bold text-cblue text-right m-md:text-left" x-text="event.fields.date">
+                                        <h1 class="text-xl font-bold text-cblue text-right m-md:text-left" x-text="event.formatted_date">
                                             date
                                         </h1>
                                     </span>
                                     <span class="flex flex-row space-x-1 justify-end m-md:justify-start items-center">
                                         <i class="fas fa-map-marker-alt text-cgreen"></i>
-                                        <h1 class="text-sm text-gray-400" x-text="event.fields.location"></h1>
+                                        <h1 class="text-sm text-gray-400" x-text="event.location"></h1>
                                     </span>
                                     <span class="flex flex-row space-x-1 justify-end m-md:justify-start items-center">
                                         <i class="fas fa-graduation-cap text-cgreen"></i>
@@ -551,13 +553,13 @@
                         
                         console.log(this.events)
                         return this.events.filter((item) => {
-                            return item.fields.tags
+                            return item.tags
                                         .toLowerCase()
                                         .includes(this.tagSearch.toLowerCase())
-                                    && item.fields.location
+                                    && item.location
                                         .toLowerCase()
                                         .includes(this.locationSearch.toLowerCase())
-                                    && item.fields.name
+                                    && item.name
                                         .toLowerCase()
                                         .includes(this.search.toLowerCase());
                         });

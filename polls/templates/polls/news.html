@@ -85,7 +85,7 @@
                     </div>
 
                     <div>
-                        <p class="font-bold mx-4 my-2">Location</p>
+                        <p class="font-bold mx-4 my-2">Category</p>
                         <button type="button" @click="locationOpen = !locationOpen" @click.away="locationOpen = false" class="inline-flex justify-center w-11/12 rounded-md border border-gray-300 shadow-sm mx-4 mb-4 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
                             id="options-menu" aria-expanded="true" aria-haspopup="true">
                             <span class="" x-text="locationLabel()"></span>
@@ -222,7 +222,7 @@
                     </div>
 
                     <div>
-                        <p class="font-bold mx-4 my-2">Location</p>
+                        <p class="font-bold mx-4 my-2">Category</p>
                         <button type="button" @click="locationOpen = !locationOpen" @click.away="locationOpen = false" class="inline-flex justify-center w-11/12 rounded-md border border-gray-300 shadow-sm mx-4 mb-4 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
                             id="options-menu" aria-expanded="true" aria-haspopup="true">
                             <span class="" x-text="locationLabel()"></span>
@@ -309,12 +309,12 @@
                 </div>
                 
                 
-                <div class="md:w-7/12 mt-4 grid grid-cols-3 gap-4" x-show="!calendarView">
+                <div class="md:w-7/12 mt-4 grid grid-cols-1 m-md:px-4 md:grid-cols-3 gap-4" x-show="!calendarView">
                     <div class="md:hidden font-bold pt-4 ml-10" x-text="filteredEvents.length + ' articles found'"></div>
                     <template x-for="event in filteredEvents">
                         <div class="flex flex-col content-between md:overflow-hidden rounded border px-8 py-4 my-8 border-gray-500 shadow-md hover:shadow-lg  mx-auto font-roboto ">
-                            <div class=" flex  content-center items-center">
-                                <img class="  h-11/12  object-contain" :src="event.thumb_url">
+                            <div class="flex flex-col flex-shrink-0 flex-grow-0 justify-center h-48 w-full rounded overflow-hidden">
+                                    <img class="object-cover" :src="event.thumb_url">
                             </div>
                             <div class="flex  flex-col  h-full justify-between">
                                 <img class="hidden w-3/12 h-11/12 flex-shrink-0 flex-grow-0 object-contain mr-10" src="https://ga-core.s3.amazonaws.com/production/uploads/program/default_image/14429/Business_Entrepreneur_Computer_Woman_Black_History_Month.jpg">
@@ -533,7 +533,7 @@
                     locationLabel() {
                         if(this.locationSearch == "")
                         {
-                            return "Any Location"
+                            return "Any Category"
                         }
                         else
                         {
@@ -552,9 +552,9 @@
                             return item.tags
                                         .toLowerCase()
                                         .includes(this.tagSearch.toLowerCase())
-                                    {% comment %} && item.location
+                                     && item.category
                                         .toLowerCase()
-                                        .includes(this.locationSearch.toLowerCase()) {% endcomment %}
+                                        .includes(this.locationSearch.toLowerCase()) 
                                     && item.title
                                         .toLowerCase()
                                         .includes(this.search.toLowerCase());

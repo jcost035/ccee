@@ -34,7 +34,7 @@
 
         <div class="sticky top-32  w-44  bg-gray-300 mt-44 z-50 rounded-lg m-md:hidden">
             <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg rounded-t-lg" @click="scrollTo('about')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['about-marker']}">What you'll experience</button>
-            <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg" @click="scrollTo('video')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['video-marker']}">How the program works</button>
+            <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg" @click="scrollTo('how_works')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['video-marker']}">How the program works</button>
             <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg" @click="scrollTo('faq')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['faq-marker']}">FAQs</button>
             <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg" @click="scrollTo('supporters')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['supporters-marker']}">Supporters</button>
             <button class="hover:bg-gray-400 w-full p-4 pb-6 font-roboto text-cblue text-lg rounded-b-lg" @click="scrollTo('action')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['action-marker']}">Get Involved</button>
@@ -74,8 +74,18 @@
 
         </div>
 
-        <div class="absolute md:w-170 bg-cblue h-96 m-md:h-256 -ml-72 -mr-64 -z-1 mt-10"></div>
-        <div class="flex flex-col md:flex-row w-full mt-8 md:space-x-10 m-md:space-y-8 mt-20 md:ml-52 ">
+        
+        <div id="how_works"></div>
+        <!--optional html content start-->
+        <div id="html_content" class="my-12 ml-48">
+            {{program.html_content|safe}}
+        </div>
+        <!--optional html content end-->
+
+        <div class="absolute md:w-170 bg-cblue h-96 m-md:h-256 -ml-72 -mr-64 -z-1 mt-8"></div>
+
+        <!--content panel start-->
+        <div class="hidden flex flex-col md:flex-row w-full mt-8 md:space-x-10 m-md:space-y-8 mt-20 md:ml-52 ">
             <!--first card-->
             <div class="flex flex-col items-center md:w-3/12 cursor-pointer">
                 <div class="bg-transparent overflow-hidden  w-full relative h-40 pb-36">
@@ -122,6 +132,10 @@
                 </div>
             </div>
         </div>
+        <!--content panel end-->
+
+
+        <!--video start-->
         <div id="video" class="observerTrigger"></div>
         <div class="flex flex-col md:flex-row mt-28 md:ml-48 m-md:space-y-6">
             <div class="md:w-1/2 rounded my-auto">
@@ -137,20 +151,23 @@
                 </div>
             </div>
         </div>
+
+        <!--faq start-->
         <div id='faq' class="observerTrigger"></div>
         <div class="md:ml-48 mt-12 content-center" >
-            <h1 class="text-6xl font-bebas text-center py-10">Frequently Asked Questions</h1>
+            <h1 class="text-6xl font-bebas text-center pt-12">Frequently Asked Questions</h1>
             {% for qa in faq %}
             <div>
                 
                 
                 {% comment %} <h1 class="text-4xl font-bebas text-left px-16 cursor-pointer" @click="firstQOpen = !firstQOpen" ></h1> {% endcomment %}
-                {{qa.question}}
-                <p class="text-xl font-roboto text-left px-16 mt-4 ml-16" ></p>
+                <h1 class="font-roboto text-3xl pl-12 font-bold mt-10">{{qa.question}}</h1>
+                <p class="text-xl font-roboto text-left pl-32 mt-4" >{{qa.answer}}</p>
                 
             </div>
             {% endfor %}
         </div>
+        <!--faq end-->
 
         <div class="md:ml-48 h-1/3 md:w-5/6 bg-cblue rounded-lg mt-16">
             <h1 class="text-6xl font-bebas text-white text-center py-6">More CCEE Programs</h1>
@@ -194,7 +211,16 @@
 <script>
     
 
-    
+    var showHtmlContent = '{{program.show_html_content}}'
+
+    if (showHtmlContent === 'True')
+    {
+        document.getElementById('html_content').style.display = '';
+    }
+    else
+    {
+        document.getElementById('html_content').style.display = 'none';
+    }
 
     function programData() {
 
