@@ -3,6 +3,8 @@ from django.core.paginator import Paginator
 from django.http import JsonResponse
 from django.core import serializers
 from django.http import HttpResponse
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.forms import model_to_dict
 
 from datetime import date, timedelta
 
@@ -119,25 +121,33 @@ def news(request):
 
 def news_list(request):
     
-    news_list = serializers.serialize('json', News.objects.order_by("-date"))
 
-    news_dict = json.loads(news_list)
+    news_dict = News.objects.order_by("-date")
+
+    news_list = []
 
     for news in news_dict:
-        old_date = news['fields']['date']
+        additional_fields = {}
+        old_date = str(news.date)
         new_date = old_date[5:7] + '/' + old_date[8:10] + '/' + old_date[0:4]
-        news['fields']['date'] = new_date
+        additional_fields['formatted_date'] = new_date
+        additional_fields['thumb_url'] = news.thumb_photo.url
+        news_list.append({
+            **additional_fields,
+            **model_to_dict(news, exclude=['date', 'thumb_photo'])
+        })
+
         
-    news_list = json.dumps(news_dict)
+    # news_list = serializers.serialize('json', news_list)
 
     #paginator = Paginator(event_list, 5) #show 10 objects per page
     #page_number = request.GET.get('page')
     #events = paginator.get_page(page_number)
 
     context = {
-        "news_list": news_list,
+        "news_list": json.dumps(news_list),
     }
-    return HttpResponse(news_list, content_type="application/json")
+    return HttpResponse(json.dumps(news_list), content_type="application/json")
 
 def dose_list(request):
     

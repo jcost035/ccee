@@ -314,23 +314,23 @@
                     <template x-for="event in filteredEvents">
                         <div class="flex flex-col content-between md:overflow-hidden rounded border px-8 py-4 my-8 border-gray-500 shadow-md hover:shadow-lg  mx-auto font-roboto ">
                             <div class=" flex  content-center items-center">
-                                <img class="  h-11/12  object-contain" :src="event.fields.thumb_photo">
+                                <img class="  h-11/12  object-contain" :src="event.thumb_url">
                             </div>
                             <div class="flex  flex-col  h-full justify-between">
                                 <img class="hidden w-3/12 h-11/12 flex-shrink-0 flex-grow-0 object-contain mr-10" src="https://ga-core.s3.amazonaws.com/production/uploads/program/default_image/14429/Business_Entrepreneur_Computer_Woman_Black_History_Month.jpg">
                             
                                 <div class="flex flex-col">
                                     <div class="flex flex-col ">
-                                        <h1 class="text-sm text-gray-400" x-text="event.fields.tags">Business, Career Development</h1>
+                                        <h1 class="text-sm text-gray-400" x-text="event.tags">Business, Career Development</h1>
                                         <div class="w-full">
-                                            <h1 class="text-xl font-bold font-roboto" x-text="event.fields.title">
+                                            <h1 class="text-xl font-bold font-roboto" x-text="event.title">
                                                 event name
                                             </h1>
 
                                         </div>
                                         <div class="flex flex-row">
                                             <div class="w-full">
-                                                <p class=" leading-loose text-md " style="font-family: 'Roboto', sans-serif;" x-text="event.fields.description">
+                                                <p class=" leading-loose text-md " style="font-family: 'Roboto', sans-serif;" x-text="event.description">
                                                     description
                                                 </p>
 
@@ -345,7 +345,7 @@
 
                                         <span class="flex flex-row space-x-1 justify-start items-center">
                                             <i class="far fa-calendar text-cgreen"></i>
-                                            <h1 class="text-lg font-bold text-cblue text-right text-left" x-text="event.fields.date">
+                                            <h1 class="text-lg font-bold text-cblue text-right text-left" x-text="event.formatted_date">
                                                 date
                                             </h1>
                                         </span>
@@ -549,13 +549,13 @@
                         
                         console.log(this.events)
                         return this.events.filter((item) => {
-                            return item.fields.tags
+                            return item.tags
                                         .toLowerCase()
                                         .includes(this.tagSearch.toLowerCase())
-                                    {% comment %} && item.fields.location
+                                    {% comment %} && item.location
                                         .toLowerCase()
                                         .includes(this.locationSearch.toLowerCase()) {% endcomment %}
-                                    && item.fields.title
+                                    && item.title
                                         .toLowerCase()
                                         .includes(this.search.toLowerCase());
                         });
