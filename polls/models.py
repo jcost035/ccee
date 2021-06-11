@@ -65,6 +65,20 @@ class News(models.Model):
     thumb_photo = models.ImageField(upload_to='programs', default="staff-pics/default.jpg")
     content = models.CharField(max_length=10000, null=True)
 
+    CCEE_NEWS = 'N'
+    MEDIA_RELEASE = 'M'
+    OTHER = 'O'
+    GRADE_LEVEL_CHOICES = [
+        (CCEE_NEWS, _('CCEE in the News')),
+        (MEDIA_RELEASE, _('Media Release')),
+        (OTHER, _('Other'))
+    ]
+    category = models.CharField(
+        max_length=2,
+        choices=GRADE_LEVEL_CHOICES,
+        default=CCEE_NEWS,
+    )
+
     def __str__(self):
         return self.title
 
