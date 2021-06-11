@@ -61,7 +61,9 @@ class News(models.Model):
     date = models.DateField(_("Date"), default=datetime.date.today)
     description = models.CharField(max_length=1200)
     tags = models.CharField(max_length=200, default='')
-    location = models.CharField(max_length=200, default='Virtual')
+    
+    thumb_photo = models.ImageField(upload_to='programs', default="staff-pics/default.jpg")
+    content = models.CharField(max_length=10000, null=True)
 
     def __str__(self):
         return self.title
