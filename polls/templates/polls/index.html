@@ -667,36 +667,40 @@
         </div>
 
         <div class="rounded w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0 ">
-          <img  src="{% static 'index/IMG_6196.JPG'%}" class="relative rounded -z-1" alt="technology" />
+          <div class="flex flex-col justify-center h-64 overflow-hidden rounded-lg">
+            <img  :src="events[0].thumb_url" class="relative rounded -z-1" alt="technology" />
+          </div>
           <div  class="relative p-4 pl-0 z-20">
             
             <h2 class="-ml-4 -mr-4 md:-ml-8  z-20 text-5xl text-gray-800  p-2  -mt-10 font-bebas overflow-hidden overflow-clip">
-              <span x-text="events[0].fields.title" class="leading-loose text-white bg-cblue p-2 px-4 rounded">
+              <span x-text="events[0].title" class="leading-loose text-white bg-cblue p-2 px-4 rounded">
                 CCEE in The News 
               <span>
             </h2>
             
-            <p x-text="events[0].fields.description" class="text-gray-700 mt-4 text-md">
+            <p x-text="events[0].description" class="text-gray-700 mt-4 text-md">
               California Council on Economic Education President and CEO Denise Gutierrez Named As One of Hispanic Lifestyle ‘s Latinas of Influence
             </p>
 
-            <a href="#" class="inline-block py-2 px-4 rounded text-white mt-2 ml-auto bg-cgreen hover:bg-cgreen-dark font-roboto text-xl"> Read more </a>
+            <a :href="'news/'+events[0].title" class="inline-block py-2 px-4 rounded text-white mt-2 ml-auto bg-cgreen hover:bg-cgreen-dark font-roboto text-xl"> Read more </a>
           </div>
         </div>
 
         <div class="rounded w-full lg:w-1/2 lg:w-1/3 p-4 lg:p-0">
-          <img src="{% static 'index/CCEE-2019Gala-259.jpg' %}" class="rounded" alt="technology" />
+          <div class="flex flex-col justify-center h-64 overflow-hidden rounded-lg">
+            <img  :src="events[1].thumb_url" class="relative rounded -z-1" alt="technology" />
+          </div>
           <div  class="relative p-4 pl-0 z-20">
               <div class="-ml-4 md:-ml-8  z-20 text-5xl text-gray-800  p-2 text-thin -mt-10 font-bebas rounded-lg">
-                <span x-text="events[1].fields.title" class="leading-loose text-white bg-cblue p-2 px-4 rounded">
+                <span x-text="events[1].title" class="leading-loose text-white bg-cblue p-2 px-4 rounded">
                   Media Release
                 <span>
               </div>
-            <p x-text="events[1].fields.description" class="text-gray-700 mt-4 text-md">
+            <p x-text="events[1].description" class="text-gray-700 mt-4 text-md">
               San Diego County Board of Supervisors Gets Behind Financial Literacy and Intergenerational Opportunity 
             </p>
 
-            <a href="#" class="inline-block py-2 px-4 rounded text-white mt-2 ml-auto bg-cgreen hover:bg-cgreen-dark font-roboto text-xl"> Read more </a>
+            <a :href="'news/'+events[1].title" class="inline-block py-2 px-4 rounded text-white mt-2 ml-auto bg-cgreen hover:bg-cgreen-dark font-roboto text-xl"> Read more </a>
           </div>
         </div>
 
