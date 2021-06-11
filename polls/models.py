@@ -42,6 +42,8 @@ class Event(models.Model):
     tags = models.CharField(max_length=200, default='')
     location = models.CharField(max_length=200, default='Virtual')
     thumb_photo = models.ImageField(upload_to='programs', default="staff-pics/default.jpg", blank=True)
+    registration_url = models.CharField(max_length=1200, null=True)
+    program = models.CharField(max_length=1200, null=True)
     K_12 = 'K'
     EDUCATOR = 'E'
     GRADE_LEVEL_CHOICES = [
