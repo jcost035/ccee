@@ -158,6 +158,41 @@
     </div>
     {% endfor %}
 
+    <h1 class="text-7xl mx-auto text-cblue mt-20" style="font-family: 'Bebas Neue', cursive;">Officers</h1>
+    <h1 class="text-4xl mx-auto my-2 mb-12 m-md:text-center" style="font-family: 'Bebas Neue', cursive;"></h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-4">
+      {% for officer in officer_list %}
+        <div class="p-4">
+          <h1 class="font-roboto text-2xl text-cblue">{{officer.name}}</h1>
+          <h1 class="font-roboto text-2xl font-light italic text-cblue-light">{{officer.position}}</h1>
+          <h1 class="font-roboto text-xl font-light text-gray-700">{{officer.address}}</h1>
+          <h1 class="font-roboto text-xl font-light text-gray-700">{{officer.phone}}</h1>
+          <h1 class="font-roboto text-xl font-light text-gray-700">{{officer.email}}</h1>
+        </div>
+      {% endfor %}
+    </div>
+    
+
+    <h1 class="text-7xl mx-auto text-cblue mt-20" style="font-family: 'Bebas Neue', cursive;">Directors</h1>
+    <h1 class="text-4xl mx-auto my-2 mb-12 m-md:text-center" style="font-family: 'Bebas Neue', cursive;"></h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-4">
+      {% for director in director_list %}
+        <div class="p-4">
+          <h1 class="font-roboto text-2xl text-cblue">{{director.name}}</h1>
+          <h1 class="font-roboto text-2xl font-light italic text-cblue-light">{{director.position}}</h1>
+          <h1 class="font-roboto text-xl font-light text-gray-700">{{director.address}}</h1>
+          <h1 class="font-roboto text-xl font-light text-gray-700">{{director.phone}}</h1>
+          <h1 class="font-roboto text-xl font-light text-gray-700">{{director.email}}</h1>
+        </div>
+      {% endfor %}
+    </div>
+    
+
     
   </div>
+
+  
 </div>
+{% include 'polls/footer.html'%}

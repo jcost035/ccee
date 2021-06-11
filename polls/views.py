@@ -15,6 +15,8 @@ from .models import Program
 from .models import News
 from .models import Mission
 from .models import DailyDose
+from .models import Director
+from .models import Officer
 from django.template import loader
 from django.views.generic import ListView
 
@@ -233,9 +235,13 @@ def history_mission(request):
     return render(request, "polls/history-mission.html")
 
 def our_team(request):
-    staff_list = Staff.objects.order_by("name")
+    staff_list = Staff.objects.all()
+    director_list = Director.objects.all()
+    officer_list = Officer.objects.all()
     context = {
         "staff_list": staff_list,
+        "director_list": director_list,
+        "officer_list": officer_list
     }
     return render(request, "polls/our-team.html", context)
 

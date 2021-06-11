@@ -35,6 +35,26 @@ class Staff(models.Model):
     def __str__(self):
         return self.name
 
+class Director(models.Model):
+    name = models.CharField(max_length=50)
+    position = models.CharField(max_length=200, blank=True)
+    bio = models.CharField(max_length=1200, blank=True)
+    phone = models.CharField(max_length=20, blank=True)
+    email = models.CharField(max_length=50, blank=True)
+
+    def __str__(self):
+        return self.name
+
+class Officer(models.Model):
+    name = models.CharField(max_length=50)
+    position = models.CharField(max_length=200, blank=True)
+    bio = models.CharField(max_length=1200, blank=True)
+    phone = models.CharField(max_length=20, blank=True)
+    email = models.CharField(max_length=50, blank=True)
+
+    def __str__(self):
+        return self.name
+
 class Event(models.Model):
     name = models.CharField(max_length=200)
     date = models.DateField(_("Date"), default=datetime.date.today)
