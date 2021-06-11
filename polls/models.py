@@ -59,8 +59,10 @@ class Event(models.Model):
 class News(models.Model):
     title = models.CharField(max_length=200)
     date = models.DateField(_("Date"), default=datetime.date.today)
-    description = models.CharField(max_length=1200)
-    tags = models.CharField(max_length=200, default='')
+    description = models.CharField(max_length=1200, null=True, blank=True)
+    tags = models.CharField(max_length=200, default='', blank=True)
+    external = models.BooleanField(default=False)
+    external_url = models.CharField(max_length=1200, null=True, blank=True)
     
     thumb_photo = models.ImageField(upload_to='programs', default="staff-pics/default.jpg")
     content = models.CharField(max_length=10000, null=True)

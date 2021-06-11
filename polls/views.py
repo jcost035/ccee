@@ -21,6 +21,16 @@ from django.utils.safestring import mark_safe
 from django.db.models import Q
 import json
 
+def news_article(request, article_url):
+    news = News.objects.filter(title__icontains=article_url)
+    
+    context = {
+        "news": news[0],
+        
+    }
+    
+    return render(request, "polls/article.html", context)
+
 def dose_article(request, article_url):
     dose = DailyDose.objects.filter(name__icontains=article_url)
     
