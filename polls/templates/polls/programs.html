@@ -25,11 +25,11 @@
     <div class="absolute bg-cblue w-full h-2/3 -mt-16"></div>
     <div class="relative w-9/12 m-md:w-11/12 mx-auto z-10" x-data="programData()" x-init="observe()">
         <div class="h-1/2 mb-24">
-            <div class="relative md:mt-32 text-white text-3xl font-bebas pt-32"><span class="bg-cgreen px-2">Highlighted shit</span></div>
+            <div class="relative md:mt-32 text-white text-3xl font-bebas pt-32"><span class="bg-cgreen px-2"></span></div>
             <div class="relative font-bebas text-7xl text-white  ">{{program.name}} </div>
             <p class="text-white text-xl w-1/2 pt-6 font-roboto font-thin">{{program.description}}</p>
             <button class="rounded border-2 border-white text-white font-roboto py-2 px-4 mt-6 font-light text-xl">Register</button>
-            <button class="rounded border-2 border-cgreen bg-cgreen text-white hover:border-cgreen-dark hover:bg-cgreen-dark font-roboto py-2 px-4 mt-6 font-light text-xl">Other thing</button>
+            <button class="hidden rounded border-2 border-cgreen bg-cgreen text-white hover:border-cgreen-dark hover:bg-cgreen-dark font-roboto py-2 px-4 mt-6 font-light text-xl">Other thing</button>
         </div>
 
         <div class="sticky top-32  w-44  bg-gray-300 mt-44 z-50 rounded-lg m-md:hidden">
@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="h-full w-full">
-                <img class="w-full md:mx-6 object-cover object-center rounded-lg" src="https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg" alt="" />
+                <img class="w-full md:mx-6 object-cover object-center rounded-lg" src="{{program.photo_path.url}}" alt="" />
 
             </div>
 
