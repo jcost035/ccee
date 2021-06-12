@@ -321,7 +321,7 @@
                             
                                 <div class="flex flex-col">
                                     <div class="flex flex-col ">
-                                        <h1 class="text-sm text-gray-400" x-text="event.tags">Business, Career Development</h1>
+                                        <h1 class="text-sm text-gray-400" x-text="evalCategory(event.category)"></h1>
                                         <div class="w-full">
                                             <h1 class="text-xl font-bold font-roboto" x-text="event.title">
                                                 event name
@@ -487,6 +487,20 @@
             function loadEvents()
             {
                 return {
+                    evalCategory(category) {
+                        if(category === 'N')
+                        {
+                            return 'CCEE in the News';
+                        }
+                        else if(category === 'M')
+                        {
+                            return 'Media Release';
+                        }
+                        else
+                        {
+                            return 'Other';
+                        }
+                    },
                     events: [],
                     fetchEvents() {
                         this.events = []
