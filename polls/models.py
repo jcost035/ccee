@@ -110,14 +110,14 @@ class News(models.Model):
 
 class Program(models.Model):
     name = models.CharField(max_length=200)
-    description = models.CharField(max_length=1200)
-    dates = models.JSONField()
-    logo_path = models.CharField(max_length=200)
+    description = models.CharField(max_length=1200, blank=True)
+    dates = models.JSONField(blank=True)
+    logo_path = models.CharField(max_length=200, blank=True)
     about = models.CharField(max_length=1200)
     show_testimonial = models.BooleanField(default=True)
-    testimonial = models.CharField(max_length=1200)
-    video_path = models.CharField(max_length=200)
-    faq = models.JSONField()
+    testimonial = models.CharField(max_length=1200, blank=True)
+    video_path = models.CharField(max_length=200, blank=True)
+    faq = models.JSONField(blank=True)
     show_html_content = models.BooleanField(default=False, null=True)
     html_content = models.CharField(max_length=10000, null=True, blank=True)
 
