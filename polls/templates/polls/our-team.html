@@ -163,7 +163,7 @@
 
     {% for officer in officer_list %}
       <div class="p-4">
-        <h1 class="font-roboto text-2xl text-cblue"> {{officer.position}} : {{officer.name}}</h1>
+        <h1 class="font-roboto text-2xl text-cblue"> <span class="text-gray-900">{{officer.position}}</span> : {{officer.name}}</h1>
       </div>
     {% endfor %}
     
@@ -177,9 +177,10 @@
         <div class="p-4">
           <h1 class="font-roboto text-2xl text-cblue">{{director.name}}</h1>
           <h1 class="font-roboto text-2xl font-light italic text-cblue-light">{{director.position}}</h1>
+          <h1 class="font-roboto text-2xl font-light italic text-cgra-900">{{director.bio}}</h1>
           <h1 class="font-roboto text-xl font-light text-gray-700">{{director.address}}</h1>
           <h1 class="font-roboto text-xl font-light text-gray-700">{{director.phone}}</h1>
-          <h1 class="font-roboto text-xl font-light text-gray-700">{{director.email}}</h1>
+          <h1 class="font-roboto text-xl font-light text-cblue hover:cblue-light">{{director.email}}</h1>
         </div>
       {% endfor %}
     </div>
