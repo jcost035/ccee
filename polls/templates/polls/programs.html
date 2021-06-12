@@ -77,7 +77,7 @@
         
         <div id="how_works"></div>
         <!--optional html content start-->
-        <div id="html_content" class="my-12 ml-48">
+        <div id="html_content" class="my-12 mx-3 md:ml-48">
             {{program.html_content|safe}}
         </div>
         <!--optional html content end-->
@@ -138,7 +138,7 @@
         <!--video start-->
         <div id="video" class="observerTrigger"></div>
         <div class="flex flex-col md:flex-row mt-28 md:ml-48 m-md:space-y-6">
-            <div class="md:w-1/2 rounded my-auto">
+            <div id="video-container" class="md:w-1/2 rounded my-auto">
                 <video width="640" height="240" class="rounded-lg" controls>
                     <source src="{{program.video_path}}" type="video/mp4">
                   Your browser
@@ -154,7 +154,7 @@
 
         <!--faq start-->
         <div id='faq' class="observerTrigger"></div>
-        <div class="md:ml-48 mt-12 content-center" >
+        <div id='faq-container' class="md:ml-48 mt-12 content-center" >
             <h1 class="text-6xl font-bebas text-center pt-12">Frequently Asked Questions</h1>
             {% for qa in faq %}
             <div>
@@ -213,6 +213,26 @@
 
     var showHtmlContent = '{{program.show_html_content}}'
     var showTestimonial = '{{program.show_testimonial}}'
+    var showVideo = '{{program.show_video}}'
+    var showFaq = '{{program.show_testimonial}}'
+
+    if (showVideo === 'True')
+    {
+        document.getElementById('video-container').style.display = '';
+    }
+    else
+    {
+        document.getElementById('video-container').style.display = 'none';
+    }
+
+    if (showFaq === 'True')
+    {
+        document.getElementById('faq-container').style.display = '';
+    }
+    else
+    {
+        document.getElementById('faq-container').style.display = 'none';
+    }
 
     if (showHtmlContent === 'True')
     {
