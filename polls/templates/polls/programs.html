@@ -139,7 +139,7 @@
         <div id="video" class="observerTrigger"></div>
         <div class="flex flex-col md:flex-row mt-28 md:ml-48 m-md:space-y-6">
             <div id="video-container" class="md:w-1/2 rounded my-auto">
-                <video width="640" height="240" class="rounded-lg" controls>
+                <video width="640" height="240" class="rounded-lg h-72" controls>
                     <source src="{{program.video_path|safe}}" type="video/mp4">
                   Your browser
             </div>
@@ -165,7 +165,7 @@
                     <i class="fas fa-plus text-3xl text-cgreen pr-2"></i>
                      <h1 class="font-roboto text-3xl  font-bold">{{qa.question}}</h1>
                 </div>
-                <p class="text-xl font-roboto text-left pl-32 mt-4" >{{qa.answer}}</p>
+                <p class="text-xl font-roboto text-left pl-3 md:pl-32 mt-4" >{{qa.answer|safe}}</p>
                 
             </div>
             {% endfor %}
