@@ -161,7 +161,10 @@
                 
                 
                 {% comment %} <h1 class="text-4xl font-bebas text-left px-16 cursor-pointer" @click="firstQOpen = !firstQOpen" ></h1> {% endcomment %}
-                <h1 class="font-roboto text-3xl pl-12 font-bold mt-10">{{qa.question}}</h1>
+                <div class="flex flex-row mt-10 pl-12">
+                    <i class="fas fa-plus text-3xl text-cgreen pr-2"></i>
+                     <h1 class="font-roboto text-3xl  font-bold">{{qa.question}}</h1>
+                </div>
                 <p class="text-xl font-roboto text-left pl-32 mt-4" >{{qa.answer}}</p>
                 
             </div>

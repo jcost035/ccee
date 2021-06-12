@@ -112,7 +112,7 @@ class Program(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=1200, blank=True)
     dates = models.JSONField(blank=True)
-    logo_path = models.CharField(max_length=200, blank=True)
+    logo_path = models.ImageField(upload_to='programs', default="staff-pics/default.jpg", blank=True)
     about = models.CharField(max_length=1200)
     show_testimonial = models.BooleanField(default=True)
     testimonial = models.CharField(max_length=1200, blank=True)
