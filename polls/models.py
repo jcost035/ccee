@@ -41,6 +41,7 @@ class Director(models.Model):
     bio = models.CharField(max_length=1200, blank=True)
     phone = models.CharField(max_length=20, blank=True)
     email = models.CharField(max_length=50, blank=True)
+    address = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.name
