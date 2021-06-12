@@ -25,10 +25,10 @@
     <div class="absolute bg-cblue w-full h-2/3 -mt-16"></div>
     <div class="relative w-9/12 m-md:w-11/12 mx-auto z-10" x-data="programData()" x-init="observe()">
         <div class="h-1/2 mb-24">
-            <div class="relative md:mt-32 text-white text-3xl font-bebas pt-32"><span class="bg-cgreen px-2"></span></div>
+            <div class="relative md:mt-32 text-white text-3xl font-bebas pt-32"><span class="hidden bg-cgreen px-2"></span></div>
             <div class="relative font-bebas text-7xl text-white  ">{{program.name}} </div>
             <p class="text-white text-xl w-1/2 pt-6 font-roboto font-thin">{{program.description}}</p>
-            <button class="rounded border-2 border-white text-white font-roboto py-2 px-4 mt-6 font-light text-xl">Register</button>
+            <button class="rounded bg-cgreen text-white hover:bg-cgreen-dark font-roboto py-2 px-4 mt-6 font-light text-xl">Register</button>
             <button class="hidden rounded border-2 border-cgreen bg-cgreen text-white hover:border-cgreen-dark hover:bg-cgreen-dark font-roboto py-2 px-4 mt-6 font-light text-xl">Other thing</button>
         </div>
 
@@ -82,7 +82,7 @@
         </div>
         <!--optional html content end-->
 
-        <div class="absolute md:w-170 bg-cblue h-96 m-md:h-256 -ml-72 -mr-64 -z-1 mt-8"></div>
+        <div id="bg-stripe" class="absolute md:w-170 bg-cblue h-96 m-md:h-256 -ml-72 -mr-64 -z-1 mt-8"></div>
 
         <!--content panel start-->
         <div class="hidden flex flex-col md:flex-row w-full mt-8 md:space-x-10 m-md:space-y-8 mt-20 md:ml-52 ">
@@ -169,7 +169,7 @@
         </div>
         <!--faq end-->
 
-        <div class="md:ml-48 h-1/3 md:w-5/6 bg-cblue rounded-lg mt-16">
+        <div class="md:ml-48 h-1/3 md:w-5/6 bg-cblue rounded-lg mt-32">
             <h1 class="text-6xl font-bebas text-white text-center py-6">More CCEE Programs</h1>
 
 
@@ -214,7 +214,7 @@
     var showHtmlContent = '{{program.show_html_content}}'
     var showTestimonial = '{{program.show_testimonial}}'
     var showVideo = '{{program.show_video}}'
-    var showFaq = '{{program.show_testimonial}}'
+    var showFaq = '{{program.show_faq}}'
 
     if (showVideo === 'True')
     {
@@ -223,6 +223,7 @@
     else
     {
         document.getElementById('video-container').style.display = 'none';
+        document.getElementById('bg-stripe').style.display = 'none';
     }
 
     if (showFaq === 'True')
