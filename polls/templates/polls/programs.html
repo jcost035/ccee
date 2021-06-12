@@ -140,7 +140,7 @@
         <div class="flex flex-col md:flex-row mt-28 md:ml-48 m-md:space-y-6">
             <div id="video-container" class="md:w-1/2 rounded my-auto">
                 <video width="640" height="240" class="rounded-lg" controls>
-                    <source src="{{program.video_path}}" type="video/mp4">
+                    <source src="{{program.video_path|safe}}" type="video/mp4">
                   Your browser
             </div>
             <div id="testimonial" class="md:w-1/2 rounded-lg overflow-hidden relative mx-4 bg-cblue-light ring-4 ring-offset-4 ring-gray-300">
