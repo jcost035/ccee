@@ -118,6 +118,7 @@ class Program(models.Model):
     testimonial = models.CharField(max_length=1200, blank=True)
     show_video = models.BooleanField(default=True)
     video_path = models.CharField(max_length=200, blank=True)
+    show_faq = models.BooleanField(default=True)
     faq = models.JSONField(blank=True)
     show_html_content = models.BooleanField(default=False, null=True)
     html_content = models.CharField(max_length=10000, null=True, blank=True)
