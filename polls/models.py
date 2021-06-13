@@ -67,9 +67,15 @@ class Event(models.Model):
     registration_url = models.CharField(max_length=1200, null=True, blank=True)
     program = models.CharField(max_length=1200, null=True, blank=True)
     K_12 = 'K'
+    N_12 = 'N'
+    S_12 = 'S'
+    K_8 = 'I'
     EDUCATOR = 'E'
     GRADE_LEVEL_CHOICES = [
-        (K_12, _('K-12')),
+        (K_12, _('K-12th')),
+        (N_12, _('9th-12th')),
+        (S_12, _('6th-12th')),
+        (K_8, _('K-8th')),
         (EDUCATOR, _('Educator'))
     ]
     grade_level = models.CharField(
