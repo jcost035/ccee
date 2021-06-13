@@ -59,12 +59,13 @@ class Officer(models.Model):
 class Event(models.Model):
     name = models.CharField(max_length=200)
     date = models.DateField(_("Date"), default=datetime.date.today)
-    description = models.CharField(max_length=1200)
-    tags = models.CharField(max_length=200, default='')
+    start_time = models.TimeField(auto_now=False, auto_now_add=False, blank=True, null=True)
+    description = models.CharField(max_length=1200, blank=True)
+    tags = models.CharField(max_length=200, default='', blank=True)
     location = models.CharField(max_length=200, default='Virtual')
     thumb_photo = models.ImageField(upload_to='programs', default="staff-pics/default.jpg", blank=True)
-    registration_url = models.CharField(max_length=1200, null=True)
-    program = models.CharField(max_length=1200, null=True)
+    registration_url = models.CharField(max_length=1200, null=True, blank=True)
+    program = models.CharField(max_length=1200, null=True, blank=True)
     K_12 = 'K'
     EDUCATOR = 'E'
     GRADE_LEVEL_CHOICES = [
