@@ -24,27 +24,32 @@
     {% include "polls/nav.html"%}
     <h1 class="text-7xl text-center font-bebas text-cblue md:mt-32">Centers on Economic Education</h1>
     <div class="flex flex-col md:flex-row mt-6">
-        <div class="w-1/3">
+        <div class="md:w-1/3">
             <div x-show="text">
-                <h1 class="font-bebas text-7xl text-cblue">Panel text 1</h1>
+                <h1 class="font-roboto text-4xl text-cblue md:mx-6 mx-2">Building opportunity throughout California</h1>
+                <p class="font-roboto text-xl font-light md:mx-6 mx-2 mt-2">
+                    CCEE’s Centers for Economic Education are located throughout California at higher education campuses. These centers are critical to helping us achieve our vision of economic and financial literacy for all. 
+                </p>
+                <p class="font-roboto text-xl font-light md:mx-6 mx-2 mt-4">
+                    Click on the center location to explore more about it. If you’re interested in bringing a center to your campus, contact us <a href="/contact" class="text-cblue hover:text-cblue-light">here</a> 
+                </p>
             </div>
-            <div x-show="secondText">
-                <h1 class="font-bebas text-7xl text-cblue">Panel text 2</h1>
-            </div>
+                <div x-show="secondText">
+                    <h1 class="font-bebas text-7xl text-cblue"></h1>
+                </div>
         </div>
-        <div class="md:w-1/2 w-full m-md:mt-32 z-10" id="inner">
+        <div class="md:w-1/2 w-full m-md:my-24 z-10" id="inner">
             <!-- <img class="" src="{% static 'Cal_Map_CCEE_1.png' %}" alt="" style="width: 900px" />
                 <div style="padding-top:20px;">
                     <div id="coord"></div>
                     <div id="cond-coord"></div>
                 </div> -->
-            <div id="map" class="md:h-190 h-60vh"></div>
+            <div id="map" class="md:h-190 h-60vh rounded-xl"></div>
         </div>
 
     </div>
-    <div id="sidebar">
-        <h1>leaflet-sidebar</h1>
-    </div>
+    
+    {% include 'polls/footer.html'%}
 
 </body>
 
@@ -109,55 +114,11 @@
 
 
 
-            var soCalMarker = L.circleMarker([34.021747, -118.285224], {
-                fill: true,
-                color: '#74BEE9',
-                fillColor: '#74BEE9',
-                fillOpacity: 1,
-                radius: 7,
-            }).bindPopup('University of Southern California').addTo(map);
+            
 
-            var calStateMarker = L.circleMarker([34.066676, -118.169115], {
-                fill: true,
-                color: '#0071BC',
-                fillColor: '#0071BC',
-                fillOpacity: 1,
-                radius: 7,
-            }).bindPopup('Cal State University – Los Angeles').addTo(map);
+            
 
-            var cuyamacaMarker = L.circleMarker([32.743871, -116.939673], {
-                fill: true,
-                color: '#004A80',
-                fillColor: '#004A80',
-                fillOpacity: 1,
-                radius: 7,
-            }).bindPopup('Cuyamaca College').addTo(map);
-
-            var sanJoseMarker = L.circleMarker([37.335018, -121.882329], {
-                fill: true,
-                color: '#004A80',
-                fillColor: '#004A80',
-                fillOpacity: 1,
-                radius: 7,
-            }).bindPopup('San José State University').addTo(map);
-
-            var sanBernadinoMarker = L.circleMarker([34.181684, -117.324339], {
-                fill: true,
-                color: '#004A80',
-                fillColor: '#004A80',
-                fillOpacity: 1,
-                radius: 7,
-            }).bindPopup('Cal State University – San Bernardino').addTo(map);
-
-            var fullertonMarker = L.circleMarker([33.881760, -117.885264], {
-                fill: true,
-                color: '#004A80',
-                fillColor: '#004A80',
-                fillOpacity: 1,
-                radius: 7,
-            }).bindPopup('Cal State University – Fullerton').addTo(map);
-
-
+            //east bay div start (newDiv)
             const newDiv = document.createElement("div");
             newDiv.className = "text-xl font-bebas text-cblue flex flex-col";
             const newContent = document.createTextNode("Cal State University – East Bay");
@@ -170,22 +131,224 @@
 
             const eastBayDocName = document.createElement("span");
             eastBayDocName.className = "text-cblue font-bold";
-            const eastBayDoc = document.createTextNode("Jane Lopus, Ph.D.Director");
+            const eastBayDoc = document.createTextNode("Director: Jane Lopus, Ph.D. ");
             eastBayDocName.appendChild(eastBayDoc);
             eastBayDiv2.appendChild(eastBayDocName);
-
-            const eastBayDesc2 = document.createTextNode(", is an accomplished researcher, curriculum writer, and international consultant.She has authored Economics in Action!as well as materials for the national CEE; She has been an integral part of bringing economics and personal finance education to many countries of the former soviet union and continues to work with them, currently Ukraine. ");
-            eastBayDiv2.appendChild(eastBayDesc2);
 
             newDiv.appendChild(newContent);
             newDiv.appendChild(eastBayDiv1);
             newDiv.appendChild(eastBayDiv2);
+            //east bay div end (newDiv)
+
+            //socal div start (socalDiv)
+            const socalDiv = document.createElement("div");
+            socalDiv.className = "text-xl font-bebas text-cblue flex flex-col";
+            const socalNewContent = document.createTextNode("Cal State University – East Bay");
+            const socalDiv1 = document.createElement("p");
+            const socalDiv2 = document.createElement("p");
+            socalDiv1.className = "text-xs font-sans text-black";
+            socalDiv2.className = "text-xs font-sans text-black";
+            const socalDesc1 = document.createTextNode("The Center for Economic Education at Cal State East Bay was one of, if not the earliest to use a stock market game as a competition and instructional tool.Today it continues to provide support for the California Stock Market Simulation, conducts workshops for teachers here and abroad, and is involved in economic education research and curriculum development.");
+            socalDiv1.appendChild(socalDesc1);
+
+            const socalDocName = document.createElement("span");
+            socalDocName.className = "text-cblue font-bold";
+            const socalDoc = document.createTextNode("Director: Jane Lopus, Ph.D. ");
+            socalDocName.appendChild(socalDoc);
+            socalDiv2.appendChild(socalDocName);
+
+            socalDiv.appendChild(socalNewContent);
+            socalDiv.appendChild(socalDiv1);
+            socalDiv.appendChild(socalDiv2);
+            //socal div end (socalDiv)
+
+            //calState div start (calStateDiv)
+            const calStateDiv = document.createElement("div");
+            calStateDiv.className = "text-xl font-bebas text-cblue flex flex-col";
+            const calStateNewContent = document.createTextNode("Cal State University – Los Angeles");
+            const calStateDiv1 = document.createElement("p");
+            const calStateDiv2 = document.createElement("p");
+            calStateDiv1.className = "text-xs font-sans text-black";
+            calStateDiv2.className = "text-xs font-sans text-black";
+            const calStateDesc1 = document.createTextNode("The new Cal State LA Center for Financial Literacy and Econ Ed expands our services from K-12 Teacher Professional Development to providing direct-to-student personal finance education to help the students at Cal State LA achieve success.");
+            calStateDiv1.appendChild(calStateDesc1);
+
+            const calStateDocName = document.createElement("span");
+            calStateDocName.className = "text-cblue font-bold";
+            const calStateDoc = document.createTextNode("Director: Dr. Tye Jackson, Ph.D., Interim Dean  ");
+            calStateDocName.appendChild(calStateDoc);
+            calStateDiv2.appendChild(calStateDocName);
+
+            calStateDiv.appendChild(calStateNewContent);
+            calStateDiv.appendChild(calStateDiv1);
+            calStateDiv.appendChild(calStateDiv2);
+            //calState div end (calStateDiv)
+
+            //cuyamaca div start (cuyamacaDiv)
+            const cuyamacaDiv = document.createElement("div");
+            cuyamacaDiv.className = "text-xl font-bebas text-cblue flex flex-col";
+            const cuyamacaNewContent = document.createTextNode("Cuyamaca College");
+            const cuyamacaDiv1 = document.createElement("p");
+            const cuyamacaDiv2 = document.createElement("p");
+            cuyamacaDiv1.className = "text-xs font-sans text-black";
+            cuyamacaDiv2.className = "text-xs font-sans text-black";
+            const cuyamacaDesc1 = document.createTextNode("The San Diego Center for Economic Education (SDCEE) at Cuyamaca College is your premier provider of economic programs for K-12 schools in San Diego County and surrounding areas, including as far east as Imperial County.. SDCEE helps schools to integrate the teaching of economics and personal finance across all grade levels with a particular focus on BIPOC students and communities.");
+            cuyamacaDiv1.appendChild(cuyamacaDesc1);
+
+            const cuyamacaDocName = document.createElement("span");
+            cuyamacaDocName.className = "text-cblue font-bold";
+            const cuyamacaDoc = document.createTextNode("");
+            cuyamacaDocName.appendChild(cuyamacaDoc);
+            cuyamacaDiv2.appendChild(cuyamacaDocName);
+
+            cuyamacaDiv.appendChild(cuyamacaNewContent);
+            cuyamacaDiv.appendChild(cuyamacaDiv1);
+            cuyamacaDiv.appendChild(cuyamacaDiv2);
+            //cuyamaca div end (cuyamacaDiv)
+
+            //sanJose div start (sanJoseDiv)
+            const sanJoseDiv = document.createElement("div");
+            sanJoseDiv.className = "text-xl font-bebas text-cblue flex flex-col";
+            const sanJoseNewContent = document.createTextNode("San Jose State University");
+            const sanJoseDiv1 = document.createElement("p");
+            const sanJoseDiv2 = document.createElement("p");
+            sanJoseDiv1.className = "text-xs font-sans text-black";
+            sanJoseDiv2.className = "text-xs font-sans text-black";
+            const sanJoseDesc1 = document.createTextNode("The Center for Economic Education at San Jose State University is successfully engaged in implementing the Unitrack “Step-to-College” program which provides students college credit and increases high school student matriculation to college. The Center also conducts workshop series for area AP/Honors high school economics instructors.");
+            sanJoseDiv1.appendChild(sanJoseDesc1);
+
+            const sanJoseDocName = document.createElement("span");
+            sanJoseDocName.className = "text-cblue font-bold";
+            const sanJoseDoc = document.createTextNode("");
+            sanJoseDocName.appendChild(sanJoseDoc);
+            sanJoseDiv2.appendChild(sanJoseDocName);
+
+            sanJoseDiv.appendChild(sanJoseNewContent);
+            sanJoseDiv.appendChild(sanJoseDiv1);
+            sanJoseDiv.appendChild(sanJoseDiv2);
+            //sanJose div end (sanJoseDiv)
+
+            //sanBernadino div start (sanBernadinoDiv)
+            const sanBernadinoDiv = document.createElement("div");
+            sanBernadinoDiv.className = "text-xl font-bebas text-cblue flex flex-col";
+            const sanBernadinoNewContent = document.createTextNode("Cal State University – San Bernardino");
+            const sanBernadinoDiv1 = document.createElement("p");
+            const sanBernadinoDiv2 = document.createElement("p");
+            sanBernadinoDiv1.className = "text-xs font-sans text-black";
+            sanBernadinoDiv2.className = "text-xs font-sans text-black";
+            const sanBernadinoDesc1 = document.createTextNode("The Center for Economic Education at Cal State San Bernardino has worked with San Bernardino City Unified School District with support from a Discover Pathways grant to develop and implement a personal finance curriculum and train teachers, reaching over 9000 students by the end of the 2014-2015 school year.");
+            sanBernadinoDiv1.appendChild(sanBernadinoDesc1);
+
+            const sanBernadinoDocName = document.createElement("span");
+            sanBernadinoDocName.className = "text-cblue font-bold";
+            const sanBernadinoDoc = document.createTextNode("Director: Jim Charkins, Ph.D.");
+            sanBernadinoDocName.appendChild(sanBernadinoDoc);
+            sanBernadinoDiv2.appendChild(sanBernadinoDocName);
+
+            sanBernadinoDiv.appendChild(sanBernadinoNewContent);
+            sanBernadinoDiv.appendChild(sanBernadinoDiv1);
+            sanBernadinoDiv.appendChild(sanBernadinoDiv2);
+            //sanBernadino div end (sanBernadinoDiv)
+
+            //fullerton div start (fullertonDiv)
+            const fullertonDiv = document.createElement("div");
+            fullertonDiv.className = "text-xl font-bebas text-cblue flex flex-col";
+            const fullertonNewContent = document.createTextNode("Cal State University – Fullerton");
+            const fullertonDiv1 = document.createElement("p");
+            const fullertonDiv2 = document.createElement("p");
+            fullertonDiv1.className = "text-xs font-sans text-black";
+            fullertonDiv2.className = "text-xs font-sans text-black";
+            const fullertonDesc1 = document.createTextNode("The Center for Economic Education at Cal State Fullerton has been a regular advocate of low-income and underserved populations with respect to economics and personal finance instruction. It has conducted community outreach and annual teacher workshops in addition to research on outcomes of economics and financial literacy instruction.");
+            fullertonDiv1.appendChild(fullertonDesc1);
+
+            const fullertonDocName = document.createElement("span");
+            fullertonDocName.className = "text-cblue font-bold";
+            const fullertonDoc = document.createTextNode("Director: Radha Bhattacharya, Ph.D.");
+            fullertonDocName.appendChild(fullertonDoc);
+            fullertonDiv2.appendChild(fullertonDocName);
+
+            fullertonDiv.appendChild(fullertonNewContent);
+            fullertonDiv.appendChild(fullertonDiv1);
+            fullertonDiv.appendChild(fullertonDiv2);
+            //fullerton div end (fullertonDiv)
+
 
             function onEastclick() {
                 secondText = true;
                 text = false;
             }
 
+            var calStateMarker = L.circleMarker([34.066676, -118.169115], {
+                fill: true,
+                color: '#0071BC',
+                fillColor: '#0071BC',
+                fillOpacity: 1,
+                radius: 7,
+            }).bindPopup(calStateDiv).addTo(map).on('click', () => {
+                this.text = false;
+                this.secondText = true;
+                console.log(this.secondText)
+            });
+
+            var cuyamacaMarker = L.circleMarker([32.743871, -116.939673], {
+                fill: true,
+                color: '#004A80',
+                fillColor: '#004A80',
+                fillOpacity: 1,
+                radius: 7,
+            }).bindPopup(cuyamacaDiv).addTo(map).on('click', () => {
+                this.text = false;
+                this.secondText = true;
+                console.log(this.secondText)
+            });
+
+            var sanJoseMarker = L.circleMarker([37.335018, -121.882329], {
+                fill: true,
+                color: '#004A80',
+                fillColor: '#004A80',
+                fillOpacity: 1,
+                radius: 7,
+            }).bindPopup(sanJoseDiv).addTo(map).on('click', () => {
+                this.text = false;
+                this.secondText = true;
+                console.log(this.secondText)
+            });
+
+            var sanBernadinoMarker = L.circleMarker([34.181684, -117.324339], {
+                fill: true,
+                color: '#004A80',
+                fillColor: '#004A80',
+                fillOpacity: 1,
+                radius: 7,
+            }).bindPopup(sanBernadinoDiv).addTo(map).on('click', () => {
+                this.text = false;
+                this.secondText = true;
+                console.log(this.secondText)
+            });
+
+            var fullertonMarker = L.circleMarker([33.881760, -117.885264], {
+                fill: true,
+                color: '#004A80',
+                fillColor: '#004A80',
+                fillOpacity: 1,
+                radius: 7,
+            }).bindPopup(fullertonDiv).addTo(map).on('click', () => {
+                this.text = false;
+                this.secondText = true;
+                console.log(this.secondText)
+            });
+
+            {% comment %} var soCalMarker = L.circleMarker([34.021747, -118.285224], {
+                fill: true,
+                color: '#74BEE9',
+                fillColor: '#74BEE9',
+                fillOpacity: 1,
+                radius: 7,
+            }).bindPopup(socalDiv).addTo(map).on('click', () => {
+                this.text = false;
+                this.secondText = true;
+                console.log(this.secondText)
+            }); {% endcomment %}
 
             var eastBayMarker = L.circleMarker([37.657430, -122.056006], {
                 fill: true,
