@@ -3,6 +3,9 @@
 
 <head>
     {% load static %}
+
+     <title>California Council on Economic Education — Economic and Financial Nonprofit</title>
+     <link rel="shortcut icon" type="image/png" href="{% static 'favicon-e1591906210198.png' %}">
 </head>
 
 <!--
@@ -273,7 +276,11 @@
                     </div>
                     <!--Envelope button end-->
 
-
+                    <div class="flex flex-row space-x-4 content-center ">
+                        <a class="self-center" href="https://www.facebook.com/TheCCEE/" target="_blank"><i class="fab fa-facebook text-4xl self-center"></i></a>
+                        <a class="self-center" href="https://www.facebook.com/TheCCEE/" target="_blank"><i class="fab fa-instagram text-4xl self-center"></i></a>
+                        <a class="self-center" href="https://www.facebook.com/TheCCEE/" target="_blank"><i class="fab fa-twitter text-4xl self-center"></i></a>
+                    </div>
 
 
                 </nav>
@@ -288,7 +295,7 @@
 
 
     <!--pop up-->
-    <div>
+    <div class="hidden">
 
         <!-- Dialog (full screen) -->
         <div class="fixed top-0 left-0 flex items-center justify-center w-full h-full z-100" style="background-color: rgba(0,0,0,.5);" x-show="popupOpen">

@@ -131,6 +131,7 @@ class Program(models.Model):
     show_html_content = models.BooleanField(default=False, null=True)
     html_content = models.CharField(max_length=10000, null=True, blank=True)
     photo_path = models.ImageField(upload_to='programs', default="staff-pics/default.jpg", blank=True)
+    banner_photo = models.ImageField(upload_to='programs', default="", blank=True)
 
     def __str__(self):
         return self.name

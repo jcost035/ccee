@@ -159,7 +159,7 @@
         </div>
 
         <div>
-            <div class="cursor-pointer relative  overflow-hidden rounded-md justify-center content-center text-center h-64" style="background-image: url(https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg);" x-bind:class="{'h-175': !workshops }">
+            <div @click="window.location.href='programs/The Adviser's Contest'" class="cursor-pointer relative  overflow-hidden rounded-md justify-center content-center text-center h-64" style="background-image: url(https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg);" x-bind:class="{'h-175': !workshops }">
                 <div class="absolute bg-cblue h-full w-full overflow-hidden opacity-100 z-10"></div>
 
                 <div class="relative z-10" @mouseover="workshops = false" @mouseover.away="workshops = true">

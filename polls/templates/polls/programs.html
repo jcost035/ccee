@@ -22,17 +22,19 @@
 
 <body>
     {% include 'polls/nav.html'%}
-    <div class="absolute bg-cblue w-full h-2/3 -mt-16"></div>
-    <div class="relative w-9/12 m-md:w-11/12 mx-auto z-10" x-data="programData()" x-init="observe()">
-        <div class="h-1/2 mb-24">
-            <div class="relative md:mt-32 text-white text-3xl font-bebas pt-32"><span class="hidden bg-cgreen px-2"></span></div>
-            <div class="relative font-bebas text-7xl text-white  ">{{program.name}} </div>
-            <p class="text-white text-xl w-1/2 pt-6 font-roboto font-thin">{{program.description}}</p>
-            <button class="rounded bg-cgreen text-white hover:bg-cgreen-dark font-roboto py-2 px-4 mt-6 font-light text-xl">Register</button>
-            <button class="hidden rounded border-2 border-cgreen bg-cgreen text-white hover:border-cgreen-dark hover:bg-cgreen-dark font-roboto py-2 px-4 mt-6 font-light text-xl">Other thing</button>
+    <div class="hidden absolute bg-cblue w-full h-2/3 -mt-16"></div>
+    <div class="relative mx-auto z-10" x-data="programData()" x-init="observe()">
+        <div class="bg-cblue mb-24 " {% if program.banner_photo.url != "" %} style="background-image: url('{{program.banner_photo.url}}'); background-repeat: no-repeat; background-size: cover;" {% endif %}>
+            <div class="pb-16 w-9/12 m-md:w-11/12 mx-auto" >
+                <div class="relative md:mt-16 text-white text-3xl font-bebas pt-32"><span class="hidden bg-cgreen px-2"></span></div>
+                <div class="relative font-bebas text-7xl text-white  ">{{program.name}} </div>
+                <p class="text-white text-xl w-1/2 pt-6 font-roboto font-thin">{{program.description}}</p>
+                <button class="rounded bg-cgreen text-white hover:bg-cgreen-dark font-roboto py-2 px-4 mt-6 font-light text-xl">Register</button>
+                <button class="hidden rounded border-2 border-cgreen bg-cgreen text-white hover:border-cgreen-dark hover:bg-cgreen-dark font-roboto py-2 px-4 mt-6 font-light text-xl">Other thing</button>
+            </div>
         </div>
-
-        <div class="sticky top-32  w-44  bg-gray-300 mt-44 z-50 rounded-lg m-md:hidden">
+        <div class="w-9/12 m-md:w-11/12 mx-auto">
+        <div class="sticky top-32  w-44  bg-gray-300 mt-44 z-50 rounded-lg m-md:hidden ">
             <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg rounded-t-lg" @click="scrollTo('about')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['about-marker']}">What you'll experience</button>
             <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg" @click="scrollTo('how_works')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['video-marker']}">How the program works</button>
             <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg" @click="scrollTo('faq')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['faq-marker']}">FAQs</button>
@@ -254,7 +256,7 @@
             <h1 class="text-white text-4xl font-bebas mt-8">Stay updated on all things CCEE</h1>
             <input class="md:w-2/3 w-full m-8 p-2 font-roboto text-xl" placeholder="example@gmail.com"></input>
         </div>
-
+        </div>
     </div>
     {% include "polls/footer.html"%}
 </body>
