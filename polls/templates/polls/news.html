@@ -312,7 +312,7 @@
                 <div class="md:w-7/12 mt-4 grid grid-cols-1 m-md:px-4 md:grid-cols-3 gap-4" x-show="!calendarView">
                     <div class="md:hidden font-bold pt-4 ml-10" x-text="filteredEvents.length + ' articles found'"></div>
                     <template x-for="event in filteredEvents">
-                        <div class="max-h-80 flex flex-col content-between md:overflow-hidden rounded border px-8 py-4 my-8 border-gray-500 shadow-md hover:shadow-lg  mx-auto font-roboto ">
+                        <div class="max-h-150 flex flex-col content-between md:overflow-hidden rounded border px-8 py-4 my-8 border-gray-500 shadow-md hover:shadow-lg  mx-auto font-roboto ">
                             <div class="flex flex-col flex-shrink-0 flex-grow-0 justify-center h-48 w-full rounded overflow-hidden">
                                     <img class="object-cover" :src="event.thumb_url">
                             </div>
