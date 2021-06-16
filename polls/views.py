@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.http import JsonResponse
 from django.core import serializers
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.forms import model_to_dict
 
@@ -17,6 +17,7 @@ from .models import Mission
 from .models import DailyDose
 from .models import Director
 from .models import Officer
+from .models import Donor
 from django.template import loader
 from django.views.generic import ListView
 
@@ -24,6 +25,33 @@ from django.utils.safestring import mark_safe
 
 from django.db.models import Q
 import json
+import requests
+
+
+def subscribe(request):
+    
+    email_address =  request.POST['address']
+    data = {"email_address" : email_address, "first_name": "jorge", "last_name" : "costa" }
+    if("@" in email_address and email_address != ''):
+        json_data = json.dumps(data)
+        # payload = {'json_payload': json_data, 'apikey': '65905886-48af-477f-b935-de5536f22764'}
+        # r = requests.get('https://api.cc.email/v3/account/emails', data=payload)
+        
+        url = 'https://api.cc.email/v3/contacts'
+        payload = json.dumps(data)
+        headers = {'content-type': 'application/json', 'authorization' : 'Bearer 3af06171-02ee-4fa9-97e9-f36f3924c254', "cache-control": "no-cache"}
+        r = requests.post(url, data=payload, headers=headers)
+        print(r.text)
+
+    return HttpResponseRedirect('/')
+
+def donors(request):
+    donor_list = Donor.objects.all()
+
+    context = {
+        "donor_list" : donor_list,
+    }
+    return render(request, "polls/donors.html", context)
 
 def news_article(request, article_url):
     news = News.objects.filter(title__icontains=article_url)

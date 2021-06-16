@@ -1,0 +1,37 @@
+<head>
+    {% load static %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="{% static 'site.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+
+
+
+
+</head>
+
+<body>
+    {% include 'polls/nav.html'%}
+
+    <h1 class="mx-auto text-center font-roboto text-cblue text-3xl mt-32">Valued Donors</h1>
+    <p class="text-xl mx-auto text-center w-2/3 my-4">Thanks to the efforts of so many dedicated donors and partners, CCEE is able to bring its programs and services to a larger audience and subsequently impact the lives of a greater number of students. We want to acknowledge our network of key organizations, groups, and associations who work with us and are always eager to grow and form new partnerships.</p>
+
+
+    <div class="grid grid-cols-4 gap-2 w-2/3 mx-auto my-12 ">
+        {% for donor in donor_list %}
+            <img class="object-contain rounded-lg" src="{{donor.logo_path.url}}">
+
+        {% endfor %}
+    </div>
+    {% include 'polls/footer.html' %}
+</body>

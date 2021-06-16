@@ -97,6 +97,7 @@ class News(models.Model):
     
     thumb_photo = models.ImageField(upload_to='programs', default="programs/CCEE_in_the_News.png", blank=True)
     content = models.CharField(max_length=10000, null=True, blank=True)
+    banner_photo = models.ImageField(upload_to='programs', default="programs/CCEE_in_the_News.png", blank=True)
 
     CCEE_NEWS = 'N'
     MEDIA_RELEASE = 'M'
@@ -173,3 +174,9 @@ class DailyDose(models.Model):
     def __str__(self):
         return self.title
 
+class Donor(models.Model):
+    name = models.CharField(max_length=200)
+    logo_path = models.ImageField(upload_to='programs', default="staff-pics/default.jpg", blank=True)
+
+    def __str__(self):
+        return self.name

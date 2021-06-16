@@ -311,7 +311,7 @@
           <div 
             @mouseover="thirdpanelText = true"
             @mouseover.away="thirdpanelText = false"
-            class="flex-grow flex flex-col items-center md:w-1/3  cursor-pointer"
+            class="hidden flex-grow flex flex-col items-center md:w-1/3  cursor-pointer"
           >
             
             <div
@@ -387,7 +387,7 @@
           <div 
             @mouseover="secondpanelText = true"
             @mouseover.away="secondpanelText = false"
-            class="flex-grow flex flex-col items-center md:w-1/3  cursor-pointer"
+            class="hidden flex-grow flex flex-col items-center md:w-1/3  cursor-pointer"
           >
             
             <div
@@ -725,7 +725,8 @@
           <div class="px-4 py-2 md:w-2/3">
             <h3 id="header" class="text-5xl text-white m-md:text-center">Stay up to date on all things CCEE</h3>
             <p class="hidden text-xl text-white m-md:text-sm m-md:px-4">We sent latest news and posts once in every week, fresh from the oven</p>
-            <form id="signup" class="mt-4 mb-10 m-md:flex m-md:flex-col m-md:justify-center">
+            <form action="{% url 'subscribe' %}" method="post" class="mt-4 mb-10 m-md:flex m-md:flex-col m-md:justify-center">
+              {% csrf_token %}
               <input type="text" id="address" name="address" class=" bg-gray-100 w-full px-4 py-2 border focus:border-green-400 m-md:mx-auto rounded" placeholder="example@gmail.com"/>
               
               
