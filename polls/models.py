@@ -95,7 +95,7 @@ class News(models.Model):
     external = models.BooleanField(default=False)
     external_url = models.CharField(max_length=1200, null=True, blank=True)
     
-    thumb_photo = models.ImageField(upload_to='programs', default="staff-pics/default.jpg", blank=True)
+    thumb_photo = models.ImageField(upload_to='programs', default="programs/CCEE_in_the_News.png", blank=True)
     content = models.CharField(max_length=10000, null=True, blank=True)
 
     CCEE_NEWS = 'N'
