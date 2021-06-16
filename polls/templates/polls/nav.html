@@ -1,81 +1,9 @@
-<script>
-    function data() {
-        return {
-            open: false,
-            ourteamOpen: false,
-            centersOpen: false,
-            bodOpen: false,
-            dapOpen: false,
-            arOpen: false,
-            atTop: true,
-            popupOpen: false,
-            whatwedoOpen: false,
-            menuClear(openMenu) {
-                if (openMenu == 'ourteamOpen') {
-                    this.ourteamOpen = true
-                } else {
-                    this.ourteamOpen = false
-                }
-
-                if (openMenu == 'centersOpen') {
-                    this.centersOpen = true
-                } else {
-                    this.centersOpen = false
-                }
-
-                if (openMenu == 'bodOpen') {
-                    this.bodOpen = true
-                } else {
-                    this.bodOpen = false
-                }
-
-                if (openMenu == 'dapOpen') {
-                    this.dapOpen = true
-                } else {
-                    this.dapOpen = false
-                }
-
-                if (openMenu == 'arOpen') {
-                    this.arOpen = true
-                } else {
-                    this.arOpen = false
-                }
-
-            },
-
-            clearsubmenus() {
-                this.ourteamOpen = false
-                this.centersOpen = false
-                this.bodOpen = false
-                this.dapOpen = false
-                this.arOpen = false
-            }
-        }
-    }
-</script>
-
-<script>
-    function popupData() {
-        return {
-            popupOpen: false
-        }
-    }
-</script>
-
-<script>
-    function panelData() {
-        return {
-            firstpanelOpen: true,
-            secondpanelOpen: false,
-            thirdpanelOpen: false,
-            secondpanelText: false,
-            thirdpanelText: false,
-        }
-    }
-</script>
 
 
 
+<head>
+    {% load static %}
+</head>
 
 <!--
 {% if latest_question_list %}
@@ -142,12 +70,13 @@
     }
 </script>
 
+
 <div x-data="data()" class="z-50 relative ">
 
     <div class="bg-white shadow-lg w-full h-24 fixed flex flex-row justify-between md:hidden" x-data="mobileData()">
 
         <a class="flex flex-row content-center w-1/2" href="/">
-            <img class=" py-2" src="https://ccee.org/wp-content/uploads/2019/07/CCEE-Logo-Final-5-2019-e1563236007990.png" />
+            <img class=" py-2" src="{% static 'CCEE-Logo-Final-5-2019-e1563236007990.png' %}" />
         </a>
         <button class="rounded bg-white border mx-2 my-4 px-6 h-16" x-bind:class="{'shadow-inner' : menuOpen}" @click="menuOpen = !menuOpen">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -168,7 +97,7 @@
                     <a href="/our-team" class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 text-xl">Our Team</a>
                     <a href="/map" class="bg-gray-300 text-center cursor-pointer font-roboto py-2 text-xl">CCEE Centers on Economic Education</a>
                     <a href="/report" class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 text-xl">Impact and Annual Reports</a>
-                    <a class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 text-xl">Partners and Donors</a>
+                    <a href="/donors" class=" bg-gray-300 text-center cursor-pointer font-roboto py-2 text-xl">Partners and Donors</a>
                 </div>
 
                 <a class=" bg-gray-100 text-center cursor-pointer font-roboto py-2 text-xl " @click="open( 'program') " x-bind:class="{ 'bg-cblue' : programOpen} ">
@@ -248,7 +177,7 @@
                             <a class="block px-4 py-3 mt-2  bg-transparent rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/our-team">Our Team</a>
                             <a class="block px-4 py-3 mt-2  bg-transparent rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/map">CCEE Centers on Economic Education</a>
                             <a class="block px-4 py-3 mt-2  bg-transparent rounded  text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/report">Impact and Annual Reports</a>
-                            <a class="block px-4 py-3 mt-2  bg-transparent rounded  text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="#">Partners + Donors</a>
+                            <a class="block px-4 py-3 mt-2  bg-transparent rounded  text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/donors">Partners and Donors</a>
                         </div>
                     </div>
                 </div>
@@ -395,3 +324,80 @@
     </div>
     <!--end pop up-->
 </div>
+
+
+<script>
+    function data() {
+        return {
+            open: false,
+            ourteamOpen: false,
+            centersOpen: false,
+            bodOpen: false,
+            dapOpen: false,
+            arOpen: false,
+            atTop: true,
+            popupOpen: false,
+            whatwedoOpen: false,
+            menuClear(openMenu) {
+                if (openMenu == 'ourteamOpen') {
+                    this.ourteamOpen = true
+                } else {
+                    this.ourteamOpen = false
+                }
+
+                if (openMenu == 'centersOpen') {
+                    this.centersOpen = true
+                } else {
+                    this.centersOpen = false
+                }
+
+                if (openMenu == 'bodOpen') {
+                    this.bodOpen = true
+                } else {
+                    this.bodOpen = false
+                }
+
+                if (openMenu == 'dapOpen') {
+                    this.dapOpen = true
+                } else {
+                    this.dapOpen = false
+                }
+
+                if (openMenu == 'arOpen') {
+                    this.arOpen = true
+                } else {
+                    this.arOpen = false
+                }
+
+            },
+
+            clearsubmenus() {
+                this.ourteamOpen = false
+                this.centersOpen = false
+                this.bodOpen = false
+                this.dapOpen = false
+                this.arOpen = false
+            }
+        }
+    }
+</script>
+
+<script>
+    function popupData() {
+        return {
+            popupOpen: false
+        }
+    }
+</script>
+
+<script>
+    function panelData() {
+        return {
+            firstpanelOpen: true,
+            secondpanelOpen: false,
+            thirdpanelOpen: false,
+            secondpanelText: false,
+            thirdpanelText: false,
+        }
+    }
+</script>

@@ -179,7 +179,7 @@ def news_list(request):
         additional_fields['thumb_url'] = news.thumb_photo.url
         news_list.append({
             **additional_fields,
-            **model_to_dict(news, exclude=['date', 'thumb_photo'])
+            **model_to_dict(news, exclude=['date', 'thumb_photo', 'banner_photo'])
         })
 
         
