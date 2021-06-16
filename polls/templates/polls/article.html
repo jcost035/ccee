@@ -50,8 +50,8 @@
                 
                 
                 
-                <div {% if third_article.external %} @click="window.location.href='{{first_article.external_url}}'" {% else %} @click="window.location.href='{{first_article.title}}'" {% endif %} class="cursor-pointer rounded w-full lg:w-1/3 p-4 lg:p-0 ">
-                    <img  src="{{first_article.thumb_photo.url}}" class="relative rounded -z-1 h-64" alt="technology" />
+                <div {% if third_article.external %} @click="window.location.href='{{first_article.external_url}}'" {% else %} @click="window.location.href='{{first_article.title}}'" {% endif %} class="cursor-pointer rounded w-full lg:w-1/3 p-4 lg:p-0 overflow-hidden">
+                    <img  src="{{first_article.thumb_photo.url}}" class="relative object-cover rounded -z-1 h-64" alt="technology" />
                     <div  class="relative p-4 pl-0 z-20">
                         
                         <h2 class="-ml-4 -mr-4 md:-ml-6  z-20 text-3xl text-gray-800  p-2  -mt-24    font-bebas overflow-hidden overflow-clip">
@@ -62,8 +62,8 @@
                     </div>
                 </div>
 
-                <div {% if third_article.external %} @click="window.location.href='{{second_article.external_url}}'" {% else %} @click="window.location.href='{{second_article.title}}'" {% endif %} class="cursor-pointer rounded w-full lg:w-1/3 p-4 lg:p-0 ">
-                    <img  src="{{second_article.thumb_photo.url}}" class="relative rounded -z-1 h-64" alt="technology" />
+                <div {% if third_article.external %} @click="window.location.href='{{second_article.external_url}}'" {% else %} @click="window.location.href='{{second_article.title}}'" {% endif %} class="cursor-pointer rounded w-full lg:w-1/3 p-4 lg:p-0 overflow-hidden">
+                    <img  src="{{second_article.thumb_photo.url}}" class="relative object-cover rounded -z-1 h-64" alt="technology" />
                     <div  class="relative p-4 pl-0 z-20">
                         
                         <h2 class="-ml-4 -mr-4 md:-ml-6  z-20 text-3xl text-gray-800  p-2  -mt-24    font-bebas overflow-hidden overflow-clip">
@@ -74,8 +74,8 @@
                     </div>
                 </div>
 
-                <div {% if third_article.external %} @click="window.location.href='{{third_article.external_url}}'" {% else %} @click="window.location.href='{{third_article.title}}'" {% endif %} class="cursor-pointer rounded w-full lg:w-1/3 p-4 lg:p-0 ">
-                    <img  src="{{third_article.thumb_photo.url}}" class="relative rounded -z-1 h-64" alt="technology" />
+                <div {% if third_article.external %} @click="window.location.href='{{third_article.external_url}}'" {% else %} @click="window.location.href='{{third_article.title}}'" {% endif %} class="cursor-pointer rounded w-full lg:w-1/3 p-4 lg:p-0 overflow-hidden">
+                    <img  src="{{third_article.thumb_photo.url}}" class="relative object-cover rounded -z-1 h-64" alt="technology" />
                     <div  class="relative p-4 pl-0 z-20">
                         
                         <h2 class="-ml-4 -mr-4 md:-ml-6  z-20 text-3xl text-gray-800  p-2  -mt-24    font-bebas overflow-hidden overflow-clip">
