@@ -40,25 +40,25 @@
             <button class="hover:bg-gray-400 w-full p-4 pb-6 font-roboto text-cblue text-lg rounded-b-lg" @click="scrollTo('action')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['action-marker']}">Get Involved</button>
         </div>
 
-        <div class="hidden border-4 rounded border-cblue md:ml-48 md:-mt-96 space-x-4 px-4 py-4">
+        <div class=" border-4 rounded border-cblue md:ml-48 md:-mt-96 space-x-4 px-4 py-4">
             <h1 class="text-5xl text-center font-light font-bebas ">Upcoming Events</h1>
             <div class="flex  flex-col md:flex-row justify-between align-middle">
                 <div class="flex  flex-col md:flex-row">
-                    <div class="px-6 py-2 font-bold flex flex-col text-center">
-                        <div class="text-2xl">April 20</div>
-                        <div class="text-lg">Virtual</div>
-                    </div>
-                    <div class="px-6 py-2 font-bold flex flex-col text-center">
-                        <div class="text-2xl">April 20</div>
-                        <div class="text-lg">Virtual</div>
-                    </div>
-                    
-
+                    {% for event in event_list%}
+                        <div class="px-6 m-md:py-6 py-2 font-bold flex flex-col text-center">
+                            <div class="text-2xl">{{event.date}}</div>
+                            <div class="text-lg">{{event.name}}</div>
+                            <a href="{{event.registration_url}}" target="_blank" id="button" 
+                                class="w-full rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-4 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
+                                Register
+                            </a>
+                        </div>
+                    {% endfor %}
                 </div>
                 <button class="font-bold text-center px-6 py-1 text-white bg-cblue rounded text-xl my-auto">Full Calendar</button>
             </div>
         </div>
-        <div class="flex  flex-col m-md:space-y-4 md:flex-row md:-mt-96 md:ml-48 mt-14 items-end  observerTrigger" id="about">
+        <div class="flex  flex-col m-md:space-y-4 md:flex-row md:ml-48 mt-14 items-end  observerTrigger" id="about">
             <div class="flex flex-col md:w-7/12 h-full">
                 <img src="{{program.logo_path}}" class=" object-cover object-center rounded " alt="" />
                 <div class="bg-gray-300 rounded text-center px-6 pb-6 pt-4 mt-2">

@@ -66,13 +66,15 @@ def volunteer(request):
 def programs(request, prog_name):
     program = Program.objects.filter(name__icontains=prog_name)
     programs_list = Program.objects.all()
+    event_list = Event.objects.filter(program__icontains=prog_name)
     
     context = {
         "program": program[0],
         "faq": program[0].faq["set"],
         "first_program": programs_list[0],
         "second_program": programs_list[1],
-        "third_program": programs_list[2]
+        "third_program": programs_list[2],
+        "event_list": event_list
     }
     
     return render(request, "polls/programs.html", context)
