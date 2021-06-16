@@ -24,7 +24,9 @@
     {% include 'polls/nav.html'%}
     <div class="hidden absolute bg-cblue w-full h-2/3 -mt-16"></div>
     <div class="relative  mx-auto z-10" x-data="programData()" x-init="observe()">
-        <div class="h-1/2 mb-24 bg-cblue">
+        <div class="h-1/2 mb-24 bg-cblue" style="background-image: url('{{news.banner_photo.url}}');
+            background-repeat: no-repeat;
+            background-size: cover;">
             <div class="relative md:mt-32 text-white text-3xl font-bebas pt-32 w-9/12 m-md:w-11/12 mx-auto"><span class="bg-cgreen px-2">{{news.date}}</span></div>
             <div class="relative font-bebas text-7xl text-white w-9/12 m-md:w-11/12 mx-auto">{{news.title}} </div>
             <p class="text-white text-xl mx-auto pt-6 font-roboto font-thin w-9/12 m-md:w-11/12" >{{news.description}}</p>
