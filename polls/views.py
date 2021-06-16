@@ -27,10 +27,13 @@ import json
 
 def news_article(request, article_url):
     news = News.objects.filter(title__icontains=article_url)
+    articles_list = News.objects.order_by('-date')
     
     context = {
         "news": news[0],
-        
+        "first_article": articles_list[0],
+        "second_article": articles_list[1],
+        "third_article": articles_list[2],
     }
     
     return render(request, "polls/article.html", context)
