@@ -39,7 +39,7 @@ def subscribe(request):
         
         url = 'https://api.cc.email/v3/contacts'
         payload = json.dumps(data)
-        headers = {'Content-Type': 'application/json', 'Authorization' : 'Bearer QUCEE9FT478sU_aS1917_A', "cache-control": "no-cache"}
+        headers = {'Content-Type': 'application/json', 'Authorization' : 'Bearer 3af06171-02ee-4fa9-97e9-f36f3924c254', "cache-control": "no-cache"}
         r = requests.post(url, data=payload, headers=headers)
         print(r.text)
 
