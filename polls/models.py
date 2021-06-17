@@ -61,7 +61,7 @@ class Event(models.Model):
     date = models.DateField(_("Date"), default=datetime.date.today)
     
     description = models.CharField(max_length=1200, blank=True)
-    tags = models.CharField(max_length=200, default='', blank=True)
+    tags = models.CharField(max_length=200, default='')
     location = models.CharField(max_length=200, default='Virtual')
     thumb_photo = models.ImageField(upload_to='programs', default="staff-pics/default.jpg", blank=True)
     registration_url = models.CharField(max_length=1200, null=True, blank=True)

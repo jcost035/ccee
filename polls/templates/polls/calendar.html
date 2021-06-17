@@ -335,12 +335,12 @@
 
                                     </div>
                                     <div class="flex flex-row">
-                                        <div class="w-full">
-                                            <p class="leading-loose text-md " style="font-family: 'Roboto', sans-serif;" x-text="event.description">
+                                        <div class="w-full ">
+                                            <p class="leading-loose text-md mb-6" style="font-family: 'Roboto', sans-serif;" x-text="event.description">
                                                 description
                                             </p>
 
-                                            <a x-bind:href="event.registration_url" target="_blank" id="button" class="rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
+                                            <a x-bind:href="event.registration_url" target="_blank" id="button" class=" rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 my-4 px-3">
                                                 Register
                                             </a>   
                                         </div>
@@ -512,8 +512,11 @@
                             .then(response => response.json())
                             .then(data => {
                                 //console.log(data)
+                                
                                 this.events.push(...data)
+                                
                             });
+                        console.log(this.events)
                     },
                     
                     search: "",

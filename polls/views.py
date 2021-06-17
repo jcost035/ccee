@@ -39,7 +39,7 @@ def subscribe(request):
         
         url = 'https://api.cc.email/v3/contacts'
         payload = json.dumps(data)
-        headers = {'content-type': 'application/json', 'authorization' : 'Bearer 3af06171-02ee-4fa9-97e9-f36f3924c254', "cache-control": "no-cache"}
+        headers = {'Content-Type': 'application/json', 'Authorization' : 'Bearer QUCEE9FT478sU_aS1917_A', "cache-control": "no-cache"}
         r = requests.post(url, data=payload, headers=headers)
         print(r.text)
 
@@ -231,9 +231,11 @@ def dose_list_date(request, date_range):
     return HttpResponse(dose_list, content_type="application/json")
 
 def news_list_date(request, date_range):
-    startdate = date.today()
-    enddate = startdate + timedelta(days=date_range)
+    startdate = date.today() - timedelta(days=date_range)
+    enddate = date.today() + timedelta(days=1)
     news_list = serializers.serialize('json', Event.objects.filter(date__range=[startdate, enddate]))
+    print(startdate)
+    print(enddate)
 
     #paginator = Paginator(event_list, 5) #show 10 objects per page
     #page_number = request.GET.get('page')
