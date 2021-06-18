@@ -23,11 +23,14 @@ from django.core.mail import send_mail
 from django.template import loader
 from django.views.generic import ListView
 
+
 from django.utils.safestring import mark_safe
 
 from django.db.models import Q
 import json
 import requests
+
+
 
 def mail_contact_form(request):
 
