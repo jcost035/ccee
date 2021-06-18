@@ -97,10 +97,10 @@
 
 <div class="  mx-auto flex flex-col text-center md:text-left" x-data="cardData()">
     <div class="m-md:mt-24 flex flex-col md:flex-row mt-14 max-w-7xl mx-auto w-5/6">
-        <div class="rounded-lg md:h-96 md:w-full   h-72 m-md:mx-2 mt-16 bg-cover " style=" background-image: url({% static 'teacherpic5.jpg' %});"></div>
+        <div class="rounded-lg md:h-96 w-full   h-72 m-md:mx-2 mt-16 bg-cover " style=" background-image: url({% static 'teacherpic5.jpg' %});"></div>
         <div class="md:ml-10 md:w-full">
             <div class=" md:mt-32 mt-12 md:-mr-32"><span class="text-cblue text-5xl md:text-8xl p-2 rounded font-bebas m-md:text-center">Educator Programs</span></div>
-            <p class=" font-semibold text-gray-500 mx-4 mt-2">We know that when teachers feel supported, their students succeed. Economic and financial literacy is the gateway to opportunity and mobility, and you have the power to make that happen for your students right in your very own classroom! CCEE’s programs are designed to meet you where you’re at, so you can feel confident in teaching engaging and relevant economics and personal finance. Browse our programs below to learn more and save your spot for upcoming dates. </p>
+            <p class=" font-semibold text-gray-500 md:mx-4 mt-2">We know that when teachers feel supported, their students succeed. Economic and financial literacy is the gateway to opportunity and mobility, and you have the power to make that happen for your students right in your very own classroom! CCEE’s programs are designed to meet you where you’re at, so you can feel confident in teaching engaging and relevant economics and personal finance. Browse our programs below to learn more and save your spot for upcoming dates. </p>
         </div>
     </div>
     <div class=" flex flex-col grid grid-cols-1 md:grid-cols-4 gap-4  text-center  mx-4 md:mx-44 mt-24">
@@ -132,7 +132,7 @@
                 <div class="relative z-10" @mouseover="caset = false" @mouseover.away="caset = true">
                     <h1 class="text-2xl font-bebas text-white z-10 mt-4 mb-1">1st-8th grade, SPED</h1>
                     <i class="fas fa-university fa-5x mb-6" style="color: #ffffff"></i>
-                    <h1 class="text-4xl font-bebas text-white z-10 mb-6 m-md:mx-2 w-5/6 mx-auto">Federal Reserve Institute</h1>
+                    <h1 class="text-4xl font-bebas text-white z-10 mb-6 w-5/6 mx-auto">Federal Reserve Institute</h1>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="caset"></p>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="!caset" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
                         The Federal Reserve Institute is hosted in San Diego for a week-long immersive program where teachers learn directly from the Federal Reserve Bank’s economic educators. 
@@ -147,7 +147,7 @@
 
                 <div class="relative z-10" @mouseover="smartpath = false" @mouseover.away="smartpath = true">
                     <h1 class="text-2xl font-bebas text-white z-10 mt-12">1st-8th grade, SPED</h1>
-                    <img class="px-3" src="{% static 'programs/California $martPath Program Logo.png' %}">
+                    <img class="px-3 justify-self-center mx-auto" src="{% static 'programs/California $martPath Program Logo.png' %}">
                     
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 " x-show="smartpath"></p>
                     <p class="relative overflow-ellipses mx-4 font-semibold text-lg text-white z-10 mt-12" x-show="!smartpath" x-transition:enter="transition ease-out duration-300" x-transition:leave="transition ease-in duration-300">
@@ -181,7 +181,7 @@
         <div class="hidden mx-auto px-2 md:px-48 text-center text-5xl md:text-4xl text-cblue font-roboto mt-4">
             If you would like to request a workshop for K-12 educators or paraeducators, please click here. 
         </div>
-        <a href="/contact" class="border-2 text-white border-yellow-500 rounded-lg font-roboto text-3xl hover:bg-white hover:text-yellow-500 bg-yellow-500 text-white mx-auto my-12 py-2 px-3">
+        <a href="/contact" class="m-md:w-2/3 border-2 text-white border-yellow-500 rounded-lg font-roboto text-3xl hover:bg-white hover:text-yellow-500 bg-yellow-500 text-white mx-auto my-12 py-2 px-3">
             Contact Our Programs Team
         </a>
     </div>
