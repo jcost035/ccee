@@ -109,11 +109,17 @@
                     <div x-show="locationOpen" class="origin-top-right  right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                         <div class="py-1" role="none">
 
-                            <button @click="locationSearch = 'Virtual'" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                                Virtual
+                            <button @click="locationSearch = ''" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+                                Any
                             </button>
-                            <button @click="locationSearch = 'Not Virtual'" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" >
-                                Not Virtual
+                            <button @click="locationSearch = 'CCEE in the News'" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" >
+                                CCEE in the News
+                            </button>
+                            <button @click="locationSearch = 'Media Release'" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" >
+                                Media Release
+                            </button>
+                            <button @click="locationSearch = 'Other'" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" >
+                                Other
                             </button>
 
                         </div>
@@ -188,7 +194,7 @@
                         </input>
                     </div>
 
-                    <div>
+                    <div class="hidden">
                         <p class="font-bold mx-4 my-2">Audience</p>
                         <button type="button" @click="topicOpen = !topicOpen" @click.away="topicOpen = false" class="inline-flex justify-center w-11/12 rounded-md border border-gray-300 shadow-sm mx-4 mb-4 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
                             id="options-menu" aria-expanded="true" aria-haspopup="true" >
@@ -262,7 +268,7 @@
                         </div>
                     </div>
 
-                    <div>
+                    <div class="hidden">
                         <p class="font-bold mx-4 my-2">Date</p>
                         <button type="button" @click="dateOpen = !dateOpen" class="inline-flex justify-center w-11/12 rounded-md border border-gray-300 shadow-sm mx-4 mb-4 px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
                             id="options-menu" aria-expanded="true" aria-haspopup="true">
