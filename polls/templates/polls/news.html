@@ -328,18 +328,19 @@
                                 <div class="flex flex-col">
                                     <div class="flex flex-col ">
                                         <h1 class="text-sm text-gray-400" x-text="evalCategory(event.category)"></h1>
-                                        <div class="w-full">
-                                            <h1 class="text-xl font-bold font-roboto" x-text="event.title">
-                                                event name
-                                            </h1>
-
-                                        </div>
                                         <span class="flex flex-row space-x-1 justify-start items-center">
                                             <i class="far fa-calendar text-cgreen"></i>
                                             <h1 class="text-lg font-bold text-cblue text-right text-left" x-text="event.formatted_date">
                                                 date
                                             </h1>
                                         </span>
+                                        <div class="w-full">
+                                            <h1 class="text-xl font-bold font-roboto" x-text="event.title">
+                                                event name
+                                            </h1>
+
+                                        </div>
+                                        
                                         <div class="flex flex-row">
                                             <div class="w-full">
                                                 <p class=" leading-loose text-xs " style="font-family: 'Roboto', sans-serif;" x-text="event.description">
