@@ -373,7 +373,8 @@
                                     </span>
                                     <span class="flex flex-row space-x-1 justify-end m-md:justify-start items-center">
                                         <i class="fas fa-graduation-cap text-cgreen"></i>
-                                        <h1 class="text-sm text-gray-400">Grades </h1>
+                                        <h1 class="text-sm text-gray-400" x-text="getGradeLevel(event.grade_level)"></h1>
+                                        
                                     </span>
                                 </div>
                             </div>
@@ -427,6 +428,32 @@
 
 
     <script>
+        function getGradeLevel(grade_level) {
+            if(grade_level === 'K')
+            {
+                return 'Grades K-12'
+            }
+            else if (grade_level === 'N')
+            {
+                return 'Grades 9-12'
+            }
+            else if (grade_level === 'S')
+            {
+                return 'Grades 6-12'
+            }
+            else if (grade_level === 'I')
+            {
+                return 'Grades K-8'
+            }
+            else if (grade_level === 'E')
+            {
+                return 'Educator'
+            }
+            else{
+                return ''
+            }
+        }
+
         function data() {
             return {
                 open: false,
@@ -480,10 +507,7 @@
                 }
             }
         }
-    </script>
-
-
-    <script>
+    
         function popupData() {
             return {
                 popupOpen: false
