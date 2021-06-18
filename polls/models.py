@@ -87,6 +87,13 @@ class Event(models.Model):
     def __str__(self):
         return self.name
 
+class Contact(models.Model):
+    email_address = models.CharField(max_length=200, blank=True, default="")
+    content = models.CharField(max_length=10000, blank=True, default="")
+
+    def __str__(self):
+        return self.email_address
+
 class News(models.Model):
     title = models.CharField(max_length=200)
     date = models.DateField(_("Date"), default=datetime.date.today)

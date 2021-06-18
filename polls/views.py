@@ -18,6 +18,8 @@ from .models import DailyDose
 from .models import Director
 from .models import Officer
 from .models import Donor
+from .models import Contact
+from django.core.mail import send_mail
 from django.template import loader
 from django.views.generic import ListView
 
@@ -27,7 +29,22 @@ from django.db.models import Q
 import json
 import requests
 
+def mail_contact_form(request):
 
+    email_address = request.POST['email_address']
+    content = request.POST['content']
+    # send_mail(
+    #     'Contact form submission',
+    #     content,
+    #     email_address,
+    #     ['contact@ccee.org',
+    #     'jcost035@fiu.edu'],
+    #     fail_silently=False,
+    # )
+    Contact.objects.create(email_address=email_address, content=content)
+
+
+    return HttpResponseRedirect('/')
 def subscribe(request):
     
     email_address =  request.POST['address']

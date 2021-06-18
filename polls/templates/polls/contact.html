@@ -32,13 +32,14 @@
                         Whether you have a question about a program, or you're just interested in learning how you can contribute to creating intergenerational opportunity and success, we'd love to hear from you!
                     </h1>
 
-                    <div class="rounded bg-cblue-dark  text-3xl py-4 px-10 flex flex-col">
-                        <input class="font-roboto text-2xl p-2  md:mx-4 rounded " placeholder="Email Address"></input>
-                        <textarea class="text-2xl p-2 w-full md:mx-4 rounded h-72 my-4 justify-start" placeholder=""></textarea>
+                    <form action="{% url 'mail_contact_form' %}" method="post" class="rounded bg-cblue-dark  text-3xl py-4 px-10 flex flex-col">
+                        {% csrf_token %}
+                        <input id="email_address" name="email_address" class="font-roboto text-2xl p-2  md:mx-4 rounded " placeholder="Email Address"></input>
+                        <textarea id="content" name="content" class="text-2xl p-2 w-full md:mx-4 rounded h-72 my-4 justify-start" placeholder=""></textarea>
                         <div class="flex flex-row justify-end">
-                            <button class="text-white font-roboto text-xl py-2 px-4 bg-cgreen rounded w-1/3 ">Submit</button>
+                            <button type="submit" class="text-white font-roboto text-xl py-2 px-4 bg-cgreen rounded w-1/3 ">Submit</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
 
