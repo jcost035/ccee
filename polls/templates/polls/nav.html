@@ -298,10 +298,10 @@
 
 
     <!--pop up-->
-    <div class="" >
+    <div >
 
         <!-- Dialog (full screen) -->
-        <div class="hidden fixed top-0 left-0 flex items-center justify-center w-full h-full z-100" style="background-color: rgba(0,0,0,.5);" x-bind:class="{'block dsafa' : popupOpen}">
+        <div class=" fixed top-0 left-0 flex items-center justify-center w-full h-full z-100" style="background-color: rgba(0,0,0,.5);" x-show="popupOpen" x-cloak>
 
             <!-- A basic modal dialog with title, body and one button to close -->
             <div class=" h-auto p-4 mx-2  bg-cblue rounded shadow-xl  md:p-6 lg:p-8 md:mx-0 md:max-w-4xl" @click.away="popupOpen = false">
