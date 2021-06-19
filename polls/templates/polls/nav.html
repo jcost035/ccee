@@ -73,73 +73,6 @@
     }
 </script>
 
-<script>
-    function data() {
-        return {
-            open: false,
-            ourteamOpen: false,
-            centersOpen: false,
-            bodOpen: false,
-            dapOpen: false,
-            arOpen: false,
-            atTop: true,
-            popupOpen: false,
-            whatwedoOpen: false,
-            menuClear(openMenu) {
-                if (openMenu == 'ourteamOpen') {
-                    this.ourteamOpen = true
-                } else {
-                    this.ourteamOpen = false
-                }
-
-                if (openMenu == 'centersOpen') {
-                    this.centersOpen = true
-                } else {
-                    this.centersOpen = false
-                }
-
-                if (openMenu == 'bodOpen') {
-                    this.bodOpen = true
-                } else {
-                    this.bodOpen = false
-                }
-
-                if (openMenu == 'dapOpen') {
-                    this.dapOpen = true
-                } else {
-                    this.dapOpen = false
-                }
-
-                if (openMenu == 'arOpen') {
-                    this.arOpen = true
-                } else {
-                    this.arOpen = false
-                }
-
-            },
-
-            clearsubmenus() {
-                this.ourteamOpen = false
-                this.centersOpen = false
-                this.bodOpen = false
-                this.dapOpen = false
-                this.arOpen = false
-            }
-        }
-    }
-
-
-    function panelData() {
-        return {
-            firstpanelOpen: true,
-            secondpanelOpen: false,
-            thirdpanelOpen: false,
-            secondpanelText: false,
-            thirdpanelText: false,
-        }
-    }
-</script>
-
 
 <div x-data="data()" class="z-50 relative ">
 
@@ -359,14 +292,16 @@
     </div>
     <!-- End Navbar -->
 
-
+    <style>
+        [x-cloak] { display: none; }
+    </style>
 
 
     <!--pop up-->
-    <div class="">
+    <div class="" >
 
         <!-- Dialog (full screen) -->
-        <div class=" fixed top-0 left-0 flex items-center justify-center w-full h-full z-100" style="background-color: rgba(0,0,0,.5);" x-show="popupOpen">
+        <div class="hidden fixed top-0 left-0 flex items-center justify-center w-full h-full z-100" style="background-color: rgba(0,0,0,.5);" x-bind:class="{'block dsafa' : popupOpen}">
 
             <!-- A basic modal dialog with title, body and one button to close -->
             <div class=" h-auto p-4 mx-2  bg-cblue rounded shadow-xl  md:p-6 lg:p-8 md:mx-0 md:max-w-4xl" @click.away="popupOpen = false">
@@ -402,3 +337,69 @@
 <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
 <!-- End Constant Contact Active Forms -->
 
+<script>
+    function data() {
+        return {
+            open: false,
+            ourteamOpen: false,
+            centersOpen: false,
+            bodOpen: false,
+            dapOpen: false,
+            arOpen: false,
+            atTop: true,
+            popupOpen: false,
+            whatwedoOpen: false,
+            menuClear(openMenu) {
+                if (openMenu == 'ourteamOpen') {
+                    this.ourteamOpen = true
+                } else {
+                    this.ourteamOpen = false
+                }
+
+                if (openMenu == 'centersOpen') {
+                    this.centersOpen = true
+                } else {
+                    this.centersOpen = false
+                }
+
+                if (openMenu == 'bodOpen') {
+                    this.bodOpen = true
+                } else {
+                    this.bodOpen = false
+                }
+
+                if (openMenu == 'dapOpen') {
+                    this.dapOpen = true
+                } else {
+                    this.dapOpen = false
+                }
+
+                if (openMenu == 'arOpen') {
+                    this.arOpen = true
+                } else {
+                    this.arOpen = false
+                }
+
+            },
+
+            clearsubmenus() {
+                this.ourteamOpen = false
+                this.centersOpen = false
+                this.bodOpen = false
+                this.dapOpen = false
+                this.arOpen = false
+            }
+        }
+    }
+
+
+    function panelData() {
+        return {
+            firstpanelOpen: true,
+            secondpanelOpen: false,
+            thirdpanelOpen: false,
+            secondpanelText: false,
+            thirdpanelText: false,
+        }
+    }
+</script>
