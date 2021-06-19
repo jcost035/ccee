@@ -69,10 +69,13 @@ module.exports = {
         },
 
     },
-    purge: [
-        './templates/**/*.html',
-        './polls/templates/**/*.html'
-    ],
+    purge: {
+        enabled: false,
+        content: ['./templates/**/*.html',
+            './polls/templates/**/*.html'
+        ],
+
+    },
     darkMode: false, // or 'media' or 'class'
     variants: {
         extend: {
