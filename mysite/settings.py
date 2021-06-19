@@ -145,7 +145,7 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "mysite/media")
 
 
 
-AWS_STORAGE_BUCKET_NAME = 'ccee-bucket-compressed'
+AWS_STORAGE_BUCKET_NAME = 'ccee-bucket'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 AWS_S3_OBJECT_PARAMETERS = {
