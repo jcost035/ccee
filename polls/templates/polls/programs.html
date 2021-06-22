@@ -47,9 +47,9 @@
             <div class="flex  flex-col md:flex-row justify-between align-middle">
                 <div class="flex  flex-col md:flex-row">
                     {% for event in event_list%}
-                        <div class="px-6 m-md:py-6 py-2 font-bold flex flex-col text-center">
-                            <div class="text-2xl">{{event.date}}</div>
-                            <div class="text-lg">{{event.name}}</div>
+                        <div class="px-6 m-md:py-6 py-2 font-bold flex flex-col md:w-1/3 text-center">
+                            <div class="text-xl text-cgreen">{{event.date}}</div>
+                            <div class="text-md">{{event.name}}</div>
                             <a href="{{event.registration_url}}" target="_blank" id="button" 
                                 class="w-full rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-4 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
                                 Register
