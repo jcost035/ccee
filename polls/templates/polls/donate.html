@@ -34,7 +34,11 @@
                 </div>
             </div>
             <div class="md:w-10/12 flex items-center  md:ml-8 rounded-lg m-md:my-10">
-                <img class="rounded-lg shadow-lg " src="{% static 'Donate_Students.jpeg' %}">
+                {% comment %} <img class="rounded-lg shadow-lg " src="{% static 'Donate_Students.jpeg' %}"> {% endcomment %}
+                <video width="320" height="240" controls>
+                    <source src="{% static 'Sizzle Reel Final(1).mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video> 
             </div>
 
         </div>
