@@ -156,24 +156,27 @@ class Mission(models.Model):
         return self.name
 
 class DailyDose(models.Model):
-    title = models.CharField(max_length=200)
+    topic = models.CharField(max_length=200)
     date = models.DateField(_("Date"), default=datetime.date.today)
-    description = models.CharField(max_length=1200)
-    tags = models.CharField(max_length=200, default='')
+    
+    tags = models.CharField(max_length=200, default='', null=True, blank=True)
 
-    name = models.CharField(max_length=200, null=True)
+    
     key_question = models.CharField(max_length=2000, null=True)
-    grade_band = models.CharField(max_length=100, null=True)
+    grade_band = models.CharField(max_length=100, null=True, blank=True)
 
-    first_article_url = models.CharField(max_length=200, null=True)
-    second_article_url = models.CharField(max_length=200, null=True)
-    third_article_url = models.CharField(max_length=200, null=True)
-    fourth_article_url = models.CharField(max_length=200, null=True)
+    first_resource_url = models.CharField(max_length=200, null=True, blank=True)
+    second_resource_url = models.CharField(max_length=200, null=True, blank=True)
+    third_resource_url = models.CharField(max_length=200, null=True, blank=True)
+    fourth_resource_url = models.CharField(max_length=200, null=True, blank=True)
 
-    first_panel_image = models.BooleanField(null=True)
+    banner_photo = models.ImageField(upload_to='programs', default="", blank=True)
+
+
+    first_panel_image = models.BooleanField(null=True, blank=True)
     first_image_path = models.CharField(max_length=200, null=True, blank=True)
     first_video_path = models.CharField(max_length=200, null=True, blank=True)
-    second_panel_image = models.BooleanField(null=True)
+    second_panel_image = models.BooleanField(null=True, blank=True)
     second_image_path = models.CharField(max_length=200, null=True, blank=True)
     second_video_path = models.CharField(max_length=200, null=True, blank=True)
 
