@@ -87,7 +87,7 @@ def news_article(request, article_url):
     return render(request, "polls/article.html", context)
 
 def dose_article(request, article_url):
-    dose = DailyDose.objects.filter(name__icontains=article_url)
+    dose = DailyDose.objects.filter(topic__icontains=article_url)
     
     context = {
         "dose": dose[0],

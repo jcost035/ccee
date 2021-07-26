@@ -548,10 +548,10 @@
                             return item.fields.tags
                                         .toLowerCase()
                                         .includes(this.tagSearch.toLowerCase())
-                                    && item.fields.location
+                                    && item.fields.grade_band
                                         .toLowerCase()
                                         .includes(this.locationSearch.toLowerCase())
-                                    && item.fields.title
+                                    && item.fields.topic
                                         .toLowerCase()
                                         .includes(this.search.toLowerCase());
                         });

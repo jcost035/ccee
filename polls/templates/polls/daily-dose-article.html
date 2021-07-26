@@ -22,13 +22,19 @@
 
 <body>
     {% include 'polls/nav.html'%}
-    <div class="absolute bg-cblue w-full h-2/3 -mt-16"></div>
+    
     <div class="relative w-9/12 m-md:w-11/12 mx-auto z-10" x-data="programData()" x-init="observe()">
-        <div class="h-1/2 mb-24">
-
+        <div class="h-2/3  bg-cblue rounded-b-lg">
+            
+            <div class="flex flex-col ml-12">
+                <div class="mt-32 h-82 self-center">
+                    <img class="h-72" src="{% static 'daily-white.png' %}">
+                </div>
+                <h1 class="text-6xl text-cgreen font-bebas self-center">Key question</h1>
+            </div>
         </div>
 
-        <div class="sticky top-32  w-44  bg-gray-300 mt-44 z-50 rounded-lg m-md:hidden">
+        <div class="sticky top-32  w-44  bg-gray-300  z-50 rounded-lg m-md:hidden " style="visibility: hidden;">
             <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg rounded-t-lg" @click="scrollTo('about')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['about-marker']}">Key Question</button>
             <button class="hover:bg-gray-400 w-full p-4 pb-2 font-roboto text-cblue text-lg" @click="scrollTo('video')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['daily-content-marker']}">Resources</button>
             <button class="hover:bg-gray-400 w-full p-4 pl-16 py-1 font-roboto text-cblue text-lg italic text-left" @click="scrollTo('video')" >Video</button>
@@ -40,7 +46,7 @@
         </div>
 
 
-        <div class="flex  flex-col m-md:space-y-4 md:flex-row  md:ml-48 md:-mt-80 mt-14 items-end  observerTrigger" id="about">
+        <div class="flex  flex-col m-md:space-y-4 md:flex-row   md:-mt-80 mt-14 items-end  observerTrigger" id="about">
             <div class="flex flex-col md:w-full h-full">
                 <img src="{{program.logo_path}}" class=" object-cover object-center rounded " alt="" />
                 <div class="bg-gray-300 rounded text-center px-6 pb-6 pt-4 mt-2">
@@ -54,7 +60,7 @@
 
         
         <div id="video" class="observerTrigger"></div>
-        <div class="flex flex-col md:flex-row mt-28 md:ml-48 m-md:space-y-6 md:space-x-4">
+        <div class="flex flex-col md:flex-row mt-28  m-md:space-y-6 md:space-x-4">
             <div id='a' class="md:w-1/2 rounded my-auto">
                 <video width="640" height="240" class="rounded-lg" controls>
                     <source src="{{program.video_path}}" type="video/mp4">
@@ -75,7 +81,7 @@
 
         <div id="daily-content" class="observerTrigger"></div>
         <div class="absolute md:w-170 bg-cblue h-96 m-md:h-256 -ml-72 -mr-64 -z-1 mt-10"></div>
-        <div class="flex flex-col md:flex-row w-full mt-8 md:space-x-10 m-md:space-y-8 mt-20 md:ml-52 ">
+        <div class="flex flex-col md:flex-row w-full mt-8 md:space-x-10 m-md:space-y-8 mt-20 justify-center ">
             <!--first card-->
             <div class="flex flex-col items-center md:w-3/12 cursor-pointer">
                 <div class="bg-transparent overflow-hidden  w-full relative h-40 pb-36">
@@ -124,12 +130,12 @@
         </div>
 
         <div id='faq' class="observerTrigger"></div>
-        <div class="md:ml-48 mt-12 content-center" >
+        <div class=" mt-12 content-center" >
             <h1 class="text-6xl font-bebas text-center py-10">About Daily Dose of Econ</h1>
             
         </div>
 
-        <div class="md:ml-48 h-1/3 md:w-5/6 bg-white border-8 border-cblue rounded-lg mt-16">
+        <div class=" h-1/3  bg-white border-8 border-cblue rounded-lg mt-16">
             <h1 class="text-6xl font-bebas  text-center py-6">More DDOE Topics</h1>
 
 
@@ -138,7 +144,7 @@
 
 
 
-        <div class="md:ml-48 bg-blue px-6 py-4 bg-cblue mt-16 flex flex-col items-center">
+        <div class=" bg-blue px-6 py-4 bg-cblue mt-16 flex flex-col items-center">
             <h1 class="text-white text-4xl font-bebas mt-8">Stay updated on all things CCEE</h1>
             <input class="md:w-2/3 w-full m-8 p-2 font-roboto text-xl" placeholder="example@gmail.com"></input>
         </div>
