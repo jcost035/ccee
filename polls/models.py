@@ -173,13 +173,14 @@ class DailyDose(models.Model):
     banner_photo = models.ImageField(upload_to='programs', default="", blank=True)
 
 
-    first_panel_image = models.BooleanField(null=True, blank=True)
+    first_panel_image = models.BooleanField( blank=True)
     first_image = models.ImageField(upload_to='programs', default="", blank=True)
+    
 
     first_video_path = models.CharField(max_length=200, null=True, blank=True)
 
-    second_panel_image = models.ImageField(upload_to='programs', default="", blank=True)
-    second_image = models.CharField(max_length=200, null=True, blank=True)
+    second_panel_image = models.BooleanField( blank=True)
+    second_image = models.ImageField(upload_to='programs', default="", blank=True)
 
     
 
