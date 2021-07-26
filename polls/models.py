@@ -163,6 +163,7 @@ class DailyDose(models.Model):
 
     
     key_question = models.CharField(max_length=2000, null=True)
+    key_question_secondary = models.CharField(max_length=2000, null=True, blank=True)
     grade_band = models.CharField(max_length=100, null=True, blank=True)
 
     first_resource_url = models.CharField(max_length=200, null=True, blank=True)
@@ -174,13 +175,13 @@ class DailyDose(models.Model):
 
 
     first_panel_is_image = models.BooleanField( blank=True)
-    first_image = models.ImageField(upload_to='programs', default="", blank=True)
+    first_image = models.ImageField(upload_to='programs', default="blank.png", blank=True)
     
 
     first_video_path = models.CharField(max_length=200, null=True, blank=True)
 
     second_panel_is_image = models.BooleanField( blank=True)
-    second_image = models.ImageField(upload_to='programs', default="", blank=True)
+    second_image = models.ImageField(upload_to='programs', default="blank.png", blank=True)
 
     second_video_path = models.CharField(max_length=200, null=True, blank=True)
 
