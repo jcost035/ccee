@@ -182,6 +182,8 @@ class DailyDose(models.Model):
     second_panel_image = models.BooleanField( blank=True)
     second_image = models.ImageField(upload_to='programs', default="", blank=True)
 
+    second_video_path = models.CharField(max_length=200, null=True, blank=True)
+
     
 
    
