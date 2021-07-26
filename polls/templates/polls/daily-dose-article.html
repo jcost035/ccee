@@ -30,7 +30,7 @@
                 <div class="mt-32 h-82 self-center">
                     <img class="object-contain h-72" src="{% static 'daily-white.png' %}">
                 </div>
-                <h1 class="text-6xl text-cgreen font-bebas self-center">Key question</h1>
+                <h1 class="text-7xl text-cgreen font-bebas self-center">topic</h1>
             </div>
         </div>
 
@@ -50,9 +50,8 @@
             <div class="flex flex-col md:w-full h-full">
                 <img src="{{program.logo_path}}" class=" object-cover object-center rounded " alt="" />
                 <div class="bg-gray-300 rounded text-center px-6 pb-6 pt-4 mt-2">
-                    <h1 class="text-5xl font-bebas text-cgreen">Topic</h1>
-                    <p class="font-roboto font-thin">{{program.about}}
-                    </p>
+                    <h1 class="text-5xl font-bebas text-cgreen">Key question</h1>
+                    <p class="font-roboto font-thin">secondary</p>
                 </div>
             </div>
 
@@ -211,8 +210,8 @@
 
 <script>
     
-    var showFirstPanel = '{{dose.first_panel_image}}';
-    var showSecondPanel = '{{dose.second_panel_image}}';
+    var showFirstPanel = '{{dose.first_panel_is_image}}';
+    var showSecondPanel = '{{dose.second_panel_is_image}}';
     
     if(showFirstPanel === 'True')
     {
