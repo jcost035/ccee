@@ -30,6 +30,17 @@ from django.db.models import Q
 import json
 import requests
 
+from django.core.serializers.json import DjangoJSONEncoder
+from django.db.models.fields.files import ImageFieldFile
+
+
+class ExtendedEncoder(DjangoJSONEncoder):
+    def default(self, o):
+        if isinstance(o, ImageFieldFile):
+            return str(o)
+        else:
+            return super().default(o)
+
 
 
 def mail_contact_form(request):
@@ -219,32 +230,34 @@ def news_list(request):
 
 def dose_list(request):
     
-    dose_list = serializers.serialize('json', DailyDose.objects.order_by("-date"))
+    dose_dict = DailyDose.objects.order_by("-date")
 
-    dose_dict = json.loads(dose_list)
+    dose_list = []
 
     for dose in dose_dict:
         additional_fields = {}
-        old_date = dose['fields']['date']
+        old_date = str(dose.date)
         new_date = old_date[5:7] + '/' + old_date[8:10] + '/' + old_date[0:4]
-        dose['fields']['date'] = new_date
-        additional_fields['fields']['thumb_url'] = dose.fields.thumb_photo.url
+        additional_fields['formatted_date'] = new_date
+        additional_fields['thumb_url'] = dose.banner_photo.url
         dose_list.append({
             **additional_fields,
-            **model_to_dict(dose, exclude=['thumb_photo'])
+            **model_to_dict(dose, exclude=['date', 'thumb_photo', 'banner_photo'])
         })
 
-        
-    dose_list = json.dumps(dose_dict)
+
+    
+    # dose_list = json.dumps(news_list)
+    
 
     #paginator = Paginator(event_list, 5) #show 10 objects per page
     #page_number = request.GET.get('page')
     #events = paginator.get_page(page_number)
 
-    context = {
-        "dose_list": dose_list,
-    }
-    return HttpResponse(dose_list, content_type="application/json")
+    # context = {
+    #     "dose_list": dose_list,
+    # }
+    return HttpResponse(json.dumps(dose_list, cls=ExtendedEncoder), content_type="application/json")
 
 def dose_list_date(request, date_range):
     startdate = date.today()

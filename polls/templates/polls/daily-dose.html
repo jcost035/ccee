@@ -316,7 +316,7 @@
 
                                         <span class="flex flex-row space-x-1 justify-center w-full items-center">
                                            
-                                            <h1 class="text-lg font-bold text-cblue text-right text-left" x-text="event.fields.date">
+                                            <h1 class="text-lg font-bold text-cblue text-right text-left" x-text="event.date">
                                                 date
                                             </h1>
                                         </span>
@@ -324,23 +324,23 @@
                                         
                                     </div>
                             <div class=" flex  content-center items-center">
-                                <img class="  h-11/12  object-contain" :src="event.fields.thumb_url">
+                                <img class="  h-11/12  object-contain" :src="event.thumb_url">
                             </div>
                             <div class="flex  flex-col  h-full justify-between">
-                                <img class="hidden w-3/12 h-11/12 flex-shrink-0 flex-grow-0 object-contain mr-10" :src="event.fields.thumb_url">
+                                <img class="hidden w-3/12 h-11/12 flex-shrink-0 flex-grow-0 object-contain mr-10" :src="event.thumb_url">
                             
                                 <div class="flex flex-col">
                                     <div class="flex flex-col ">
-                                        <h1 class="text-sm text-gray-400 text-center" x-text="event.fields.tags">tags</h1>
+                                        <h1 class="text-sm text-gray-400 text-center" x-text="event.tags">tags</h1>
                                         <div class="">
-                                            <h1 class="text-2xl font-bold font-roboto  px-3 py-2 text-cgreen w-full text-center" x-text="event.fields.topic">
+                                            <h1 class="text-2xl font-bold font-roboto  px-3 py-2 text-cgreen w-full text-center" x-text="event.topic">
                                                 topic
                                             </h1>
 
                                         </div>
                                         <div class="flex flex-row">
                                             <div class="w-full">
-                                                <p class=" leading-loose text-sm font-roboto text-gray-500 text-center"  x-text="event.fields.key_question">
+                                                <p class=" leading-loose text-sm font-roboto text-gray-500 text-center"  x-text="event.key_question">
                                                     description
                                                 </p>
 
@@ -353,7 +353,7 @@
 
                                 </div>
 
-                                <a x-bind:href="'daily-dose/' + event.fields.topic" type="button" id="button" class="w-3/4 self-center text-center rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
+                                <a x-bind:href="'daily-dose/' + event.topic" type="button" id="button" class="w-3/4 self-center text-center rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
                                     Read More
                                 </a>  
                             </div>
@@ -546,13 +546,13 @@
                         
                         console.log(this.events)
                         return this.events.filter((item) => {
-                            return item.fields.tags
+                            return item.tags
                                         .toLowerCase()
                                         .includes(this.tagSearch.toLowerCase())
-                                    && item.fields.key_question
+                                    && item.key_question
                                         .toLowerCase()
                                         .includes(this.locationSearch.toLowerCase())
-                                    && item.fields.topic
+                                    && item.topic
                                         .toLowerCase()
                                         .includes(this.search.toLowerCase());
                         });
