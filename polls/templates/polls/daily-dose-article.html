@@ -24,13 +24,15 @@
     {% include 'polls/nav.html'%}
     
     <div class="relative w-9/12 m-md:w-11/12 mx-auto z-10" x-data="programData()" x-init="observe()">
-        <div class="h-2/3  bg-cblue rounded-b-lg">
+        <div class="  bg-cblue rounded-b-lg" style="min-height:100%;
+            background:linear-gradient(0deg, rgba(224, 224, 224, 0.4), rgba(0, 113, 188, 0.7)), url({{dose.banner_photo.url}});
+            background-size:cover;">
             
-            <div class="flex flex-col ">
+            <div class="flex flex-col pb-12">
                 <div class="mt-32 h-82 self-center">
                     <img class="object-contain h-72" src="{% static 'daily-white.png' %}">
                 </div>
-                <h1 class="text-7xl text-cgreen font-bebas self-center">topic</h1>
+                <h1 class="text-7xl text-white font-bebas self-center">{{dose.topic}}</h1>
             </div>
         </div>
 
@@ -50,7 +52,7 @@
             <div class="flex flex-col md:w-full h-full">
                 <img src="{{program.logo_path}}" class=" object-cover object-center rounded " alt="" />
                 <div class="bg-gray-300 rounded text-center px-6 pb-6 pt-4 mt-2">
-                    <h1 class="text-5xl font-bebas text-cgreen">Key question</h1>
+                    <h1 class="text-5xl font-bebas text-cgreen">{{dose.key_question}}</h1>
                     <p class="font-roboto font-thin">secondary</p>
                 </div>
             </div>
@@ -79,49 +81,98 @@
         </div>
 
         <div id="daily-content" class="observerTrigger"></div>
-        <div class="absolute md:w-170 bg-cblue h-96 m-md:h-256 -ml-72 -mr-64 -z-1 mt-10"></div>
-        <div class="flex flex-col md:flex-row w-full mt-8 md:space-x-10 m-md:space-y-8 mt-20 justify-center ">
-            <!--first card-->
-            <div class="flex flex-col items-center md:w-3/12 cursor-pointer">
-                <div class="bg-transparent overflow-hidden  w-full relative h-40 pb-36">
-                    <img src="https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg" class="absolute h-full w-full object-cover object-center rounded-t-lg bg-cblue" alt="" />
-                </div>
-                <div class="z-10  w-full">
-                    <div class="bg-white rounded-b-lg shadow-2xl  py-5 px-5">
-                        <span class="text-white font-roboto absolute text-3xl p-2 rounded-sm -mt-10 md:-ml-10 -ml-8 bg-cgreen">Daily Dose of Econ</span>
-                        <div class="flex items-center justify-between mt-8">
-                            <div class=" text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
-                            <div class="text-2xl text-red-600 font-bold"></div>
+        <div class="hidden md:w-170 bg-cblue h-96 m-md:h-256 -ml-72 -mr-64 -z-1 mt-10"></div>
+        <div class="bg-cblue rounded-lg p-10">
+            <h1 class="text-6xl text-white font-bebas text-center">Resources</h1>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 w-full mt-8  mt-20 justify-center">
+                <!--first card-->
+                <div id='first' class="flex flex-col items-center md:w-10/12 cursor-pointer" onclick="window.location.href='{{dose.first_resource_url}}'">
+                    <div class="bg-transparent overflow-hidden  w-full relative h-40 pb-36">
+                        <img src="{{dose.first_resource_image.url}}" class="absolute h-full w-full object-cover object-center rounded-t-lg bg-cblue" alt="" />
+                    </div>
+                    <div class="z-10  w-full">
+                        <div class="bg-white rounded-b-lg shadow-2xl  py-5 px-5">
+                            <span class="text-white font-roboto absolute text-3xl p-2 rounded-sm -mt-10 md:-ml-10 -ml-8 bg-cgreen">{{dose.first_resource_title}}</span>
+                            <div class="flex items-center justify-between mt-8">
+                                <div class=" text-gray-600 font-light">{{dose.first_resource_description}}</div>
+                                <div class="text-2xl text-red-600 font-bold"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--second card-->
-            <div class="flex flex-col items-center md:w-3/12 cursor-pointer">
-                <div class="bg-transparent overflow-hidden  w-full relative h-40 pb-36">
-                    <img src="https://weareultraviolet.org/wp-content/uploads/2020/04/WDM-1-copy-225x140.jpg" class="absolute h-full w-full object-cover object-center rounded-t-lg" alt="" />
-                </div>
-                <div class=" z-10  w-full">
-                    <div class="bg-white rounded-b-lg shadow-2xl  py-5 px-5">
-                        <span class="text-white font-roboto absolute text-3xl p-2 rounded-sm -mt-10 md:-ml-10 -ml-8 bg-cgreen">Economics</span>
-                        <div class="flex items-center justify-between mt-8">
-                            <div class=" text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
-                            <div class="text-2xl text-red-600 font-bold"></div>
+                <!--second card-->
+                <div id='second' class="flex flex-col items-center md:w-10/12 cursor-pointer" onclick="window.location.href='{{dose.second_resource_url}}'">
+                    <div class="bg-transparent overflow-hidden  w-full relative h-40 pb-36">
+                        <img src="{{dose.second_resource_image.url}}" class="absolute h-full w-full object-cover object-center rounded-t-lg bg-cblue" alt="" />
+                    </div>
+                    <div class="z-10  w-full">
+                        <div class="bg-white rounded-b-lg shadow-2xl  py-5 px-5">
+                            <span class="text-white font-roboto absolute text-3xl p-2 rounded-sm -mt-10 md:-ml-10 -ml-8 bg-cgreen">{{dose.second_resource_title}}</span>
+                            <div class="flex items-center justify-between mt-8">
+                                <div class=" text-gray-600 font-light">{{dose.second_resource_description}}</div>
+                                <div class="text-2xl text-red-600 font-bold"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--third card-->
-            <div class="flex flex-col items-center md:w-3/12 cursor-pointer">
-                <div class="bg-cblue rounded-t-lg overflow-hidden  w-full relative h-40 pb-36">
-                    <img src="https://weareultraviolet.org/wp-content/uploads/2020/03/Biden_Warren_Harris-380x240.jpg" class="absolute h-full w-full object-cover object-center" alt="" />
+                <!--third card-->
+                <div id='third' class="flex flex-col items-center md:w-10/12 cursor-pointer" onclick="window.location.href='{{dose.third_resource_url}}'">
+                    <div class="bg-transparent overflow-hidden  w-full relative h-40 pb-36">
+                        <img src="{{dose.third_resource_image.url}}" class="absolute h-full w-full object-cover object-center rounded-t-lg bg-cblue" alt="" />
+                    </div>
+                    <div class="z-10  w-full">
+                        <div class="bg-white rounded-b-lg shadow-2xl  py-5 px-5">
+                            <span class="text-white font-roboto absolute text-3xl p-2 rounded-sm -mt-10 md:-ml-10 -ml-8 bg-cgreen">{{dose.third_resource_title}}</span>
+                            <div class="flex items-center justify-between mt-8">
+                                <div class=" text-gray-600 font-light">{{dose.third_resource_description}}</div>
+                                <div class="text-2xl text-red-600 font-bold"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class=" z-10  w-full">
-                    <div class="bg-white shadow-2xl  py-5 px-5 rounded-b-lg">
-                        <span class="text-white font-roboto absolute text-3xl p-2 rounded-sm -mt-10 md:-ml-10 -ml-8 bg-cgreen">They Are Friends</span>
-                        <div class="flex items-center justify-between mt-8">
-                            <div class=" text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
-                            <div class="text-2xl text-red-600 font-bold"></div>
+
+                <!--fourth card-->
+                <div id='fourth' class="flex flex-col items-center md:w-10/12 cursor-pointer" onclick="window.location.href='{{dose.fourth_resource_url}}'">
+                    <div class="bg-transparent overflow-hidden  w-full relative h-40 pb-36">
+                        <img src="{{dose.fourth_resource_image.url}}" class="absolute h-full w-full object-cover object-center rounded-t-lg bg-cblue" alt="" />
+                    </div>
+                    <div class="z-10  w-full">
+                        <div class="bg-white rounded-b-lg shadow-2xl  py-5 px-5">
+                            <span class="text-white font-roboto absolute text-3xl p-2 rounded-sm -mt-10 md:-ml-10 -ml-8 bg-cgreen">{{dose.fourth_resource_title}}</span>
+                            <div class="flex items-center justify-between mt-8">
+                                <div class=" text-gray-600 font-light">{{dose.fourth_resource_description}}</div>
+                                <div class="text-2xl text-red-600 font-bold"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--fifth card-->
+                <div id='fifth' class="flex flex-col items-center md:w-10/12 cursor-pointer" onclick="window.location.href='{{dose.fifth_resource_url}}'">
+                    <div class="bg-transparent overflow-hidden  w-full relative h-40 pb-36">
+                        <img src="{{dose.fifth_resource_image.url}}" class="absolute h-full w-full object-cover object-center rounded-t-lg bg-cblue" alt="" />
+                    </div>
+                    <div class="z-10  w-full">
+                        <div class="bg-white rounded-b-lg shadow-2xl  py-5 px-5">
+                            <span class="text-white font-roboto absolute text-3xl p-2 rounded-sm -mt-10 md:-ml-10 -ml-8 bg-cgreen">{{dose.fifth_resource_title}}</span>
+                            <div class="flex items-center justify-between mt-8">
+                                <div class=" text-gray-600 font-light">{{dose.fifth_resource_description}}</div>
+                                <div class="text-2xl text-red-600 font-bold"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--sixth card-->
+                <div id='sixth' class="flex flex-col items-center md:w-10/12 cursor-pointer" onclick="window.location.href='{{dose.sixth_resource_url}}'">
+                    <div class="bg-transparent overflow-hidden  w-full relative h-40 pb-36">
+                        <img src="{{dose.sixth_resource_image.url}}" class="absolute h-full w-full object-cover object-center rounded-t-lg bg-cblue" alt="" />
+                    </div>
+                    <div class="z-10  w-full">
+                        <div class="bg-white rounded-b-lg shadow-2xl  py-5 px-5">
+                            <span class="text-white font-roboto absolute text-3xl p-2 rounded-sm -mt-10 md:-ml-10 -ml-8 bg-cgreen">{{dose.sixth_resource_title}}</span>
+                            <div class="flex items-center justify-between mt-8">
+                                <div class=" text-gray-600 font-light">{{dose.sixth_resource_description}}</div>
+                                <div class="text-2xl text-red-600 font-bold"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -140,37 +191,37 @@
                 
                 
                 
-                <div @click="window.location.href='{{first_program.name}}'" class="cursor-pointer rounded w-full lg:w-1/3 p-4 lg:p-0 ">
-                    <img  src="{{first_program.photo_path.url}}" class="object-cover relative rounded -z-1 h-64" alt="technology" />
+                <div @click="window.location.href='{{first_dose.topic}}'" class="cursor-pointer rounded w-full lg:w-1/3 p-4 lg:p-0 ">
+                    <img  src="{{first_dose.first_resource_image.url}}" class="object-cover relative rounded -z-1 h-64" alt="technology" />
                     <div  class="relative p-4 pl-0 z-20">
                         
                         <h2 class="-ml-4 -mr-4 md:-ml-6  z-20 text-2xl text-gray-800  p-2  -mt-24 font-bebas overflow-hidden overflow-clip">
                             <span class="leading-loose text-white bg-cgreen p-2 px-4">
-                                {{first_program.name}}
+                                {{first_dose.topic}}
                             <span>
                         </h2>
                     </div>
                 </div>
 
-                <div @click="window.location.href='{{second_program.name}}'" class="cursor-pointer rounded w-full lg:w-1/3 p-4 lg:p-0 ">
-                    <img  src="{{second_program.photo_path.url}}" class="object-cover relative rounded -z-1 h-64" alt="technology" />
+                <div @click="window.location.href='{{second_dose.topic}}'" class="cursor-pointer rounded w-full lg:w-1/3 p-4 lg:p-0 ">
+                    <img  src="{{second_dose.first_resource_image.url}}" class="object-cover relative rounded -z-1 h-64" alt="technology" />
                     <div  class="relative p-4 pl-0 z-20">
                         
                         <h2 class="-ml-4 -mr-4 md:-ml-6  z-20 text-2xl text-gray-800  p-2  -mt-24 font-bebas overflow-hidden overflow-clip">
                             <span class="leading-loose text-white bg-cgreen p-2 px-4">
-                                {{second_program.name}}
+                                {{second_dose.topic}}
                             <span>
                         </h2>
                     </div>
                 </div>
 
-                <div @click="window.location.href='{{third_program.name}}'" class="cursor-pointer rounded w-full lg:w-1/3 p-4 lg:p-0 ">
-                    <img  src="{{third_program.photo_path.url}}" class="object-cover relative rounded -z-1 h-64" alt="technology" />
+                <div @click="window.location.href='{{third_dose.topic}}'" class="cursor-pointer rounded w-full lg:w-1/3 p-4 lg:p-0 ">
+                    <img  src="{{third_dose.first_resource_image.url}}" class="object-cover relative rounded -z-1 h-64" alt="technology" />
                     <div  class="relative p-4 pl-0 z-20">
                         
                         <h2 class="-ml-4 -mr-4 md:-ml-6  z-20 text-2xl text-gray-800  p-2  -mt-24 font-bebas overflow-hidden overflow-clip">
                             <span class="leading-loose text-white bg-cgreen p-2 px-4">
-                                {{third_program.name}}
+                                {{third_dose.topic}}
                             <span>
                         </h2>
                     </div>
@@ -212,6 +263,21 @@
     
     var showFirstPanel = '{{dose.first_panel_is_image}}';
     var showSecondPanel = '{{dose.second_panel_is_image}}';
+
+    var firstResource = '{{dose.show_first_resource}}';
+    var secondResource = '{{dose.show_second_resource}}';
+    var thirdResource = '{{dose.show_third_resource}}';
+    var fourthResource = '{{dose.show_fourth_resource}}';
+    var fifthResource = '{{dose.show_fifth_resource}}';
+    var sixthResource = '{{dose.show_sixth_resource}}';
+
+    if(firstResource === 'False') document.getElementById('first').style.display = 'none';
+    if(secondResource === 'False') document.getElementById('second').style.display = 'none';
+    if(thirdResource === 'False') document.getElementById('third').style.display = 'none';
+    if(fourthResource === 'False') document.getElementById('fourth').style.display = 'none';
+    if(fifthResource === 'False') document.getElementById('fifth').style.display = 'none';
+    if(sixthResource === 'False') document.getElementById('sixth').style.display = 'none';
+
     
     if(showFirstPanel === 'True')
     {

@@ -159,28 +159,60 @@ class DailyDose(models.Model):
     topic = models.CharField(max_length=200)
     date = models.DateField(_("Date"), default=datetime.date.today)
     
-    tags = models.CharField(max_length=200, default='', null=True, blank=True)
+    tags = models.CharField(max_length=200, default='Daily Dose',  blank=True)
 
+    banner_photo = models.ImageField(upload_to='programs', default="staff-pics/default.jpg", blank=True)
     
     key_question = models.CharField(max_length=2000, null=True)
     key_question_secondary = models.CharField(max_length=2000, null=True, blank=True)
     grade_band = models.CharField(max_length=100, null=True, blank=True)
 
+    show_first_resource =  models.BooleanField( blank=True, default=True)
     first_resource_url = models.CharField(max_length=200, null=True, blank=True)
+    first_resource_title = models.CharField(max_length=200, null=True, blank=True)
+    first_resource_description = models.CharField(max_length=2000, null=True, blank=True)
+    first_resource_image = models.ImageField(upload_to='programs', default="blank.png", blank=True)
+
+    show_second_resource =  models.BooleanField( blank=True, default=True)
     second_resource_url = models.CharField(max_length=200, null=True, blank=True)
+    second_resource_title = models.CharField(max_length=200, null=True, blank=True)
+    second_resource_description = models.CharField(max_length=2000, null=True, blank=True)
+    second_resource_image = models.ImageField(upload_to='programs', default="blank.png", blank=True)
+
+    show_third_resource =  models.BooleanField( blank=True, default=True)
     third_resource_url = models.CharField(max_length=200, null=True, blank=True)
+    third_resource_title = models.CharField(max_length=200, null=True, blank=True)
+    third_resource_description = models.CharField(max_length=2000, null=True, blank=True)
+    third_resource_image = models.ImageField(upload_to='programs', default="blank.png", blank=True)
+
+    show_fourth_resource =  models.BooleanField( blank=True, default=False)
     fourth_resource_url = models.CharField(max_length=200, null=True, blank=True)
+    fourth_resource_title = models.CharField(max_length=200, null=True, blank=True)
+    fourth_resource_description = models.CharField(max_length=2000, null=True, blank=True)
+    fourth_resource_image = models.ImageField(upload_to='programs', default="blank.png", blank=True)
 
-    banner_photo = models.ImageField(upload_to='programs', default="", blank=True)
+    show_fifth_resource =  models.BooleanField( blank=True, default=False)
+    fifth_resource_url = models.CharField(max_length=200, null=True, blank=True)
+    fifth_resource_title = models.CharField(max_length=200, null=True, blank=True)
+    fifth_resource_description = models.CharField(max_length=2000, null=True, blank=True)
+    fifth_resource_image = models.ImageField(upload_to='programs', default="blank.png", blank=True)
+
+    show_sixth_resource =  models.BooleanField( blank=True, default=False)
+    sixth_resource_url = models.CharField(max_length=200, null=True, blank=True)
+    sixth_resource_title = models.CharField(max_length=200, null=True, blank=True)
+    sixth_resource_description = models.CharField(max_length=2000, null=True, blank=True)
+    sixth_resource_image = models.ImageField(upload_to='programs', default="blank.png", blank=True)
+
+    
 
 
-    first_panel_is_image = models.BooleanField( blank=True)
+    first_panel_is_image = models.BooleanField( default=True, blank=True)
     first_image = models.ImageField(upload_to='programs', default="blank.png", blank=True)
     
 
     first_video_path = models.CharField(max_length=200, null=True, blank=True)
 
-    second_panel_is_image = models.BooleanField( blank=True)
+    second_panel_is_image = models.BooleanField( default=True, blank=True)
     second_image = models.ImageField(upload_to='programs', default="blank.png", blank=True)
 
     second_video_path = models.CharField(max_length=200, null=True, blank=True)

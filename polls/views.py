@@ -88,10 +88,13 @@ def news_article(request, article_url):
 
 def dose_article(request, article_url):
     dose = DailyDose.objects.filter(topic__icontains=article_url)
+    dose_list = DailyDose.objects.order_by('-date')
     
     context = {
         "dose": dose[0],
-        
+        "first_dose": dose_list[0],
+        "second_dose": dose_list[1],
+        "third_dose": dose_list[2],
     }
     
     return render(request, "polls/daily-dose-article.html", context)
