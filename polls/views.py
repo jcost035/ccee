@@ -224,9 +224,16 @@ def dose_list(request):
     dose_dict = json.loads(dose_list)
 
     for dose in dose_dict:
+        additional_fields = {}
         old_date = dose['fields']['date']
         new_date = old_date[5:7] + '/' + old_date[8:10] + '/' + old_date[0:4]
         dose['fields']['date'] = new_date
+        additional_fields['fields']['thumb_url'] = dose.fields.thumb_photo.url
+        dose_list.append({
+            **additional_fields,
+            **model_to_dict(dose, exclude=['thumb_photo'])
+        })
+
         
     dose_list = json.dumps(dose_dict)
 
