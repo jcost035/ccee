@@ -161,7 +161,7 @@ class DailyDose(models.Model):
     
     tags = models.CharField(max_length=200, default='Daily Dose',  blank=True)
 
-    banner_photo = models.ImageField(upload_to='programs', default="staff-pics/default.jpg", blank=True)
+    banner_photo = models.ImageField(upload_to='programs', default="blank.png", blank=True)
     
     key_question = models.CharField(max_length=2000, null=True)
     key_question_secondary = models.CharField(max_length=2000, null=True, blank=True)
