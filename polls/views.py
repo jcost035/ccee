@@ -328,9 +328,11 @@ def our_team(request):
     return render(request, "polls/our-team.html", context)
 
 def index(request):
-    latest_question_list = Question.objects.order_by("-pub_date")[:5]
+    daily_dose = DailyDose.objects.order_by("-date")
     context = {
-        "latest_question_list": latest_question_list,
+        "first_dose": daily_dose[0],
+        "second_dose": daily_dose[1],
+        "third_dose": daily_dose[2]
     }
     return render(request, "polls/index.html", context)
 

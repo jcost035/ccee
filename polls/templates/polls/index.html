@@ -573,7 +573,7 @@
       
 
       <!--Daily dose section DONT DELETE -->
-      <div class="hidden my-20 bg-cblue w-full">
+      <div class="my-20 bg-cblue w-full">
         {% comment %} <div class="absolute h-4/5 border-2  bg-cblue w-170 -ml-72 -z-1"></div> {% endcomment %}
         <div class="flex flex-col items-center text-center mt-4">
             <img
@@ -591,70 +591,69 @@
               class="bg-transparent overflow-hidden  w-full relative h-48 pb-36"
             >
               <img
-                src="https://weareultraviolet.org/wp-content/uploads/2019/12/keep-abortion-legal-scaled-380x240.jpg"
+                src="{{first_dose.first_resource_image.url}}"
                 class="absolute h-full w-full object-cover object-center rounded-t-lg bg-cblue"
                 alt=""
               />
             </div>
             <div class="z-10  w-full">
-              <div class="bg-white rounded-b-lg shadow-2xl  py-5 px-5">
-                <span id="camp-text" class="absolute text-gray-800 text-3xl p-2 rounded-sm -mt-10 -ml-10 bg-cgreen">Daily Dose of Econ</span>
+              <div class="flex flex-col bg-white rounded-b-lg shadow-2xl  py-5 px-5">
+                <span id="camp-text" class="absolute text-gray-800 text-3xl p-2 rounded-sm -mt-10 -ml-10 bg-cgreen">{{first_dose.topic}}</span>
                 <div class="flex items-center justify-between mt-8">
-                  <div class=" text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
+                  <div class=" text-gray-600 font-light">{{first_dose.key_question}}</div>
                   <div class="text-2xl text-red-600 font-bold"></div>
                 </div>
-                <button type="button" id="button" class="justify-self-end rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
+                <a href="/daily-dose/{{first_dose.topic}}" type="button" id="button" class="w-1/3 mt-2 justify-self-end rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 px-3">
                   Read More
-                </button> 
+                </a> 
               </div>
             </div>
           </div>
           <!--second card-->
-          <div class="flex flex-col self-center items-center w-3/4 md:w-1/4 cursor-pointer">
+          <div class="flex flex-col self-center items-center w-3/4  md:w-1/4 cursor-pointer">
             <div
               class="bg-transparent overflow-hidden  w-full relative h-48 pb-36"
             >
               <img
-                src="https://weareultraviolet.org/wp-content/uploads/2020/04/WDM-1-copy-225x140.jpg"
-                class="absolute h-full w-full object-cover object-center rounded-t-lg"
+                src="{{second_dose.second_resource_image.url}}"
+                class="absolute h-full w-full object-cover object-center rounded-t-lg bg-cblue"
                 alt=""
               />
             </div>
-            
-            <div class=" z-10  w-full">
-              <div class="bg-white rounded-b-lg shadow-2xl  py-5 px-5">
-                <span id="camp-text" class="absolute text-gray-800 text-3xl p-2 rounded-sm -mt-10 -ml-10 bg-cgreen">Economics</span>
+            <div class="z-10  w-full">
+              <div class="flex flex-col bg-white rounded-b-lg shadow-2xl  py-5 px-5">
+                <span id="camp-text" class="absolute text-gray-800 text-3xl p-2 rounded-sm -mt-10 -ml-10 bg-cgreen">{{second_dose.topic}}</span>
                 <div class="flex items-center justify-between mt-8">
-                  <div class=" text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
+                  <div class=" text-gray-600 font-light">{{second_dose.key_question}}</div>
                   <div class="text-2xl text-red-600 font-bold"></div>
                 </div>
-                <button type="button" id="button" class="justify-self-end rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
+                <a href="/daily-dose/{{second_dose.topic}}" type="button" id="button" class="w-1/3 mt-2 justify-self-end rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 px-3">
                   Read More
-                </button>
+                </a> 
               </div>
             </div>
           </div>
           <!--third card-->
-          <div class="flex flex-col self-center items-center w-3/4 md:w-1/4 cursor-pointer">
+          <div class="flex flex-col self-center items-center w-3/4  md:w-1/4 cursor-pointer">
             <div
-              class="bg-cblue rounded-t-lg overflow-hidden  w-full relative h-48 pb-36"
+              class="bg-transparent overflow-hidden  w-full relative h-48 pb-36"
             >
               <img
-                src="https://weareultraviolet.org/wp-content/uploads/2020/03/Biden_Warren_Harris-380x240.jpg"
-                class="absolute h-full w-full object-cover object-center"
+                src="{{third_dose.third_resource_image.url}}"
+                class="absolute h-full w-full object-cover object-center rounded-t-lg bg-cblue"
                 alt=""
               />
             </div>
-            <div class=" z-10  w-full">
-              <div class="bg-white shadow-2xl  py-5 px-5 rounded-b-lg">
-                <span id="camp-text" class="absolute text-gray-800 text-3xl p-2 rounded-sm -mt-10 -ml-10 bg-cgreen">They Are Friends</span>
+            <div class="z-10  w-full">
+              <div class="flex flex-col bg-white rounded-b-lg shadow-2xl  py-5 px-5">
+                <span id="camp-text" class="absolute text-gray-800 text-3xl p-2 rounded-sm -mt-10 -ml-10 bg-cgreen">{{third_dose.topic}}</span>
                 <div class="flex items-center justify-between mt-8">
-                  <div class=" text-gray-600 font-light">The spring rains had softened the ground so dunk had no trouble...</div>
+                  <div class=" text-gray-600 font-light">{{third_dose.key_question}}</div>
                   <div class="text-2xl text-red-600 font-bold"></div>
                 </div>
-                <button type="button" id="button" class="justify-self-end rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
+                <a href="/daily-dose/{{third_dose.topic}}" type="button" id="button" class="w-1/3 mt-2 justify-self-end rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 px-3">
                   Read More
-                </button>
+                </a> 
               </div>
             </div>
           </div>
