@@ -51,8 +51,8 @@
         <div class="flex  flex-col m-md:space-y-4 md:flex-row   md:-mt-80 mt-14 md:items-end  observerTrigger" id="about">
             <div class="flex flex-col md:w-full h-full">
                 <img src="{{program.logo_path}}" class=" object-cover object-center rounded " alt="" />
-                <div class="bg-gray-300 rounded text-center px-6 pb-6 pt-4 mt-2">
-                    <h1 class="text-5xl font-bebas text-cgreen">{{dose.key_question}}</h1>
+                <div class=" rounded text-center px-6 pb-6 pt-4 mt-2">
+                    <h1 class="text-5xl md:text-6xl font-bebas text-cgreen">{{dose.key_question}}</h1>
                     <p class="font-roboto font-thin"></p>
                 </div>
             </div>
@@ -61,7 +61,7 @@
 
         
         <div id="video" class="observerTrigger"></div>
-        <div class="flex flex-col md:flex-row mt-28  m-md:space-y-6 md:space-x-4">
+        <div class="flex flex-col md:flex-row mt-10  m-md:space-y-6 md:space-x-4">
             <div id='a' class="md:w-1/2 rounded my-auto">
                 <video width="640" height="240" class="rounded-lg" controls>
                     <source src="{{program.video_path}}" type="video/mp4">
