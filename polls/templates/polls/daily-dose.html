@@ -311,8 +311,8 @@
                 <div class="md:w-7/12 mt-4 mx-2 grid grid-cols-1 items-center md:grid-cols-3 gap-10" x-show="!calendarView">
                     <div class="md:hidden font-bold pt-4 ml-10" x-text="filteredEvents.length + ' articles found'"></div>
                     <template x-for="event in filteredEvents">
-                        <div>
-                            <div class="md:hidden flex flex-col content-between h-128 rounded border px-8 py-4 my-8 border-gray-500 shadow-md hover:shadow-lg  mx-auto font-roboto ">
+                        <div class="">
+                            <div class="md:hidden flex flex-col  content-between h-128 rounded border px-8 py-4 my-8 border-gray-500 shadow-md hover:shadow-lg  mx-auto font-roboto ">
                                         <div class="flex flex-col  font-roboto text-left">
 
                                             <span class="flex flex-row space-x-1 justify-center w-full items-center">
@@ -363,12 +363,12 @@
                                     <img class=" md:w-3/12 h-11/12  object-contain" src="https://ccee.org/wp-content/uploads/2019/07/CCEE-Logo-Final-5-2019-e1563236007990.png">
                                 </div>
                             </div>
-                            <div class="m-md:hidden flex flex-col content-between rounded border my-8 border-gray-500 shadow-md hover:shadow-lg  mx-auto font-roboto ">
+                            <div class="m-md:hidden max-h-96 flex flex-col flex-grow-0 content-between rounded border my-8 border-gray-500 shadow-md hover:shadow-lg  mx-auto font-roboto ">
                                         <div class="flex flex-col  font-roboto text-left">
 
                                             <span class="flex flex-row space-x-1 justify-center w-full items-center">
                                             
-                                                <h1 class="text-lg font-bold text-cblue text-right text-left" x-text="event.date">
+                                                <h1 class="text-lg font-bold text-cblue text-right text-left" x-text="event.formatted_date">
                                                     date
                                                 </h1>
                                             </span>
