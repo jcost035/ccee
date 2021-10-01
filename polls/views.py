@@ -169,7 +169,7 @@ class Calendar(ListView):
 def event_list(request):
     
     
-    events_dict = Event.objects.order_by("date")
+    events_dict = Event.objects.order_by("-date")
     event_list = []
 
     for event in events_dict:
