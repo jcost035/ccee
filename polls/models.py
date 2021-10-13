@@ -139,6 +139,7 @@ class Program(models.Model):
     html_content = models.CharField(max_length=10000, null=True, blank=True)
     photo_path = models.ImageField(upload_to='programs', default="staff-pics/default.jpg", blank=True)
     banner_photo = models.ImageField(upload_to='programs', default="", blank=True)
+    registration_url = models.CharField(max_length=1200, blank=True)
 
     def __str__(self):
         return self.name
