@@ -211,7 +211,9 @@
                     </div>
 
                     <div @click="window.location.href='{{second_dose.topic}}'" class="cursor-pointer w-full lg:w-1/3 p-4 lg:p-0 ">
-                        <img  src="{{second_dose.banner_photo.url}}" class="w-full object-cover rounded relative rounded -z-1 h-64" alt="technology" />
+                        <div class="rounded ">
+                            <img  src="{{second_dose.banner_photo.url}}" class="w-full object-cover rounded relative rounded -z-1 h-64" alt="technology" />
+                        </div>
                         <div  class="relative p-4 pl-0 z-20">
                             
                             <h2 class="-ml-4 -mr-4 md:-ml-6  z-20 text-2xl text-gray-800  p-2  -mt-24 font-bebas overflow-hidden overflow-clip">
