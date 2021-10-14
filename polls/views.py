@@ -85,7 +85,7 @@ def donors(request):
     return render(request, "polls/donors.html", context)
 
 def news_article(request, article_url):
-    news = News.objects.filter(title__icontains=article_url)
+    news = News.objects.filter(title__exact=article_url)
     articles_list = News.objects.order_by('-date')
     
     context = {
