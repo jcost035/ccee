@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='event',
             name='time',
-            field=models.TimeField(default=django.utils.timezone.now),
+            field=models.TimeField(default=django.utils.timezone.now, null=True),
             preserve_default=False,
         ),
     ]

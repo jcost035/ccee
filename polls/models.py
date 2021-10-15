@@ -59,7 +59,7 @@ class Officer(models.Model):
 class Event(models.Model):
     name = models.CharField(max_length=200)
     date = models.DateField(_("Date"), default=datetime.date.today)
-    time = models.CharField(max_length=200, default="12:00 PM")
+    time = models.CharField(max_length=200, default="12:00 PM", null=True, blank=True)
     description = models.CharField(max_length=1200, blank=True)
     tags = models.CharField(max_length=200, default='')
     location = models.CharField(max_length=200, default='Virtual')

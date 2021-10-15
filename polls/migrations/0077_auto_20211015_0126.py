@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='event',
             name='time',
-            field=models.CharField(max_length=5),
+            field=models.CharField(max_length=5, null=True),
         ),
     ]
