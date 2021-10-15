@@ -347,7 +347,7 @@
                                     <div class="flex flex-row">
                                         <div class="w-full ">
                                             <p class="leading-loose text-md mb-6" style="font-family: 'Roboto', sans-serif;" x-text="event.description">
-                                                description
+                                                description 
                                             </p>
 
                                             <a x-bind:href="event.registration_url" target="_blank" id="button" class=" rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 my-4 px-3">
@@ -364,7 +364,11 @@
                                         <h1 class="text-xl font-bold text-cblue text-right m-md:text-left" x-text="event.formatted_date">
                                             date
                                         </h1>
+                                        
                                     </span>
+                                    <h1 class="text-xl font-bold text-cblue text-right m-md:text-left" x-text="event.time">
+                                        date
+                                    </h1>
                                     <span class="flex flex-row space-x-1 justify-end m-md:justify-start items-center">
                                         <i class="fas fa-map-marker-alt text-cgreen"></i>
                                         <h1 class="text-sm text-gray-400" x-text="event.location"></h1>
