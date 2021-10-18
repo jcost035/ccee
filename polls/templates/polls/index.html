@@ -688,7 +688,7 @@
       <div class="flex flex-col mt-6 space-y-4 mx-auto w-11/12 md:w-2/3">
         <h3 class="text-5xl font-bebas text-cblue m-md:text-center pt-6 md:-mb-4">Stay up to date on all things CCEE</h3>
         <!-- Begin Constant Contact Inline Form Code -->
-        <div class="ctct-inline-form" data-form-id="3dfb2c35-366d-4e5c-add1-9c3de96ad7be"></div>
+        <div class="ctct-inline-form" data-form-id="9281332b-d241-481e-bb0e-45cc69fe70e7"></div>
         <!-- End Constant Contact Inline Form Code -->
       </div>
 
@@ -782,42 +782,42 @@
 
 
 
-    window.addEventListener( "load", function () {
-      function sendData() {
-        const XHR = new XMLHttpRequest();
+    // window.addEventListener( "load", function () {
+    //   function sendData() {
+    //     const XHR = new XMLHttpRequest();
 
-        // Bind the FormData object and the form element
-        const FD = new FormData(form);
+    //     // Bind the FormData object and the form element
+    //     const FD = new FormData(form);
 
-        FD.append("create_source", "Account");
-        console.log(FD);  
-        // Define what happens on successful data submission
-        XHR.addEventListener( "load", function(event) {
-          alert( event.target.responseText );
-        } );
+    //     FD.append("create_source", "Account");
+    //     console.log(FD);  
+    //     // Define what happens on successful data submission
+    //     XHR.addEventListener( "load", function(event) {
+    //       alert( event.target.responseText );
+    //     } );
 
-        // Define what happens in case of error
-        XHR.addEventListener( "error", function( event ) {
-          alert( 'Oops! Something went wrong.' );
-        } );
+    //     // Define what happens in case of error
+    //     XHR.addEventListener( "error", function( event ) {
+    //       alert( 'Oops! Something went wrong.' );
+    //     } );
 
-        // Set up our request
-        XHR.open( "POST", "https://api.cc.email/v3/account/emails?api_key=65905886-48af-477f-b935-de5536f22764" );
+    //     // Set up our request
+    //     XHR.open( "POST", "https://api.cc.email/v3/account/emails?api_key=65905886-48af-477f-b935-de5536f22764" );
 
-        // The data sent is what the user provided in the form
-        XHR.send( FD );
-      }
+    //     // The data sent is what the user provided in the form
+    //     XHR.send( FD );
+    //   }
 
-      // Access the form element...
-      const form = document.getElementById("signup");
+    //   // Access the form element...
+    //   const form = document.getElementById("signup");
 
-      // ...and take over its submit event.
-      form.addEventListener( "submit", function ( event ) {
-        event.preventDefault();
+    //   // ...and take over its submit event.
+    //   form.addEventListener( "submit", function ( event ) {
+    //     event.preventDefault();
 
-        sendData();
-      } );
-    } );
+    //     sendData();
+    //   } );
+    // } );
   </script>
 
   <!-- Begin Constant Contact Active Forms -->
