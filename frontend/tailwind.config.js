@@ -28,6 +28,7 @@ module.exports = {
                 'display': 'display'
             },
             spacing: {
+                '90': '22rem',
                 '100': '30rem',
                 '128': '32rem',
                 '140': '37rem',
