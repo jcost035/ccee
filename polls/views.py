@@ -228,11 +228,19 @@ def news_list(request):
     }
     return HttpResponse(json.dumps(news_list), content_type="application/json")
 
-def dose_list(request):
+def dose_list(request, page_num=0):
     
-    dose_dict = DailyDose.objects.order_by("-date")
+    
+    if page_num != 0:
+        start = (page_num * 20) - 20
+        end = (page_num * 20)
+        dose_dict = DailyDose.objects.order_by("-date")[start:end]
+    else:
+        dose_dict = DailyDose.objects.order_by("-date")
 
     dose_list = []
+
+
 
     for dose in dose_dict:
         additional_fields = {}
@@ -311,7 +319,16 @@ def community_programs(request):
     return render(request, "polls/community-programs.html")
 
 def k12_programs(request):
-    return render(request, "polls/k12-programs.html")
+    name_list = ["High School Economics Teacher Certification", "federal reserve institute", "$martPath", "Educator Workshops"]
+    program_list = Program.objects.filter(name__in=name_list)
+    date_list = []
+    for program in program_list:
+        date_list.append(program.date)
+    
+    context = {
+        "date_list" : date_list
+    }
+    return render(request, "polls/k12-programs.html", context)
 
 def history_mission(request):
     return render(request, "polls/history-mission.html")

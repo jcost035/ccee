@@ -140,6 +140,8 @@ class Program(models.Model):
     photo_path = models.ImageField(upload_to='programs', default="staff-pics/default.jpg", blank=True)
     banner_photo = models.ImageField(upload_to='programs', default="", blank=True)
     registration_url = models.CharField(max_length=1200, blank=True)
+    date = models.DateField(_("Date"), default=datetime.date.today, blank=True)
+
 
     def __str__(self):
         return self.name
