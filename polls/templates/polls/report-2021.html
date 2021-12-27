@@ -1,0 +1,120 @@
+<head>
+    {% load static %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="{% static 'site.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.0.385/build/pdf.min.js"></script>
+
+    <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
+
+
+
+</head>
+
+
+
+
+<body>
+    <div>
+        {% include "polls/nav.html" %}
+        <canvas id="the-canvas" class="md:mt-32 mx-auto"></canvas>
+        <div id="holder" class="w-full mx-auto flex flex-col space-y-6"></div>
+    </div>
+</body>
+
+
+<script>
+    function renderPDF(url, canvasContainer, options) {
+
+        options = options || {
+            scale: 1.75
+        };
+
+        function renderPage(page) {
+            var viewport = page.getViewport(options.scale);
+            var wrapper = document.createElement("div");
+            wrapper.className = " w-full mx-auto";
+            var canvas = document.createElement('canvas');
+            canvas.className = "w-full";
+            var ctx = canvas.getContext('2d');
+            var renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            wrapper.appendChild(canvas)
+            canvasContainer.appendChild(wrapper);
+
+            page.render(renderContext);
+        }
+
+        function renderPages(pdfDoc) {
+            for (var num = 2; num <= pdfDoc.numPages; num++)
+                pdfDoc.getPage(num).then(renderPage);
+        }
+
+        PDFJS.disableWorker = true;
+        PDFJS.getDocument(url).then(renderPages);
+    }
+
+
+    renderPDF('{% static 'report/CCEEAnnualReport2020-2021(Nov.30).pdf' %}', document.getElementById('holder'));
+
+</script>
+
+<script>
+    var urlFirst = '{% static 'report/CCEEAnnualReport2020-2021(Nov.30).pdf' %}';
+
+    // Loaded via <script> tag, create shortcut to access PDF.js exports.
+    var pdfjsLib = window['pdfjs-dist/build/pdf'];
+
+    // The workerSrc property shall be specified.
+    pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
+
+    // Asynchronous download of PDF
+    var loadingTask = pdfjsLib.getDocument(urlFirst);
+    loadingTask.promise.then(function(pdf) {
+    console.log('PDF loaded');
+    
+    // Fetch the first page
+    var pageNumber = 1;
+    pdf.getPage(pageNumber).then(function(page) {
+        console.log('Page loaded');
+        
+        var scale = 1.5;
+        var viewport = page.getViewport({scale: scale});
+
+        // Prepare canvas using PDF page dimensions
+        var canvas = document.getElementById('the-canvas');
+        var context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        // Render PDF page into canvas context
+        var renderContext = {
+        canvasContext: context,
+        viewport: viewport
+        };
+        var renderTask = page.render(renderContext);
+        renderTask.promise.then(function () {
+        console.log('Page rendered');
+        });
+    });
+    }, function (reason) {
+    // PDF loading error
+    console.error(reason);
+    });
+</script>

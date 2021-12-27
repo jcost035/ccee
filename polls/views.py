@@ -119,6 +119,9 @@ def map(request):
 def report(request):
     return render(request, "polls/report.html")
 
+def report_2021(request):
+    return render(request, "polls/report-2021.html")
+
 def contact(request):
     return render(request, "polls/contact.html")
 

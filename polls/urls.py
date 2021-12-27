@@ -14,6 +14,7 @@ urlpatterns = [
     path("daily-dose", views.daily_dose, name="daily_dose"),
     path("map", views.map, name="map"),
     path("report", views.report, name="report"),
+    path("report-2021", views.report_2021, name="report-2021"),
     path("news_list_date/<int:date_range>", views.news_list_date, name="news_list_date"),
     path("news_list", views.news_list, name="news_list"),
     path("news", views.news, name="news"),
