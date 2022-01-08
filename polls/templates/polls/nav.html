@@ -177,13 +177,19 @@
                     <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-50" x-transition:leave-start="transform opacity-100 scale-100"
                         x-transition:leave-end="transform opacity-0 scale-95" class="absolute left-0 w-full -mt-4 pt-4 origin-top-right rounded-b-lg shadow-lg md:w-72">
                         <div class="px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg" >
-                            <a  class="hidden px-4 py-3 mt-2  bg-transparent  rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="#">Make Economics and money understandable!</a>
-                            <a  class="block px-4 py-3 mt-2  bg-transparent rounded  text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/history-mission">History + Mission</a>
-                            <a  class="block px-4 py-3 mt-2  bg-transparent rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/our-team">Our Team</a>
-                            <a  class="block px-4 py-3 mt-2  bg-transparent rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/map">CCEE Centers on Economic Education</a>
-                            <a  class="block px-4 py-3 mt-2  bg-transparent rounded  text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href='/report'>Impact and Annual Reports 2019-2020</a>
-                            <a  class="block px-4 py-3 mt-2  bg-transparent rounded  text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href='/report-2021'>Impact and Annual Reports 2020-2021</a>
-                            <a  class="block px-4 py-3 mt-2  bg-transparent rounded  text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/donors">Partners and Donors</a>
+                            <a x-on:mouseover="reportsTest = false" class="hidden px-4 py-3 mt-2  bg-transparent  rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="#">Make Economics and money understandable!</a>
+                            <a x-on:mouseover="reportsTest = false" class="block px-4 py-3 mt-2  bg-transparent rounded  text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/history-mission">History + Mission</a>
+                            <a x-on:mouseover="reportsTest = false" class="block px-4 py-3 mt-2  bg-transparent rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/our-team">Our Team</a>
+                            <a x-on:mouseover="reportsTest = false" class="block px-4 py-3 mt-2  bg-transparent rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/map">CCEE Centers on Economic Education</a>
+                            <a x-on:mouseover="reportsTest = true" class="block px-4 py-3 mt-2  bg-transparent rounded  text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href='/report-2021'>Impact and Annual Reports</a>
+                                <div x-show="reportsTest" style ="margin-left: 17rem" class="ml-64 -mt-20 absolute px-2 py-2 bg-gray-200 divide-y rounded-b-lg rounded-tr-lg shadow-lg" 
+                                    x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-50" x-transition:leave-start="transform opacity-100 scale-100"
+                                    x-transition:leave-end="transform opacity-0 scale-95">
+
+                                    <a class="block px-4 py-3 mt-2  bg-transparent rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/report">2019-2020</a>
+                                    <a class="block px-4 py-3 mt-2  bg-transparent rounded text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/report-2021">2020-2021</a>
+                                </div>
+                            <a x-on:mouseover="reportsTest = false" class="block px-4 py-3 mt-2  bg-transparent rounded  text-lg font-bold md:mt-0 hover:text-gray-200 text-cblue focus:text-gray-900 hover:bg-cblue  focus:outline-none focus:shadow-outline" href="/donors">Partners and Donors</a>
                         </div>
                     </div>
                 </div>
@@ -344,7 +350,7 @@
 
     function data() {
         return {
-            
+            reportsTest: false,
             open: false,
             ourteamOpen: false,
             centersOpen: false,
