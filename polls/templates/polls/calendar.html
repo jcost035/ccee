@@ -444,6 +444,37 @@
 
 
 
+
+    <script>
+        function getGradeLevel(grade_level) {
+            if(grade_level === 'K')
+            {
+                return 'Grades K-12'
+            }
+            else if (grade_level === 'N')
+            {
+                return 'Grades 9-12'
+            }
+            else if (grade_level === 'S')
+            {
+                return 'Grades 6-12'
+            }
+            else if (grade_level === 'I')
+            {
+                return 'Grades K-8'
+            }
+            else if (grade_level === 'E')
+            {
+                return 'Educator'
+            }
+            else{
+                return ''
+            }
+        }
+
+        
+    </script>
+
     <script>
         
             {% comment %} 
