@@ -141,13 +141,13 @@
 
         <!--video start-->
         <div id="video" class="observerTrigger"></div>
-        <div class="flex flex-col md:flex-row mt-28 md:ml-48 m-md:space-y-6">
-            <div id="video-container" class="md:w-1/2 rounded my-auto">
+        <div class="flex flex-col md:flex-col mt-28 md:ml-48 m-md:space-y-6">
+            <div id="video-container" class="md:w-1/2 rounded my-auto hidden">
                 <video width="640" height="240" class="rounded-lg h-72" controls>
                     <source src="{{program.video_path|safe}}" type="video/mp4">
                   Your browser
             </div>
-            <div id="testimonial" class="md:w-1/2 rounded-lg overflow-hidden relative mx-4 bg-cblue-light ring-4 ring-offset-4 ring-gray-300">
+            <div id="testimonial" class="md:w-2/3 mx-auto rounded-lg overflow-hidden relative mx-4 bg-cblue-light ring-4 ring-offset-4 ring-gray-300">
                 <h1 class="text-cblue-dark font-bebas font-light text-6xl mt-4 mx-4">Testimonial</h1>
                 <p class="text-lg font-roboto  px-6">{{program.testimonial}}</p>
                 <div class="justify-items-right text-right pt-2">
