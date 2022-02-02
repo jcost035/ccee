@@ -1,26 +1,31 @@
 {% load static %}
 
 <div class="flex flex-col md:flex-row justify-between w-11/12 bg-cblue rounded-lg mt-24 py-6 px-12 pt-6" onclick="location.href='programs/$martpath';">
-    <div class="flex flex-col md:w-1/2">
+    <div class="flex flex-col md:w-5/12">
         <h1 class="md:text-8xl text-6xl text-cgreen font-roboto mt-4 mb-2">Meet</br>$martpath</h1>
-        <p class="font-thin italic text-white m-md:text-xl text-3xl">Starting early is the smart path: Bringing economic and financial literacy to elementary and middle school students!</p>
+        <p class="font-thin italic text-white m-md:text-xl text-3xl">Starting early is the smart path: Get paid to bring economic and financial literacy to your elementary and middle school students!</p>
         <p class="font-thin italic text-black m-md:text-sm text-md">*Upon completion of all steps and requirements</p>
     </div>
 
-    <div class="flex flex-col space-y-4 md:w-5/12">
+    <div class="flex flex-col space-y-4 md:w-7/12">
 
-    <img src="{% static 'home-hero.png' %}">
+        <img src="{% static 'home-hero.png' %}">
 
-    <div class="rounded-lg bg-cgreen text-white shadow-md p-2">
-        <span class="font-roboto text-lg mx-2">All participating teachers receive $100 cash stipend!*</span>
-    </div>
+        <div class="rounded-lg bg-cgreen text-white shadow-md p-2">
+            <span class="font-roboto text-lg mx-2">All participating teachers receive $100 cash stipend!*</span>
+        </div>
 
-    <div class="rounded-lg bg-cblue-dark text-white shadow-md p-2">
-        <p class="font-roboto text-lg px-4">Leading the way in offering innovative, fun, and interactive financial literacy and economic education for students</p>
-    </div>
+        <div class="rounded-lg bg-cblue-dark text-white shadow-md p-2">
+            <p class="font-roboto text-lg px-4">Now featuring social and racial justice companion guides! Help students answer questions such as "Why do some people have so much, while others have so little?"</p>
+        </div>
 
-    <div class="ml-auto py-2 text-white cursor-pointer" onclick="location.href='programs/$martpath';">
-        <span class="font-roboto bg-yellow-500 rounded hover:bg-yellow-600 px-4 p-2 text-2xl mx-2">Register Today!</span>
-    </div>
+        <div class="flex flex-row items-center text-white p-2">
+            <i class="fas fa-money-bill-wave text-4xl text-cgreen"></i>
+            <p class="font-thin text-md px-4"><b>Not a CA elementary teacher but want to refer someone who is?</b> Get paid $25 for each teacher you refer who completes a $martpath training!*</p>
+        </div>
+
+        <div class="ml-auto py-2 text-white cursor-pointer" onclick="location.href='programs/$martpath';">
+            <span class="font-roboto bg-yellow-500 rounded hover:bg-yellow-600 px-4 p-2 text-2xl mx-2">Register Today!</span>
+        </div>
     </div>
 </div>
