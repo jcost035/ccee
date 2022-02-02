@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from polls.views import Calendar
+from polls.views import Calendar, ddoe_redirect
 
 urlpatterns = [
     path('mail_contact_form/', views.mail_contact_form, name='mail_contact_form'),
@@ -37,4 +37,7 @@ urlpatterns = [
     path("<int:question_id>/", views.detail, name="detail"),
     path("<int:question_id>/results", views.results, name="results"),
     path("<int:question_id>/vote/", views.vote, name="vote"),  
+    path("smartpath", views.smartpath_redirect, name="smartpath"),
+    path("caset", views.caset_redirect, name="caset"),
+    path("ddoe", views.ddoe_redirect, name="ddoe"),
 ]

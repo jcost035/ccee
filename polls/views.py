@@ -22,6 +22,7 @@ from .models import Contact
 from django.core.mail import send_mail
 from django.template import loader
 from django.views.generic import ListView
+from django.shortcuts import redirect
 
 
 from django.utils.safestring import mark_safe
@@ -132,6 +133,7 @@ def volunteer(request):
     return render(request, "polls/volunteer.html")
 
 def programs(request, prog_name):
+
     program = Program.objects.filter(name__icontains=prog_name)
     programs_list = Program.objects.all()
     event_list = Event.objects.filter(program__icontains=prog_name)
@@ -146,6 +148,18 @@ def programs(request, prog_name):
     }
     
     return render(request, "polls/programs.html", context)
+
+def smartpath_redirect(request):
+    response = redirect('/programs/$martpath')
+    return response
+
+def caset_redirect(request):
+    response = redirect('/programs/Economics Teacher Certification')
+    return response
+
+def ddoe_redirect(request):
+    response = redirect('/daily-dose')
+    return response
 
 def calendar_table(request):
     return render(request, "polls/calendar-table.html")
