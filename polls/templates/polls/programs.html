@@ -27,7 +27,8 @@
         <div class="bg-cblue mb-24 " {% if program.banner_photo.url != "" %} style="background-image: url('{{program.banner_photo.url}}'); background-repeat: no-repeat; background-size: cover;" {% endif %}>
             <div class="pb-16 w-9/12 m-md:w-11/12 mx-auto" >
                 <div class="relative md:mt-16 text-white text-3xl font-bebas pt-32"><span class="hidden bg-cgreen px-2"></span></div>
-                <div class="relative font-bebas text-7xl text-white  ">{{program.name}} </div>
+                <div class="relative font-bebas text-7xl text-white  ">{{program.name}}</div>
+                <div class="relative font-bebas text-3xl text-white pl-3 ">{{program.grade_range}}</div>
                 <p class="text-white text-xl w-1/2 pt-6 font-roboto font-thin">{{program.description}}</p>
                 <button onclick="location.href='{{program.registration_url}};'" class="rounded bg-yellow-500 hover:bg-yellow-600 text-white hover:bg-yellow-800 font-roboto py-2 px-4 mt-6 font-light text-xl">Register</button>
                 <button class="hidden rounded border-2 border-cgreen bg-cgreen text-white hover:border-cgreen-dark hover:bg-cgreen-dark font-roboto py-2 px-4 mt-6 font-light text-xl">Other thing</button>

@@ -141,6 +141,7 @@ class Program(models.Model):
     banner_photo = models.ImageField(upload_to='programs', default="", blank=True)
     registration_url = models.CharField(max_length=1200, blank=True)
     date = models.DateField(_("Date"), default=datetime.date.today, blank=True)
+    grade_range = models.CharField(max_length=150, blank=True)
 
 
     def __str__(self):
