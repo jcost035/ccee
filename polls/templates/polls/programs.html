@@ -24,7 +24,7 @@
     {% include 'polls/nav.html'%}
     <div class="hidden absolute bg-cblue w-full h-2/3 -mt-16"></div>
     <div class="relative mx-auto z-10" x-data="programData()" x-init="observe()">
-        <div class="bg-cblue mb-24 " {% if program.banner_photo.url != "" %} style="background-image: url('{{program.banner_photo.url}}'); background-repeat: no-repeat; background-size: cover;" {% endif %}>
+        <div class="bg-cblue mb-24 " {% if program.banner_photo.url != "" %} style="background-blend-mode: multiply; background-color: rgba(0,0,0,0.2);  background-image: url('{{program.banner_photo.url}}'); background-repeat: no-repeat; background-size: cover;" {% endif %}>
             <div class="pb-16 w-9/12 m-md:w-11/12 mx-auto" >
                 <div class="relative md:mt-16 text-white text-3xl font-bebas pt-32"><span class="hidden bg-cgreen px-2"></span></div>
                 <div class="relative font-bebas text-7xl text-white  ">{{program.name}}</div>
