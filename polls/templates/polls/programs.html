@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="w-9/12 m-md:w-11/12 mx-auto">
-        <div class="sticky top-32  w-44  bg-gray-300 mt-44 z-50 rounded-lg m-md:hidden ">
+        <div class="sticky top-32  w-44  bg-gray-300 mt-24 z-50 rounded-lg m-md:hidden ">
             <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg rounded-t-lg" @click="scrollTo('about')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['about-marker']}">What you'll experience</button>
             <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg" @click="scrollTo('how_works')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['video-marker']}">How the program works</button>
             <button class="hover:bg-gray-400 w-full p-4 font-roboto text-cblue text-lg" @click="scrollTo('faq')" x-bind:class="{'border-r-4 border-cgreen' : highlighted['faq-marker']}">FAQs</button>
@@ -52,7 +52,7 @@
                             <div class="text-xl text-cgreen">{{event.date}}</div>
                             <div class="text-sm">{{event.name}}</div>
                             <a href="{{event.registration_url}}" target="_blank" id="button" 
-                                class="w-full rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-4 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
+                                class="w-full rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
                                 Register
                             </a>
                         </div>

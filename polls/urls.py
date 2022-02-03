@@ -40,4 +40,8 @@ urlpatterns = [
     path("smartpath", views.smartpath_redirect, name="smartpath"),
     path("caset", views.caset_redirect, name="caset"),
     path("ddoe", views.ddoe_redirect, name="ddoe"),
+    path("pfc", views.pfc_redirect, name="pfc"),
+    path("nec", views.nec_redirect, name="nec"),
+    path("advisers", views.adviser_redirect, name="advisers"),
+    path("ffle", views.ffle_redirect, name="ffle"),
 ]
