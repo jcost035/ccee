@@ -161,6 +161,22 @@ def ddoe_redirect(request):
     response = redirect('/daily-dose')
     return response
 
+def pfc_redirect(request):
+    response = redirect('/programs/Personal Finance Challenge')
+    return response
+
+def nec_redirect(request):
+    response = redirect('/programs/National Economics Challenge')
+    return response
+
+def adviser_redirect(request):
+    response = redirect("/programs/The Adviser's Contest")
+    return response
+
+def ffle_redirect(request):
+    response = redirect("/programs/Family Financial Literacy Event")
+    return response
+
 def calendar_table(request):
     return render(request, "polls/calendar-table.html")
 
