@@ -546,30 +546,7 @@
             </p>
         </div>
         <div class="flex flex-col md:flex-row w-full md:space-x-10 m-md:space-y-12 mt-12 mb-20 mx-auto justify-center">
-          <div class="flex flex-col h-1/2 md:h-90 self-center items-center w-3/4  md:w-1/4 cursor-pointer rounded-md">
-            <div class="bg-transparent overflow-hidden  w-full relative h-52 pb-36">
-              <img
-                src="{{first_dose.banner_photo.url}}"
-                class="absolute h-full w-full object-cover object-center rounded-t-lg bg-cblue"
-                alt=""
-              />
-            </div>
-            <div class="z-10 h-full w-full">
-              <div class="flex flex-col bg-white rounded-b-lg h-full justify-between py-5 px-5">
-                <div class="-mt-10">
-                  <span id="camp-text" class="px-4 text-gray-800 text-2xl p-2 rounded-sm  -ml-10 bg-cgreen ">{{first_dose.topic}}</span>
-                </div>
-                <div class="flex items-center justify-between mt-6">
-                  <div class=" text-gray-600 font-light">{{first_dose.key_question}}</div>
-                  <div class="text-2xl text-red-600 font-bold"></div>
-                </div>
-                <button onclick="window.location.href='/daily-dose/{{first_dose.topic}}'" type="button" id="button" class="md:w-1/3 mt-2 justify-self-end rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 text-center">
-                  Read More
-                </button> 
-              </div>
-            </div>
-
-          </div>
+          
           
 
           <!--first card-->
@@ -586,7 +563,7 @@
                 <div class="-mt-10">
                   <span id="camp-text" class="px-4 text-gray-800 text-2xl p-2 rounded-sm  -ml-10 bg-cgreen ">{{first_dose.topic}}</span>
                 </div>
-                <div class="flex items-center justify-between -mt-6">
+                <div class="flex items-center justify-between mt-6">
                   <div class=" text-gray-600 font-light">{{first_dose.key_question}}</div>
                   <div class="text-2xl text-red-600 font-bold"></div>
                 </div>
@@ -612,7 +589,7 @@
                 <div class="-mt-10">
                   <span id="camp-text" class="px-4 text-gray-800 text-2xl p-2 rounded-sm -ml-10 bg-cgreen">{{second_dose.topic}}</span>
                 </div>
-                <div class="flex items-center justify-between -mt-6">
+                <div class="flex items-center justify-between mt-6">
                   <div class=" text-gray-600 font-light">{{second_dose.key_question}}</div>
                   <div class="text-2xl text-red-600 font-bold"></div>
                 </div>
@@ -636,7 +613,7 @@
                 <div class="-mt-10">
                   <span id="camp-text" class="px-4 text-gray-800 text-2xl p-2 rounded-sm -ml-10 bg-cgreen">{{third_dose.topic}}</span>
                 </div>
-                <div class="flex items-center justify-between -mt-6">
+                <div class="flex items-center justify-between mt-6">
                   <div class=" text-gray-600 font-light">{{third_dose.key_question}}</div>
                   <div class="text-2xl text-red-600 font-bold"></div>
                 </div>
