@@ -85,7 +85,7 @@ module.exports = {
 
     },
     purge: {
-        enabled: true,
+        enabled: false,
         content: ['./templates/**/*.html',
             './polls/templates/**/*.html'
         ],
