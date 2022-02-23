@@ -44,4 +44,5 @@ urlpatterns = [
     path("nec", views.nec_redirect, name="nec"),
     path("advisers", views.adviser_redirect, name="advisers"),
     path("ffle", views.ffle_redirect, name="ffle"),
+    path("gala-2022", views.gala_2022, name="gala-2022"),
 ]

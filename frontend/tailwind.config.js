@@ -53,13 +53,16 @@ module.exports = {
                     dark: '#588527',
                 },
                 cgray: '#414042',
+                gblue: '#0c4b7f',
+                ggold: '#d8ad50'
             },
             letterSpacing: {
                 widester: '.35em',
             },
             fontFamily: {
                 'bebas': ['Bebas\\ Neue', 'cursive'],
-                'roboto': ['Roboto\\ Condensed', 'sans-serif']
+                'roboto': ['Roboto\\ Condensed', 'sans-serif'],
+                'limelight': ['Limelight', 'cursive']
             },
             height: {
                 tile: '30vh'

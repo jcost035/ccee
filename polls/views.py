@@ -60,6 +60,7 @@ def mail_contact_form(request):
 
 
     return HttpResponseRedirect('/')
+
 def subscribe(request):
     
     email_address =  request.POST['address']
@@ -76,6 +77,10 @@ def subscribe(request):
         print(r.text)
 
     return HttpResponseRedirect('/')
+
+
+def gala_2022(request):
+    return render(request, "polls/gala-2022.html")
 
 def donors(request):
     donor_list = Donor.objects.all()
