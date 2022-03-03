@@ -38,11 +38,12 @@ urlpatterns = [
     path("<int:question_id>/results", views.results, name="results"),
     path("<int:question_id>/vote/", views.vote, name="vote"),  
     path("smartpath", views.smartpath_redirect, name="smartpath"),
-    path("caset", views.caset_redirect, name="caset"),
+    #path("caset", views.caset_redirect, name="caset"),
     path("ddoe", views.ddoe_redirect, name="ddoe"),
     path("pfc", views.pfc_redirect, name="pfc"),
     path("nec", views.nec_redirect, name="nec"),
     path("advisers", views.adviser_redirect, name="advisers"),
     path("ffle", views.ffle_redirect, name="ffle"),
     path("gala2022", views.gala_2022, name="gala-2022"),
+    path("caset", views.caset, name="caset"),
 ]

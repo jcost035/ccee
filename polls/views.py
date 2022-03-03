@@ -82,6 +82,9 @@ def subscribe(request):
 def gala_2022(request):
     return render(request, "polls/gala-2022.html")
 
+def caset(request):
+    return render(request, "polls/caset.html")
+
 def donors(request):
     donor_list = Donor.objects.all()
 

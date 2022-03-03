@@ -324,7 +324,7 @@
                 </div>
                 
                 
-                <div class="md:w-7/12 mt-4" x-show="!calendarView">
+                <div class="md:w-8/12 mt-4" x-show="!calendarView">
                     <div class="md:hidden font-bold pt-4 ml-10" x-text="filteredEvents.length + ' events found'"></div>
                     <template x-for="event in filteredEvents">
                         <div @click="" class="m-md:flex m-md:flex-col md:overflow-hidden rounded border px-8 py-4 my-8 border-gray-500 shadow-md hover:shadow-lg w-11/12 mx-auto font-roboto ">
@@ -385,7 +385,7 @@
                                     </div>
                                     <div class="flex flex-row">
                                         <div class="w-full ">
-                                            <p class="leading-loose text-md mb-6" style="font-family: 'Roboto', sans-serif;" x-text="event.description">
+                                            <p class="leading-loose text-sm mb-6" style="font-family: 'Roboto', sans-serif;" x-text="event.description">
                                                 description 
                                             </p>
 

@@ -1,0 +1,321 @@
+<head>
+    {% load static %}
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link href="{% static "site.css" %}" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet"> 
+    
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    
+</head>
+
+{% include "polls/nav.html"%}
+
+<body class="mt-32">
+    <div class="flex flex-col space-y-8 mx-auto w-10/12">
+
+        <div class="flex flex-row space-x-6 justify-center">
+            <img class="rounded-xl w-3/12" src="{% static 'caset/Coaching.png' %}" alt="">
+            <img class="rounded-xl w-3/12" src="{% static 'caset/Aprons.png' %}" alt="">
+            <img class="rounded-xl w-3/12" src="{% static 'caset/Glasses.png' %}" alt="">
+        </div>
+
+        <div class="flex flex-col text-center bg-gray-300 py-6 px-8 rounded-xl w-10/12 mx-auto">
+            <span class="font-bebas text-cblue text-3xl">About the Program</span>
+            <p class="text-left">
+                Together with the California Association of School Economics Teachers (CASET),
+                CCEE hosts an in-residence training seminar to prepare educators who are teaching
+                the required, 12th grade economics course. While there, Economics education
+                experts and teachers come together to learn engaging instructional strategies and
+                an updated real-world perspective. You will become part of a growing community of
+                certified, exceptional Economics teachers who empower their students through
+                critical, life-changing Economic education.
+            </p>
+        </div>
+
+        <div class="flex flex-col text-center bg-cblue-light py-6 px-16 rounded-xl w-10/12 mx-auto">
+            <span class="font-bebas text-3xl">$750 program fee includes</span>
+            <ul class="list-disc text-left">
+                <li>6-day professional development – in-residence (Concordia University, Irvine)</li>
+                <li>Breakfast, Lunch, and snacks provided</li>
+                <li>Sunday Dinner, Monday evening social, and Thursday evening dinner provided</li>
+                <li>Receive dynamic professional development lesson plans and materials</li>
+                <li>+ LAUSD teachers can acquire 2 salary points for attending!</li>
+            </ul>
+            <span class="text-left pt-1 text-sm">*Fee may be covered by school or district</span>
+        </div>
+
+        <div class="flex flex-col text-center w-10/12 mx-auto">
+            <span class="text-3xl text-cgreen font-bebas">Concepts To Be Covered</span>
+            <p class="font-bold">
+                Below are some of the lessons and activities that will be featured during the straining
+                seminar. All materials and presentations will be shared with attendees to use in their own
+                classrooms!
+            </p>
+            <div class="mx-auto justify-center grid grid-cols-3 gap-4 gap-y-12 mt-16">
+                <div class="w-2/3 mx-auto flex flex-col space-y-2 text-center">
+                    <span class="font-bebas text-cgreen text-2xl">Cleaning up the lake</span>
+                    <img class="rounded-lg" src="{% static 'caset/Cleaning up the lake.png' %}" alt="">
+                    <p class="text-sm">
+                        An engaging activity that
+                        helps students learn core
+                        Economic concepts including
+                        scarcity, marginal analysis,
+                        benefit-costs analysis,
+
+                        opportunity costs and trade-
+                        offs.
+                    </p>
+                </div>
+
+                <div class="w-2/3 mx-auto flex flex-col space-y-2 text-center">
+                    <span class="font-bebas text-cgreen text-2xl">Dr. Macro</span>
+                    <img class="rounded-lg" src="{% static 'caset/Dr. Macro.png' %}" alt="">
+                    <p class="text-sm">
+                        Learn how to implement a
+                        highly original, engaging and
+                        unique macroeconomic
+                        project that fuses Economics
+                        and medicine to help students
+                        learn how the national
+                        economy works.
+                    </p>
+                </div>
+
+                <div class="w-2/3 mx-auto -mt-8 flex flex-col space-y-2 text-center">
+                    <span class="font-bebas text-cgreen text-2xl">The economics of financial decision making</span>
+                    <img class="rounded-lg" src="{% static 'caset/Econ of Financial.png' %}" alt="">
+                    <p class="text-sm">
+                        A presentation that makes the
+                        connection between
+                        Economics and Personal
+                        Finance.
+                    </p>
+                </div>
+
+                <div class="w-2/3 mx-auto flex flex-col space-y-2 text-center">
+                    <span class="font-bebas text-cgreen text-2xl">Moving Markets</span>
+                    <img class="rounded-lg" src="{% static 'caset/Moving Markets.png' %}" alt="">
+                    <p class="text-sm">
+                        Use concepts of supply and
+                        demand to help students
+                        develop an intuitive
+                        understanding of markets and
+                        what causes price
+                        determination
+                    </p>
+                </div>
+
+                <div class="w-2/3 mx-auto -mt-8 flex flex-col space-y-2 text-center">
+                    <span class="font-bebas text-cgreen text-2xl">Human Capital Budgeting Activity</span>
+                    <img class="rounded-lg" src="{% static 'caset/Human Capital Budget Activity.png' %}" alt="">
+                    <p class="text-sm">
+                        This activity empowers
+                        students by helping them
+                        make informed decisions on
+                        all aspects in their lives where
+                        they examine how they spend
+                        their human capital on a
+                        weekly basis.
+                    </p>
+                </div>
+
+                <div class="w-2/3 mx-auto flex flex-col space-y-2 text-center">
+                    <span class="font-bebas text-cgreen text-2xl">The trade game</span>
+                    <img class="rounded-lg" src="{% static 'caset/Trade Game.png' %}" alt="">
+                    <p class="text-sm">
+                        A dynamic activity that helps
+                        students learn the basics of
+                        why we trade, the benefits and
+                        costs of trade, and what
+                        makes globalization so
+                        controversial.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col text-center w-10/12 mx-auto">
+            <span class="font-roboto text-cgreen text-3xl">California Standards and Framework-Based Content</span>
+            <div class="grid grid-cols-2 gap-4 mt-6 text-left">
+
+                <div class="flex flex-row rounded-xl bg-cgreen py-4">
+                    <img class="w-44"  src="{% static 'caset/1.png' %}" alt="">
+                    <div class="flex flex-col my-auto">
+                        <span class="font-bebas text-white text-2xl">Economic reasoning</span>
+                        <p>
+                            Students make critical and
+                            informed decisions using
+                            marginal benefit/cost
+                            analysis.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-row rounded-xl bg-cgreen py-4">
+                    <img class="w-44"  src="{% static 'caset/2.png' %}" alt="">
+                    <div class="flex flex-col my-auto">
+                        <span class="font-bebas text-white text-2xl">Human Capital</span>
+                        <p class="w-11/12">
+                            Students recognize their
+                            worth and the connection
+                            between school, human
+                            capital development, and
+                            achievement of their goals
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-row rounded-xl bg-cgreen py-4">
+                    <img class="w-40 mx-4"  src="{% static 'caset/3.png' %}" alt="">
+                    <div class="flex flex-col my-auto">
+                        <span class="font-bebas text-white text-2xl">Markets</span>
+                        <p>
+                            Students learn the impact on them of changes in supply and demand in product, labor, credit and foreign exchange markets.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-row rounded-xl bg-cgreen py-4">
+                    <img class="w-40 mx-4"  src="{% static 'caset/4.png' %}" alt="">
+                    <div class="flex flex-col my-auto">
+                        <span class="font-bebas text-white text-2xl">Globalization</span>
+                        <p>
+                            Students learn that
+                            globalization has positive
+                            and negative effects on
+                            different groups.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-row rounded-xl bg-cgreen py-4">
+                    <img class="w-40 mx-4"  src="{% static 'caset/5.png' %}" alt="">
+                    <div class="flex flex-col my-auto">
+                        <span class="font-bebas text-white text-2xl">The U.S. Economy</span>
+                        <p>
+                            Students learn to read the economic tea leaves and assess the impact that government policies and changes in the indicators have on different
+                            individuals and groups.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-row rounded-xl bg-cgreen py-4">
+                    <img class="w-40 mx-4"  src="{% static 'caset/6.png' %}" alt="">
+                    <div class="flex flex-col my-auto">
+                        <span class="font-bebas text-white text-2xl">Inquiry Arc and Civil Discourse</span>
+                        <p>
+                            Inquiry allows students to
+                            discover different
+                            perspectives on significant
+                            social issues, which
+                            promotes civil discourse
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="flex flex-col space-y-6 text-center w-9/12 mx-auto">
+            <span class="text-3xl font-roboto">Steps to participate</span>
+
+            <div class="flex flex-col">
+                <span class="text-2xl text-cgreen font-roboto">Step One</span>
+
+                <span class="text-left text-xl">Register for the upcoming week-long in-residence professional development</span>
+            </div>
+
+            <div class="flex flex-col">
+                <span class="text-2xl text-cgreen font-roboto">Step Two</span>
+
+                <span class="text-left text-xl">Complete the week-long professional development, which includes:</span>
+                <ul class="list-disc text-left text-xl mx-10">
+                    <li>Content themes of economic empowerment and equity</li>
+                    <li>
+                        Student centric, standards-based and inquiry-driven (specified by the 1998 History-Social
+                        Science Standards, the 2016 CA History-Social Science Framework, and the National Council for
+                        Social Studies C3 Framework)
+                    </li>
+                    <li>Expert presentations</li>
+                    <li>Engaging simulations and activities (This is not your dad’s economic course!)</li>
+                    <li>Course-planning time</li>
+                    <li>Mentoring</li>
+                    <li>Group and individual reflection</li>
+                    <li>Debriefing and ongoing coaching</li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col">
+                <span class="text-2xl text-cgreen font-roboto">Step Three</span>
+
+                <span class="text-left text-xl">Take the knowledge back to your class!</span>
+                <ul class="list-disc text-left text-xl mx-10">
+                    <li>Apply the lessons from the training by building a portfolio</li>
+                    <li>
+                        Make a contribution to economic education in the community (e.g., leading a workshop,
+                        promoting economic education at a school site through a student event, etc.)
+                    </li>
+                    <li>
+                        Complete a comprehensive examination which includes a multiple choice test and free response
+                        essay questions.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col">
+                <span class="text-2xl text-cgreen font-roboto">Step Four</span>
+
+                <span class="text-left text-xl">
+                    Once you've completed the above training, you will obtain recognition from both the California
+                    Association of School Economics Teachers (CASET) and the California Council on Economic
+                    Education (CCEE), including a signed letter to your principal.
+                </span>
+            </div>
+
+        </div>
+
+        <div class="flex flex-col space-y-6 text-center w-10/12 mx-auto">
+            <span class="text-3xl font-roboto">Testimonial</span>
+            <i class="text-xl w-9/12 mx-auto">
+                Hear directly from students who have taken their economics
+                class with an certified exceptional economics teacher
+            </i>
+            <p class="text-xl w-10/12 mx-auto">
+                "One of the biggest lessons that we learned in economics was the process of
+                decision-making. ....Especially in the summer, there were a lot of choices we
+                had to decide. 'Do we sell, do we buy, is this company good for us anymore?' ..
+                One of the biggest things that she taught us was decision-making. I really
+                learned to re-evaluate and analyze my choices each time I have a set of them
+                come up.
+            </p>
+            <p class="text-xl w-10/12 mx-auto">
+                I can definitely say that has carried so much to [my college life in New York]...
+                New York is so different from Porterville, California. There's a lot of new things
+                to discover and a lot of new choices I have to make. What's really helped me
+                take the stress off of it, is going back to Mrs. Drum's calm, sunshine voice and
+                going through the lesson, through your choices, options, how to analyze and
+                interpret, and decide what's best for you.
+            </p>
+            <p class="text-xl w-10/12 mx-auto">
+                I can definitely say that it's taken a lot of pressure and anxiety and stress off
+                of all the choices that come with adulting, college, and being 3,000 miles away
+                from your family."
+            </p>
+            <i class="text-xl w-8/12 mx-auto">
+                - <b>Tori Moore</b>, Former Student of Emily Drum, an certified exceptional economics teacher
+            </i>
+        </div>
+
+    </div>
+</body>
+
+{% include 'polls/footer.html' %}
