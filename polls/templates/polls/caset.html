@@ -17,12 +17,59 @@
     
 </head>
 
+
 {% include "polls/nav.html"%}
 
 <body class="">
+    
+    <div class="bg-cblue mb-24 " {% if program.banner_photo.url != "" %} style="background-blend-mode: multiply; background-color: rgba(0,0,0,0.2);  background-image: url('{{program.banner_photo.url}}'); background-repeat: no-repeat; background-size: cover;" {% endif %}>
+        <div class="pb-16 w-9/12 m-md:w-11/12 mx-auto" >
+            <div class="relative md:mt-16 text-white text-3xl font-bebas pt-32"><span class="hidden bg-cgreen px-2"></span></div>
+            <div class="relative font-bebas text-7xl text-white  ">{{program.name}}</div>
+            <div class="relative font-bebas text-3xl text-white pl-3 ">{{program.grade_range}}</div>
+            <p class="text-white text-xl w-1/2 pt-6 font-roboto font-thin">{{program.description}}</p>
+            
+            {% if program.name ==  'Family Financial Literacy Event' %}
+            <p class="text-white text-xl w-1/2 pt-6 font-roboto font-thin">Register for an upcoming FFLE below!</p>
+            {% elif program.name == 'federal reserve institute' %}
+            <p class="text-white text-xl w-1/2 pt-6 font-roboto font-thin">Registration is closed</p>
+            {% else %}
+            <button onclick="location.href='{{program.registration_url}};'" class="rounded bg-yellow-500 hover:bg-yellow-600 text-white hover:bg-yellow-800 font-roboto py-2 px-4 mt-6 font-light text-xl">
+                Register
+            </button>
+            {% endif %}
+            
+            <button class="hidden rounded border-2 border-cgreen bg-cgreen text-white hover:border-cgreen-dark hover:bg-cgreen-dark font-roboto py-2 px-4 mt-6 font-light text-xl">Other thing</button>
+        </div>
+    </div>
+    
+    <div class="flex flex-col">
+        <div class="border-4 rounded border-cblue md:mx-24 space-x-4 px-4 py-4 mb-12">
+            <h1 class="text-5xl text-center font-light font-bebas ">Upcoming Events</h1>
+            <div class="flex  flex-col md:flex-row justify-between align-middle">
+                <div class="flex flex-col md:flex-row items-end content-center mx-auto">
+                    {% for event in event_list|slice:"4" %}
+                        <div class="px-6 m-md:py-6 py-2 font-bold flex flex-col md:w-2/3 text-center">
+                            <div class="text-xl text-cgreen">{{event.date}}</div>
+                            <div class="text-sm">{{event.name}}</div>
+                            <a href="{{event.registration_url}}" target="_blank" id="button" 
+                                class="w-full rounded-lg font-semibold btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border-cblue border-2 bg-white hover:bg-cblue hover:text-white  text-cblue font-normal py-1 mt-2 px-3">
+                                Register
+                            </a>
+                        </div>
+                    {% endfor %}
+                    {% if not event_list%}
+                        <div class="font-bold md:text-xl text-lg font-roboto text-center py-6">No upcoming events at the moment</div>
+                    {% endif %}
+                </div>
+                <a href="/calendar" class="font-bold text-center px-6 py-1 text-white bg-cblue hover:bg-cblue-dark rounded text-xl my-auto">Full Calendar</a>
+            </div>
+        </div>
+    </div>
+
     <div class="flex flex-col space-y-8 mx-auto md:w-10/12">
 
-        <div class="mt-32 flex flex-row md:space-x-6 m-md:flex-col m-md:space-y-6 m-md:w-10/12 m-md:mx-auto justify-center">
+        <div class="flex flex-row md:space-x-6 m-md:flex-col m-md:space-y-6 m-md:w-10/12 m-md:mx-auto justify-center">
             <img class="rounded-xl md:w-3/12" src="{% static 'caset/Coaching.png' %}" alt="">
             <img class="rounded-xl md:w-3/12" src="{% static 'caset/Aprons.png' %}" alt="">
             <img class="rounded-xl md:w-3/12" src="{% static 'caset/Glasses.png' %}" alt="">

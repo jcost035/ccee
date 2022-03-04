@@ -83,7 +83,16 @@ def gala_2022(request):
     return render(request, "polls/gala-2022.html")
 
 def caset(request):
-    return render(request, "polls/caset.html")
+
+    program = Program.objects.filter(name__icontains="")
+    event_list = Event.objects.filter(program__icontains="")
+    
+    context = {
+        "program": program[0],
+        "event_list": event_list
+    }
+
+    return render(request, "polls/caset.html", context)
 
 def donors(request):
     donor_list = Donor.objects.all()
