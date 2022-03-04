@@ -19,16 +19,16 @@
 
 {% include "polls/nav.html"%}
 
-<body class="mt-32">
-    <div class="flex flex-col space-y-8 mx-auto w-10/12">
+<body class="">
+    <div class="flex flex-col space-y-8 mx-auto md:w-10/12">
 
-        <div class="flex flex-row space-x-6 justify-center">
-            <img class="rounded-xl w-3/12" src="{% static 'caset/Coaching.png' %}" alt="">
-            <img class="rounded-xl w-3/12" src="{% static 'caset/Aprons.png' %}" alt="">
-            <img class="rounded-xl w-3/12" src="{% static 'caset/Glasses.png' %}" alt="">
+        <div class="mt-32 flex flex-row md:space-x-6 m-md:flex-col m-md:space-y-6 m-md:w-10/12 m-md:mx-auto justify-center">
+            <img class="rounded-xl md:w-3/12" src="{% static 'caset/Coaching.png' %}" alt="">
+            <img class="rounded-xl md:w-3/12" src="{% static 'caset/Aprons.png' %}" alt="">
+            <img class="rounded-xl md:w-3/12" src="{% static 'caset/Glasses.png' %}" alt="">
         </div>
 
-        <div class="flex flex-col text-center bg-gray-300 py-6 px-8 rounded-xl w-10/12 mx-auto">
+        <div class="flex flex-col text-center bg-gray-300 py-6 px-6 md:px-8 rounded-xl w-10/12 mx-auto">
             <span class="font-bebas text-cblue text-3xl">About the Program</span>
             <p class="text-left">
                 Together with the California Association of School Economics Teachers (CASET),
@@ -41,7 +41,7 @@
             </p>
         </div>
 
-        <div class="flex flex-col text-center bg-cblue-light py-6 px-16 rounded-xl w-10/12 mx-auto">
+        <div class="flex flex-col text-center bg-cblue-light py-6 px-6  md:px-16 rounded-xl w-10/12 mx-auto">
             <span class="font-bebas text-3xl">$750 program fee includes</span>
             <ul class="list-disc text-left">
                 <li>6-day professional development – in-residence (Concordia University, Irvine)</li>
@@ -60,8 +60,8 @@
                 seminar. All materials and presentations will be shared with attendees to use in their own
                 classrooms!
             </p>
-            <div class="mx-auto justify-center grid grid-cols-3 gap-4 gap-y-12 mt-16">
-                <div class="w-2/3 mx-auto flex flex-col space-y-2 text-center">
+            <div class="mx-auto justify-center grid m-md:grid-cols-1 grid-cols-3 gap-4 gap-y-12 mt-16">
+                <div class="md:w-2/3 mx-auto flex flex-col space-y-2 text-center">
                     <span class="font-bebas text-cgreen text-2xl">Cleaning up the lake</span>
                     <img class="rounded-lg" src="{% static 'caset/Cleaning up the lake.png' %}" alt="">
                     <p class="text-sm">
@@ -76,7 +76,7 @@
                     </p>
                 </div>
 
-                <div class="w-2/3 mx-auto flex flex-col space-y-2 text-center">
+                <div class="md:w-2/3 mx-auto flex flex-col space-y-2 text-center">
                     <span class="font-bebas text-cgreen text-2xl">Dr. Macro</span>
                     <img class="rounded-lg" src="{% static 'caset/Dr. Macro.png' %}" alt="">
                     <p class="text-sm">
@@ -90,7 +90,7 @@
                     </p>
                 </div>
 
-                <div class="w-2/3 mx-auto -mt-8 flex flex-col space-y-2 text-center">
+                <div class="md:w-2/3 mx-auto -mt-8 flex flex-col space-y-2 text-center">
                     <span class="font-bebas text-cgreen text-2xl">The economics of financial decision making</span>
                     <img class="rounded-lg" src="{% static 'caset/Econ of Financial.png' %}" alt="">
                     <p class="text-sm">
@@ -101,7 +101,7 @@
                     </p>
                 </div>
 
-                <div class="w-2/3 mx-auto flex flex-col space-y-2 text-center">
+                <div class="md:w-2/3 mx-auto flex flex-col space-y-2 text-center">
                     <span class="font-bebas text-cgreen text-2xl">Moving Markets</span>
                     <img class="rounded-lg" src="{% static 'caset/Moving Markets.png' %}" alt="">
                     <p class="text-sm">
@@ -114,7 +114,7 @@
                     </p>
                 </div>
 
-                <div class="w-2/3 mx-auto -mt-8 flex flex-col space-y-2 text-center">
+                <div class="md:w-2/3 mx-auto -mt-8 flex flex-col space-y-2 text-center">
                     <span class="font-bebas text-cgreen text-2xl">Human Capital Budgeting Activity</span>
                     <img class="rounded-lg" src="{% static 'caset/Human Capital Budget Activity.png' %}" alt="">
                     <p class="text-sm">
@@ -128,7 +128,7 @@
                     </p>
                 </div>
 
-                <div class="w-2/3 mx-auto flex flex-col space-y-2 text-center">
+                <div class="md:w-2/3 mx-auto flex flex-col space-y-2 text-center">
                     <span class="font-bebas text-cgreen text-2xl">The trade game</span>
                     <img class="rounded-lg" src="{% static 'caset/Trade Game.png' %}" alt="">
                     <p class="text-sm">
@@ -143,12 +143,12 @@
             </div>
         </div>
 
-        <div class="flex flex-col text-center w-10/12 mx-auto">
+        <div class="flex flex-col text-center m-md:w-11/12 w-10/12 mx-auto">
             <span class="font-roboto text-cgreen text-3xl">California Standards and Framework-Based Content</span>
-            <div class="grid grid-cols-2 gap-4 mt-6 text-left">
+            <div class="grid m-md:grid-cols-1 grid-cols-2 gap-4 mt-6 text-left">
 
                 <div class="flex flex-row rounded-xl bg-cgreen py-4">
-                    <img class="w-44"  src="{% static 'caset/1.png' %}" alt="">
+                    <img class="w-32 md:w-44"  src="{% static 'caset/1.png' %}" alt="">
                     <div class="flex flex-col my-auto">
                         <span class="font-bebas text-white text-2xl">Economic reasoning</span>
                         <p>
@@ -161,7 +161,7 @@
                 </div>
 
                 <div class="flex flex-row rounded-xl bg-cgreen py-4">
-                    <img class="w-44"  src="{% static 'caset/2.png' %}" alt="">
+                    <img class="w-32 md:w-44"  src="{% static 'caset/2.png' %}" alt="">
                     <div class="flex flex-col my-auto">
                         <span class="font-bebas text-white text-2xl">Human Capital</span>
                         <p class="w-11/12">
@@ -175,7 +175,7 @@
                 </div>
 
                 <div class="flex flex-row rounded-xl bg-cgreen py-4">
-                    <img class="w-40 mx-4"  src="{% static 'caset/3.png' %}" alt="">
+                    <img class="w-32 md:w-40 mx-4"  src="{% static 'caset/3.png' %}" alt="">
                     <div class="flex flex-col my-auto">
                         <span class="font-bebas text-white text-2xl">Markets</span>
                         <p>
@@ -185,7 +185,7 @@
                 </div>
 
                 <div class="flex flex-row rounded-xl bg-cgreen py-4">
-                    <img class="w-40 mx-4"  src="{% static 'caset/4.png' %}" alt="">
+                    <img class="w-32 md:w-40 mx-4"  src="{% static 'caset/4.png' %}" alt="">
                     <div class="flex flex-col my-auto">
                         <span class="font-bebas text-white text-2xl">Globalization</span>
                         <p>
@@ -198,7 +198,7 @@
                 </div>
 
                 <div class="flex flex-row rounded-xl bg-cgreen py-4">
-                    <img class="w-40 mx-4"  src="{% static 'caset/5.png' %}" alt="">
+                    <img class="w-32 md:w-40 mx-4"  src="{% static 'caset/5.png' %}" alt="">
                     <div class="flex flex-col my-auto">
                         <span class="font-bebas text-white text-2xl">The U.S. Economy</span>
                         <p>
@@ -209,7 +209,7 @@
                 </div>
 
                 <div class="flex flex-row rounded-xl bg-cgreen py-4">
-                    <img class="w-40 mx-4"  src="{% static 'caset/6.png' %}" alt="">
+                    <img class="w-32 md:w-40 mx-4"  src="{% static 'caset/6.png' %}" alt="">
                     <div class="flex flex-col my-auto">
                         <span class="font-bebas text-white text-2xl">Inquiry Arc and Civil Discourse</span>
                         <p>
@@ -225,7 +225,7 @@
             </div>
         </div>
 
-        <div class="flex flex-col space-y-6 text-center w-9/12 mx-auto">
+        <div class="flex flex-col space-y-6 text-center m-md:w-11/12 w-9/12 mx-auto">
             <span class="text-3xl font-roboto">Steps to participate</span>
 
             <div class="flex flex-col">
@@ -283,7 +283,7 @@
 
         </div>
 
-        <div class="flex flex-col space-y-6 text-center w-10/12 mx-auto">
+        <div class="flex flex-col space-y-6 text-center md:w-10/12 mx-auto">
             <span class="text-3xl font-roboto">Testimonial</span>
             <i class="text-xl w-9/12 mx-auto">
                 Hear directly from students who have taken their economics
