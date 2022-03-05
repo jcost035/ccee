@@ -84,8 +84,8 @@ def gala_2022(request):
 
 def caset(request):
 
-    program = Program.objects.filter(name__icontains="")
-    event_list = Event.objects.filter(program__icontains="")
+    program = Program.objects.filter(name__icontains="Economics Teacher Certification")
+    event_list = Event.objects.filter(program__icontains="Economics Teacher Certification")
     
     context = {
         "program": program[0],
