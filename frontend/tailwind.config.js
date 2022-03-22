@@ -5,8 +5,6 @@ module.exports = {
         extend: {
             screens: {
                 '3xl': '1920px',
-                'small-border': '1300px',
-                'large-border': '2080px'
               },
             minHeight: {
 
@@ -73,6 +71,13 @@ module.exports = {
                 tile: '30vh'
             },
             screens: {
+                'large-border': { 'min': '2080px' },
+
+                'small-border': { 'min': '1300px' },
+
+                'm-small-border': { 'max': '1300px' },
+                // => @media (max-width: 1300px) { ... }
+
                 'm-2xl': { 'max': '1535px' },
                 // => @media (max-width: 1535px) { ... }
 
