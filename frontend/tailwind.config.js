@@ -73,6 +73,8 @@ module.exports = {
             screens: {
                 'large-border': { 'min': '2080px' },
 
+                'm-large-border': { 'max': '2080px' },
+
                 'small-border': { 'min': '1300px' },
 
                 'm-small-border': { 'max': '1300px' },
