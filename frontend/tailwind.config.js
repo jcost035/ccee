@@ -5,6 +5,8 @@ module.exports = {
         extend: {
             screens: {
                 '3xl': '1920px',
+                'small-border': '1300px',
+                'large-border': '2080px'
               },
             minHeight: {
 
