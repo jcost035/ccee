@@ -100,7 +100,7 @@ module.exports = {
 
     },
     purge: {
-        enabled: false,
+        enabled: true,
         content: ['./templates/**/*.html',
             './polls/templates/**/*.html'
         ],
