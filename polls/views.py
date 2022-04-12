@@ -153,16 +153,15 @@ def programs(request, prog_name):
 
     program = Program.objects.filter(name__icontains=prog_name)
     programs_list = Program.objects.all()
+    program_thumbs = Program.objects.exclude(name__iexact=prog_name)
     event_list = Event.objects.filter(program__icontains=prog_name)
     
-    
-
     context = {
         "program": program[0],
         "faq": program[0].faq["set"],
-        "first_program": programs_list[0],
-        "second_program": programs_list[1],
-        "third_program": programs_list[2],
+        "first_program": program_thumbs[0],
+        "second_program": program_thumbs[1],
+        "third_program": program_thumbs[2],
         "event_list": event_list
     }
     
