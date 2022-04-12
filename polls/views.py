@@ -153,7 +153,8 @@ def programs(request, prog_name):
 
     program = Program.objects.filter(name__icontains=prog_name)
     programs_list = Program.objects.all()
-    program_thumbs = Program.objects.exclude(name__iexact=prog_name)
+    caset_model = Program()
+    program_thumbs = Program.objects.exclude(name__iexact=prog_name).exclude(name__iexact='National Economics Challenge')
     event_list = Event.objects.filter(program__icontains=prog_name)
     
     context = {
