@@ -151,11 +151,11 @@ def volunteer(request):
 
 def programs(request, prog_name):
 
-    program = Program.objects.filter(name__exact=prog_name)
-    programs_list = Program.objects.exclude(name__exact=prog_name)
-    event_list = Event.objects.filter(program__exact=prog_name)
+    program = Program.objects.filter(name__icontains=prog_name)
+    programs_list = Program.objects.all()
+    event_list = Event.objects.filter(program__icontains=prog_name)
     
-
+    
 
     context = {
         "program": program[0],
